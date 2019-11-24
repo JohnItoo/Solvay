@@ -57,8 +57,8 @@ int main() {
       cin >> b[i];
       i++;
   }  
-  int sub[] = x > y  ? a : b;
-  int top[] =  x > y ? b : a;
+  int sub[min(x,y)] = x > y  ? a : b;
+  int top [max(x,y)]=  x > y ? b : a;
 
   int Lm = min(x , y);
   int Lmax = max(x,y);
