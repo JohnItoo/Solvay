@@ -43,37 +43,43 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-
-int n = 0; int best = 0; int current=0; vi nums; vi done;  vi res;
-void solution(int point) {
-    if (point == n) {
-        best = max(current, best);
-        return;
-    }
-    for(int i = 0; i < n ; ++i)  {
-            if(done[nums[i]]) continue;
-            current += nums[i];
-             best = max(current, best);
-           int x = 0;
-            done[nums[i]] =   nums[i+1] < n ? done[nums[i+1]] : x = nums[i-1] >= 0 ? done[nums[i-1]] : x= 1;
-            solution(point + 1);
-            done[nums[i]] =  n > nums[i+1] ? done[nums[i+1]] : x  = nums[i-1] >= 0 ? done[nums[i-1]] :  x = 0;
-            current = 0;
-    }
-}
+int TC;
 int main() {
-    cin >> n;
-    int i = 0;
-    while( i < n) {
-        int x = 0; cin >> x;
-        nums.pb(x);
-        done.pb(0);
-        res.pb(0);
-        i++;
+ cin >> TC;
+ int ct = 1;
+ while(TC--) {
+     //do something here;
+     printf("Case #%d: ", ct++);
+     int N;
+     cin >> N;
+     int grd[2*N -1][N];
+     map<int, int> mp;
+    for(int i = 0; i< 2*N - 1; ++i) {
+       for(int j= 0; j<N; ++j) {
+           int val = 0; cin >> val;
+           grd[i][j] = val;
+           auto iter = mp.find(val);
+           if (iter != mp.end()) {
+              auto sec = iter->second;
+              mp[val]= sec +1;
+           } else {
+               mp[val] = 1;
+             }
+       }
     }
-//    int news[n];
-//     memset(news, 0, sizeof news);
-    solution(1);
-    cout << best;
-    return 0;
-}
+     vi ms;
+   for(auto it = mp.begin(); it != mp.end(); ++it) {
+       if(it->second % 2 != 0) {
+           ms.pb(it->first);
+       }
+   }   
+     for (auto pc : ms) {
+     printf("%d ", pc);
+     }  
+     printf("\n");
+    }
+
+return 0;
+
+ }
+

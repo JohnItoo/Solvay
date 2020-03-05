@@ -1,5 +1,5 @@
 //============================================================================
-// Name        : ToptalOshi.cpp
+// Name        : Max Rest.cpp
 // Author      : 
 // Version     :
 // Copyright   : Your copyright notice

@@ -43,37 +43,39 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
+int grid[25][25], dp[25];
+int n,m,curr,sol = 0;
 
-int n = 0; int best = 0; int current=0; vi nums; vi done;  vi res;
-void solution(int point) {
-    if (point == n) {
-        best = max(current, best);
-        return;
-    }
-    for(int i = 0; i < n ; ++i)  {
-            if(done[nums[i]]) continue;
-            current += nums[i];
-             best = max(current, best);
-           int x = 0;
-            done[nums[i]] =   nums[i+1] < n ? done[nums[i+1]] : x = nums[i-1] >= 0 ? done[nums[i-1]] : x= 1;
-            solution(point + 1);
-            done[nums[i]] =  n > nums[i+1] ? done[nums[i+1]] : x  = nums[i-1] >= 0 ? done[nums[i-1]] :  x = 0;
-            current = 0;
-    }
-}
 int main() {
-    cin >> n;
-    int i = 0;
-    while( i < n) {
-        int x = 0; cin >> x;
-        nums.pb(x);
-        done.pb(0);
-        res.pb(0);
-        i++;
-    }
-//    int news[n];
-//     memset(news, 0, sizeof news);
-    solution(1);
-    cout << best;
-    return 0;
+     cin >> n >> m ;
+     forn(i, n) {
+          string  s; 
+          cin >> s;
+          forn(j, m) {
+               if(s[j] == '0') {
+                    grid[i][j] = 0;
+               } else {
+                    grid[i][j] = 1;
+               }
+          }
+     }
+     bool valid = true;
+      forn(i, n) {
+          forn(j, m) {
+              if(grid[i][j] == 1) {
+                   valid = false; 
+                   break;
+              }
+          }
+          if(valid) {
+               curr += 1;
+          } else {
+               sol = max(sol, curr);
+               curr = 0;
+               valid = true;
+          }
+     }
+   cout << 2 *(m + max(sol , curr));
+
+return 0;
 }

@@ -44,36 +44,16 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
-int n = 0; int best = 0; int current=0; vi nums; vi done;  vi res;
-void solution(int point) {
-    if (point == n) {
-        best = max(current, best);
-        return;
-    }
-    for(int i = 0; i < n ; ++i)  {
-            if(done[nums[i]]) continue;
-            current += nums[i];
-             best = max(current, best);
-           int x = 0;
-            done[nums[i]] =   nums[i+1] < n ? done[nums[i+1]] : x = nums[i-1] >= 0 ? done[nums[i-1]] : x= 1;
-            solution(point + 1);
-            done[nums[i]] =  n > nums[i+1] ? done[nums[i+1]] : x  = nums[i-1] >= 0 ? done[nums[i-1]] :  x = 0;
-            current = 0;
-    }
-}
 int main() {
-    cin >> n;
-    int i = 0;
-    while( i < n) {
-        int x = 0; cin >> x;
-        nums.pb(x);
-        done.pb(0);
-        res.pb(0);
-        i++;
-    }
-//    int news[n];
-//     memset(news, 0, sizeof news);
-    solution(1);
-    cout << best;
-    return 0;
+int x ; string s;
+cin >> x; cin >> s;
+string s1; string s2;
+bool ans = false;
+if ( x % 2 == 0) {
+    s1 = s.substr(0, x/2); s2 = s.substr(x/2, x/2);
+    ans = s1 == s2 ;
+}
+string res = ans ? "Yes" : "No" ;
+cout << res;
+// return 0;
 }

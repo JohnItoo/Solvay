@@ -43,37 +43,29 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
+int n,x,y;
 
-int n = 0; int best = 0; int current=0; vi nums; vi done;  vi res;
-void solution(int point) {
-    if (point == n) {
-        best = max(current, best);
-        return;
-    }
-    for(int i = 0; i < n ; ++i)  {
-            if(done[nums[i]]) continue;
-            current += nums[i];
-             best = max(current, best);
-           int x = 0;
-            done[nums[i]] =   nums[i+1] < n ? done[nums[i+1]] : x = nums[i-1] >= 0 ? done[nums[i-1]] : x= 1;
-            solution(point + 1);
-            done[nums[i]] =  n > nums[i+1] ? done[nums[i+1]] : x  = nums[i-1] >= 0 ? done[nums[i-1]] :  x = 0;
-            current = 0;
-    }
-}
+
 int main() {
-    cin >> n;
-    int i = 0;
-    while( i < n) {
-        int x = 0; cin >> x;
-        nums.pb(x);
-        done.pb(0);
-        res.pb(0);
-        i++;
-    }
-//    int news[n];
-//     memset(news, 0, sizeof news);
-    solution(1);
-    cout << best;
-    return 0;
+cin >> n;
+
+while(n--) {
+  cin  >> x;
+  int p[x];
+ forn(i, x) {
+    cin >> p[i];
+ }
+ if (x ==1 ) {cout << "YES"; continue;}
+bool asc = false;
+if(p[x-1]  > p[x -2]) { asc = true;}
+if (asc) {
+for(int i = x-1; i > 0; --i) {
+     if(p[i] != p[i-1] + 1 || p[i] != 1 )
+ }
+} else {
+
+}
+ 
+
+return 0;
 }
