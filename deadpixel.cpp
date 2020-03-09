@@ -44,39 +44,39 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-int TC, n;
-long long  a[100005];
+
+//https://codeforces.com/problemset
+
 int main() {
-    cin >> TC;
-    while(TC--) {
-        cin >> n;
-        for(int i = 0; i<n; ++i) {
-            cin >> a[i];
-        }
-        long long prefx[n];
-        long long sum;
-        prefx[0] = a[0];
-        for(int i =1; i<n; ++i) {
-            prefx[i] = a[i] + prefx[i-1];
-            if(i== n-1) {
-              sum = prefx[i];
-            }
-        }
+    int Tc;
+    cin >> Tc;
+    while(Tc--) {
+        int a, b, x, y;
+        cin >> a >> b >> x >> y;
 
-        cout << "sum is " << sum << "\n";
-        string sol = "YES";
-        for(int i = 0; i<n; ++i) {
-           for(int j=i; j<n; ++j) {
-               if(sum <= prefx[j] - prefx[i] || sum <= prefx[j]) {
-                   cout << "curr is " << prefx[j] ;
-                   sol = "NO";
-                   break;
-               }
-           }
+        int left = 0; int right = 0; int  up = 0; int down = 0;
+          
+        if(x > 0) {
+            
+            left = (x) * (b); 
+            // cout << "left is " << left << "\n"; // x - 1 + 1 -0
         }
-
-        cout << sol << "\n";
+        if(x < a-1) {
+            right = (a-(x + 1)) * b;
+            //  cout << "rt is " << right << "\n";
+        }
+        if(y > 0) {
+            up = (y) * a;
+            //  cout << "up is " << up<< "\n";
+        }
+        if(y < b-1) {
+            down = (b-(y + 1)) * a;
+            //  cout << "dwn is " << down << "\n";
+        }
+        int sol = 0;
+        // cout << sol << " previous soll \n";
+        sol = max(max(left, right), max(up, down));
+       cout << sol << "\n";
     }
-
 return 0;
 }
