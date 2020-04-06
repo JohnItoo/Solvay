@@ -1,88 +1,71 @@
-import java.io.*;
 import java.util.*;
+import java.io.*;
 
+class Main {
+    static BufferedReader br;
+    static StringTokenizer tokenizer;
 
-public class Main {
-    public static void main(String[] args) {
-
-        MyScanner sc = new MyScanner();
-        out = new PrintWriter(new BufferedOutputStream(System.out));
-         int n = sc.nextInt();
-
-         while(n >0) {
-             int a = 0;
-             int b = 0;
-             int d = 0;
-             int ks  = 0;
-             d = sc.nextInt();
-             a = check(d) ;
-             b = d - a;
-             ks++;
-             System.out.println("Case #"+ ks+": "+ a+ " "+ b);
-         }
-
-
-        out.close();
-    }
-    public static int check(int d) {
-       String s = String.valueOf(d);
-       StringBuilder sb = new StringBuilder();
-       for(int i = 0; i<s.length(); i++) {
-           if(s.charAt(i) == '4') {
-              sb.append('1');
-           } else {
-               sb.append(s.charAt(i));
-           }
-       }
-       return Integer.parseInt(sb.toString());
-    }
-
-
-    public static PrintWriter out;
-
-    public static class MyScanner {
-        BufferedReader br;
-        StringTokenizer st;
-
-        public MyScanner() {
-            br = new BufferedReader(new InputStreamReader(System.in));
-        }
-
-        String next() {
-            while (st == null || !st.hasMoreElements()) {
-                try {
-                    st = new StringTokenizer(br.readLine());
-                } catch (IOException e) {
-                    e.printStackTrace();
+    public static void main(String[] args) throws Exception {
+        br = new BufferedReader(new InputStreamReader(System.in));
+        int tc = nextInt();
+        for(int i = 1; i <= tc; i++) {
+            int N = nextInt();
+            int[][] grid = new int[N][N];
+            for(int row = 0; row<N; row++) {
+                for(int col = 0; col<N; col++) {
+                    grid[row][col] = nextInt();
                 }
             }
-            return st.nextToken();
-        }
+            int total = 0; int rowMult = 0 ; int colMult = 0;
+            HashMap<Integer, Integer> colMap = new HashMap<>();
+            HashMap<Integer, Integer> rowMap = new HashMap<>();
 
-        int nextInt() {
-            return Integer.parseInt(next());
-        }
+            boolean row = false; boolean col = false;
+            for(int idx = 0; idx < N; idx++) {
+                total += grid[idx][idx];
+                rowMap.clear(); colMap.clear();
+                row = false; col = false;
 
-        long nextLong() {
-            return Long.parseLong(next());
-        }
+                for(int trl = 0; trl < N; trl++) {
+                    if(rowMap.containsKey(grid[idx][trl]) && !row) {
+                        rowMult += 1;
+                        row = true;
+                    } else {
+                        rowMap.put(grid[idx][trl], grid[idx][trl]);
+                    }
+                    if(colMap.containsKey(grid[trl][idx]) && !col) {
+                        colMult += 1;
+                        col = true;
+                    } else {
+                        colMap.put(grid[trl][idx], grid[trl][idx]);
+                    }
 
-        double nextDouble() {
-            return Double.parseDouble(next());
-        }
-
-        String nextLine() {
-            String str = "";
-            try {
-                str = br.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
+                    if(col && row) break;
+                }
             }
-            return str;
+            System.out.println("Case #" + tc + ": " + total + " " + rowMult + " " + colMult);
         }
-        //--------------------------------------------------------
-
+    }
+    static String next() throws IOException {
+        while (tokenizer == null || !tokenizer.hasMoreTokens()) {
+            String line = br.readLine();
+            if (line == null)
+                throw new IOException();
+            tokenizer = new StringTokenizer(line);
+        }
+        return tokenizer.nextToken();
     }
 
+     static int nextInt() throws IOException {
+        return Integer.parseInt(next());
+    }
+
+    static long nextLong() throws IOException {
+        return Long.parseLong(next());
+    }
+
+     static double nextDouble() throws IOException {
+        return Double.parseDouble(next());
+    }
 
 }
