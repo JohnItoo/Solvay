@@ -16,6 +16,7 @@ class Main {
                     grid[row][col] = nextInt();
                 }
             }
+
             int total = 0; int rowMult = 0 ; int colMult = 0;
             HashMap<Integer, Integer> colMap = new HashMap<>();
             HashMap<Integer, Integer> rowMap = new HashMap<>();

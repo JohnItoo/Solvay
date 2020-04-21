@@ -3,7 +3,9 @@ package geeksforgeeks;
 public class MaximumIndexValueMultiplicationSum {
 
     //has rotate array
-
+   public static  void main(String[] args) {
+       rotateArrayNtimes(new int[2], 2);
+   }
 
     static void rotateArrayNtimes(int[] array, int n) {
         n = n % array.length;

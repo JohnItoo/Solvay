@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="bdc16c77-07c4-4a91-a303-8fd7ee9ec247" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Badoo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GS.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Permutation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../geeksforgeeks/.idea/geeksforgeeks.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BearAndFindingCriminals/BandF$MyScanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BearAndFindingCriminals/BandF$MyScanner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BearAndFindingCriminals/BandF.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BearAndFindingCriminals/BandF.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BearAndFindingCriminals/BigD$MyScanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BearAndFindingCriminals/BigD$MyScanner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BearAndFindingCriminals/BigD.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BearAndFindingCriminals/BigD.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BearAndFindingCriminals/FakeMain$MyScanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BearAndFindingCriminals/FakeMain$MyScanner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BearAndFindingCriminals/FakeMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BearAndFindingCriminals/FakeMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BearAndFindingCriminals/Main$MyScanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BearAndFindingCriminals/Main$MyScanner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BearAndFindingCriminals/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BearAndFindingCriminals/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BearAndFindingCriminals/WaterBuying$MyScanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BearAndFindingCriminals/WaterBuying$MyScanner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BearAndFindingCriminals/WaterBuying.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BearAndFindingCriminals/WaterBuying.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Div3C.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Div3C.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../a.out" beforeDir="false" afterPath="$PROJECT_DIR$/../a.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../codejam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../codejam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../codejam/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../codejam/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../geeksforgeeks/MaximumIndexValueMultiplicationSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/../geeksforgeeks/MaximumIndexValueMultiplicationSum.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="BufferedReader" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>System.o</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1aV7r5abHWe3O4n1mP3cN7dDSt9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+  </component>
+  <component name="RunManager" selected="Application.Badoo">
+    <configuration name="Badoo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Badoo" />
+      <module name="BearAndFindingCriminals" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FakeMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="FakeMain" />
+      <module name="BearAndFindingCriminals" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GS" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GS" />
+      <module name="BearAndFindingCriminals" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="BearAndFindingCriminals" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Permutation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Permutation" />
+      <module name="BearAndFindingCriminals" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.FakeMain" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Permutation" />
+      <item itemvalue="Application.GS" />
+      <item itemvalue="Application.Badoo" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Badoo" />
+        <item itemvalue="Application.GS" />
+        <item itemvalue="Application.Permutation" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.FakeMain" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="bdc16c77-07c4-4a91-a303-8fd7ee9ec247" name="Default" comment="" />
+      <created>1550506941549</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1550506941549</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="653" y="237" key="#com.intellij.ide.util.MemberChooser" timestamp="1587279573084">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="653" y="237" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1587279573084" />
+    <state x="674" y="433" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1586809115826">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="674" y="433" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1586809115826" />
+    <state width="1638" height="294" key="GridCell.Tab.0.bottom" timestamp="1587366494401">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="294" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1587366494401" />
+    <state width="1638" height="294" key="GridCell.Tab.0.center" timestamp="1587366494400">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="294" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1587366494400" />
+    <state width="1638" height="294" key="GridCell.Tab.0.left" timestamp="1587366494399">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="294" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1587366494399" />
+    <state width="1638" height="294" key="GridCell.Tab.0.right" timestamp="1587366494400">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="294" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1587366494400" />
+    <state x="496" y="359" key="com.intellij.ide.util.TipDialog" timestamp="1587278171693">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="496" y="359" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1587278171693" />
+  </component>
+</project>

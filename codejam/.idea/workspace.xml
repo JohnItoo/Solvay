@@ -2,322 +2,188 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="072897cc-f408-43ea-86ef-eface9f63ccb" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Indicium.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MainOne.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Scheduling.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Solution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Vestigum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../2048.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../2048.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../3n+1.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../574C.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../620A.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../620B.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../A.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../A.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Accordian.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Accordian.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BalancedTeams.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../BalancedTeams.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BearAndFindingCriminals/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BearAndFindingCriminals/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BearAndFindingCriminals/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../BearAndFindingCriminals/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/BearAndFindingCriminals.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../BearAndFindingCriminals/BearAndFindingCriminals.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/BandF$MyScanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/BandF$MyScanner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/BandF.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/BandF.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/BigD$MyScanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/BigD$MyScanner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/BigD.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/BigD.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/FakeMain$MyScanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/FakeMain$MyScanner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/FakeMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/FakeMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/Main$MyScanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/Main$MyScanner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/WaterBuying$MyScanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/WaterBuying$MyScanner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/WaterBuying.class" beforeDir="false" afterPath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/WaterBuying.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/src/BandF.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BearAndFindingCriminals/src/BandF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/src/BearAndFindingCriminals.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BearAndFindingCriminals/src/BearAndFindingCriminals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/src/BigD.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BearAndFindingCriminals/src/BigD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/src/FakeMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BearAndFindingCriminals/src/FakeMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BearAndFindingCriminals/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/src/WaterBuying.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BearAndFindingCriminals/src/WaterBuying.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Boredom.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Boredom.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BuildArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BuildArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BuyingApples.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../BuyingApples.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CPManual/AmortizedAnalysis.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CPManual/AmortizedAnalysis.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CPManual/ColoringGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CPManual/ColoringGraph.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CPManual/NumberOfCoins.java" beforeDir="false" afterPath="$PROJECT_DIR$/../CPManual/NumberOfCoins.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Car War.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Car War.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CircleMetro.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../CircleMetro.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Codility/Entry.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Codility/Entry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Codility/LeaderBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Codility/LeaderBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Coins.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Coins.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CompleteSearch/CompleteSearch.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../CompleteSearch/CompleteSearch.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CompleteSearch/CompleteSearch.depend" beforeDir="false" afterPath="$PROJECT_DIR$/../CompleteSearch/CompleteSearch.depend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../CompleteSearch/obj/Debug/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/../CompleteSearch/obj/Debug/main.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Div3C.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Div3C.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EhabFailsToBeThanos.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../EhabFailsToBeThanos.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Email.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Email.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EqualizePrices.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../EqualizePrices.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Football.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Football.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Game23.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Game23.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HackerRank/Kangaroo.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HackerRank/Kangaroo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HackerRank/SaveAPrisoner.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HackerRank/SaveAPrisoner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../HackerRank/SherlockAndDivisors.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HackerRank/SherlockAndDivisors.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../IncreaseByMod.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../IncreaseByMod.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../KefaAndPark.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../KefaAndPark.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lanterns.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Lanterns.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LongSequence.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../LongSequence.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lotto.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Lotto.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MaxRest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../MaxRest.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MiddleOfContest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../MiddleOfContest.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NastyaLunch.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../NastyaLunch.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../NauoCards.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../NauoCards.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Newspaper.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Newspaper.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Pairs.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Pairs.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Parse.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Parse.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PartyTree.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../PartyTree.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PrepForWomensDay.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../PrepForWomensDay.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rails.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Rails.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Rooked.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Rooked.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestAlgorithmFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/../TestAlgorithmFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestCp/TestCp.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../TestCp/TestCp.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestCp/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../TestCp/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestCp/main.dSYM/Contents/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/../TestCp/main.dSYM/Contents/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TestCp/main.dSYM/Contents/Resources/DWARF/main" beforeDir="false" afterPath="$PROJECT_DIR$/../TestCp/main.dSYM/Contents/Resources/DWARF/main" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TheWedding.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../TheWedding.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ThreeLittleEndians.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../ThreeLittleEndians.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ToptalOshi.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../ToptalOshi.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TourDeFrance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../TourDeFrance.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TrainSwapping.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../TrainSwapping.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Vanya_And_Fence/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Vanya_And_Fence/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Vanya_And_Fence/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Vanya_And_Fence/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Vanya_And_Fence/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Vanya_And_Fence/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Vanya_And_Fence/Vanya_And_Fence.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Vanya_And_Fence/Vanya_And_Fence.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Vanya_And_Fence/out/production/Vanya_And_Fence/Main$MyScanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Vanya_And_Fence/out/production/Vanya_And_Fence/Main$MyScanner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Vanya_And_Fence/out/production/Vanya_And_Fence/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Vanya_And_Fence/out/production/Vanya_And_Fence/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Vanya_And_Fence/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Vanya_And_Fence/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ZeroQuantityMaximisation.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../ZeroQuantityMaximisation.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/.idea/_e246b907ec7d636432b6ba5268589a56_starter_files.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/.idea/_e246b907ec7d636432b6ba5268589a56_starter_files.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-a-addition-and-subtraction/AdditionAndSubtraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-a-addition-and-subtraction/AdditionAndSubtraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-a-addition-and-subtraction/addition_and_subtraction.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-a-addition-and-subtraction/addition_and_subtraction.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-a-addition-and-subtraction/addition_and_subtraction.py2" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-a-addition-and-subtraction/addition_and_subtraction.py2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-a-addition-and-subtraction/addition_and_subtraction.py3" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-a-addition-and-subtraction/addition_and_subtraction.py3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-b-erasing_maximum/ErasingMaximum.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-b-erasing_maximum/ErasingMaximum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-b-erasing_maximum/erasing_maximum.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-b-erasing_maximum/erasing_maximum.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-b-erasing_maximum/erasing_maximum.py2" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-b-erasing_maximum/erasing_maximum.py2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-b-erasing_maximum/erasing_maximum.py3" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-b-erasing_maximum/erasing_maximum.py3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-a-cheapest_permutation/CheapestPermutation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-a-cheapest_permutation/CheapestPermutation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-a-cheapest_permutation/cheapest_permutation.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-a-cheapest_permutation/cheapest_permutation.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-a-cheapest_permutation/cheapest_permutation.py2" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-a-cheapest_permutation/cheapest_permutation.py2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-a-cheapest_permutation/cheapest_permutation.py3" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-a-cheapest_permutation/cheapest_permutation.py3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-b-king/King.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-b-king/King.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-b-king/king.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-b-king/king.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-b-king/king.py2" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-b-king/king.py2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-b-king/king.py3" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-b-king/king.py3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-a-compare_sums/CompareSums.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-a-compare_sums/CompareSums.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-a-compare_sums/compare_sums.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-a-compare_sums/compare_sums.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-a-compare_sums/compare_sums.py2" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-a-compare_sums/compare_sums.py2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-a-compare_sums/compare_sums.py3" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-a-compare_sums/compare_sums.py3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-b-round_up/RoundUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-b-round_up/RoundUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-b-round_up/round_up.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-b-round_up/round_up.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-b-round_up/round_up.py2" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-b-round_up/round_up.py2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-b-round_up/round_up.py3" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-b-round_up/round_up.py3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-a-frequent_symbol/FrequentSymbol.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-a-frequent_symbol/FrequentSymbol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-a-frequent_symbol/frequent_symbol.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-a-frequent_symbol/frequent_symbol.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-a-frequent_symbol/frequent_symbol.py2" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-a-frequent_symbol/frequent_symbol.py2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-a-frequent_symbol/frequent_symbol.py3" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-a-frequent_symbol/frequent_symbol.py3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-b-manhattan/Manhattan.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-b-manhattan/Manhattan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-b-manhattan/manhattan.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-b-manhattan/manhattan.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-b-manhattan/manhattan.py2" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-b-manhattan/manhattan.py2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-b-manhattan/manhattan.py3" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-b-manhattan/manhattan.py3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-a-lis/LIS.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-a-lis/LIS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-a-lis/lis.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-a-lis/lis.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-a-lis/lis.py2" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-a-lis/lis.py2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-a-lis/lis.py3" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-a-lis/lis.py3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-b-edit_distance/EditDistance.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-b-edit_distance/EditDistance.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-b-edit_distance/edit_distance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-b-edit_distance/edit_distance.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-b-edit_distance/edit_distance.py2" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-b-edit_distance/edit_distance.py2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-b-edit_distance/edit_distance.py3" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-b-edit_distance/edit_distance.py3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-a-knapsack/Knapsack.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-a-knapsack/Knapsack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-a-knapsack/knapsack.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-a-knapsack/knapsack.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-a-knapsack/knapsack.py2" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-a-knapsack/knapsack.py2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-a-knapsack/knapsack.py3" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-a-knapsack/knapsack.py3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-b-chain_matrix/ChainMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-b-chain_matrix/ChainMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-b-chain_matrix/chain_matrix.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-b-chain_matrix/chain_matrix.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-b-chain_matrix/chain_matrix.py2" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-b-chain_matrix/chain_matrix.py2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-b-chain_matrix/chain_matrix.py3" beforeDir="false" afterPath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-b-chain_matrix/chain_matrix.py3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../atcoder/156A/A.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../atcoder/156A/A.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../atcoder/156A/B.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../atcoder/156A/B.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../atcoder/156A/C.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../atcoder/156A/C.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../atcoder/156A/D.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../atcoder/156A/D.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../atcoder/156A/E.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../atcoder/156A/E.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../atcoder/156A/F.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../atcoder/156A/F.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../atcoder/lower.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../atcoder/lower.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../atcoder/powersocket.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../atcoder/powersocket.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../atcoder/template.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../atcoder/template.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../atcoder/tenki.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../atcoder/tenki.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../barganing.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../barganing.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../barganing_old.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../barganing_old.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../bersuball.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../bersuball.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../burger.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../burger.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../burstballoons.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../burstballoons.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../candies.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../candies.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../geeksforgeeks/.idea/geeksforgeeks.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2048.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Accordian.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BalancedTeams.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/BearAndFindingCriminals.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/BandF$MyScanner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/BandF.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/BigD$MyScanner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/BigD.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/FakeMain$MyScanner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/FakeMain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/Main$MyScanner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/WaterBuying$MyScanner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/WaterBuying.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/src/BandF.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/src/BearAndFindingCriminals.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/src/BigD.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/src/FakeMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/src/WaterBuying.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Boredom.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BuildArray.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BuyingApples.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Car War.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CircleMetro.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Codeforces/3n+1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Codeforces/574C.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Codeforces/620A.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Codeforces/620B.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Coins.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Div3C.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EhabFailsToBeThanos.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Email.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EqualizePrices.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Football.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Game23.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IncreaseByMod.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../KefaAndPark.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lanterns.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LongSequence.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lotto.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MaxRest.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MiddleOfContest.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NastyaLunch.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NauoCards.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Newspaper.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pairs.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Parse.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PartyTree.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PrepForWomensDay.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rails.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rooked.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TheWedding.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ThreeLittleEndians.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TourDeFrance.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TrainSwapping.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vanya_And_Fence/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vanya_And_Fence/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vanya_And_Fence/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vanya_And_Fence/Vanya_And_Fence.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vanya_And_Fence/out/production/Vanya_And_Fence/Main$MyScanner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vanya_And_Fence/out/production/Vanya_And_Fence/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vanya_And_Fence/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ZeroQuantityMaximisation.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/.idea/_e246b907ec7d636432b6ba5268589a56_starter_files.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-a-addition-and-subtraction/AdditionAndSubtraction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-a-addition-and-subtraction/addition_and_subtraction.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-a-addition-and-subtraction/addition_and_subtraction.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-a-addition-and-subtraction/addition_and_subtraction.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-b-erasing_maximum/ErasingMaximum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-b-erasing_maximum/erasing_maximum.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-b-erasing_maximum/erasing_maximum.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-b-erasing_maximum/erasing_maximum.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-a-cheapest_permutation/CheapestPermutation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-a-cheapest_permutation/cheapest_permutation.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-a-cheapest_permutation/cheapest_permutation.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-a-cheapest_permutation/cheapest_permutation.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-b-king/King.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-b-king/king.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-b-king/king.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-b-king/king.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-a-compare_sums/CompareSums.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-a-compare_sums/compare_sums.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-a-compare_sums/compare_sums.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-a-compare_sums/compare_sums.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-b-round_up/RoundUp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-b-round_up/round_up.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-b-round_up/round_up.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-b-round_up/round_up.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-a-frequent_symbol/FrequentSymbol.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-a-frequent_symbol/frequent_symbol.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-a-frequent_symbol/frequent_symbol.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-a-frequent_symbol/frequent_symbol.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-b-manhattan/Manhattan.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-b-manhattan/manhattan.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-b-manhattan/manhattan.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-b-manhattan/manhattan.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-a-lis/LIS.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-a-lis/lis.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-a-lis/lis.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-a-lis/lis.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-b-edit_distance/EditDistance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-b-edit_distance/edit_distance.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-b-edit_distance/edit_distance.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-b-edit_distance/edit_distance.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-a-knapsack/Knapsack.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-a-knapsack/knapsack.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-a-knapsack/knapsack.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-a-knapsack/knapsack.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-b-chain_matrix/ChainMatrix.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-b-chain_matrix/chain_matrix.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-b-chain_matrix/chain_matrix.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-b-chain_matrix/chain_matrix.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../a.out" beforeDir="false" afterPath="$PROJECT_DIR$/../a.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../barganing.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../barganing_old.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bersuball.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../burger.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../burstballoons.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../candies.cpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../cdjm/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/cdjm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/cdjm.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Main$MyScanner.class" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Main$MyScanner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Q$.class" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Q$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Q1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Q1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Q2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Q2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Q3.class" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Q3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Q3Mod.class" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Q3Mod.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Q3c.class" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Q3c.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Q3new.class" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Q3new.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Qanswer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Qanswer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Round1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/out/production/cdjm/Round1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/src/Q$.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/src/Q$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/src/Q1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/src/Q1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/src/Q2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/src/Q2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/src/Q3.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/src/Q3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/src/Q3Mod.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/src/Q3Mod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/src/Q3c.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/src/Q3c.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/src/Q3new.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/src/Q3new.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/src/Qanswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/src/Qanswer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/src/Round1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/src/Round1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../circle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../circle.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cityday.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../cityday.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codeclash.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../codeclash.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../circle.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cityday.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../codeclash.cpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cdjm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cdjm.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Main$MyScanner.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cdjm/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Q$.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cdjm/Q$.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Q1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cdjm/Q1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Q2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cdjm/Q2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Q3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cdjm/Q3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Q3Mod.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cdjm/Q3Mod.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Q3c.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cdjm/Q3c.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Q3new.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cdjm/Q3new.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Qanswer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cdjm/Qanswer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Round1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/cdjm/Round1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Q$.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Q$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Q1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Q1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Q2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Q2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Q3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Q3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Q3Mod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Q3Mod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Q3c.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Q3c.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Q3new.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Q3new.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Qanswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Qanswer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Round1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Round1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codejamprep/2016/A/A-large-practice.out" beforeDir="false" afterPath="$PROJECT_DIR$/../codejamprep/2016/A/A-large-practice.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codejamprep/2016/A/A-small-practice.out" beforeDir="false" afterPath="$PROJECT_DIR$/../codejamprep/2016/A/A-small-practice.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codejamprep/2016/A/thelastword.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../codejamprep/2016/A/thelastword.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codejamprep/2016/B/B-large-practice.out" beforeDir="false" afterPath="$PROJECT_DIR$/../codejamprep/2016/B/B-large-practice.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codejamprep/2016/B/B-small-practice.out" beforeDir="false" afterPath="$PROJECT_DIR$/../codejamprep/2016/B/B-small-practice.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codejamprep/2016/B/rankandfile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../codejamprep/2016/B/rankandfile.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codejamprep/codejam.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../codejamprep/codejam.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codejamprep/codejambase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../codejamprep/codejambase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codejamprep/rankandfile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../codejamprep/rankandfile.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codejamprep/thelastword.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../codejamprep/thelastword.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codility.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../codility.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../completeSearchToDp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../completeSearchToDp.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cossack.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../cossack.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../coursera/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../coursera/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../coursera/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../coursera/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../coursera/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../coursera/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../coursera/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../coursera/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../coursera/coursera.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../coursera/coursera.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../coursera/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../coursera/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../coursera/src/PCWeightedQuickUnionFindUF.java" beforeDir="false" afterPath="$PROJECT_DIR$/../coursera/src/PCWeightedQuickUnionFindUF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../coursera/src/QuickFindUF.java" beforeDir="false" afterPath="$PROJECT_DIR$/../coursera/src/QuickFindUF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../coursera/src/QuickUnionFindUF.java" beforeDir="false" afterPath="$PROJECT_DIR$/../coursera/src/QuickUnionFindUF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../coursera/src/SocialNetworkWQUF.java" beforeDir="false" afterPath="$PROJECT_DIR$/../coursera/src/SocialNetworkWQUF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../coursera/src/WeightedQuickUnionFindUF.java" beforeDir="false" afterPath="$PROJECT_DIR$/../coursera/src/WeightedQuickUnionFindUF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crackingcoding/isperm.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../crackingcoding/isperm.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../crackingcoding/uniquestring.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../crackingcoding/uniquestring.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cron/README.MD" beforeDir="false" afterPath="$PROJECT_DIR$/../cron/README.MD" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cut.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../cut.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../deadpixel.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../deadpixel.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../div3a.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../div3a.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../div3b.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../div3b.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dnaSort.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../dnaSort.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../dp.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../dp.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../drinksChoosing.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../drinksChoosing.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../echo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../echo.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../flipping.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../flipping.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fresh.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../fresh.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../gauntring.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../gauntring.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../geeksforgeeks/BinarySearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/../geeksforgeeks/BinarySearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../geeksforgeeks/BubbleSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/../geeksforgeeks/BubbleSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../geeksforgeeks/JumpSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/../geeksforgeeks/JumpSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../completeSearchToDp.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cossack.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cut.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../div3a.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../div3b.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dnaSort.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dp.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../drinksChoosing.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../echo.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flipping.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fresh.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gauntring.cpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../geeksforgeeks/MaximumIndexValueMultiplicationSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/../geeksforgeeks/MaximumIndexValueMultiplicationSum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../geeksforgeeks/RotationCountInRotatedSortedArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/../geeksforgeeks/RotationCountInRotatedSortedArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../geeksforgeeks/SelectionSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/../geeksforgeeks/SelectionSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../geeksforgeeks/SortedRotatedArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/../geeksforgeeks/SortedRotatedArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../geeksforgeeks/Trial.java" beforeDir="false" afterPath="$PROJECT_DIR$/../geeksforgeeks/Trial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../geeksforgeeks/stacks/CompleteSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/../geeksforgeeks/stacks/CompleteSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../geeksforgeeks/stacks/SpecialStack.java" beforeDir="false" afterPath="$PROJECT_DIR$/../geeksforgeeks/stacks/SpecialStack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../geeksforgeeks/stacks/TwoStacksInArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/../geeksforgeeks/stacks/TwoStacksInArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ghc16.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../ghc16.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../graphs_service.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../graphs_service.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../helper_methods.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../helper_methods.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../hitlottery.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../hitlottery.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../homework.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../homework.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ilyaqueries.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../ilyaqueries.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../justeat.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../justeat.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../knights.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../knights.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leetcode/PalindromePartitioningII.java" beforeDir="false" afterPath="$PROJECT_DIR$/../leetcode/PalindromePartitioningII.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../leetconone.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../leetconone.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lengthandsum.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../lengthandsum.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lengthsum.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../lengthsum.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../lettershop.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../lettershop.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../matrix.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../matrix.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mezoma.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../mezoma.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../minimize.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../minimize.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../mod.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../mod.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../multifieldSorting.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../multifieldSorting.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nauuoCircle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../nauuoCircle.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../newbersuball.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../newbersuball.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../newboredom.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../newboredom.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../next_perm.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../next_perm.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../nickarray.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../nickarray.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../permutation_Arrays.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../permutation_Arrays.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../pipeline.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../pipeline.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../random/FirstPositiveMissingInteger.java" beforeDir="false" afterPath="$PROJECT_DIR$/../random/FirstPositiveMissingInteger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../random/JumpGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/../random/JumpGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../random/LongestCommonPrefix.java" beforeDir="false" afterPath="$PROJECT_DIR$/../random/LongestCommonPrefix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../random/LongestPalindromicSubString.java" beforeDir="false" afterPath="$PROJECT_DIR$/../random/LongestPalindromicSubString.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../random/MaxElementRecursion.java" beforeDir="false" afterPath="$PROJECT_DIR$/../random/MaxElementRecursion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../random/RecursiveProductOfTwoNumbersWithAdditionandSubtraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../random/RecursiveProductOfTwoNumbersWithAdditionandSubtraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../random/ReplaceSpace.java" beforeDir="false" afterPath="$PROJECT_DIR$/../random/ReplaceSpace.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../random/SearchRotatedArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/../random/SearchRotatedArray.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../random/SymmetricTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/../random/SymmetricTree.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../random/TwoSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/../random/TwoSum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../random/threeSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/../random/threeSum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ropewalkers.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../ropewalkers.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../segTrees.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../segTrees.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../squareFilling.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../squareFilling.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../template.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../template.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test_me.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../test_me.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../thewayhome.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../thewayhome.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../thre.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../thre.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../toptal.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../toptal.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../toystickers.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../toystickers.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../trycodejam.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../trycodejam.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vacations.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../vacations.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../valerydq.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../valerydq.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../vuscontest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../vuscontest.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../weather.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../weather.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../weightsTrips.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../weightsTrips.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../wpi.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../wpi.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../graphs_service.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hitlottery.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../homework.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ilyaqueries.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../justeat.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../knights.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lengthandsum.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lengthsum.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lettershop.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mezoma.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../minimize.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mod.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../multifieldSorting.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nauuoCircle.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../newbersuball.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../newboredom.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../next_perm.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nickarray.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../permutation_Arrays.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pipeline.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ropewalkers.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segTrees.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../squareFilling.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test_me.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thewayhome.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../toystickers.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../trycodejam.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vacations.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../valerydq.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vuscontest.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../weather.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../weightsTrips.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wpi.cpp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -353,7 +219,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RunManager" selected="Application.Indicium">
     <configuration name="Indicium" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -419,11 +285,11 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Round1" />
-      <item itemvalue="Application.Vestigum" />
-      <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Scheduling" />
       <item itemvalue="Application.Indicium" />
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Round1" />
+      <item itemvalue="Application.Scheduling" />
+      <item itemvalue="Application.Vestigum" />
     </list>
     <recent_temporary>
       <list>
@@ -477,9 +343,14 @@
     </state>
     <state width="1638" height="265" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1586059391997" />
     <state width="1638" height="265" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1586045832479" />
-    <state x="496" y="371" key="com.intellij.ide.util.TipDialog" timestamp="1585987345067">
-      <screen x="0" y="23" width="1680" height="1027" />
+    <state x="349" y="164" key="SettingsEditor" timestamp="1586809078657">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state x="349" y="164" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1586809078657" />
+    <state x="496" y="356" key="com.intellij.ide.util.TipDialog" timestamp="1587191453144">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="496" y="356" key="com.intellij.ide.util.TipDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1587191453144" />
     <state x="496" y="371" key="com.intellij.ide.util.TipDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1585987345066" />
   </component>
 </project>

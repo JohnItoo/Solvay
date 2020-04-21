@@ -1,9 +1,189 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="072897cc-f408-43ea-86ef-eface9f63ccb" name="Default" comment="" />
-    <ignored path="$PROJECT_DIR$/out/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <list default="true" id="072897cc-f408-43ea-86ef-eface9f63ccb" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/../geeksforgeeks/.idea/geeksforgeeks.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2048.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../A.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Accordian.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BalancedTeams.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/BearAndFindingCriminals.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/BandF$MyScanner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/BandF.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/BigD$MyScanner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/BigD.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/FakeMain$MyScanner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/FakeMain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/Main$MyScanner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/WaterBuying$MyScanner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/out/production/BearAndFindingCriminals/WaterBuying.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/src/BandF.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/src/BearAndFindingCriminals.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/src/BigD.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/src/FakeMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BearAndFindingCriminals/src/WaterBuying.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Boredom.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BuildArray.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BuyingApples.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Car War.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CircleMetro.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Codeforces/3n+1.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Codeforces/574C.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Codeforces/620A.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Codeforces/620B.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Coins.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Div3C.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EhabFailsToBeThanos.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Email.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../EqualizePrices.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Football.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Game23.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../IncreaseByMod.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../KefaAndPark.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lanterns.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LongSequence.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lotto.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MaxRest.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MiddleOfContest.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NastyaLunch.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../NauoCards.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Newspaper.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Pairs.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Parse.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PartyTree.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PrepForWomensDay.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rails.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rooked.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TheWedding.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ThreeLittleEndians.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TourDeFrance.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TrainSwapping.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vanya_And_Fence/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vanya_And_Fence/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vanya_And_Fence/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vanya_And_Fence/Vanya_And_Fence.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vanya_And_Fence/out/production/Vanya_And_Fence/Main$MyScanner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vanya_And_Fence/out/production/Vanya_And_Fence/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Vanya_And_Fence/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ZeroQuantityMaximisation.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/.idea/_e246b907ec7d636432b6ba5268589a56_starter_files.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-a-addition-and-subtraction/AdditionAndSubtraction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-a-addition-and-subtraction/addition_and_subtraction.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-a-addition-and-subtraction/addition_and_subtraction.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-a-addition-and-subtraction/addition_and_subtraction.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-b-erasing_maximum/ErasingMaximum.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-b-erasing_maximum/erasing_maximum.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-b-erasing_maximum/erasing_maximum.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/1-b-erasing_maximum/erasing_maximum.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-a-cheapest_permutation/CheapestPermutation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-a-cheapest_permutation/cheapest_permutation.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-a-cheapest_permutation/cheapest_permutation.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-a-cheapest_permutation/cheapest_permutation.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-b-king/King.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-b-king/king.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-b-king/king.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/2-b-king/king.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-a-compare_sums/CompareSums.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-a-compare_sums/compare_sums.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-a-compare_sums/compare_sums.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-a-compare_sums/compare_sums.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-b-round_up/RoundUp.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-b-round_up/round_up.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-b-round_up/round_up.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/3-b-round_up/round_up.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-a-frequent_symbol/FrequentSymbol.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-a-frequent_symbol/frequent_symbol.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-a-frequent_symbol/frequent_symbol.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-a-frequent_symbol/frequent_symbol.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-b-manhattan/Manhattan.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-b-manhattan/manhattan.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-b-manhattan/manhattan.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/4-b-manhattan/manhattan.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-a-lis/LIS.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-a-lis/lis.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-a-lis/lis.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-a-lis/lis.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-b-edit_distance/EditDistance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-b-edit_distance/edit_distance.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-b-edit_distance/edit_distance.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/5-b-edit_distance/edit_distance.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-a-knapsack/Knapsack.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-a-knapsack/knapsack.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-a-knapsack/knapsack.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-a-knapsack/knapsack.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-b-chain_matrix/ChainMatrix.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-b-chain_matrix/chain_matrix.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-b-chain_matrix/chain_matrix.py2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../_e246b907ec7d636432b6ba5268589a56_starter_files/6-b-chain_matrix/chain_matrix.py3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../a.out" beforeDir="false" afterPath="$PROJECT_DIR$/../a.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../barganing.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../barganing_old.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../bersuball.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../burger.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../burstballoons.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../candies.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../circle.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cityday.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../codeclash.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../codejam/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../codejam/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../codejam/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../codejam/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../completeSearchToDp.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cossack.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cut.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../div3a.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../div3b.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dnaSort.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../dp.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../drinksChoosing.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../echo.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../flipping.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fresh.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../gauntring.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../geeksforgeeks/MaximumIndexValueMultiplicationSum.java" beforeDir="false" afterPath="$PROJECT_DIR$/../geeksforgeeks/MaximumIndexValueMultiplicationSum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../graphs_service.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../hitlottery.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../homework.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ilyaqueries.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../justeat.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../knights.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lengthandsum.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lengthsum.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../lettershop.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../matrix.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mezoma.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../minimize.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../mod.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../multifieldSorting.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nauuoCircle.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../newbersuball.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../newboredom.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../next_perm.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nickarray.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../permutation_Arrays.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../pipeline.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ropewalkers.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../segTrees.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../squareFilling.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test_me.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thewayhome.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../toystickers.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../trycodejam.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vacations.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../valerydq.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../vuscontest.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../weather.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../weightsTrips.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wpi.cpp" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,129 +191,6 @@
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Q2.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Q3.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Q3c.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="10" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Qanswer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Q3new.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="37" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Q3Mod.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Round1.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1455">
-              <caret line="102" selection-start-line="102" selection-end-line="102" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1094#1095#0" expanded="true" />
-                <element signature="e#1175#1176#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Q$.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/math/BigInteger.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36075">
-              <caret line="2459" column="24" selection-start-line="2459" selection-start-column="17" selection-end-line="2459" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -148,65 +205,22 @@
       <find>compare</find>
     </findStrings>
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/src/Q1.java" />
-        <option value="$PROJECT_DIR$/src/Q3.java" />
-        <option value="$PROJECT_DIR$/src/Q3c.java" />
-        <option value="$PROJECT_DIR$/src/Qanswer.java" />
-        <option value="$PROJECT_DIR$/src/Q3new.java" />
-        <option value="$PROJECT_DIR$/src/Q3Mod.java" />
-        <option value="$PROJECT_DIR$/src/Q$.java" />
-        <option value="$PROJECT_DIR$/src/Round1.java" />
-        <option value="$PROJECT_DIR$/src/Q2.java" />
-        <option value="$PROJECT_DIR$/src/Main.java" />
-      </list>
-    </option>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1680" />
     <option name="height" value="1050" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="cdjm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cdjm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cdjm" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cdjm" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+  <component name="ProjectId" id="1arjXgaFQRyFBgBMfdZgE36Esky" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="fileTemplates" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Application.Round1">
     <configuration name="Q$" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -300,178 +314,5 @@
       <updated>1554516259958</updated>
     </task>
     <servers />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32234433" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="UI Designer" order="4" />
-      <window_info id="Capture Tool" order="5" />
-      <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32839224" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3990878" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="10" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info anchor="right" id="Maven Projects" order="7" />
-      <window_info anchor="right" id="Maven" order="8" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Image Layers" order="0" />
-      <window_info id="Designer" order="1" />
-      <window_info id="UI Designer" order="2" />
-      <window_info id="Capture Tool" order="3" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="5" weight="0.24969475" />
-      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="2" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="3" />
-      <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Find" order="5" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.32923076" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="right" id="Palette" order="0" />
-      <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Theme Preview" order="2" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
-      <window_info anchor="right" id="Maven Projects" order="4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
-    </layout-to-restore>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Q3answer.java" />
-    <entry file="file://$PROJECT_DIR$/src/Q1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Q2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Q3.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="50" column="5" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Q3c.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="10" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Qanswer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Q3new.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="33" column="10" selection-start-line="33" selection-start-column="10" selection-end-line="37" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Q3Mod.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Round1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1455">
-          <caret line="102" selection-start-line="102" selection-end-line="102" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Q$.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/java.base/java/math/BigInteger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36075">
-          <caret line="2459" column="24" selection-start-line="2459" selection-start-column="17" selection-end-line="2459" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1094#1095#0" expanded="true" />
-            <element signature="e#1175#1176#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
   </component>
 </project>
