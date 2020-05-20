@@ -47,6 +47,12 @@ public class GS {
         return true;
     }
 
+    public static int depths(Node root) {
+        int visited = 0; int level = 0;
+        //non-null root
+
+    }
+
    static  int curr = 0;
     public static boolean checkIfBinaryTreeIsBST(Node root) {
         if(root == null) return true;
