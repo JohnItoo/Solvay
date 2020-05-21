@@ -52,7 +52,23 @@ string trUpp(string s) {
  return "";
 }
 
+ll big(ll b, ll p, ll m) {
+     if(p == 0) return 1;
+     ll res = big(b, p/2, m);
+     res = (res*res)%m;
+     if(p % 2 == 1) {
+     	res = (res * b) %m;
+     }
+     return res;
+}
+
 int main() {
+	ll b, p, m; ll ans = 0; vector<ll> vcl;
+	while(cin >> b >>  p >> m) {
 	
+
+	    ll ans = big(b,p,m);
+	    cout << ans << endl;
+	}		
 return 0;
 }
