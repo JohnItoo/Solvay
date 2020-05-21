@@ -53,33 +53,38 @@ string trUpp(string s) {
 }
 
 int main() {
-	ll n, k; cin >> n >> k;
-			int st = 1;
-    ll ct = 1;
-    ll ans = -1;
+	
+	ll n; cin >> n;
+	ll u[n]; ll v[n];
 
-    ll odds = (n+2-1) /2; ll evens = n - odds;
+	REP(i,1,n) {
+		ll x ; cin >> x;
+		u[i-1] = x;
+		if(i == 1) v[i-1] = x;
+		else v[i-1] = v[i-2] + x;
+	}
+	int m ; cin >> m;
+	sort(u, u+n);
 
-    if(k <= odds) {
-       ans = 1 + 2*(k-1);
-    } else {
-    	ans = 2 + 2*((k-odds)-1);
-    }
-	// while(st <= n) {
- //     if(ct == k) {ans = st; break;}
- //     st += 2;
- //     ct++;
-	// }
-	// if(ans != -1) {
-	// 	cout << ans << endl;
-	// 	return 0;
-	// }
- //    st = 2;
-	// while(st <= n) {
-	// 	if(ct == k) {ans = st; break;}
-	// 	st += 2;
-	// 	ct++;
-	// }
-	cout << ans << endl;
+	ll vee[n];
+
+	for(int i = 0; i < n; i++) {
+		if(i==0) vee[i] = u[i];
+		else vee[i] = vee[i-1] + u[i];
+	}
+
+	while(m--) {
+		ll type , l,r; cin >> type >> l >> r;
+		ll ans = 0;
+		if(type == 1) {
+           if(l == 1) ans = v[r-1];
+           else ans = v[r-1] - v[l-2];
+		} else {
+          if(l == 1) ans = vee[r-1];
+          else ans = vee[r-1] - vee[l-2];
+		}
+		cout << ans << endl;
+	}
+
 return 0;
 }

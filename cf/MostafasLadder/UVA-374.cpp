@@ -53,19 +53,6 @@ string trUpp(string s) {
 }
 
 int main() {
-	ll n, k; cin >> n >> k;
-			int st = 1;
-    ll ct = 1;
-    ll ans = -1;
-
-    ll odds = (n+2-1) /2; ll evens = n - odds;
-
-    if(k <= odds) {
-       ans = 1 + 2*(k-1);
-    } else {
-    	ans = 2 + 2*((k-odds)-1);
-    }
-
-	cout << ans << endl;
+	
 return 0;
 }
