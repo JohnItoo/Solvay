@@ -2,47 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="072897cc-f408-43ea-86ef-eface9f63ccb" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/codejam/TMW.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dsa/DynamicArray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dsa/Temp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ladders/CF78D2B.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ladders/Temp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Misc/src/GS.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Misc/src/GS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../atcoder/a.out" beforeDir="false" afterPath="$PROJECT_DIR$/../atcoder/a.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../cdjm/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cdjm/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cf/MostafasLadder/temp.java" beforeDir="false" afterPath="$PROJECT_DIR$/../cf/MostafasLadder/temp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Indicium.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/MainOne$MyScanner.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/MainOne.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Q$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Q1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Q2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Q3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Q3Mod.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Q3c.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Q3new.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Qanswer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Round1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Scheduling$Period.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Scheduling.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Solution.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/cdjm/Vestigum.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Indicium.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/codejam/Indicium.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/codejam/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainOne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/codejam/MainOne.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Q$.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/codejam/Q$.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Q1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/codejam/Q1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Q2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/codejam/Q2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Q3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/codejam/Q3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Q3Mod.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/codejam/Q3Mod.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Q3c.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/codejam/Q3c.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Q3new.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/codejam/Q3new.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Qanswer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/codejam/Qanswer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Round1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/codejam/Round1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Scheduling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/codejam/Scheduling.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Solution.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/codejam/Solution.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vestigum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/codejam/Vestigum.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

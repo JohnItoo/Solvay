@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
  
- 
+// This template is useful to write CP code for Java.
 public class Main {
     public static void main(String[] args) {
  
