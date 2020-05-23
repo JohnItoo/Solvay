@@ -46,5 +46,24 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
+	int tc; 
+	cin >> tc;
+	while(tc--) {
+		int n, k; cin >> n >>k;
+		int a[n]; int b[n];
+		forn(i,n) cin >> a[i];
+		forn(i,n) cin >> b[i];
+		sort(a, a+n); sort(b, b+n);
+
+		int x =0;  int y= n-1; int idx = 0;
+		while(x < n && y >= 0 && idx < k) {
+			if(a[x] >= b[y]) break;
+			swap(a[x], b[y]);
+			idx++; x++; y--;
+		}
+		int ans = 0;
+		forn(i,n) ans += a[i];
+		cout << ans << endl;
+	}
 return 0;
 }

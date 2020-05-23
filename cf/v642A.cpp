@@ -46,5 +46,29 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
+	int tc; cin >> tc;
+	while(tc--) {
+		ll n, m; cin >> n >> m;
+		if(n == 1) cout << 0 << endl;
+		else if(n == 2) cout << m << endl;
+		else if( n == m) cout << n * 2 << endl;
+		else {
+			int ct,cz = 0;
+			if(n % 2 == 0){
+				ct = n /2;
+				cz = n/2;
+			} else {
+				ct = (n+2-1) / 2 ;
+				cz = n - ct;
+			}
+			int ans = 0;
+			if( m % ct  == 0) ans = ((m/ct) * (n-1));
+			else  {
+				int xx = m/ct;
+				ans = (xx *(n-2)) +  m -(ct * xx);
+			}
+			cout << ans << endl;
+		}
+	}
 return 0;
 }
