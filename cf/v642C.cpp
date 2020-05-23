@@ -51,10 +51,19 @@ int main() {
 	while(tc--) {
 		int n; cin >> n;
 		ll brd = (n* n) - 1; ll ans = 0; ll ct  = 1;
-		ll st = 8; ll targ = 0;
-		while( targ < brd) {
-           ans += st * ct;
-           ct++; targ += st; st= 8 * ct;
+		// ll st = 8; ll targ = 0;
+		// while( targ < brd) {
+  //          ans += st * ct;
+  //          ct++; targ += st; st= 8 * ct;
+		// }  
+		int mvs = brd / 8;
+		int arr[mvs]; arr[0] = 8;
+		REP(i, 1, mvs-1) {
+			arr[i] = arr[i-1] + 8;
+		}
+
+		forn(i, mvs-1) {
+			ans += arr[i] *(i+1);
 		}
 
 
