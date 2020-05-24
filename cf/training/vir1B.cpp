@@ -48,5 +48,13 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
+  ll n,m,k; cin >> n >> m >> k;
+  ll a[n]; 
+  forn(i,n) cin >> a[i];
+
+  sort(a, a+n);
+
+ cout << m / (k + 1) * 1ll * (a[n-1] * 1ll * k + a[n-2]) + m % (k + 1) * 1ll * a[n-1] << endl;
+
 return 0;
 }
