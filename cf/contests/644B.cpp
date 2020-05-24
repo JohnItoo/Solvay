@@ -46,28 +46,7 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-  int tc;
-  cin >> tc;
-  map<int, int> mp;
-  while(tc--) {
-  	int x, y, z;
-  	cin >> x >> y >> z;
-  	ll ans = 1e18 + 4;
-  	REP(i, -1, 1) {
-  		REP(j, -1, 1) {
-  			REP(k, -1, 1) {
-  				int a = x + i;
-  				int b = y + j;
-  				int c = z + k;
-  				ans = min(ans , 1LL *(abs(a-b) + abs(a-c) + abs(b-c)));
-
-  			}
-  		}
-  	}
-  	cout << ans << endl;
-
-  }
+ ios::sync_with_stdio(false);
+ cin.tie(0);
 return 0;
 }
