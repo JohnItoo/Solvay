@@ -72,7 +72,7 @@ int main() {
  		else odd++;
  	}
  	// cout << even << " " << odd << endl;
-   if(even % 2 == 0 &&  odd % 2 == 0) cout << "YES" << endl;
+   if((odd == 0 && even > 0 &&  even % 2 == 0) || ( even == 0 && odd > 0 &&  odd % 2 == 0) || even == odd) cout << "YES" << endl;
    else cout << "NO" << endl;
  }
 return 0;

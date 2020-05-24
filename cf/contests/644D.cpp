@@ -48,5 +48,20 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
  ios::sync_with_stdio(false);
  cin.tie(0);
+ int tc; cin >> tc;
+ while(tc--) {
+ 	ll n; ll k; cin >> n >> k;
+    int mn = n; map<ll,ll> dn;
+    if(k >= n % k % n  == 0) mn = 1;
+ 	for(ll i = 2; i * i<=k; i++) {
+ 		if(dn.find(i) != dn.end()) continue;
+ 		if( n % i == 0) {
+ 			int x = i; int y = n/i;
+ 			dn[y] = y; dn[i] = i;
+ 			if(i < mn) mn = i;
+ 		}
+ 	}
+ 	cout << mn << endl;
+ }
 return 0;
 }
