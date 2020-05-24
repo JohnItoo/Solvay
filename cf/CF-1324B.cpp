@@ -45,24 +45,51 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
+bool perm(vi a) {
+	string s = "";
+	forn(i, a.size()) {
+		s += to_string(a[i]);
+	}
+	string ass = s;
+   reverse(s.begin(), s.end());
+	
+	return ass == s;
+}
+bool fd = 0;
+void subs(int arr[], int index, vi bb, int len) {
+	if(fd) return;
+	if(index == len) {
+		if(bb.size() >= 3) {
+			if(perm(bb)) {
+				fd = 1;
+			}
+		}
+	} else {
+		subs(arr, index+1, bb, len);
+		bb.pb(arr[index]);
+		subs(arr, index+1, bb, len);
+	}
+}
+
 int main() {
 	int tc; cin >> tc;
 	while(tc--) {
-		int n; bool odd = 0; bool can = 1; 
-		cin >> n;
-		int a[n]; 
-		forn(i,n) cin >> a[i];
-		         	odd = a[0] % 2 != 0;
-
-		forn(i,n) {
-         int x; x = a[i];
-           if((odd && x % 2 == 0) || (!odd && x % 2 != 0)){
-           	can = 0;
-           	break;
-           }
-		}
-	if(can == 1) cout << "YES" << endl;
-	else cout << "NO" << endl;
+		 fd = 0;
+		int n; cin >> n;
+		int a[n];
+		forn(i, n) cin >> a[i];
+		vector<int> lf;
+		subs(a, 0, lf, n);
+		bool ans = 0;
+		// for(auto az : vvs) {
+		// 	if(perm(az)) {
+		// 		ans = 1; break;
+		// 	}
+		// }
+		if(fd) cout << "YES" << endl;
+		else cout << "NO" << endl;
 	}
+
+
 return 0;
 }
