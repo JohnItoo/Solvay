@@ -48,5 +48,14 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
+  int n, k; cin >> n >> k;
+  int ans = 0;
+  if(k == 1 || k == n) ans = 3 * n;
+  else {
+  	int ft = k; int bk = n - k;
+  	int mn = ft < bk ? ft : bk;
+  	ans = (3 * (n-mn+1)) + (mn-1 + 3) * (mn-1);
+  }
+  cout << ans << endl;
 return 0;
 }

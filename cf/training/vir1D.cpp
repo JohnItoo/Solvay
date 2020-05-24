@@ -48,5 +48,24 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
+  int n; int k;
+  cin >> n >> k;
+  ll a[n];
+  forn(i,n) cin >> a[i];
+ map<ll,ll> fnd;
+ ll ans = 0;
+  forn(i,n) {
+  	forn(j,n) {
+  		if(fnd.find(j) != fnd.end() || fnd.find(i) != fnd.end()) continue;
+        if(i == j) continue;
+
+        if((a[i] + a[j]) % k == 0) {
+        	ans++;
+        	fnd[i] = i;
+        	fnd[j] = j;
+        }
+  	}
+  }
+  cout << ans * 2 << endl;
 return 0;
 }
