@@ -48,5 +48,32 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
  ios::sync_with_stdio(false);
  cin.tie(0);
+ int tc; cin >> tc;
+ while(tc--) {
+ 	int n; cin >> n;
+ 	vi aa;
+ 	forn(i,n) {
+     int x; cin >> x;
+     aa.pb(x);
+ 	}
+ 	sort(aa.begin(), aa.end());
+ 	map<int, int> dn;
+ 	int even = 0; int odd = 0; int prs = 0;
+ 	forn(i, aa.size()-1) {
+      if(aa[i]+1 == aa[i+1] && ((dn.find(i) == dn.end()) && dn.find(i+1) == dn.end())) {
+      	dn[i] = i;
+      	dn[i+1] = i+1;
+
+      }
+ 	}
+ 	forn(i, aa.size()) {
+ 		if(dn.find(i) != dn.end()) continue;
+ 		if(aa[i] % 2 == 0) even++;
+ 		else odd++;
+ 	}
+ 	// cout << even << " " << odd << endl;
+   if(even % 2 == 0 &&  odd % 2 == 0) cout << "YES" << endl;
+   else cout << "NO" << endl;
+ }
 return 0;
 }

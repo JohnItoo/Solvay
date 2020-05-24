@@ -48,5 +48,23 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
  ios::sync_with_stdio(false);
  cin.tie(0);
+ int tc;
+ cin >> tc; 
+ while(tc--) {
+   int y; cin >> y;
+   vi aa;
+ 	forn(j, y) {
+ 		 	int x; cin >> x;
+       aa.pb(x);
+ 	}
+ 
+  sort(aa.begin(), aa.end()) ;
+ int ans = 100005;
+ forn(i, aa.size()-1) {
+   ans = min(ans, abs(aa[i] -aa[i+1]));
+ }
+ cout << ans << endl;
+ }
+
 return 0;
 }
