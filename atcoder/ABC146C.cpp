@@ -48,5 +48,32 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
  cin.tie(0);
+ int n,m; cin >> n >> m;
+ int h[n];
+ forn(i,n) {
+ 	cin >> h[i];
+ }
+ vector<int> g[n+1];
+ forn(i,m) {
+   int x, y; cin >> x >> y;
+   g[x].pb(y);
+   g[y].pb(x);
+ }
+// REP(i,1,n) {
+// 	 	cout << i << " ";
+// 	 	for(auto e : g[i]) cout << e << " ";
+//        cout << endl;
+// }
+ int ans = 0;
+ REP(i, 1, n) {
+ 	cout << h[i-1] << endl;
+ 	bool vld = true;
+ 	for(auto e : g[i]) {
+
+       if(h[e-1] <= h[i-1]) {vld = false; break;}
+ 	}
+ 	if(vld) ans++;
+ }
+ cout << ans << endl;
 return 0;
 }
