@@ -51,14 +51,13 @@ int main() {
  int tc; cin >> tc;
  while(tc--) {
  	ll n; ll k; cin >> n >> k;
-    int mn = n; map<ll,ll> dn;
-    if(k >= n % k % n  == 0) mn = 1;
- 	for(ll i = 2; i * i<=k; i++) {
- 		if(dn.find(i) != dn.end()) continue;
+    ll mn = n;
+
+ 	for(ll i = 1; i * i<=n; i++) {
  		if( n % i == 0) {
- 			int x = i; int y = n/i;
- 			dn[y] = y; dn[i] = i;
- 			if(i < mn) mn = i;
+ 			ll x = i; ll y = n/i;
+ 			if(x <= k) mn = min(mn, y);
+ 			if(y <= k) mn = min(mn, x);
  		}
  	}
  	cout << mn << endl;
