@@ -48,5 +48,36 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
+  int n; cin >> n; int a[n];
+  vi ps; map<int, int> mp;
+  int mx;
+  forn(i,n) {
+  	int x; cin >> x;
+  	if(mp.find(x) != mp.end()) {
+  		auto it = mp.find(x);
+  		ps.erase(ps.begin()+it->second);
+  		continue;
+  	} 
+  	ps.pb(x);
+  	mp[x] = i;
+  }
+  int ansa = 0; int ansb = 0;
+  if(ps.size() == 2) {
+  	ansa = ps[0]; ansb = ps[1];
+  } else {
+  	  int mx = -10; int mxidx = -1;
+  forn(i, ps.size()) {
+  	cout << ps[i] << endl;
+      if(mx < ps[i]) {mx = ps[i]; mxidx = i;}
+  }
+  int fc = -10;
+  forn(i, ps.size()) {
+     if(mx %ps[i] != 0 && ps[i] > fc) fc = ps[i];
+  }
+  ansa = mx; ansb = fc;
+ }
+ cout << ansa << " " << ansb << endl;
+
+ 
 return 0;
 }
