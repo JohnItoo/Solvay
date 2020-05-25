@@ -54,7 +54,7 @@ int main() {
    int y; cin >> y;
    vi aa;
  	forn(j, y) {
- 		 	int x; cin >> x;
+ 	  int x; cin >> x;
        aa.pb(x);
  	}
  

@@ -46,15 +46,35 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
- ios::sync_with_stdio(false);
+	 ios::sync_with_stdio(false);
  cin.tie(0);
  int tc; cin >> tc;
  while(tc--) {
- 	int a, b; cin >> a >> b;
- 	int mn = min(a,b); int mx = max(a,b); int ans = 0;
- 	
- 	int sq = max(mx, mn*2);
- 	cout << sq * sq << endl;
+ 	int n; cin >> n;
+ 	vi aa;
+ 	forn(i,n) {
+     int x; cin >> x;
+     aa.pb(x);
+ 	}
+ 	sort(aa.begin(), aa.end());
+ 	map<int, int> dn;
+ 	int even = 0; int odd = 0; int prs = 0; string ans = "YES";
+ 	forn(i, aa.size()-1) {
+      if(aa[i]+1 != aa[i+1] && ((dn.find(i) == dn.end()) && dn.find(i+1) == dn.end())) {
+         ans = "NO";
+         break;
+      }
+      	dn[i] = i;
+      	dn[i+1] = i+1;
+ 	}
+ 	// forn(i, aa.size()) {
+ 	// 	if(dn.find(i) != dn.end()) continue;
+ 	// 	if(aa[i] % 2 == 0) even++;
+ 	// 	else odd++;
+ 	// }
+ 	// cout << even << " " << odd << endl;
+   // if(even % 2 == 0 &&  odd % 2 == 0) cout << "YES" << endl;
+   // else cout << "NO" << endl;
+ 	cout << ans << endl;
  }
-return 0;
 }
