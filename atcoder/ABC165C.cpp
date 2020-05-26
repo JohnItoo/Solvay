@@ -44,38 +44,32 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-
-bool comp(ii a, ii b) {
-	return a.first < b.first;
+struct st {
+ int a; 
+ int b; int c; int d;
+ st(int a, int b, int c, int d) {
+ 	this->a = a; 
+ 	this->b= b;
+ 	this->c= c;
+ 	this->d = d;
+ }
+};
+bool comp(st a, st b) {
+	return a.d > b.d;
 }
+
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-  vii lst;
-  int n; cin >> n;
-  REP(i, 1, n) {
-  	int x; cin >> x;
-  	ii a = mp(x,i);
-  	lst.pb(a);
-  }
-  sort(lst.begin(), lst.end(), comp);
+	ios::sync_with_stdio(false);
+ cin.tie(0);
+ int n, m, q; cin >> n >> m >> q;
+ vector<st> vsst;
+ forn(i, q) {
+ 	int a, b, c, d; cin >> a >> b >> c >> d;
+ 	st nst = st(a,b,c,d);
+ 	vsst.pb(nst);
+ }
+ sort(vsst.begin(), vsst.end(), comp);
+ forn(i, vsst.size()) cout << vsst[i].d << endl;
 
-  ll ans = 0; map<int, int> dn;
-  forn(i, n) {
-  	ll curr = 0;
-  	REP(j, i+1, n-1) {
-      if(i == j) continue;
-      // if(dn.find(lst[i].second) != dn.end() || dn.find(lst[j].second) != dn.end()) continue;
-
-      if(lst[j].second > lst[i].second && (lst[j].first - lst[i].first) == (lst[j].second - lst[i].second))  {
-      		curr +=  lst[j].first;
-      // dn[lst[i].second] = 1;
-      // dn[lst[j].second] = 1;
-      }      
-  	}
-  	    ans = max(ans, curr + lst[i].first);
-
-  }
-  cout << ans << endl;
 return 0;
 }
