@@ -52,7 +52,7 @@ int main() {
   cin >> tc;
   while(tc--) {
   	int n; cin >> n;
-  	int dls[n]; int ods = 0; int evend = 0;
+  	int dls[n]; ll ods = 0; ll evend = 0;
 
   	forn(i,n) {
   		cin >> dls[i];
@@ -61,14 +61,14 @@ int main() {
   	}
 
   	int m ; cin >> m;
-  	int odj = 0; int evenj = 0;
+  	ll odj = 0; ll evenj = 0;
   	int jls[m];
   	forn(i,m) {
   		cin>>jls[i];
   		if(jls[i] % 2 == 0) evenj++;
   		else odj++;
   	}
-   ll ans = (evenj * evend) + (ods * odj);
+   ll ans = 1LL * ((evenj * evend) + (ods * odj));
 
   
   	cout << ans << endl;

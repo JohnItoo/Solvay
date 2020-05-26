@@ -48,15 +48,29 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
-  int tc; cin >> tc;
-  while(tc--) {
-  	ll a; ll b; cin >> a >> b;
-  	if((a == 1 && b == 2 ) || (a == 2 && b == 1) || (a == 0 && b == 0)) cout << "YES" << endl;
-  	else {
-  		if( a > b) swap(a,b);
-  		if(b - (2* (a-2)) == 1) cout << "YES" << endl;
-  		else cout << "NO" << endl;
+  int n, m; cin >> n >> m;
+  int gp[n][m];
+  forn(i, n) {
+  	forn(j, m) {
+      cin >> gp[i][j];
   	}
+  } 
+  bool ans = true;
+  forn(i,n) {
+  	int mv = 0; int j = 0;
+  	bool cld = true;
+  	while(mv <= 1 && j <n) {
+  		int curr = gp[i][j];
+
+  		if(curr != j+1) {
+  			if(gp[i][curr-1] != j+1) {cout << i << " " << j <<endl;cld = false; break;}
+  			else { swap(gp[i][j] ,gp[i][curr-1]); mv++;}
+  		}
+  		j++;
+  	}
+  	if(!cld || mv >= 2) {ans = false; break;}
   }
+  if(ans) cout << "YES" << endl;
+  else cout << "NO" << endl;
 return 0;
 }
