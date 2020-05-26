@@ -45,8 +45,37 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
+bool comp(ii a, ii b) {
+	return a.first < b.first;
+}
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
+  vii lst;
+  int n; cin >> n;
+  REP(i, 1, n) {
+  	int x; cin >> x;
+  	ii a = mp(x,i);
+  	lst.pb(a);
+  }
+  sort(lst.begin(), lst.end(), comp);
+
+  ll ans = 0; map<int, int> dn;
+  forn(i, n) {
+  	ll curr = 0;
+  	forn(j, n) {
+      if(i == j) continue;
+      // if(dn.find(lst[i].second) != dn.end() || dn.find(lst[j].second) != dn.end()) continue;
+
+      if(lst[j].second > lst[i].second && (lst[j].first - lst[i].first) == (lst[j].second - lst[i].second))  {
+      		curr +=  lst[j].first;
+      // dn[lst[i].second] = 1;
+      // dn[lst[j].second] = 1;
+      }      
+  	}
+  	    ans = max(ans, curr + lst[i].first);
+
+  }
+  cout << ans << endl;
 return 0;
 }
