@@ -44,9 +44,29 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-
+int sum(int dig) {
+	int a = dig;
+	while(dig > 0) {
+		a += dig % 10;
+		dig /= 10;
+	}
+	return a;
+}
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
+  int n; cin >> n; 
+ 
+  vi aas;
+  REP(i, 0, 1000) {
+  	if(i  > n) break;
+  	int sm = sum(n-i);
+   if(sm == n) aas.pb(n-i); 
+  }
+  sort(aas.begin(), aas.end());
+  cout << aas.size() << endl;
+  for(auto a : aas) {
+    cout << a << endl;
+  }
 return 0;
 }
