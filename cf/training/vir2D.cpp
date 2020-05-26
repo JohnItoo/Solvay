@@ -44,43 +44,9 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-struct st {
- int a; 
- int b; int c; int d;
- st(int a, int b, int c, int d) {
- 	this->a = a; 
- 	this->b= b;
- 	this->c= c;
- 	this->d = d;
- }
-};
-bool comp(st a, st b) {
-	return a.d > b.d;
-}
 
 int main() {
-	ios::sync_with_stdio(false);
- cin.tie(0);
- int n, m, q; cin >> n >> m >> q;
- vector<st> vsst;
- forn(i, q) {
- 	int a, b, c, d; cin >> a >> b >> c >> d;
- 	st nst = st(a,b,c,d);
- 	vsst.pb(nst);
- }
- sort(vsst.begin(), vsst.end(), comp);
- int arr[n];  
- forn(i, vsst.size()-1) {
- 	memset(arr, 0, n);
- 	REP(j, i+1, vsst.size()-1) {
-        st s = vsst[j];
-        if(arr[s.b -1] != 0 && arr[s.a-1] != 0 && arr[s.b-1] - arr[s.a-1] != s.c) continue;
-        if(arr[s.b-1] == 0) {
-        	arr[s.b-1] =  
-        }
- 	}
-
- }
-
+  ios::sync_with_stdio(false);
+  cin.tie(0);
 return 0;
 }

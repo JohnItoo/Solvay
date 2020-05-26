@@ -56,10 +56,17 @@ int main() {
  	a[i] = x;
  }
  int ans = 0;
- REP(i, ed, n-2) {
+ if(ed) {
+   for(int i = n; i < 2*n ; i++) {
+   	
+   }
+ } else {
+    REP(i, ed, n-2) {
    ans += a[i+1] - a[i];
+ 
  }
- if(ed) ans += k - a[n-1];
+}
+
  cout << ans << endl;
 return 0;
 }

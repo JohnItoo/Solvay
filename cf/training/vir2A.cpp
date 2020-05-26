@@ -44,43 +44,35 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-struct st {
- int a; 
- int b; int c; int d;
- st(int a, int b, int c, int d) {
- 	this->a = a; 
- 	this->b= b;
- 	this->c= c;
- 	this->d = d;
- }
-};
-bool comp(st a, st b) {
-	return a.d > b.d;
-}
 
 int main() {
-	ios::sync_with_stdio(false);
- cin.tie(0);
- int n, m, q; cin >> n >> m >> q;
- vector<st> vsst;
- forn(i, q) {
- 	int a, b, c, d; cin >> a >> b >> c >> d;
- 	st nst = st(a,b,c,d);
- 	vsst.pb(nst);
- }
- sort(vsst.begin(), vsst.end(), comp);
- int arr[n];  
- forn(i, vsst.size()-1) {
- 	memset(arr, 0, n);
- 	REP(j, i+1, vsst.size()-1) {
-        st s = vsst[j];
-        if(arr[s.b -1] != 0 && arr[s.a-1] != 0 && arr[s.b-1] - arr[s.a-1] != s.c) continue;
-        if(arr[s.b-1] == 0) {
-        	arr[s.b-1] =  
-        }
- 	}
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  int tc;
+  cin >> tc;
+  while(tc--) {
+  	int n; cin >> n;
+  	int dls[n]; int ods = 0; int evend = 0;
 
- }
+  	forn(i,n) {
+  		cin >> dls[i];
+  		if(dls[i] % 2 == 0) evend++;
+  		else ods++; 
+  	}
 
+  	int m ; cin >> m;
+  	int odj = 0; int evenj = 0;
+  	int jls[m];
+  	forn(i,m) {
+  		cin>>jls[i];
+  		if(jls[i] % 2 == 0) evenj++;
+  		else odj++;
+  	}
+   ll ans = (evenj * evend) + (ods * odj);
+
+  
+  	cout << ans << endl;
+
+  }
 return 0;
 }
