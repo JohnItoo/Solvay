@@ -66,16 +66,16 @@ int main() {
   		totb += 1;
   	}
   } 
-  int ans = -1; cout << exa << exb << endl; cout <<  tota << totb << endl;
+  int ans = -1; 
+  // cout << exa << exb << endl; cout <<  tota << totb << endl;
 
   if(exa != 0 || exb != 0) {
   	if(tota > totb) ans = 1;
   	if(tota == totb) ans = 2;
-  	if(tota < totb) {
+  	if(tota < totb && exa > 0) {
   		int nn = (totb + 1) - tota;
-  		int sol = max(nn/exa, nn%exa);
-  		cout << nn%exa << endl;
-  		ans = sol+1;
+  		int sol = (nn + exa - 1)/exa;
+   		ans = sol+1;
   	}
   } 
   cout << ans << endl;
