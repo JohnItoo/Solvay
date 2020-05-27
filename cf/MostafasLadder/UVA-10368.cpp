@@ -53,9 +53,18 @@ string trUpp(string s) {
 }
 
 int main() {
-	ll a ,b;
+	int a = 0; int b  = 0;
 	while( cin >> a >> b) {
-		if( a >= b ) cout << "Stan wins" << endl;
+		int n = 0;
+		while( a  > 0 && b > 0) {
+			if(a > b) {
+               a -=  (b* (a / b ));
+			} else {
+				b -= (a * (b/a));
+			}
+			n++;
+		}
+		if( n % 2 != 0 ) cout << "Stan wins" << endl;
 		else cout << "Ollie wins" << endl;
 	}
 	
