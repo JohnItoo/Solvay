@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      : https://codeforces.com/gym/281877/problem/D
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
