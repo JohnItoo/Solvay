@@ -51,8 +51,8 @@ string trUpp(string s) {
   	transform(s.begin(), s.end(), s.begin(), ::toupper);
  return "";
 }
-
-int main() {
+// SLiding window.
+int slidingWindow() {
   int n, k; cin >> n >> k;
   int a[n];
   forn(i, n) {
@@ -74,4 +74,24 @@ int main() {
   cout << idx << endl;
 	
 return 0;
+}
+
+int main()  {
+	// prefix sums;
+	int n, k; cin >> n >> k;
+  int a[(int) 2e5];
+  REP(i, 1, n) {
+  	int x; cin >> x;
+    a[i] = x + a[i-1];
+  }
+  
+  int idx = 1;
+  int ans = a[k];
+  REP(i, k+1 , n) {
+   if( (a[i] - a[i-k]) < ans) {
+   	ans = a[i] - a[i-k];
+   	idx = (i-k) +1;
+   }
+  }
+  cout << idx << endl;
 }
