@@ -46,11 +46,15 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 	// to_string(int)
 
+
 string trUpp(string s) {
 	
   	transform(s.begin(), s.end(), s.begin(), ::toupper);
  return "";
 }
+/**
+WA
+**/
 
 int main() {
 	int a = 0; int b  = 0;
