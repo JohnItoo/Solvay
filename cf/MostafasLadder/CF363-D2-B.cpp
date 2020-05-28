@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -44,19 +44,19 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-	// to_string(int)
+// to_string(int)
 
 string trUpp(string s) {
-	
-  	transform(s.begin(), s.end(), s.begin(), ::toupper);
- return "";
+
+  transform(s.begin(), s.end(), s.begin(), ::toupper);
+  return "";
 }
 // SLiding window.
 int slidingWindow() {
   int n, k; cin >> n >> k;
   int a[n];
   forn(i, n) {
-  cin >> a[i];
+    cin >> a[i];
   }
   int st = 0;
   forn(i, k) {
@@ -64,34 +64,34 @@ int slidingWindow() {
   }
   int ans = st;
   int idx = 1;
-  for(int i = k ; i < n; i++) {
-     st -= a[i-k]; st += a[i];
-     if(st < ans) {
-     	ans = st;
-     	idx = i-k+2;
-     }
+  for (int i = k ; i < n; i++) {
+    st -= a[i - k]; st += a[i];
+    if (st < ans) {
+      ans = st;
+      idx = i - k + 2;
+    }
   }
   cout << idx << endl;
-	
-return 0;
+
+  return 0;
 }
 
 int main()  {
-	// prefix sums;
-	int n, k; cin >> n >> k;
+  // prefix sums;
+  int n, k; cin >> n >> k;
   int a[(int) 2e5];
   REP(i, 1, n) {
-  	int x; cin >> x;
-    a[i] = x + a[i-1];
+    int x; cin >> x;
+    a[i] = x + a[i - 1];
   }
-  
+
   int idx = 1;
   int ans = a[k];
-  REP(i, k+1 , n) {
-   if( (a[i] - a[i-k]) < ans) {
-   	ans = a[i] - a[i-k];
-   	idx = (i-k) +1;
-   }
+  REP(i, k + 1 , n) {
+    if ( (a[i] - a[i - k]) < ans) {
+      ans = a[i] - a[i - k];
+      idx = (i - k) + 1;
+    }
   }
   cout << idx << endl;
 }

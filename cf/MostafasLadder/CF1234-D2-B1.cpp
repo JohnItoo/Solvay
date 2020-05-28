@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -45,42 +45,42 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-	// to_string(int)
+// to_string(int)
 
 string trUpp(string s) {
-	
-  	transform(s.begin(), s.end(), s.begin(), ::toupper);
- return "";
+
+	transform(s.begin(), s.end(), s.begin(), ::toupper);
+	return "";
 }
 // THIS IS FOR 1234-D2-B1 and B2.
 int main() {
 	ll n, k; cin >> n >> k;
 	deque<long long> q; map<ll, ll> myp;
-	REP(i, 1,n) {
+	REP(i, 1, n) {
 		ll x ; cin >> x;
-		if(q.size() < k){
-			if(myp.find(x) == myp.end()) {
+		if (q.size() < k) {
+			if (myp.find(x) == myp.end()) {
 				q.push_front(x);
 				myp[x] = x;
 			}
-		
-		} 
+
+		}
 		else {
-			if(myp.find(x) == myp.end()) {
+			if (myp.find(x) == myp.end()) {
 				ll bck = q.back();
 				myp.erase(bck);
-                q.pop_back();
-               q.push_front(x);
-               myp[x] = x;
+				q.pop_back();
+				q.push_front(x);
+				myp[x] = x;
 			}
 		}
 	}
 
-    cout << q.size() << endl;
-	while(!q.empty()) {
+	cout << q.size() << endl;
+	while (!q.empty()) {
 		ll y = q.front(); q.pop_front();
 		cout << y << " ";
 	}
-	
-return 0;
+
+	return 0;
 }

@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -44,50 +44,50 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-	// to_string(int)
+// to_string(int)
 
 string trUpp(string s) {
-	
-  	transform(s.begin(), s.end(), s.begin(), ::toupper);
- return "";
+
+    transform(s.begin(), s.end(), s.begin(), ::toupper);
+    return "";
 }
 
 int main() {
-	int n; cin >> n;
-	ll a[n];
-	forn(i,n) cin>> a[i];
+    int n; cin >> n;
+    ll a[n];
+    forn(i, n) cin >> a[i];
     int left = -1; int right = -1;
-	for(int i = 0; i < n-1; i++) {
-        if(a[i] > a[i+1] && left == -1) {left = i;}
-        if(left != -1 && a[i] < a[i+1]){
-         right = i; break;
-     }
-	}
-    
-    if(left != -1 && right == -1) right = n-1;
-     int lf = left; int rt = right;
-     if(left != -1 && right != -1) {
-     	  REP(i, left, right) {
-    	if(right < left) break;
-    	ll templeft = a[left];
-    	a[left] = a[right];
-    	a[right] = templeft;
-    	left++; right--;
+    for (int i = 0; i < n - 1; i++) {
+        if (a[i] > a[i + 1] && left == -1) {left = i;}
+        if (left != -1 && a[i] < a[i + 1]) {
+            right = i; break;
+        }
     }
-   }
-   if(lf == -1 && rt == -1) {
-   	lf = 0; rt = 0;
-   }
-  
+
+    if (left != -1 && right == -1) right = n - 1;
+    int lf = left; int rt = right;
+    if (left != -1 && right != -1) {
+        REP(i, left, right) {
+            if (right < left) break;
+            ll templeft = a[left];
+            a[left] = a[right];
+            a[right] = templeft;
+            left++; right--;
+        }
+    }
+    if (lf == -1 && rt == -1) {
+        lf = 0; rt = 0;
+    }
+
     bool ans = true;
-    for(int i = 0; i < n-1; i++) {
-    	if(a[i] > a[i+1]) {ans = false; break;}
-    } 
-   
+    for (int i = 0; i < n - 1; i++) {
+        if (a[i] > a[i + 1]) {ans = false; break;}
+    }
+
     if (ans) {
-    	cout << "yes" << endl;
-    	cout << lf+1 << " " << rt+1;
+        cout << "yes" << endl;
+        cout << lf + 1 << " " << rt + 1;
     } else { cout << "no" << endl;}
-	
-return 0;
+
+    return 0;
 }
