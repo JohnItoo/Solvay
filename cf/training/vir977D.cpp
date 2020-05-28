@@ -84,35 +84,21 @@ void perm(ll st, int n, int targ, vector<ll> vl) {
 	}
 	curr.pop_back();
 }
-int backtrack() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	found = false;
+int backtrack(vector<ll> vl) {
+	int n = vl.size();
 
-	int n; cin >> n;
-	vector<ll> vl;
-	forn(i, n) {
-		ll x; cin >> x;
-		vl.pb(x);
-	}
 	for (ll st : vl) {
 		curr.clear();
 		perm(st, 0, n, vl);
 	}
 	return 0;
 }
-
-int permutaion() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-
-	int n; cin >> n;
-	vector<ll> vl;
-	forn(i, n) {
-		ll x; cin >> x;
-		vl.pb(x);
-	}
-
+/**
+This solution tries to keep permuting the input till current state matches order criteria.
+TLE for big input.
+**/
+int permutaion(vector<ll> vl) {
+	int n = vl.size();
 	do {
 		bool correct = true;
 		for (int i = 0; i < n - 1; i++) {
@@ -134,6 +120,13 @@ int permutaion() {
 
 }
 
+/**
+ Trying to build the tree but found out it is not feasible because the worst case may have
+    for a particular current head with say value 8, our set can have 24 (8*3) and 4 (8/2) so what is now the current head?
+    Probably build a graph instead ..(with cycles). (HInt from Comments)
+
+ **/
+
 struct Node {
 	Node* left;
 	Node* right;
@@ -145,6 +138,24 @@ struct Node {
 };
 
 
+int buildGraph(vector<ll> vl) {
+
+	sort(vl.begin(), vl.end());
+	ll fd = vl[0];
+	Node curr = Node(fd);
+
+	while (find(vl.begin(), vl.end(), fd * 3) != vl.end() || find(vl.begin(), vl.end(), fd / 2) != vl.end()) {
+		if (find(vl.begin(), vl.end(), fd * 3) != vl.end()) {
+			Node fresh = Node(fd * 3);
+			fresh.right = &curr;
+
+		}
+	}
+
+
+	return 0;
+}
+
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
@@ -155,19 +166,9 @@ int main() {
 		ll x; cin >> x;
 		vl.pb(x);
 	}
+	//permutation(vl);
+	//backtrack(vl);
+	buildGraph(vl);
 
-	sort(vl.begin(), vl.end());
-	ll fd = vl[0];
-	Node curr = Node(fd);
-
-	while(find(vl.begin(), vl.end(), fd*3) != vl.end() || find(vl.begin(), vl.end(), fd/2) != vl.end()) {
-		if(find(vl.begin(), vl.end(), fd*3) != vl.end()) {
-			Node fresh = Node(fd*3);
-			fresh.right = curr;
-
-		}
-	}
-
-
-return 0;
+	return 0;
 }
