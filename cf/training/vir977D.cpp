@@ -47,22 +47,23 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 vector<ll> curr;
 bool found = false;
 
+// WA!!
 
 void perm(ll st, int n, int targ, vector<ll> vl) {
 	if (curr.size() == targ) {
 		bool locfound = true;
-		for (int i = 0; i < curr.size(); i++) {
-			cout << curr[i] << "curr";
-		}
-		cout << endl;
+		// for (int i = 0; i < curr.size(); i++) {
+		// 	cout << curr[i] << "curr";
+		// }
+		// cout << endl;
 		for (int i = 0; i < curr.size(); i++) {
 			if (find(vl.begin(), vl.end(), curr[i]) ==  vl.end()) {
 				locfound = false;
 				break;
 			}
 		}
-		if (locfound) {
-			for (auto id : curr) {
+		if (locfound && !found) {
+			for (ll id : curr) {
 				cout << id  << " ";
 			}
 			cout << endl;
@@ -70,7 +71,7 @@ void perm(ll st, int n, int targ, vector<ll> vl) {
 		found = locfound;
 		return;
 	}
-	bool cont = true;
+
 	if (found) return;
 	curr.pb(st);
 	// cout << st << endl;
@@ -78,16 +79,12 @@ void perm(ll st, int n, int targ, vector<ll> vl) {
 		if (i == 0) {
 			perm(st * 2, n + 1, targ, vl);
 		} else {
-			if (n % 3 == 0) {
-				perm(st / 3, n + 1, targ, vl);
-			}
-			
+			perm(st / 3, n + 1, targ, vl);
 		}
 	}
 	curr.pop_back();
-	if (!cont) return;
 }
-int main() {
+int backtrack() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	found = false;
@@ -95,18 +92,12 @@ int main() {
 	int n; cin >> n;
 	vector<ll> vl;
 	forn(i, n) {
-		int x; cin >> x;
+		ll x; cin >> x;
 		vl.pb(x);
 	}
 	for (ll st : vl) {
 		curr.clear();
 		perm(st, 0, n, vl);
-
-		if (found) {
-			cout << "found";
-
-			break;
-		}
 	}
 	return 0;
 }
@@ -141,4 +132,42 @@ int permutaion() {
 
 	return 0;
 
+}
+
+struct Node {
+	Node* left;
+	Node* right;
+	ll data;
+
+	Node(ll data) {
+		this->data = data;
+	}
+};
+
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+
+	int n; cin >> n;
+	vector<ll> vl;
+	forn(i, n) {
+		ll x; cin >> x;
+		vl.pb(x);
+	}
+
+	sort(vl.begin(), vl.end());
+	ll fd = vl[0];
+	Node curr = Node(fd);
+
+	while(find(vl.begin(), vl.end(), fd*3) != vl.end() || find(vl.begin(), vl.end(), fd/2) != vl.end()) {
+		if(find(vl.begin(), vl.end(), fd*3) != vl.end()) {
+			Node fresh = Node(fd*3);
+			fresh.right = curr;
+
+		}
+	}
+
+
+return 0;
 }
