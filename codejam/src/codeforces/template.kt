@@ -18,7 +18,7 @@ fun main() {
     val outputStream = System.out
     val `in` = Main.InputReader(inputStream)
     val out = PrintWriter(outputStream)
-    val solver = Main.TaskB()
+    val solver = Main.TaskA()
     solver.solve(1, `in`, out)
     out.close()
 }
@@ -70,15 +70,7 @@ object Main {
                 var j = 0
                 out.println(s)
                 while (j < a) {
-                    4
-                    4 5 7
-                    1011
-                    4 4 10
-                    0101
-                    5 3 4
-                    11011
-                    6 4 6
-                    011101
+
                     if ((j == a - 1 && s[j] == '1') || s[j] == '1' && s[j + 1] == '0') {
                         ans += b
                         j++
@@ -107,17 +99,23 @@ object Main {
             val n = `in`.nextInt()
 
             for (i in 0 until n) {
-                val a = `in`.nextInt()
-                val b = `in`.nextInt()
-                var w = 0
-                var x = 0
-                var y = 0
-                var z = 0
-                while ((w + x + y + z) != a) {
-                    w += 1
-                    x = w * b
-                    y = x * b
-                    z = y * b
+                val sum = `in`.nextInt()
+                val  r= `in`.nextInt()
+                var w = 1
+                var x = 1
+                var y = 1
+                var z = 1
+                if(r != 1) {
+                   val rpow : Int = r*r*r*r
+                    w = ((1-r)*sum) / (1 - rpow)
+                    x = w*r
+                    y = x* r
+                    z= y*r
+                } else {
+                    w = sum / 4
+                    x = w
+                    y = w
+                    z  = w
                 }
                 out.println("$w $x $y $z")
             }
