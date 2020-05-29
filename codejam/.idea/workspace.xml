@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="072897cc-f408-43ea-86ef-eface9f63ccb" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/KotlinJavaRuntime.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/codeforces/template.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cdjm.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cdjm.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/codeforces/template.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/codeforces/template.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,37 +47,9 @@
       <recent name="ladders" />
     </key>
   </component>
-  <component name="RunManager" selected="Kotlin.codeforces.TemplateKt">
-    <configuration name="CF78D2B" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ladders.CF78D2B" />
-      <module name="cdjm" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ladders.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Kotlin.TemplateKt">
     <configuration name="DynamicArray" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dsa.DynamicArray" />
-      <module name="cdjm" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dsa.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Temp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dsa.Temp" />
       <module name="cdjm" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
@@ -102,6 +71,32 @@
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+      <module name="cdjm" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TemplateKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+      <module name="cdjm" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="TemplateKt" />
+      <option name="WORKING_DIRECTORY" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,19 +137,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Temp" />
-      <item itemvalue="Application.CF78D2B" />
       <item itemvalue="Application.DynamicArray" />
       <item itemvalue="Kotlin.codeforces.Main" />
       <item itemvalue="Kotlin.codeforces.TemplateKt" />
+      <item itemvalue="Kotlin.TemplateKt" />
+      <item itemvalue="Kotlin.Main" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Kotlin.TemplateKt" />
+        <item itemvalue="Kotlin.Main" />
         <item itemvalue="Kotlin.codeforces.TemplateKt" />
         <item itemvalue="Kotlin.codeforces.Main" />
         <item itemvalue="Application.DynamicArray" />
-        <item itemvalue="Application.CF78D2B" />
-        <item itemvalue="Application.Temp" />
       </list>
     </recent_temporary>
   </component>
@@ -180,26 +175,26 @@
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state x="674" y="434" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1585987353302" />
-    <state width="1638" height="265" key="GridCell.Tab.0.bottom" timestamp="1590734614889">
+    <state width="1638" height="265" key="GridCell.Tab.0.bottom" timestamp="1590738783964">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1638" height="265" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1589912236081" />
-    <state width="1638" height="265" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1590734614889" />
-    <state width="1638" height="265" key="GridCell.Tab.0.center" timestamp="1590734614888">
+    <state width="1638" height="265" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1590738783964" />
+    <state width="1638" height="265" key="GridCell.Tab.0.center" timestamp="1590738783960">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1638" height="265" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1589912236079" />
-    <state width="1638" height="265" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1590734614888" />
-    <state width="1638" height="265" key="GridCell.Tab.0.left" timestamp="1590734614887">
+    <state width="1638" height="265" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1590738783960" />
+    <state width="1638" height="265" key="GridCell.Tab.0.left" timestamp="1590738783960">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1638" height="265" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1589912236079" />
-    <state width="1638" height="265" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1590734614887" />
-    <state width="1638" height="265" key="GridCell.Tab.0.right" timestamp="1590734614888">
+    <state width="1638" height="265" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1590738783960" />
+    <state width="1638" height="265" key="GridCell.Tab.0.right" timestamp="1590738783962">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
     <state width="1638" height="265" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1589912236080" />
-    <state width="1638" height="265" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1590734614888" />
+    <state width="1638" height="265" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1590738783962" />
     <state x="349" y="164" key="SettingsEditor" timestamp="1586809078657">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>

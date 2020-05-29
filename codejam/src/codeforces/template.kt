@@ -39,16 +39,14 @@ object Main {
     internal class TaskB {
         fun solve(testNumber: Int, `in`: InputReader, out: PrintWriter) {
             val n = `in`.nextInt()
+            var ans = 0
+            var lst = mutableListOf<Int>()
             for (i in 0 until n) {
                 val a = `in`.nextInt()
-                val b = `in`.nextInt()
-                val mn = min(a, b)
-                val mx = max(a,b)
-                val x = 1
-                val y = mn - 1;
-                val z = mx - y;
-                out.println("$x $y $z")
+                
             }
+
+            out.println(ans)
         }
     }
 
@@ -96,6 +94,7 @@ object Main {
         fun nextInt(): Int {
             return Integer.parseInt(next())
         }
+
 
     }
 }
