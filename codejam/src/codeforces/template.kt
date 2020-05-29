@@ -49,8 +49,7 @@ object Main {
                 if(max < a) {
                     max2 = max
                     max = a
-                }
-                if(max2 < a) {
+                } else if(max2 < a) {
                     max2 = a
                 }
 
