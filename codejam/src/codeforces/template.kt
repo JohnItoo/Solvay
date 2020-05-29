@@ -19,7 +19,7 @@ fun main() {
     val outputStream = System.out
     val `in` = Main.InputReader(inputStream)
     val out = PrintWriter(outputStream)
-    val solver = Main.TaskB()
+    val solver = Main.TaskD()
     solver.solve(1, `in`, out)
     out.close()
 }
@@ -120,7 +120,44 @@ object Main {
 
     }
 
-    
+    internal class TaskD {
+        fun solve(testNumber: Int, `in`: InputReader, out: PrintWriter) {
+            val n = `in`.nextInt()
+            var mks = 0
+            var lst = mutableListOf<Int>()
+            for(i in 0 until n)  {
+                val a = `in`.nextInt()
+                lst.add(a)
+                if(a == -1) mks++
+            }
+             var ans = mutableListOf<Int>()
+             var fini = 0
+             for(i in 0 until mks) {
+                 ans.clear()
+                 var j = i
+                 while(j < n ) {
+                     if(lst[j] == -1) {
+                         fini += 1
+                         break
+                     }
+                     ans.add(lst[j])
+                     j+=(mks-fini)
+                 }
+                 val sz = ans.size
+                 out.print("$sz ")
+                 for(q in 0 until ans.size) {
+                     val fg = ans[q]
+                     out.print("$fg ")
+                 }
+                 out.println("")
+             }
+
+
+        }
+
+    }
+
+
 
     internal class InputReader(stream: InputStream) {
         var reader: BufferedReader
