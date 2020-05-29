@@ -54,7 +54,12 @@ int main() {
   	cin >> n >> m >> k;
   	int ans = 0;
   	if(n/k >= m) ans = m;
-  	else ans = 0;
+  	else {
+  		int div = n/k; //3
+  		int lef = m - div; // 3
+  		int mx = ((k-1) + lef -1) / lef; //1
+  		ans = mx;
+  	}
   	cout << ans << endl;
 
   }
