@@ -36,7 +36,7 @@ object Main {
         out.close()
     }
 
-    internal class TaskB {
+    internal class TaskC {
         fun solve(testNumber: Int, `in`: InputReader, out: PrintWriter) {
             val n = `in`.nextInt()
             var ans = 0
@@ -59,6 +59,49 @@ object Main {
         }
     }
 
+    internal class TaskB {
+        fun solve(testNumber: Int, `in`: InputReader, out: PrintWriter) {
+            val n = `in`.nextInt()
+
+            for (i in 0 until n) {
+              val s = `in`.next()
+                val t = `in`.next()
+                val len = t.length
+                if(s.length > 2 * len) {
+                    out.println("NO")
+                    continue
+                }
+                var ans = "YES"
+                var j = 0
+                var k = 0
+                while(j < len && k < s.length) {
+//                    out.println(j)
+                    if(s[k] == t[j]) {
+                        j++
+                        k++
+                        continue
+                    }
+                    if(s[k] == '+' && t[j] == '-') {
+                        ans = "NO"
+                        break
+                    }
+                    if(t[j] == '+' && s[k] == '-' && ((k + 1 >= s.length) || s[k+1] == '+')) {
+                        ans = "NO"
+                        break
+                    }
+                    k+=2
+                    j+=1
+                }
+                if(ans == "YES" && (k != s.length || j != len  )) {
+//                    out.println("here")
+                    ans = "NO"
+                }
+                out.println(ans)
+            }
+
+        }
+    }
+
     internal class TaskA {
         fun solve(testNumber: Int, `in`: InputReader, out: PrintWriter) {
             val n = `in`.nextInt()
@@ -76,6 +119,8 @@ object Main {
         }
 
     }
+
+    
 
     internal class InputReader(stream: InputStream) {
         var reader: BufferedReader
