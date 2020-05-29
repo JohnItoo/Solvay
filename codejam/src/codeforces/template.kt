@@ -40,10 +40,20 @@ object Main {
         fun solve(testNumber: Int, `in`: InputReader, out: PrintWriter) {
             val n = `in`.nextInt()
             var ans = 0
-            var lst = mutableListOf<Int>()
+            var max = 0
+            var max2 = 0
+            var res = 0
             for (i in 0 until n) {
                 val a = `in`.nextInt()
-                
+                if(max2 > a) ans++
+                if(max < a) {
+                    max2 = max
+                    max = a
+                }
+                if(max2 < a) {
+                    max2 = a
+                }
+
             }
 
             out.println(ans)
@@ -53,9 +63,7 @@ object Main {
     internal class TaskA {
         fun solve(testNumber: Int, `in`: InputReader, out: PrintWriter) {
             val n = `in`.nextInt()
-            var max = 0
-            var max2 = 0
-            var res = 0
+
             for (i in 0 until n) {
                 val a = `in`.nextInt()
                 val b = `in`.nextInt()
