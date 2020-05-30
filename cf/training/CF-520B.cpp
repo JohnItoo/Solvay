@@ -48,15 +48,36 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int n;
-	cin >> n;
-	forn(i, n) {
-		int a; cin >> a;
-		if (360 % (180 - a) == 0) {
-			cout << "YES" << endl;
-		} else {
-			cout << "NO" << endl;
-		}
+	ll n, m; cin >> n >> m;
+
+	if (m <= n) {
+		cout << n - m << endl;
+		return 0;
 	}
+
+	vector<ll> gp[6000];
+
+	gp[1].pb(n * 2);
+	gp[1].pb(n - 1);
+
+	int ans = -1;
+	REP(i, 2, 50005) {
+		for (ll at : gp[i - 1]) {
+			ll l = at * 2;
+			ll r = at - 1;
+			if (l == m ||  r == m) {
+				ans = i;
+				break;
+			}
+			gp[i].pb(l);
+			gp[i].pb(r);
+		}
+		if (ans != -1) break;
+	}
+
+	cout << ans << endl;
+
+
+
 	return 0;
 }
