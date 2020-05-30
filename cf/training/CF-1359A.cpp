@@ -57,8 +57,8 @@ int main() {
   	else {
   		int div = n/k; //3
   		int lef = m - div; // 3
-  		int mx = ((k-1) + lef -1) / lef; //1
-  		ans = mx;
+  		int mx = (lef +( k -1) - 1) / (k-1);
+  		ans = div - mx;
   	}
   	cout << ans << endl;
 
