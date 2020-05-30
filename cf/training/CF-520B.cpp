@@ -45,28 +45,7 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-ll ans = 0;
-void bfs(vector<ll> gp[], ll n, ll m) {
-   queue<ll> q;
-   map<ll, ll> visited;
-   q.push(n);
-   int i = 0;
-   while(!q.empty()) {
-   	 ll lst = q.front(); q.pop();
-   	 if(visited.find(lst) != visited.end()) continue;
-   	 visited[lst] =1;
 
-   	 for( auto el : gp[lst]) {
-        if(el == m) {
-        	ans = i;
-        	break;
-        } else {
-        	q.push(el);
-        }
-   	 }
-   	 i++;
-   }
-}
 
 int main() {
 	ios::sync_with_stdio(false);
@@ -77,22 +56,17 @@ int main() {
 		cout << n - m << endl;
 		return 0;
 	}
+    int res = 0;
+    while(n != m) {
+    	if( m > n && m % 2 == 0) {
+    		m /=2;
+    	} else {
+    		m++;
+    	}
+    	res++;
+    }
 
-	vector<ll> gp[(2*m)+2];
-
-	gp[1].pb(n * 2);
-	gp[1].pb(n - 1);
-
-	ll i = 2;
-	REP(i, 1, n) {
-			ll l = i * 2;
-			ll r = i  - 1;
-			if(l > 0) gp[i].pb(l);
-			if(r > 0) gp[i].pb(r);
-	}
-	bfs(gp, n, m);
-
-	cout << ans << endl;
+	cout << res << endl;
 
 
 
