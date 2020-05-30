@@ -55,13 +55,14 @@ int main() {
 		return 0;
 	}
 
-	vector<ll> gp[6000];
+	vector<ll> gp[100005];
 
 	gp[1].pb(n * 2);
 	gp[1].pb(n - 1);
 
-	int ans = -1;
-	REP(i, 2, 50005) {
+	ll ans = -1;
+	ll i = 2;
+	while(ans == -1) {
 		for (ll at : gp[i - 1]) {
 			ll l = at * 2;
 			ll r = at - 1;
@@ -72,7 +73,7 @@ int main() {
 			gp[i].pb(l);
 			gp[i].pb(r);
 		}
-		if (ans != -1) break;
+		i++;
 	}
 
 	cout << ans << endl;
