@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -46,44 +46,17 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	int tc; cin >> tc;
-	forn(t, tc) {
-		int n, m, x, y; cin >> n >> m >> x >> y;
-		char grid[n][m];
-		forn(i, n) {
-			string s; cin >> s;
-			forn(j, m) {
-				grid[i][j] = s[j];
-			}
-		}
-
-		int cost = 0;
-		forn(i, n) {
-			int j = 0;
-			while (j < m) {
-				if (grid[i][j] == '.' && (j + 1) < m && grid[i][j + 1] == '.' && (2 * x) >= y) {
-
-					grid[i][j] = '*';
-					grid[i][j + 1] = '*';
-					cost += y;
-					j += 2;
-					//	continue;
-
-				} else if (grid[i][j] == '.') {
-					grid[i][j] = '*';
-					cost += x;
-					j += 1;
-					// continue;
-				} else {
-					j++;
-				}
-
-			}
-		}
-		cout << cost << endl;
-
-	}
-	return 0;
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  int n; 
+  cin >> n;
+  forn(i,n) {
+  	int a; cin >> a;
+  	if(360 %(180-a) == 0) {
+  		cout << "YES" << endl;
+  	} else {
+  		cout << "NO" << endl;
+  	}
+  }
+return 0;
 }

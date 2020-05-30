@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -46,36 +46,36 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 ll sieve[1000006];
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-   int n; cin >> n;
-    ll a[n]; ll mx = 0;
-    for(int i = 0; i<n; i++) {
-        cin >> a[i];
-        mx = max(mx, a[i]);
-    }
-    // memset(sieve, 0, sizeof sieve);
-    for(ll y = 2; y*y <= mx; y++) {
-        if(sieve[y]) continue;
-        for(ll q = 2*y; q*q <= mx; q+=y) {
-            sieve[q] = y;
-        }
-    }
-    map<ll,ll> mps;
-    for(ll y = 2; y *y <= mx; y++) {
-        if(sieve[y]) continue;
-        mps[y*y] = 1;
-    }
-    for(int i = 0; i<n; i++) {
-        if(mps.find(a[i]) != mps.end()) {
-            cout << "YES" << endl;
-        } else {
-            cout << "NO" << endl;
-        }
-    }
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	int n; cin >> n;
+	ll a[n]; ll mx = 0;
+	for (int i = 0; i < n; i++) {
+		cin >> a[i];
+		mx = max(mx, a[i]);
+	}
+	// memset(sieve, 0, sizeof sieve);
+	for (ll y = 2; y * y <= mx; y++) {
+		if (sieve[y]) continue;
+		for (ll q = 2 * y; q * q <= mx; q += y) {
+			sieve[q] = y;
+		}
+	}
+	map<ll, ll> mps;
+	for (ll y = 2; y * y <= mx; y++) {
+		if (sieve[y]) continue;
+		mps[y * y] = 1;
+	}
+	for (int i = 0; i < n; i++) {
+		if (mps.find(a[i]) != mps.end()) {
+			cout << "YES" << endl;
+		} else {
+			cout << "NO" << endl;
+		}
+	}
 
-    // your code here
+	// your code here
 
-    cout.flush();
-    return 0;
+	cout.flush();
+	return 0;
 }
