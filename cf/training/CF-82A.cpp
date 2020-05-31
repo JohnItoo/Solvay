@@ -48,5 +48,31 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
+  ll n; cin >> n;
+  vector<ll> shlds;
+  string names[5] = {"Sheldon", "Leonard", "Penny", "Rajesh", "Howard"};
+  shlds.pb(1);
+  shlds.pb(6);
+  
+  int i = 2;
+  ll diff = 5;
+  while(shlds[i-1] < n) {
+  	diff *= 2;
+  	shlds.pb(shlds[i-1] + (diff));
+  	i++;
+  }
+  if(shlds[i - 1] == n) cout << names[0] << endl;
+  else {
+  	i -= 1;
+  	int person = 1;
+  	int st = shlds[i];
+  	while( n > st + i -1) {
+  		st += i;
+  		person++;
+  	}
+  	cout << names[person-1] << endl;
+  }
+
+
 return 0;
 }
