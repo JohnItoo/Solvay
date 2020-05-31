@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -45,36 +45,21 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
-//WA
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	ll n; cin >> n;
-	vector<ll> shlds;
-	string names[5] = {"Sheldon", "Leonard", "Penny", "Rajesh", "Howard"};
-	shlds.pb(1);
-	shlds.pb(6);
-
-	int i = 2;
-	ll diff = 5;
-	while (shlds[i - 1] < n) {
-		diff *= 2;
-		shlds.pb(shlds[i - 1] + (diff));
-		i++;
-	}
-	if (shlds[i - 1] == n) cout << names[0] << endl;
-	else {
-		i -= 2;
-		int person = 1;
-		int st = shlds[i];
-		while ( n > st + i - 1) {
-			st += i;
-			person++;
-			i++;
-		}
-		cout << names[person - 1] << endl;
-	}
-
-
-	return 0;
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  ll n, t;
+  cin >> n >> t;
+  ll l = (ll) pow(10, n-1);
+  ll r = (ll) pow(10, n);
+  
+  ll ans = -1;
+  for(ll i = l; i < r; i++) {
+  	if(i % t == 0) {
+  		ans = i;
+  		break;
+  	}
+  }
+  cout << ans << endl;
+return 0;
 }
