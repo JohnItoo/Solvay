@@ -46,19 +46,20 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 bool ans = false;
 
+// brute force for each calculate x elements with or without i (0->1)
 void calc(int a[], int i , int j, int x, int n) {
-  int res = 0;
-  int ct = 0;
-  REP (k, j , n-1) {
-  	if(k == i) continue;
-  	if(ct == x) break;
-    res += a[k];
-    ct++;
-  }
-  if(ct == x && res % 2 != 0) ans = true;
+	int res = 0;
+	int ct = 0;
+	REP (k, j , n - 1) {
+		if (k == i) continue;
+		if (ct == x) break;
+		res += a[k];
+		ct++;
+	}
+	if (ct == x && res % 2 != 0) ans = true;
 }
-
-int main() {
+//TLE on large cases.
+int bruteforce() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 
@@ -84,4 +85,33 @@ int main() {
 		cout << res << endl;
 	}
 	return 0;
+}
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+
+	int t; cin >> t;
+
+	while (t--) {
+		int n, x; cin >> n >> x;
+		int a[n];
+		int odds = 0; int eves = 0;
+		forn(i, n) {
+			int z; cin >> z;
+			a[i] = z;
+			if (z % 2 == 0) eves++;
+			else odds++;
+		}
+		string ans = "No";
+		int lim = min(odds, x);
+		for (int i = 1; i <= lim; i += 2) {
+			if (eves >= x - i) {
+				ans = "Yes";
+				break;
+			}
+		}
+		cout << ans << endl;
+
+	}
+
 }
