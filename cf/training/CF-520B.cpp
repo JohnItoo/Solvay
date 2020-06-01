@@ -56,15 +56,15 @@ int main() {
 		cout << n - m << endl;
 		return 0;
 	}
-    int res = 0;
-    while(n != m) {
-    	if( m > n && m % 2 == 0) {
-    		m /=2;
-    	} else {
-    		m++;
-    	}
-    	res++;
-    }
+	int res = 0;
+	while (n != m) {
+		if ( m > n && m % 2 == 0) {
+			m /= 2;
+		} else {
+			m++;
+		}
+		res++;
+	}
 
 	cout << res << endl;
 
