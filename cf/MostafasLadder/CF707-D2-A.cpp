@@ -53,14 +53,19 @@ string trUpp(string s) {
 }
 
 int main() {
-	int n; cin >> n;
-	string s; cin >> s;
-	int ones = 0; int zeros = 0;
-	forn(i,n) {
-		if(s[i] == '1') ones++;
-		else zeros++;
+	int n, m; cin >> n >> m;
+	string ans = "#Black&White";
+	forn(i, n) {
+		forn(j,m) {
+			char s = 'a'; cin >> s;
+			if(s != 'G' && s != 'W' && s != 'B')  {
+				ans = "#Color";
+				// break;
+			}
+		}
+		// if(ans == "#Color") break;
 	}
-	cout << n - 2 * min(ones, zeros) << endl;
+	cout << ans << endl;
 	
 return 0;
 }

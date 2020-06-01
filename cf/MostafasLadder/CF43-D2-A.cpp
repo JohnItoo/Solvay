@@ -54,13 +54,23 @@ string trUpp(string s) {
 
 int main() {
 	int n; cin >> n;
-	string s; cin >> s;
-	int ones = 0; int zeros = 0;
-	forn(i,n) {
-		if(s[i] == '1') ones++;
-		else zeros++;
-	}
-	cout << n - 2 * min(ones, zeros) << endl;
+	map<string, int> ms;
+	set<string> st;
+	forn(i, n) {
+		string s; cin >>s;
+		ms[s]++; 
+		st.insert(s);  
+  	}
+    int ans = 0; string res ="";
+  	for(auto el : st) {
+  		auto it = ms.find(el);
+  		if(it->second > ans) {
+  			ans = it->second;
+  			res = el;
+  		}
+  	}
+  	cout << res;
+
 	
 return 0;
 }
