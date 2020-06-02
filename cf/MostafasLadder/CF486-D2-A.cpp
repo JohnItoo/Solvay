@@ -55,13 +55,8 @@ string trUpp(string s) {
 int main() {
 	ll n;
 	cin >> n;
-	ll pos = n / 2;
-	ll neg = n - pos;
-	ll sump = (pos/2)*(4 + (pos-1)*2);
-	ll sumn = (neg/2)*(-2 + (neg-1) * -2);
-	cout << sump << endl;
-	cout << sump + sumn << endl;
-
+	if(n % 2 == 0) cout << n / 2 << endl;
+	else cout << ((n+1) / 2) * -1 << endl;
 	
 return 0;
 }
