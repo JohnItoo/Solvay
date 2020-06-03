@@ -70,7 +70,7 @@ int main() {
 			break;
 		}
 	}
-	if(ans == "YES" && (sv[m] != m || sv[m] == 0)) ans = "N0";
+	if(ans == "YES" && (sv[m] != m && sv[m] != 0)) ans = "NO";
 	cout << ans << endl;
 	
 return 0;
