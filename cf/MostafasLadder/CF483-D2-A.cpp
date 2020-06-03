@@ -63,7 +63,7 @@ int main() {
 			sv[j] = i;
 		}
 	}
-	vector<int> primes
+	vector<int> primes;
 	REP(i, 2, 50) {
 		if (sv[i] == 0) primes.pb(i);
 	}
@@ -100,8 +100,6 @@ int main() {
 		sort(res, res+3);
 		cout << res[0] << " " << res[1] << " " << res[2] << endl;
 	}
-
-
 
 
 	return 0;
