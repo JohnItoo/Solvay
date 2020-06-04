@@ -53,58 +53,27 @@ string trUpp(string s) {
 }
 
 int main() {
-	ll l, r; cin >> l >> r;
-	int sv[55];
-	memset(sv, 0, 55);
-
-	for (int i = 2; i * i <= 50; i++) {
-		if (sv[i]) continue;
-		for (int j = i * 2; j <= 50; j += i) {
-			sv[j] = i;
-		}
+	int n , k; cin >> n >> k;
+	ll a[n];
+	forn(i, n) {
+		cin >> a[i];
 	}
-	vector<int> primes;
-	REP(i, 2, 50) {
-		if (sv[i] == 0) primes.pb(i);
-	}
-	ll a = -1; int prima = 0;
-	for (ll i = l; i  <= r ; i++) {
-		for (auto prime : primes) {
-			if (i % prime == 0) {
-				a = i;
-				prima = prime;
-				break;
+	int ans = 0;
+	for (auto d : a) {
+		bool gd = true;
+		set<int> sts;
+		while (d > 0) {
+			if (d % 10 > k) {
+				// gd = false;
+				// break;
+				d/=10;
+				continue;
 			}
+			sts.insert(d % 10);
+			d /= 10;
 		}
-		if (a != -1) break;
+		if (gd && sts.size() == k + 1) ans++;
 	}
-	ll primeb = -1; ll sec = -1;
-	for (ll i = a + 1; i <= r; i++) {
-		bool fd = false;
-		for (auto prime : primes) {
-			if (i % prime) {
-				fd = true;
-				primeb = prime;
-				sec = i;
-				break;
-			}
-		}
-		if (fd) break;
-	}
-	ll b = -1;
-	if (sec == -1) cout << sec << endl;
-	else {
-		ll third = -1;
-		for (ll i = sec + 1; i <= r; i++) {
-			if (i % prima == 0 && i % primeb != 0) {
-				third = i;
-				break;
-			}
-		}
-		if (third == -1) cout << third << endl;
-		else cout << a << " " << sec << " " << third << endl;
-
-	}
+	cout << ans << endl;
 	return 0;
-
 }
