@@ -51,15 +51,19 @@ int main() {
  ll t; cin >> t;
  while(t--) {
  	ll n; cin >> n;
- 	ll nothers = n/2;
- 	ll nos = n - nothers;
- 	ll st = 2; ll ans = 0;
- 	for(int i = 0; i< nothers; i++) {
-      ans += st;
-      st++;
- 	} 
- 	ans += nos;
- 	cout << ans << endl;
+    int a[5] = {0, 1, 2, 1, 3};
+    bool chng = false; ll ans = 0;
+    for(int i  = 1; i<= n; i++) {
+        if(chng) {
+        	a[4] += 1;
+        	chng = false;
+        }
+        int x = (i + 3)/4;
+        ans += a[4- ((4*x) - i)];
+        chng = true;
+
+    }
+    cout << ans << endl;
  }
 return 0;
 }
