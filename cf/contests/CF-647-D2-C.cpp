@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -44,68 +44,9 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-// to_string(int)
-	//WA
-
-string trUpp(string s) {
-
-	transform(s.begin(), s.end(), s.begin(), ::toupper);
-	return "";
-}
 
 int main() {
-	ll l, r; cin >> l >> r;
-	int sv[55];
-	memset(sv, 0, 55);
-
-	for (int i = 2; i * i <= 50; i++) {
-		if (sv[i]) continue;
-		for (int j = i * 2; j <= 50; j += i) {
-			sv[j] = i;
-		}
-	}
-	vector<int> primes;
-	REP(i, 2, 50) {
-		if (sv[i] == 0) primes.pb(i);
-	}
-	ll a = -1; int prima = 0;
-	for (ll i = l; i  <= r ; i++) {
-		for (auto prime : primes) {
-			if (i % prime == 0) {
-				a = i;
-				prima = prime;
-				break;
-			}
-		}
-		if (a != -1) break;
-	}
-	ll primeb = -1; ll sec = -1;
-	for (ll i = a + 1; i <= r; i++) {
-		bool fd = false;
-		for (auto prime : primes) {
-			if (i % prime) {
-				fd = true;
-				primeb = prime;
-				sec = i;
-				break;
-			}
-		}
-		if (fd) break;
-	}
-	ll b = -1;
-	if (sec == -1) cout << sec << endl;
-	else {
-		ll third = -1;
-		for (ll i = sec + 1; i <= r; i++) {
-			if (i % prima == 0 && i % primeb != 0) {
-				third = i;
-				break;
-			}
-		}
-		if (third == -1) cout << third << endl;
-		else cout << a << " " << sec << " " << third << endl;
-
-	}
-	return 0;
-
+ ios::sync_with_stdio(false);
+ cin.tie(0);
+return 0;
 }
