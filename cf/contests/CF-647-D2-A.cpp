@@ -56,7 +56,7 @@ int main() {
 			cout << -1 << endl;
 		} else {
 			ll div = x / y;
-			if (div % 2 != 0 ) cout << -1 << endl;
+			if (div % 2 != 0 && div != 1 ) cout << -1 << endl;
 			else {
 				ll ans = 0;
 				while (div > 1) {
