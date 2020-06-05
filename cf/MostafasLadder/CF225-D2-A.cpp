@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -44,15 +44,38 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-	// to_string(int)
+// to_string(int)
 
 string trUpp(string s) {
-	
-  	transform(s.begin(), s.end(), s.begin(), ::toupper);
- return "";
+
+	transform(s.begin(), s.end(), s.begin(), ::toupper);
+	return "";
 }
 
 int main() {
-	
-return 0;
+	int n;
+	cin >> n;
+	int face; cin >> face;
+	ii cubes[n];
+	forn(i, n) {
+		int x, y; cin >> x >> y;
+		cubes[i] =  mp(x, y);
+	}
+	string ans = "YES";
+	int previous = face;
+	if (n > 1) {
+		forn(i, n) {
+			int bot = 7 - previous;
+			int x = cubes[i].first; int y = cubes[i].second;
+			int oppx = 7 - x; int oppy = 7 - y;
+			if (bot == x || bot == y || bot == oppx || bot == oppy) {
+				ans = "NO";
+				break;
+			}
+			previous = 7 - bot;
+		}
+	}
+	cout << ans << endl;
+
+	return 0;
 }
