@@ -48,39 +48,37 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc;  cin >> tc; 
-	
+	int tc;  cin >> tc;
+
 	while (tc--) {
 		ll x, y; cin >> x >> y;
 		if (x < y) swap(x, y);
-		if (x % y != 0 || (x % y == 0 && (  x!= 1 && x %2 != 0 && y == 1))) {
-		 cout << -1 << endl;
-		} else {
-			ll div = x/y;
-			if(div == 1) cout << 0 << endl;
-			else if(div % 2 != 0 ) {cout << -1 << endl;}
-			else {
-				ll ans = 0;
-				while (x > y) {
-					bool can = false;
-					if (div >= 8 && div % 8 == 0) {
-						x /= 8;
-						can = true;
-					} else if (div >= 4 && div % 4 == 0) {
-						x /= 4;
-						can = true;
-					} else if (div >= 2 && div % 2 == 0) {
-						x /= 2;
-						can = true;
-					}
-					if (!can) { ans = -1; break;}
-					ans++;
 
-				}
-				cout << ans << endl;
+		ll ans = 0;
 
+		while (x != y) {
+			bool did = false;
+			if (x % 8 == 0 && x /8 >=y) {
+				x /= 8;
+				did = true;
+			} else if (x % 4 == 0 && x /4 >= y) {
+				x /= 4;
+				did = true;
+			} else if (x % 2 == 0 && x /2 >= y) {
+				x /= 2;
+				did = true;
+			}
+			if (!did) {
+				ans = -1;
+				break;
+			} else {
+				ans++;
 			}
 		}
+    cout << ans << endl;
+
 	}
 	return 0;
 }
+
+
