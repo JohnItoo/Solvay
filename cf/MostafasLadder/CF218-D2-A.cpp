@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -44,32 +44,32 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-// to_string(int)
+	// to_string(int)
 
 string trUpp(string s) {
-
-	transform(s.begin(), s.end(), s.begin(), ::toupper);
-	return "";
+	
+  	transform(s.begin(), s.end(), s.begin(), ::toupper);
+ return "";
 }
 
 int main() {
-	int n, m; cin >> n >> m;
-	int mn = min(n, m);
-	int mx = max(n, m);
-	int ans = 0;
-	int dl = (mx + 4) / 5;
-
-	REP(i, 1, mn) {
-		int fac = ( i + 4) / 5;
-		// int gg = 5 * fac;
-		// while (gg - i <= mx) {
-		// 	// cout << i << " " <<  gg - i << endl;
-		// 	if (gg - i > 0) ans ++;
-		// 	gg += 5;
-
+	int n,k;
+	cin >> n >>k;
+	int ln = (2*n) + 1;
+	int a[ln+1];
+	REP(i,1,ln) {
+      cin >> a[i];
 	}
-	cout << ans << endl;
-
-
-	return 0;
+	for(int i = 1; i<=ln; i++) {
+		if(i % 2 == 0 && a[i-1] < a[i] - 1 && i+1 <= ln && a[i]-1 > a[i+1] && k) {
+			a[i] = a[i]-1;
+			k--;
+		}
+		if(k == 0) break;
+	}
+    REP(i,1,ln) {
+    	cout << a[i] << " ";
+    }
+	
+return 0;
 }
