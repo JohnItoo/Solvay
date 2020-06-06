@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -16,6 +16,7 @@
 using namespace std;
 #define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
 // Shortcuts for "common" data types in contests
+
 typedef long long ll;
 typedef vector<int> vi;
 typedef pair<int, int> ii;
@@ -44,15 +45,30 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-	// to_string(int)
+// to_string(int)
 
 string trUpp(string s) {
-	
-  	transform(s.begin(), s.end(), s.begin(), ::toupper);
- return "";
+
+	transform(s.begin(), s.end(), s.begin(), ::toupper);
+	return "";
 }
 
 int main() {
-	
-return 0;
+	ll n; cin >> n;
+	string s = to_string(n);
+	string ans = "";
+	for (int i = 0; i < s.length(); i++) {
+		int x = s[i] - '0';
+		if (i == 0) {
+			if (9 - x < x && 9 - x > 0) x = 9 - x;
+		} else {
+			if (9 - x < x && 9 - x >= 0) x = 9 - x;
+		}
+		char y = x + '0';
+		ans.pb(y);
+	}
+
+	cout << stoll(ans) << endl;
+
+	return 0;
 }
