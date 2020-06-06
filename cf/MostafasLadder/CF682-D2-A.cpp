@@ -56,16 +56,10 @@ int main() {
 	int n, m; cin >> n >> m;
 	int mn = min(n, m);
 	int mx = max(n, m);
-	int ans = 0;
 	int dl = (mx + 4) / 5;
-
+	int ans = 0;
 	REP(i, 1, mn) {
-		int fac = ( i + 4) / 5;
-		// int gg = 5 * fac;
-		// while (gg - i <= mx) {
-		// 	// cout << i << " " <<  gg - i << endl;
-		// 	if (gg - i > 0) ans ++;
-		// 	gg += 5;
+		ans += (mx + (i % 5)) / 5;
 
 	}
 	cout << ans << endl;

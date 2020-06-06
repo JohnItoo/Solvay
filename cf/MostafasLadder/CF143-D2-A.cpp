@@ -44,41 +44,41 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
+// to_string(int)
 
-int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	int tc;  cin >> tc;
+string trUpp(string s) {
 
-	while (tc--) {
-		ll x, y; cin >> x >> y;
-		if (x < y) swap(x, y);
-
-		ll ans = 0;
-
-		while (x != y) {
-			bool did = false;
-			if (x % 8 == 0 && x / 8 >= y) {
-				x /= 8;
-				did = true;
-			} else if (x % 4 == 0 && x / 4 >= y) {
-				x /= 4;
-				did = true;
-			} else if (x % 2 == 0 && x / 2 >= y) {
-				x /= 2;
-				did = true;
-			}
-			if (!did) {
-				ans = -1;
-				break;
-			} else {
-				ans++;
-			}
-		}
-		cout << ans << endl;
-
-	}
-	return 0;
+	transform(s.begin(), s.end(), s.begin(), ::toupper);
+	return "";
 }
 
+int main() {
+	int r1, r2, c1, c2, d1, d2;
+	cin >> r1 >> r2 >> c1 >> c2 >> d1 >> d2;
+	int x = min(c1, r2) - 1;
+	int a = -1; int b = 0; int c = 0; int d = 0;
+	for (int botlef = 9; botlef >= 1; botlef--) {
+		int  botright = r2 - botlef;
+		int  toplef = c1 - botlef;
+		int toprt = r1 - toplef;
 
+		if (botlef + toprt == d2 && toplef + botright == d1
+		        && (toplef > 0 && toplef < 10) &&  (toprt > 0 && toprt < 10) &&
+		        (botlef > 0 && botlef < 10) && (botright > 0 && botright < 10) )  {
+			a = toplef;
+			b = toprt;
+			c = botlef;
+			d = botright;
+			break;
+		}
+	}
+	if (a != -1 && (a != b && a != c && a != d) && (b != c && b != d) && c != d) {
+		cout << a << " " << b << endl;
+		cout << c << " " << d << endl;
+	} else {
+		cout << -1 << endl;
+	}
+
+
+	return 0;
+}

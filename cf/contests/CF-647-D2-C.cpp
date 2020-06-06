@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -44,22 +44,24 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
+//TLE
+
 ll pc(ll a, ll b) {
-   return __builtin_popcount(a^b);
+	return __builtin_popcount(a ^ b);
 }
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
- ll t; cin >> t;
- while(t--) {
- 	ll n; cin >> n;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	ll t; cin >> t;
+	while (t--) {
+		ll n; cin >> n;
 
-    ll ans = 0;
- 	for(ll i = 0; i < n-1; i++) {
-       ans += pc(i, i+1);
- 	}
-   
-    cout << ans << endl;
- }
-return 0;
+		ll ans = 0;
+		for (ll i = 0; i < n - 1; i++) {
+			ans += pc(i, i + 1);
+		}
+
+		cout << ans << endl;
+	}
+	return 0;
 }
