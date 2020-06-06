@@ -68,8 +68,14 @@ int main() {
 		// 	gg += 5;
 
 		// }
-		if((5*dl) - i <= mx) ans += dl;
-		else ans += dl-1;
+		int curr = dl;
+		curr = curr - (fac -1);
+		cout << "curr is" << curr;
+
+		if((5*dl) - i > mx) {curr--;}
+
+		cout << i << " " << curr << endl;
+		ans += curr;
 	}
 	cout << ans << endl;
 
