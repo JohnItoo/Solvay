@@ -70,18 +70,18 @@ int main() {
 		bool can = true;
 
 
-		while (!isSorted(a, n)) {
-			forn(i, n - 1) {
-				if (a[i] <= a[i + 1]) continue;
-				if (types[i] == types[i + 1]) {
+		forn(i, n) {
+			forn(j, n) {
+				if (i == j) continue;
+				if (a[i] > a[j] && i < j && types[i] == types[j]) {
 					can = false;
 					break;
 				}
-				swap(a[i], a[i + 1]);
-				swap(types[i], types[i + 1]);
 			}
 			if (!can) break;
 		}
+
+
 		string ans = can ? "Yes" : "No";
 		cout << ans << endl;
 
