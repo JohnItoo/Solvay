@@ -53,22 +53,34 @@ string trUpp(string s) {
 }
 
 int main() {
-	int n , k; cin >> n >> k;
-	vii  pairs;
-	int total = 0;
-	forn(i, n) {
-		int x; int y;
-		cin >> x >> y;
-		pairs.pb(mp(x, y));
-		total += (y - x) + 1;
+	char grid[4][4];
+	forn(i, 4) {
+		string s; cin >> s;
+		forn(j, 4) {
+			grid[i][j] = s[j];
+		}
 	}
-	if (total % k == 0) {
-		cout << 0 << endl;
-	} else {
-		int st = (total + k - 1) / k;
-		int need = (st * k) - total;
-		cout << need << endl;
+	int dir[3][2] = { {0, 1}, {1, 0} , {1, 1}};
+	string ans = "NO";
+	forn(i, 3) {
+		forn(j, 3) {
+			int b = 0; int c = 0;
+			if (grid[i][j] == '#') b++;
+			else c++;
+			for (int k = 0; k < 3; k++) {
+				int nr = i + dir[k][0];
+				int nc = j + dir[k][1];
+				if (grid[nr][nc] == '#') b++;
+				else c++;
+			}
+			if ((b == 0 && c == 4 ) || ( b == 1 && c == 3) || (c == 0  && b  == 4) || (c == 1 && b == 3)) {
+				ans = "YES";
+				break;
+			}
+		}
+		if (ans == "YES") break;
 	}
+	cout << ans << endl;
 
 	return 0;
 }

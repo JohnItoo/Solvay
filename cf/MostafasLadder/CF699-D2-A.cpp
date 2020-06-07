@@ -64,7 +64,7 @@ int main() {
 		if (mv[i] == 'L') lef.pb(arr[i]);
 		else rt.pb(arr[i]);
 	}
-	if(lef.size() == 0 || rt.size() == 0) {
+	if (lef.size() == 0 || rt.size() == 0) {
 		cout << -1 << endl;
 		return 0;
 	}
