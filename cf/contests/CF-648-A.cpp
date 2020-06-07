@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -44,61 +44,53 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-// to_string(int)
-
-//WA 34
-string trUpp(string s) {
-
-	transform(s.begin(), s.end(), s.begin(), ::toupper);
-	return "";
-}
 
 int main() {
-	int n; cin >> n;
-	int a[n];
-	forn(i, n) cin >> a[i];
-	sort(a, a + n);
-	vi amt; amt.pb(a[0]);
-	map<int, int> fq; fq[a[0]] = 1;
-	REP(i, 1, n - 1) {
-		int x = a[i];
-		fq[x]++;
-		if (a[i - 1] != x) {
-			amt.pb(x);
-		}
-	}
-	if (amt.size() == 1) {
-		string ans = fq.find(amt[0])-> second > 1 ? "NO" : "YES";
-		cout << ans << endl;
-		return 0;
-	}
-	string ans = "NO";
-	forn(i, amt.size()) {
-		int wt = fq.find(amt[i])->second;
-		if (wt <= 0) continue;
-		wt -= 1;
-		forn(j, amt.size()) {
-			if (i == j) continue;
+ ios::sync_with_stdio(false);
+ cin.tie(0);
 
-			int xx = fq.find(amt[j])->second;
+ int tc; cin >> tc;
+ while(tc --) {
+ 	int n,m; cin >> n >> m;
+ 	int grid[n][m];
+ 	forn(i, n) {
+ 		forn(j, m) {
+ 			cin >> grid[i][j];
+ 		}
+ 	}
+ 	int spots = 0;  int who = 1;
+ 	forn(i, n) {
+ 		forn(j,m) {
+ 			bool can = true;
+ 			forn(k, m) {
+ 				if(grid[i][k] == 1) {
+ 					can = false;
+ 					break;
+ 				}
+ 			}
+ 			if(can) {
+ 				forn(q, n) {
+ 					if(grid[q][j] == 1) {
+ 						can = false;
+ 						break;
+ 					}
+ 				}
+ 				if(can) { 
+                grid[i][j] = 1;
+               who =  who == 1 ? 2 : 1;
+ 				spots++;
+ 			} 
+ 		}
+ 	}
+ }
+ 	string ans; 
+ 	if(spots == 0 || who == 1) {
+ 		ans = "Vivek";
+ 	} else {
+ 		ans = "Ashish";
+ 	}
+ 	cout << ans << endl;
 
-			if (xx <= 0) continue;
-			if (wt - xx > 0) {
-				fq[amt[j]] = 0;
-				wt -= xx;
-			} else {
-				fq[amt[j]] = xx - wt;
-				wt = 0;
-			}
-		}
-		if (wt == 0) {
-			ans = "YES";
-			break;
-		}
-	}
-	cout << ans << endl;
-
-
-
-	return 0;
+ }
+return 0;
 }
