@@ -48,49 +48,10 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-
-	int tc; cin >> tc;
-	while (tc --) {
-		int n, m; cin >> n >> m;
-		int grid[n][m];
-		forn(i, n) {
-			forn(j, m) {
-				cin >> grid[i][j];
-			}
-		}
-		int spots = 0;  int who = 1;
-		forn(i, n) {
-			forn(j, m) {
-				bool can = true;
-				forn(k, m) {
-					if (grid[i][k] == 1) {
-						can = false;
-						break;
-					}
-				}
-				if (can) {
-					forn(q, n) {
-						if (grid[q][j] == 1) {
-							can = false;
-							break;
-						}
-					}
-					if (can) {
-						grid[i][j] = 1;
-						who =  who == 1 ? 2 : 1;
-						spots++;
-					}
-				}
-			}
-		}
-		string ans;
-		if (spots == 0 || who == 1) {
-			ans = "Vivek";
-		} else {
-			ans = "Ashish";
-		}
-		cout << ans << endl;
-
-	}
+	string s; cin >> s;
+	string t; cin >> t;
+	string q = t.substr(0, t.length() - 1);
+	if (s == q) cout << "Yes" << endl;
+	else { cout << "No" << endl;}
 	return 0;
 }
