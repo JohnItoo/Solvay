@@ -48,9 +48,13 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int a, b, k; cin >> a >> b >> k;
+	ll a, b, c, k; cin >> a >> b >> c >>  k;
 	if (k <= a) cout << k << endl;
-	else if (k <= a + b) cout << a << endl;
-	else { cout << -1 * (k - (a + b)) << endl;}
+	else if (k <= a + b) cout <<  a << endl;
+	else {
+		ll nds = (k - (a + b));
+
+		cout <<  (-1 * nds) + a << endl;
+	}
 	return 0;
 }
