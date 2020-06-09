@@ -48,22 +48,24 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int n, x; cin >> n >> x;
+	int n; int x;
+	cin >> n >> x;
 	int coins[n];
-	forn(i, n) cin >> coins[i];
-	int dp[x + 1]; bool dn[x + 1];
-	memset(dp, MEMSET_INF, sizeof dp);
-	memset(dn, false, sizeof dn);
-	dp[0] = 0; dn[0] = true;
-	REP(j, 1, x) {
+	forn(i, n) {
+		cin >> coins[i];
+	}
+	int dp[x + 1];
+	memset(dp, 0, sizeof dp);
+	dp[0] = 1;
+	REP(i, 1, x) {
 		for (auto coin : coins) {
-			if (j - coin >= 0 && dp[j - coin] + 1 < dp[j]) {
-				dn[j] = true;
-				dp[j] = dp[j - coin] + 1;
+			if (i - coin >= 0) {
+				dp[i] += dp[i - coin];
+				dp[i] %= 1000000007;
 			}
 		}
 	}
-	int ans =  !dn[x] ? -1 : dp[x];
-	cout << ans << endl;
+	cout << dp[x] << endl;
+
 	return 0;
 }
