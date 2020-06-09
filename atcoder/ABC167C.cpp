@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -47,6 +47,47 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 int main() {
 	ios::sync_with_stdio(false);
- cin.tie(0);
-return 0;
+	cin.tie(0);
+	int n, m , x; cin >> n >> m >> x;
+	int a[n][m]; int c[n];
+	forn(i, n) {
+		cin >> c[i];
+		forn(j, m) {
+			cin >> a[i][j];
+		}
+	}
+	cout << c[0] << endl;
+	int dp[100008][16];
+	memset(dp, MEMSET_INF, sizeof dp);
+
+	REP(i, 1, m) { // cols for each col.
+		REP(j, 1, x) { // rows amounts
+			REP(k, 1, n) {
+				if (a[k - 1][i - 1] + j - 1 < j) continue;
+				if (a[k - 1][i - 1] >= j) {
+					REP(l, j , j + a[k - 1][i - 1] - 1) {
+						dp[l][i] = min(dp[l][i], c[k - 1]);
+					}
+				} else {
+					dp[j][i] = min(dp[j][i], dp[j - 1][i] + c[k - 1]);
+				}
+			}
+
+		}
+	}
+
+	int ans = -1;
+	REP(i, 1, m) {
+		if (dp[x][i] == INF) {
+			ans = -1;
+			break;
+		}
+		cout << dp[x][i] << endl;
+		ans = max(ans , dp[x][i]);
+	}
+
+	cout << ans << endl;
+
+	return 0;
+
 }
