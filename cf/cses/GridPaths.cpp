@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -45,28 +45,33 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
-//WA
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
-  int n; int x; 
-  cin >> n >> x;
-  int coins[n];
-  forn(i,n) cin >> coins[i];
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int n; 
+	cin >> n;
+	char grid[n+1][n+1];
+	REP(i, 1, n) {
+		string s; cin >> s;
+		REP(j, 1,  n) {
+			grid[i][j] = s[j-1];
+		}
+	}
+	int dp[n+1][n+1]; 
+	memset(dp, 0, sizeof dp);
+	REP(i, 0, n) {
+		dp[0][i] = 1;
+	}
 
-  int dp[x+1];
-  memset(dp, 0, sizeof dp);
-  dp[0] = 1;
+	REP(i, 1, n) {
+		REP(j, 1, n) {
+			if(grid[i][j] == '*') continue;
+			dp[i][j] = dp[i][j-1] + dp[i-1][j];
+			cout << i << " " << j << " " << dp[i][j];
+		}
+	}
+	cout << dp[n][n] << endl;
 
-  REP(i, 1, x) {
-  	for(auto coin : coins) {
-  		if((i - coin > 0 && coin <= i - coin) || i-coin == 0) {
-             dp[i] += dp[i-coin];
-             dp[i] %= 1000000007;
-  		}
-  	}
-  }
-  cout << dp[9] << endl;
 
-return 0;
+	return 0;
 }
