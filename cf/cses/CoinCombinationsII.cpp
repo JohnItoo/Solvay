@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -47,26 +47,26 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 //WA
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
-  int n; int x; 
-  cin >> n >> x;
-  int coins[n];
-  forn(i,n) cin >> coins[i];
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int n; int x;
+	cin >> n >> x;
+	int coins[n];
+	forn(i, n) cin >> coins[i];
 
-  int dp[x+1];
-  memset(dp, 0, sizeof dp);
-  dp[0] = 1;
+	int dp[x + 1];
+	memset(dp, 0, sizeof dp);
+	dp[0] = 1;
 
-  REP(i, 1, x) {
-  	for(auto coin : coins) {
-  		if((i - coin > 0 && coin <= i - coin) || i-coin == 0) {
-             dp[i] += dp[i-coin];
-             dp[i] %= 1000000007;
-  		}
-  	}
-  }
-  cout << dp[9] << endl;
+	REP(i, 1, x) {
+		for (auto coin : coins) {
+			if ((i - coin > 0 && coin <= i - coin) || i - coin == 0) {
+				dp[i] += dp[i - coin];
+				dp[i] %= 1000000007;
+			}
+		}
+	}
+	cout << dp[9] << endl;
 
-return 0;
+	return 0;
 }

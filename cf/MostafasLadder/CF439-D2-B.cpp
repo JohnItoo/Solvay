@@ -44,44 +44,31 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
+// to_string(int)
 
-//TLE on large input.
+string trUpp(string s) {
+
+	transform(s.begin(), s.end(), s.begin(), ::toupper);
+	return "";
+}
+
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	int n, x; cin >> n >> x;
-	int h[n]; int s[n];
-	forn(i, n) cin >> h[i];
-	forn(i, n) cin >> s[i];
+	ll n, x;
+	cin >>  n >> x;
+	ll c[n];
+	forn(i, n) cin >> c[i];
 
-	int dp[x + 1];
-	memset(dp, -1, sizeof dp);
-	dp[0] = 0;
+	sort(c, c + n);
 
-	map<int, int> arr[x + 1];
-
-	REP(i, 1, x) {
-		vi used;
-
-		forn(j, n) {
-			int amount = h[j];
-			if ( i >= amount && dp[i - amount] != -1   && dp[i - amount] + s[j] > dp[i]) {
-				if (find(arr[i - amount].begin(), arr[i - amount].end(), j) != arr[i - amount].end() || j == i - amount ) continue;
-
-				dp[i] = dp[i - amount] + s[j];
-				arr[i].clear();
-				for (auto xx : arr[i - amount]) {
-					arr[i].pb(xx);
-				}
-				arr[i].pb(j);
-			}
+	ll ans = 0;
+	forn(i, n)  {
+		if ( i == 0) ans += c[i] * x;
+		else if ( i > 0 && x > 1) {
+			x -= 1;
+			ans += c[i] * x;
+		} else if ( x == 1) {
+			ans += c[i];
 		}
-	}
-	int ans = 0;
-
-
-	REP(i, 1, x) {
-		ans = max(ans, dp[i]);
 	}
 	cout << ans << endl;
 

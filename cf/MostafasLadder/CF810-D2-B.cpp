@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -44,46 +44,15 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
+	// to_string(int)
 
-//TLE on large input.
+string trUpp(string s) {
+	
+  	transform(s.begin(), s.end(), s.begin(), ::toupper);
+ return "";
+}
+
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	int n, x; cin >> n >> x;
-	int h[n]; int s[n];
-	forn(i, n) cin >> h[i];
-	forn(i, n) cin >> s[i];
-
-	int dp[x + 1];
-	memset(dp, -1, sizeof dp);
-	dp[0] = 0;
-
-	map<int, int> arr[x + 1];
-
-	REP(i, 1, x) {
-		vi used;
-
-		forn(j, n) {
-			int amount = h[j];
-			if ( i >= amount && dp[i - amount] != -1   && dp[i - amount] + s[j] > dp[i]) {
-				if (find(arr[i - amount].begin(), arr[i - amount].end(), j) != arr[i - amount].end() || j == i - amount ) continue;
-
-				dp[i] = dp[i - amount] + s[j];
-				arr[i].clear();
-				for (auto xx : arr[i - amount]) {
-					arr[i].pb(xx);
-				}
-				arr[i].pb(j);
-			}
-		}
-	}
-	int ans = 0;
-
-
-	REP(i, 1, x) {
-		ans = max(ans, dp[i]);
-	}
-	cout << ans << endl;
-
-	return 0;
+	
+return 0;
 }
