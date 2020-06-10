@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -44,12 +44,12 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-	// to_string(int)
+// to_string(int)
 
 string trUpp(string s) {
-	
-  	transform(s.begin(), s.end(), s.begin(), ::toupper);
- return "";
+
+	transform(s.begin(), s.end(), s.begin(), ::toupper);
+	return "";
 }
 
 bool compare(ii a, ii b) {
@@ -57,19 +57,31 @@ bool compare(ii a, ii b) {
 }
 
 int main() {
-	int n, f; cin >> n >> f;
+	ll n, f; cin >> n >> f;
 
-	vii days;
+	vector<pair<ll, ll> > days;
 
 	forn(i, n) {
-		int a,b;
+		ll a, b;
 		cin >> a >> b;
-		days.pb(mp(a,b));
+		days.pb(mp(i+1, min(a*2, b)));
 	}
 	sort(days.begin(), days.end(), compare);
+	ll ans = 0;
+	cout << "konichiwa" << endl;
+	forn(i, n) {
+		cout << days[i].first << " " << days[i].second << endl;
+		if (f > 0 && days[i].first > 0) {
+			ans += min(days[i].first * 2, days[i].second);
+			f--;
+			continue;
+		}
+		if (days[i].first > 0) {
+			ans += min(days[i].first, days[i].second);
 
-	for(auto xx : days) {
-		cout << xx.second << endl;
+		}
 	}
-return 0;
+	cout << ans << endl;
+
+	return 0;
 }
