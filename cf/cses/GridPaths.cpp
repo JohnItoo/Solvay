@@ -76,13 +76,6 @@ int main() {
 
 		}
 	}
-
-	// REP(i, 1, n) {
-	// 	REP(j, 1, n) {
-	// 		cout << dp[i][j] << " ";
-	// 	}
-	// 	cout << endl;
-	// }
 	cout << dp[n][n] << endl;
 
 
