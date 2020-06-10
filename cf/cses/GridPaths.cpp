@@ -61,13 +61,20 @@ int main() {
 	memset(dp, 0, sizeof dp);
 	REP(i, 0, n) {
 		dp[0][i] = 1;
+		dp[1][i] = 1;
 	}
-
+    dp[0][0] = 0; 
 	REP(i, 1, n) {
 		REP(j, 1, n) {
 			if(grid[i][j] == '*') continue;
-			dp[i][j] = dp[i][j-1] + dp[i-1][j];
-			cout << i << " " << j << " " << dp[i][j];
+			if(grid[i][j-1] != '*') {
+				dp[i][j] += dp[i][j-1];
+			}
+			if(grid[i-1][j] != '*') {
+				dp[i][j] += dp[i-1][j];
+			}
+			
+			cout << i << " " << j << " " << dp[i][j] << endl;
 		}
 	}
 	cout << dp[n][n] << endl;
