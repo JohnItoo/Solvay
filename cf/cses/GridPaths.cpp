@@ -48,35 +48,41 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int n; 
+	int n;
 	cin >> n;
-	char grid[n+1][n+1];
+	char grid[n + 1][n + 1];
 	REP(i, 1, n) {
 		string s; cin >> s;
 		REP(j, 1,  n) {
-			grid[i][j] = s[j-1];
+			grid[i][j] = s[j - 1];
 		}
 	}
-	int dp[n+1][n+1]; 
+	int dp[n + 1][n + 1];
 	memset(dp, 0, sizeof dp);
 	REP(i, 0, n) {
-		dp[0][i] = 1;
+		if (grid[1][i] == '*') break;
 		dp[1][i] = 1;
 	}
-    dp[0][0] = 0; 
-	REP(i, 1, n) {
+	REP(i, 2, n) {
 		REP(j, 1, n) {
-			if(grid[i][j] == '*') continue;
-			if(grid[i][j-1] != '*') {
-				dp[i][j] += dp[i][j-1];
+			if (grid[i][j] == '*') continue;
+			if (grid[i][j - 1] != '*') {
+				dp[i][j] += dp[i][j - 1];
 			}
-			if(grid[i-1][j] != '*') {
-				dp[i][j] += dp[i-1][j];
+			if (grid[i - 1][j] != '*') {
+				dp[i][j] += dp[i - 1][j];
+				dp[i][j] %= 1000000007;
 			}
-			
-			cout << i << " " << j << " " << dp[i][j] << endl;
+
 		}
 	}
+
+	// REP(i, 1, n) {
+	// 	REP(j, 1, n) {
+	// 		cout << dp[i][j] << " ";
+	// 	}
+	// 	cout << endl;
+	// }
 	cout << dp[n][n] << endl;
 
 
