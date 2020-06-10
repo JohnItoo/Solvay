@@ -52,7 +52,24 @@ string trUpp(string s) {
  return "";
 }
 
+bool compare(ii a, ii b) {
+	return a.second > b.second;
+}
+
 int main() {
-	
+	int n, f; cin >> n >> f;
+
+	vii days;
+
+	forn(i, n) {
+		int a,b;
+		cin >> a >> b;
+		days.pb(mp(a,b));
+	}
+	sort(days.begin(), days.end(), compare);
+
+	for(auto xx : days) {
+		cout << xx.second << endl;
+	}
 return 0;
 }
