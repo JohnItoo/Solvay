@@ -57,17 +57,21 @@ int main() {
 			arr[i] = mp(x, y);
 		}
 		string ans = "YES";
-		REP(i, 1, n - 1) {
-			int currclears = arr[i].second;
-			int prevclears  = arr[i - 1].second;
-			int currplays = arr[i].first;
-			int prevplays = arr[i - 1].first;
+		forn(i, n) {
+			REP(j, i + 1, n - 1) {
+				int currclears = arr[j].second;
+				int prevclears  = arr[i].second;
+				int currplays = arr[j].first;
+				int prevplays = arr[i].first;
 
-			if (currplays > prevplays && currclears >= prevclears) continue;
-			else if (currplays == prevplays && currclears == prevclears) continue;
+				if (currplays > prevplays && currclears >= prevclears) continue;
+				else if (currplays == prevplays && currclears == prevclears) continue;
 
-			ans = "NO";
-			break;
+				ans = "NO";
+				break;
+
+			}
+
 		}
 		cout << ans << endl;
 	}
