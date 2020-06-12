@@ -57,22 +57,26 @@ int main() {
   		cin >> a[i];
   	}
   	int dp[n];
-  	memset(dp, 0, sizeof dp);
+  	memset(dp, -1 * MEMSET_INF, sizeof dp);
   	dp[0] = a[0];
 
     forn(k, n) {
     	forn(i, k) {
     		if(a[k] < 0) {
                 if(a[i] > 0) {
-                	dp[k] = max(dp[k], dp[i] + a[i]);
+                	dp[k] = max(dp[k], dp[i] + a[k]);
                 }
     		} else {
                if(a[i] < 0) {
-               	dp[k] = max(dp[k], dp[i] + a[i]);
+               	dp[k] = max(dp[k], dp[i] + a[k]);
                }
     		}
     	}
     }
+    // forn(i,n) {
+    // 	cout << dp[i] << " ";
+    // }
+    // cout << endl;
     cout << dp[n-1] << endl;
 
 
