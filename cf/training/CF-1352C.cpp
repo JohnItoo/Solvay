@@ -55,13 +55,10 @@ int main() {
 		if (k < n) cout << k << endl;
 		else {
 			ll ct = 0;
-			ll st = 0;
-			while (ct < k) {
-				if (st % k != 0) {
-					ct += 1;
-				}
-				st++;
-			}
+			ll st = (k * n) / (n - 1);
+
+			if (k % n == 0 && k != n) st -= 1;
+
 			cout << st << endl;
 		}
 	}
