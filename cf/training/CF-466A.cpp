@@ -49,12 +49,13 @@ int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
   int n,m,a,b; cin >> n >> m >> a >> b;
-  int x = (n-m+1)/m;
   int ans = INF;
-  REP(i, 0, x) {
-    int inter = (x-i)* b + (i*a);
-    ans = min(ans, inter);
+  int i = 0;
+  while(i *m < n) {
+    ans = min(ans,  (a * (n- (i*m))) + (i*m) *b );
+    i++;
   }
+
   cout << ans << endl;
 return 0;
 }
