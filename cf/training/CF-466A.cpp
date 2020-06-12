@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -44,39 +44,17 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-//WA
+
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	int tc; cin >> tc;
-	while (tc--) {
-		int n; cin >> n;
-		ii arr[n];
-		forn(i, n) {
-			int x, y ; cin >> x >> y;
-			arr[i] = mp(x, y);
-		}
-		string ans = "YES";
-		if( n == 1){
-			ans = arr[0].first >= arr[0].second ? "YES" : "NO";
-			cout << ans << endl;
-			return 0;
-		}
-		forn(i,  n) {
-			REP(j, i + 1, n - 1) {
-				int currclears = arr[j].second;
-				int prevclears  = arr[i].second;
-				int currplays = arr[j].first;
-				int prevplays = arr[i].first;
-
-				if (currclears < prevclears || currplays < prevplays || (currclears > prevclears && prevplays == currplays) || currclears > currplays || prevclears > prevplays) {
-					ans = "NO";
-					break;
-				}
-			}
-
-		}
-		cout << ans << endl;
-	}
-	return 0;
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  int n,m,a,b; cin >> n >> m >> a >> b;
+  int x = (n-m+1)/m;
+  int ans = INF;
+  REP(i, 0, x) {
+    int inter = (x-i)* b + (i*a);
+    ans = min(ans, inter);
+  }
+  cout << ans << endl;
+return 0;
 }
