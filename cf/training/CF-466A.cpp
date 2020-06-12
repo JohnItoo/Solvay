@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -44,18 +44,39 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
+//ON
+int BigON() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int n, m, a, b; cin >> n >> m >> a >> b;
+	int ans = 0;
+	int i = 0;
+	int rides = 0;
+	while (rides < n) {
+		if (rides + m <= n) {
+			ans += min(b, m * a);
+		} else {
+			ans += min(b, (n - rides) * a);
+		}
+		rides += m;
+	}
+
+	cout << ans << endl;
+	return 0;
+}
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-  int n,m,a,b; cin >> n >> m >> a >> b;
-  int ans = INF;
-  int i = 0;
-  while(i *m < n) {
-    ans = min(ans,  (a * (n- (i*m))) + (i*m) *b );
-    i++;
-  }
-
-  cout << ans << endl;
-return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int n, m, a, b; cin >> n >> m >> a >> b;
+	int ans = 0;
+	if (m * a <= b) {
+		ans = n * a;
+	} else {
+		int tent = (n / m);
+		int left = n - (tent * m);
+		int mn = min(a * left, b);
+		ans = (tent * b ) + mn;
+	}
+	cout << ans << endl;
 }

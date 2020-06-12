@@ -57,7 +57,7 @@ int main() {
 			arr[i] = mp(x, y);
 		}
 		string ans = "YES";
-		if( n == 1){
+		if ( n == 1) {
 			ans = arr[0].first >= arr[0].second ? "YES" : "NO";
 			cout << ans << endl;
 			return 0;

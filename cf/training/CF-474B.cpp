@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -44,44 +44,9 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-// to_string(int)
-//WA
-string trUpp(string s) {
-
-	transform(s.begin(), s.end(), s.begin(), ::toupper);
-	return "";
-}
-
-bool compare(ii a, ii b) {
-	return a.second > b.second;
-}
 
 int main() {
-	ll n, f; cin >> n >> f;
-
-	vector<pair<ll, ll> > days;
-
-	forn(i, n) {
-		ll a, b;
-		cin >> a >> b;
-		days.pb(mp(i + 1, min(a * 2, b)));
-	}
-	sort(days.begin(), days.end(), compare);
-	ll ans = 0;
-	cout << "konichiwa" << endl;
-	forn(i, n) {
-		cout << days[i].first << " " << days[i].second << endl;
-		if (f > 0 && days[i].first > 0) {
-			ans += min(days[i].first * 2, days[i].second);
-			f--;
-			continue;
-		}
-		if (days[i].first > 0) {
-			ans += min(days[i].first, days[i].second);
-
-		}
-	}
-	cout << ans << endl;
-
-	return 0;
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+return 0;
 }
