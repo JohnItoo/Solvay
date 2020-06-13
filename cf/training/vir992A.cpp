@@ -48,34 +48,24 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc;
-	cin >> tc;
-	while (tc--) {
-		int n; cin >> n;
-		int a[n];
-		forn(i, n) {
-			cin >> a[i];
-		}
-		int dp[n];
-		memset(dp, -1 * MEMSET_INF, sizeof dp);
-		dp[0] = a[0];
+	int n; cin >> n;
+	int a[n];
+	forn(i, n) cin >> a[i];
+	sort(a, a + n);
 
-		forn(k, n) {
-			forn(i, k) {
-				if (a[k] < 0) {
-					if (a[i] > 0) {
-						dp[k] = max(dp[k], dp[i] + a[k]);
-					}
-				} else {
-					if (a[i] < 0) {
-						dp[k] = max(dp[k], dp[i] + a[k]);
-					}
-				}
-			}
-		}
-		cout << dp[n - 1] << endl;
+	int prev = a[0];
+	int numbers = 1;
+	bool zeros = a[0] == 0;
+	forn(i, n) {
+		if (a[i] == prev) continue;
 
-
+		if (a[i] == 0) zeros = true;
+		numbers += 1;
+		prev = a[i];
 	}
+
+	if (zeros) numbers -= 1;
+	cout << numbers << endl;
+
 	return 0;
 }

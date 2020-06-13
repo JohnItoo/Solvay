@@ -48,34 +48,16 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc;
-	cin >> tc;
-	while (tc--) {
-		int n; cin >> n;
-		int a[n];
-		forn(i, n) {
-			cin >> a[i];
+	int l, r, x, y;
+	cin >> l >> r >> x >> y;
+	int xy = x * y;
+	int ans = 0;
+	REP(i, l, r) {
+		if (xy % i == 0 && xy / i >= l && xy / i <= r) {
+			cout << xy / i << " " << i << endl;
+			ans++;
 		}
-		int dp[n];
-		memset(dp, -1 * MEMSET_INF, sizeof dp);
-		dp[0] = a[0];
-
-		forn(k, n) {
-			forn(i, k) {
-				if (a[k] < 0) {
-					if (a[i] > 0) {
-						dp[k] = max(dp[k], dp[i] + a[k]);
-					}
-				} else {
-					if (a[i] < 0) {
-						dp[k] = max(dp[k], dp[i] + a[k]);
-					}
-				}
-			}
-		}
-		cout << dp[n - 1] << endl;
-
-
 	}
+	cout << ans << endl;
 	return 0;
 }
