@@ -48,29 +48,16 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int n; cin >> n;
-	int a[n];
-	forn(i, n) cin >> a[i];
+	int x1, y1, x2, y2;
+	cin >> x1 >> y1 >> x2 >> y2;
+	int x3, y3, x4, y4 = 0;
+	if (x1 == x2 || y1 == y2) {
+		int diff = max(abs(x1 - x2), abs(y1 - y2));
+		x3 = x1; y3 = y1 + diff;
+		x4 = x2; y4 = y2 + diff;
+	} else {
 
-	int longestConcZs = 0;
-	int curr = 0;
-	int ones = 0;
-	forn(i, n) {
-		if (a[i] == 1) ones++;
 	}
-
-	forn(i, n) {
-		if (a[i] == 1) {
-			if (curr != 0) {
-				longestConcZs = max(curr, longestConcZs);
-				curr = 0;
-			}
-			continue;
-		}
-		curr++;
-		longestConcZs = max(curr, longestConcZs);
-	}
-	if (ones == n) cout << 0 << endl;
-	else  cout << ones + longestConcZs << endl;
+	cout << x3 << " " << y3 <<  " " << x4 << " " << y4 << endl;
 	return 0;
 }
