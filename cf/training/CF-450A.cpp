@@ -44,42 +44,23 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-//WA>
+
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int x1, y1, x2, y2;
-	cin >> x1 >> y1 >> x2 >> y2;
-	int x3, y3, x4, y4 = 0;
-	bool can = true;
-	if (x1 == x2) {
-		x3 = x1 + (abs(y2 - y1));
-		y3 = y1;
-		x4 = x3;
-		y4 = y2;
-	} else if ( y1 == y2) {
-		x3 = x1;
-		y3 = y1 + (abs(x2 - x1));
-		x4 = x2;
-		y4 = y3;
-	} else {
-		if (x1 < x2) {
-			x3 = x2;
-			y3 = y1;
-			y4 = y2;
-			x4 = x1;
-		} else {
-			x3 = x1;
-			y3 = y2;
-			y4 = y1;
-			x4 = x2;
-		}
-		if (abs(x1 - x3) != abs(y1 - y3)) can = false;
+	int n, m; cin >> n >> m;
+	int a[n];
+	forn(i, n) cin >> a[i];
 
+	int maxIndex = 0;
+	forn(i, n) {
+		if (a[i] >= a[maxIndex]) {
+			maxIndex = i;
+		}
 	}
 
-}
-if (!can ) cout << -1 << endl;
-else cout << x3 << " " << y3 <<  " " << x4 << " " << y4 << endl;
-return 0;
+	if (a[maxIndex] <= m) maxIndex = n;
+	else maxIndex += 1;
+	cout << maxIndex << endl;
+	return 0;
 }
