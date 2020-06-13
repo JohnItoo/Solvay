@@ -52,25 +52,15 @@ int main() {
 	int tc; cin >> tc;
 	while (tc--) {
 		ll n; cin >> n;
-		// string s = to_string(n);
 		vector<ll> vll;
-		// forn(i, s.length()) {
-		// 	int xx = s[i] - '0';
-		// 	ll xy = xx * pow(10, (s.length() - i - 1));
-		// 	if (xy != 0) vll.pb(xy);
-		// }
-		vi wt;
-		while (n > 0) {
-			wt.pb(n % 10);
-			n /= 10;
-		}
 
 		int places = 1;
-		for (auto vwt : wt) {
-			if (vwt != 0) {
-				ll curr = vwt * pow(10, places);
-				vll.pb(curr);
+
+		while (n > 0) {
+			if (n % 10 > 0) {
+				vll.pb(n % 10 * places);
 			}
+			n /= 10;
 			places *= 10;
 		}
 
