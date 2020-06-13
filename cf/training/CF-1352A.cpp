@@ -9,6 +9,7 @@
 #include <iostream>
 #include <algorithm>
 #include <set>
+#include <cmath>
 #include <map>
 #include <set>
 #include <vector>
@@ -48,20 +49,36 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc;
-	cin >> tc;
+	int tc; cin >> tc;
 	while (tc--) {
-		ll n, k; cin >> n >> k;
-		if (k < n) cout << k << endl;
-		else if (k == n) cout << k + 1 << endl;
-		else {
-			ll ct = 0;
-			ll st = (k * n) / (n - 1);
-
-			if ( st % n == 0) st -= 1;
-
-			cout << st << endl;
+		ll n; cin >> n;
+		// string s = to_string(n);
+		vector<ll> vll;
+		// forn(i, s.length()) {
+		// 	int xx = s[i] - '0';
+		// 	ll xy = xx * pow(10, (s.length() - i - 1));
+		// 	if (xy != 0) vll.pb(xy);
+		// }
+		vi wt;
+		while (n > 0) {
+			wt.pb(n % 10);
+			n /= 10;
 		}
+
+		int places = 1;
+		for (auto vwt : wt) {
+			if (vwt != 0) {
+				ll curr = vwt * pow(10, places);
+				vll.pb(curr);
+			}
+			places *= 10;
+		}
+
+		cout << vll.size() << endl;
+		for (auto a : vll) {
+			cout << a << " ";
+		}
+		cout << endl;
 	}
 	return 0;
 }
