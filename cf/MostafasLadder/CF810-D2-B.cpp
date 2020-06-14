@@ -53,7 +53,12 @@ string trUpp(string s) {
 }
 
 bool compare(ii a, ii b) {
-	return a.second > b.second;
+	// if (a.second == 0) return false;
+	// if (b.second == 0) return true;
+	// if (abs(a.second - a.first) == abs(b.second - b.first))
+	// 	return a.second > b.second;
+	// return abs(a.second - a.first) > abs(b.second - b.first);
+	return min(a.first * 2, a.second) > min(b.first * 2, b.second);
 }
 
 int main() {
@@ -64,13 +69,14 @@ int main() {
 	forn(i, n) {
 		ll a, b;
 		cin >> a >> b;
-		days.pb(mp(i + 1, min(a * 2, b)));
+		// days.pb(mp(i + 1, min(a * 2, b)));
+		days.pb(mp(a, b));
 	}
 	sort(days.begin(), days.end(), compare);
 	ll ans = 0;
-	cout << "konichiwa" << endl;
+	// cout << "konichiwa" << endl;
 	forn(i, n) {
-		cout << days[i].first << " " << days[i].second << endl;
+		// cout << days[i].first << " " << days[i].second << endl;
 		if (f > 0 && days[i].first > 0) {
 			ans += min(days[i].first * 2, days[i].second);
 			f--;
