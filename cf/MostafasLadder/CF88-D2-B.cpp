@@ -59,22 +59,36 @@ int euclideanDistSQ(ii a, ii b) {
 
 int main() {
 	int n, m, x; cin >> n >> m >> x;
-	map<char, ii > dict;
+	map<char, vii> dict;
 	vii shifts;
 	forn(i, n) {
 		string s; cin >> s;
 		forn(j, m) {
 			if (s[j] == 'S') shifts.pb(mp(i, j));
-			else dict[s[j]] = mp(i, j);
+			else {
+				if (dict.find(s[j]) == dict.end()) {
+					vii xxx;
+					xxx.pb(mp(i, j));
+					dict[s[j]] = xxx;
+				} else {
+					dict.find(s[j])->second.pb(mp(i, j));
+				}
+
+			}
 		}
 	}
 	int txt; cin >> txt;
 	string s; cin >> s;
 	int ans = 0;
+	map<char, int> fd;
 	forn(i, txt) {
 		char curr = s[i];
 		if (curr >= 'A' && curr <= 'Z') {
-
+			auto it = fd.find(curr);
+			if (it != fd.end()) {
+				ans += it->second;
+				continue;
+			}
 			bool can = false;
 			bool without = false;
 			string gg = to_string(curr);
@@ -84,16 +98,25 @@ int main() {
 				ans = -1;
 				break;
 			}
-			
-			for (auto shift : shifts) {
-				can = true;
-				if (euclideanDistSQ(dict.find(nw)->second , shift) > pow(x, 2)) continue;
-				without = true;
-				break;
+			vii xxx = dict.find(nw)->second;
+
+			for (ii xx : xxx) {
+				for (auto shift : shifts) {
+					can = true;
+					if (euclideanDistSQ(xx, shift) > pow(x, 2)) continue;
+					without = true;
+					break;
+				}
+				if (without) break;
 			}
 
 			if (can) {
-				if (!without) ans++;
+				if (!without) {
+					ans++;
+					fd[curr] = 1;
+				} else {
+					fd[curr] = 0;
+				}
 
 			} else {
 				ans = -1;
