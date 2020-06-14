@@ -11,6 +11,7 @@
 #include <set>
 #include <map>
 #include <set>
+#include <cmath>
 #include <vector>
 #include <string.h> // for memset in CF judge.
 using namespace std;
@@ -52,6 +53,10 @@ string trUpp(string s) {
 	return "";
 }
 
+int euclideanDistSQ(ii a, ii b) {
+	return (pow(a.first - b.first, 2) + pow(a.second - b.second, 2) );
+}
+
 int main() {
 	int n, m, x; cin >> n >> m >> x;
 	map<char, ii > dict;
@@ -62,8 +67,46 @@ int main() {
 			if (s[j] == 'S') shifts.pb(mp(i, j));
 			else dict[s[j]] = mp(i, j);
 		}
-
 	}
+	int txt; cin >> txt;
+	string s; cin >> s;
+	int ans = 0;
+	forn(i, txt) {
+		char curr = s[i];
+		if (curr >= 'A' && curr <= 'Z') {
+
+			bool can = false;
+			bool without = false;
+			string gg = to_string(curr);
+			transform(gg.begin(), gg.end(), gg.begin(), ::tolower);
+			char nw = (curr + 32);
+			if (dict.find(nw) == dict.end()) {
+				ans = -1;
+				break;
+			}
+			
+			for (auto shift : shifts) {
+				can = true;
+				if (euclideanDistSQ(dict.find(nw)->second , shift) > pow(x, 2)) continue;
+				without = true;
+				break;
+			}
+
+			if (can) {
+				if (!without) ans++;
+
+			} else {
+				ans = -1;
+				break;
+			}
+		}  else {
+			if (dict.find(curr) != dict.end()) continue;
+			ans = -1;
+			break;
+		}
+	}
+
+	cout << ans << endl;
 
 	return 0;
 }
