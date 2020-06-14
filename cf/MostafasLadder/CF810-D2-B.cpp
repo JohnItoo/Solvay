@@ -53,12 +53,12 @@ string trUpp(string s) {
 }
 
 bool compare(ii a, ii b) {
-	// if (a.second == 0) return false;
-	// if (b.second == 0) return true;
-	// if (abs(a.second - a.first) == abs(b.second - b.first))
-	// 	return a.second > b.second;
-	// return abs(a.second - a.first) > abs(b.second - b.first);
-	return min(a.first * 2, a.second) > min(b.first * 2, b.second);
+	ll sm1 = min(a.first * 2, a.second);
+	ll sm2 = min(b.first * 2, b.second);
+	if (sm1 == sm2) return min(a.first, a.second) > min(b.first, b.second);
+	return sm1 > sm2;
+
+	// return min(a.first * 2, a.second) - min(a.first, a.second) > min(b.first * 2, b.second) - min(b.first, b.second);
 }
 
 int main() {
@@ -69,7 +69,6 @@ int main() {
 	forn(i, n) {
 		ll a, b;
 		cin >> a >> b;
-		// days.pb(mp(i + 1, min(a * 2, b)));
 		days.pb(mp(a, b));
 	}
 	sort(days.begin(), days.end(), compare);
