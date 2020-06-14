@@ -45,7 +45,6 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 // to_string(int)
-int a[40005][40005];
 
 string trUpp(string s) {
 
@@ -55,35 +54,43 @@ string trUpp(string s) {
 
 int main() {
 	int n, m, k, t; cin >> n >> m >> k >> t;
-	map<string, int> wastes;
+	vi waste;
 	forn(i, k) {
 		int a, b; cin >> a >> b;
-		wastes[to_string(a) + "+" + to_string(b)] = 1;
+		int idx = (a * m) - m + b;
+		waste.pb(idx);
 	}
-	int lastFruit = 1;
-	REP(i, 1, n) {
-		REP(j, 1, m) {
-			string xx = to_string(i) + "+" + to_string(j);
-			if (wastes.find(xx) != wastes.end()) {
-				a[i][j] = -1;
-			} else {
-				a[i][j] = lastFruit;
-				if (lastFruit == 1) lastFruit = 2;
-				else if (lastFruit == 2) lastFruit = 3;
-				else lastFruit = 1;
-			}
+	sort(waste.begin(), waste.end());
 
+	vi queries;
+	forn(i, t) {
+		int a, b; cin >> a >> b;
+		int idx = (a * m) - m + b;
+		queries.pb(idx);
+	}
+
+	for (auto query : queries) {
+		bool isWaste = false;
+		int nos = 0;
+		forn(i, waste.size()) {
+			if (waste[i] == query) {
+				isWaste = true;
+				break;
+			}
+			if (waste[i] > query) {
+				break;
+			}
+			nos++;
+		}
+
+		if (isWaste) {
+			cout << "Waste" << endl;
+		} else {
+			query -= nos;
+			if (query % 3 == 0) cout << "Grapes" << endl;
+			else if (query % 3 == 1) cout << "Carrots" << endl;
+			else cout << "Kiwis" << endl;
 		}
 	}
-
-
-	forn(i, t) {
-		int x; int y; cin >> x >> y;
-		if (a[x][y] == -1) cout << "Waste" << endl;
-		else if (a[x][y] == 1) cout << "Carrots" << endl;
-		else if (a[x][y] == 2) cout << "Kiwis" << endl;
-		else cout << "Grapes" << endl;
-	}
-
 	return 0;
 }
