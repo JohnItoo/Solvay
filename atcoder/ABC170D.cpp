@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -47,6 +47,38 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 int main() {
 	ios::sync_with_stdio(false);
- cin.tie(0);
-return 0;
+	cin.tie(0);
+	int n; cin >> n;
+	int a[n];
+	int maxxy = -1;
+	int minf = INF;
+	map<int, int> mp;
+	map<int, int> done;
+	map<int, int> ex;
+	if (n == 1) {
+		cout << 0 << endl;
+		return 0;
+	}
+	forn(i, n) {
+		int item; cin >> item;
+		maxxy = max(maxxy, item);
+		minf = min(minf, item);
+		a[i] = item;
+		if (mp.find(item) != mp.end()) {
+			ex[item] = 1;
+		}
+		mp[item] = 1;
+	}
+
+	forn(i, n) {
+		if (ex.find(a[i]) != ex.end()) continue;
+		bool fd = false;
+		int curr = a[i];
+		int ct = 2;
+		while (curr * ct <= maxxy) {
+			if (mp.find(curr.ct))
+			}
+	}
+
+	return 0;
 }

@@ -53,12 +53,8 @@ string trUpp(string s) {
 }
 
 bool compare(ii a, ii b) {
-	ll sm1 = min(a.first * 2, a.second);
-	ll sm2 = min(b.first * 2, b.second);
-	if (sm1 == sm2) return min(a.first, a.second) > min(b.first, b.second);
-	return sm1 > sm2;
 
-	// return min(a.first * 2, a.second) - min(a.first, a.second) > min(b.first * 2, b.second) - min(b.first, b.second);
+	return min(a.first * 2, a.second) - min(a.first, a.second) > min(b.first * 2, b.second) - min(b.first, b.second);
 }
 
 int main() {
