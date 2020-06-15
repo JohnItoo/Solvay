@@ -56,31 +56,30 @@ int main() {
 	int n, m, k; cin >> n >> m >> k;
 	map<int, int> holes;
 	forn(i, m) {
-		int x; cin >> x;
-		holes[x] = 1;
+		int in; cin >> in;
+		holes[in] = 1;
 	}
-	if (k == 0) {
-		cout << 1 << endl;
-	} else {
-		int ans = -1;
-		forn(i, k) {
-			int x, y; cin >> x >> y;
-			if (holes.find(x) != holes.end()) {
-				ans = x;
-				break;
-			}
-
-			if (holes.find(y) != holes.end()) {
-				ans = y;
-				break;
-			}
-
-			if (i == k - 1) {
-				ans = y;
-			}
+// O(M + K)
+	int ans = -1;
+	int start = 1;
+	
+	forn(i, k) {
+		int x, y; 
+		scanf("%d, %d", &x, &y);
+		if(holes.find(start) != holes.end()) {
+			ans = start;
+			break;
 		}
-		cout << ans << endl;
+		if (x == start) {
+			start = y;
+		}
+		if( y == start) {
+			start = x;
+		}
 	}
+	if (ans == -1) ans = start;
+	cout << ans << endl;
+
 
 
 	return 0;
