@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -44,15 +44,61 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-	// to_string(int)
+// to_string(int)
 
 string trUpp(string s) {
-	
-  	transform(s.begin(), s.end(), s.begin(), ::toupper);
- return "";
+
+	transform(s.begin(), s.end(), s.begin(), ::toupper);
+	return "";
 }
 
+
+
 int main() {
-	
-return 0;
+	int n, m; cin >> n >> m;
+	vi graph[n + 1];
+	int done[n + 1];
+	memset(done, 0, sizeof done);
+	int entry;
+	forn(i, m) {
+		int u, v; cin >> u >> v;
+		graph[u].pb(v);
+		graph[v].pb(u);
+		entry = v;
+	}
+	int ans = 0;
+	while (true) {
+		bool anybody = false;
+		vi discardEdges;
+
+		REP(i, 1, n) {
+			if (graph[i].size() == 0) continue;
+			int ct = 0;
+			vi locdiscarded;
+			for (auto vertex : graph[i]) {
+				if (done[vertex] == 0) {
+					ct++;
+					locdiscarded.pb(vertex);
+				}
+			}
+			if (ct == 1) {
+				for (auto discard : locdiscarded) {
+					discardEdges.pb(discard);
+				}
+				anybody = 1;
+			}
+		}
+		if (!anybody) break;
+		for (auto toDiscard : discardEdges) {
+			done[toDiscard] = 1;
+			cout << toDiscard << " ";
+		}
+		cout << endl;
+		discardEdges.clear();
+		ans++;
+	}
+
+	cout << ans << endl;
+
+	return 0;
 }
