@@ -74,26 +74,34 @@ int main() {
 		REP(i, 1, n) {
 			if (graph[i].size() == 0) continue;
 			int ct = 0;
+			int cutOff = 0;
 			vi locdiscarded;
 			for (auto vertex : graph[i]) {
 				if (done[vertex] == 0) {
 					ct++;
-					locdiscarded.pb(vertex);
+					locdiscarded.pb(i);
+				} else {
+					cutOff++;
 				}
+			}
+			if(cutOff == graph[i].size()) {
+				discardEdges.pb(i);
+				ans--;
 			}
 			if (ct == 1) {
 				for (auto discard : locdiscarded) {
 					discardEdges.pb(discard);
 				}
 				anybody = 1;
+				// cout << "here" << endl;
 			}
 		}
 		if (!anybody) break;
 		for (auto toDiscard : discardEdges) {
 			done[toDiscard] = 1;
-			cout << toDiscard << " ";
+			// cout << toDiscard << " ";
 		}
-		cout << endl;
+		// cout << endl;
 		discardEdges.clear();
 		ans++;
 	}
