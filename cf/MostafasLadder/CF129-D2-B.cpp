@@ -57,6 +57,7 @@ string trUpp(string s) {
 int main() {
 	int n, m; cin >> n >> m;
 	vi graph[n + 1];
+	int degree[n + 1];
 	int done[n + 1];
 	memset(done, 0, sizeof done);
 	int entry;
@@ -64,47 +65,11 @@ int main() {
 		int u, v; cin >> u >> v;
 		graph[u].pb(v);
 		graph[v].pb(u);
-		entry = v;
+		degree[u]++;
+		degree[v]++;
+
 	}
 	int ans = 0;
-	while (true) {
-		bool anybody = false;
-		vi discardEdges;
-
-		REP(i, 1, n) {
-			if (graph[i].size() == 0) continue;
-			int ct = 0;
-			int cutOff = 0;
-			vi locdiscarded;
-			for (auto vertex : graph[i]) {
-				if (done[vertex] == 0) {
-					ct++;
-					locdiscarded.pb(i);
-				} else {
-					cutOff++;
-				}
-			}
-			if(cutOff == graph[i].size()) {
-				discardEdges.pb(i);
-				ans--;
-			}
-			if (ct == 1) {
-				for (auto discard : locdiscarded) {
-					discardEdges.pb(discard);
-				}
-				anybody = 1;
-				// cout << "here" << endl;
-			}
-		}
-		if (!anybody) break;
-		for (auto toDiscard : discardEdges) {
-			done[toDiscard] = 1;
-			// cout << toDiscard << " ";
-		}
-		// cout << endl;
-		discardEdges.clear();
-		ans++;
-	}
 
 	cout << ans << endl;
 
