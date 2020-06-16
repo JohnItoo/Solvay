@@ -58,6 +58,7 @@ int main() {
 	int n, m; cin >> n >> m;
 	vi graph[n + 1];
 	int degree[n + 1];
+	memset(degree, 0, sizeof degree);
 	int done[n + 1];
 	memset(done, 0, sizeof done);
 	int entry;
@@ -70,6 +71,24 @@ int main() {
 
 	}
 	int ans = 0;
+
+	forn(i, n) {
+		vi discarded;
+		REP(j, 1,  n) {
+			if (done[j] == 0 && degree[j] == 1) {
+				discarded.pb(j);
+			}
+		}
+		if (discarded.size() > 0) ans++;
+		forn(k, discarded.size()) {
+			int vertex = discarded[k];
+			done[vertex] = 1;
+			forn (edge, graph[vertex].size()) {
+				int vt = graph[vertex][edge];
+				degree[vt] -= 1;
+			}
+		}
+	}
 
 	cout << ans << endl;
 
