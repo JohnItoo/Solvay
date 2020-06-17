@@ -99,15 +99,19 @@ int main() {
 			if (idxs.size() == 0) {
 				g2[i + 1][start + 1] = 1;
 				g2[i + 1][start - 1] =  1;
+				idxs.pb(start);
 			} else {
+				vi newPos;
 				for (int position : idxs) {
 					g2[i + 1][position - 1] = 1;
-					g2[i - 1][position - 1] = 1;
+					g2[i + 1][position + 1] = 1;
+					newPos.pb(position - 1);
+					newPos.pb(position + 1);
 				}
+				idxs.clear();
+				idxs = newPos;
 			}
 			curr /= (float) 2;
-
-
 		}
 	}
 	cout << endl;

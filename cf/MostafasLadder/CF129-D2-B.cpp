@@ -53,7 +53,6 @@ string trUpp(string s) {
 }
 
 
-
 int main() {
 	int n, m; cin >> n >> m;
 	vi graph[n + 1];
