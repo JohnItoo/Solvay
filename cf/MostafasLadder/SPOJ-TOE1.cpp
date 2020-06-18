@@ -44,30 +44,15 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
+	// to_string(int)
 
-int main() {
-	ios::sync_with_stdio(false);
- cin.tie(0);
- int k ,n ; cin >> k >> n;
- int ed = 0; int a[n];
- forn(i, n) {
- 	int x; cin >> x;
- 	if(x == 0) ed = 1;
- 	a[i] = x;
- }
- int ans = 0;
-
- if(ed) {
-   	ans += a[n-1] - a[1];
-   	if(a[n-1] == )
-   
- } else {
-    REP(i, ed, n-2) {
-   ans += a[i+1] - a[i];
- 
- }
+string trUpp(string s) {
+	
+  	transform(s.begin(), s.end(), s.begin(), ::toupper);
+ return "";
 }
 
- cout << ans << endl;
+int main() {
+	
 return 0;
 }
