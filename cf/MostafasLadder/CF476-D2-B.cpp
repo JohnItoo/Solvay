@@ -51,78 +51,24 @@ string trUpp(string s) {
 	transform(s.begin(), s.end(), s.begin(), ::toupper);
 	return "";
 }
+string s, t;
+
+double dfs(int depth, int sms, int smt) {
+	if (depth == s.length() && sms == smt) return 1;
+	if (depth == s.length() && sms != smt) return 0;
+	sms = (s[depth] == '+' ) ? sms + 1 : sms - 1;
+
+	if (t[depth] != '?') {
+		smt = (t[depth] == '+') ? smt + 1 : smt - 1;
+		return dfs(depth + 1, sms, smt);
+	}
+	return 	 0.5 * (dfs(depth + 1, sms, smt - 1) + dfs(depth + 1, sms, smt + 1));
+
+}
 
 int main() {
-	string s; string t;
 	cin >> s >> t;
-	int n = (s.length() * 2)  + 2;
-	float g1[s.length() + 1][n];
-	float g2[s.length() + 1][n];
-	memset(g1, (float) 0 , sizeof g1);
-	memset(g2, (float) 0 , sizeof g2);
-
-	int start = s.length() + 1;
-	int end = 0;
-	forn(i, s.length()) {
-		if (s[i] == '+') {
-			g1[i + 1][start + 1] = (float) 1;
-			start += 1;
-		} else {
-			g1[i + 1][start - 1] = (float) 1;
-			start -= 1;
-		}
-		if (i == s.length() - 1) end = start;
-	}
-	REP(i, 1, s.length()) {
-		REP(j, 1, n - 1) {
-			cout << g1[i][j] << " ";
-		}
-		cout << endl;
-	}
-	cout << endl;
-
-
-	start = s.length() + 1;
-	vi idxs;
-	float curr = (float) 1;
-	forn(i, s.length()) {
-		if (t[i] == '+') {
-			cout << " + ";
-			g2[i + 1][start + 1] = 1;
-			start += 1;
-		} else if (t[i] == '-') {
-			cout << " - ";
-			g2[i + 1][start - 1] = 1;
-			start -= 1;
-		} else {
-			cout << " ? ";
-			if (idxs.size() == 0) {
-				g2[i + 1][start + 1] = 1;
-				g2[i + 1][start - 1] =  1;
-				idxs.pb(start);
-			} else {
-				vi newPos;
-				for (int position : idxs) {
-					g2[i + 1][position - 1] = 1;
-					g2[i + 1][position + 1] = 1;
-					newPos.pb(position - 1);
-					newPos.pb(position + 1);
-				}
-				idxs.clear();
-				idxs = newPos;
-			}
-			curr /= (float) 2;
-		}
-	}
-	cout << endl;
-	REP(i, 1, s.length()) {
-		REP(j, 1, n - 1) {
-			cout << g2[i][j] << " ";
-		}
-		cout << endl;
-	}
-
-	cout << min(g1[s.length()][end], g2[s.length()][end]) << endl;
-
+	double ans = dfs(0, 0, 0);
+	printf("%.20f\n", ans);
 	return 0;
 }
