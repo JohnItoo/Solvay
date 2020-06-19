@@ -54,8 +54,9 @@ int main() {
 	int i = 0;
 	while (current < k) {
 		current = (current / d[i]) * (d[i] + 1);
-		i = (i + 1) % 10;
 		d[i]++;
+		i = (i + 1) % 10;
+
 	}
 	string cf = "codeforces";
 	string ans = "";
