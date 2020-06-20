@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <set>
 #include <map>
+#include <numeric>
 #include <set>
 #include <vector>
 #include <string.h> // for memset in CF judge.
@@ -45,6 +46,10 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
+int gcd(int a, int b) {
+	if (b == 0) return a;
+	return gcd(b, a % b);
+}
 
 int main() {
 	ios::sync_with_stdio(false);
@@ -54,19 +59,38 @@ int main() {
 		int n; cin >> n;
 		int a[n + 1];
 		memset(a, 0, sizeof a);
-		for (int i = 2; i * i <= n; i++) {
+		for (int i = 2; i * 2 <= n; i++) {
 			if (a[i] != 0) continue;
+			int prev = i;
+			int curr = 1;
 			for (int j = i; j <= n; j += i) {
 				a[j] = i;
+				// if (j == i) continue;
 			}
 		}
+		// REP(i, 1, n) {
+		// 	cout << a[i] << endl;
+		// }
+		// int ans = 1;
+		// int larges
 		int ans = 1;
+
 		for (int i = n; i >= 2; i--) {
 			// cout << a[i] << endl;
-			if (a[i] != 0 && ans == 1) {
-				ans = a[i];
+			if (a[i] != 0 ) {
+				REP(j, 2, a[i]) {
+					if (i % j == 0 && i / j != i) {
+						ans = max(ans, i / j);
+					}
+				}
 			}
 		}
+		// int ans = 1;
+		// for(int i = n; i >= 2; i--) {
+		// 	for(int j = i-1; j >= 2; j--) {
+		//              ans = max(ans, gcd(i,j));
+		// 	}
+		// }
 		cout << ans << endl;
 	}
 	return 0;
