@@ -48,30 +48,8 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	ll n; cin >> n;
-	map<int, char> mp;
-
-	mp[0] = 'z';
-	REP(i, 1, 25) {
-		mp[i] = (char) ((i - 1) + 'a');
-	}
-	ll done = 26;
-	ll ct = 26;
-	ll count = 0;
-	while (done < n) {
-		ct = 26 * ct;
-		done += ct;
-		count++;
-		cout << done << endl;
-	}
-    char arr[count+1];
-    n = n-1;
-    for(int i = 0; i <= count; i++) {
-    	arr[i] = n%26 + 'a';
-    	n/=26;
-    }
-    cout << arr << endl;
-
-
+	string c; cin >> c;
+	if (c >= "A" && c <= "Z") cout << "A";
+	else cout << "a";
 	return 0;
 }

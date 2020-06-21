@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -47,17 +47,27 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 int main() {
 	ios::sync_with_stdio(false);
-	cin.tie(0);
-	ll n; cin >> n;
-	string ans;
-	while (n > 0) {
-		n -= 1;
-		ll r = n % 26;
-		ans.pb('a' + r);
-		n /= 26;
-	}
-	reverse(ans.begin(), ans.end());
-	cout << ans << endl;
+ cin.tie(0);
+ map<int, int> mp;
+ int n; cin >> n;
+ int sum = 0;
+ forn(i,n) {
+ 	int x; cin >> x;
+ 	mp[x]++;
+ 	sum += x;
+ }
+ int tx; cin >> tx;
 
-	return 0;
+ forn(i, tx) {
+ 	int a, b; cin >> a >> b;
+ 	int freq = mp.find(a)->second;
+ 	int freqt = mp.find(b)->second;
+ 	sum -= (a*freq);
+ 	mp[a] = 0;
+ 	mp[b] = freq + freqt;
+ 	sum += freq * b;
+ 	cout << sum << endl;
+ }
+
+
 }
