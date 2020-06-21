@@ -55,25 +55,23 @@ int main() {
 	REP(i, 1, 25) {
 		mp[i] = (char) ((i - 1) + 'a');
 	}
-
-	if (n <= 26) {
-		cout << mp.find(n)->second << endl;
-	} else {
-		vector<char> v;
-		while (n >= 1) {
-			char curr =  mp.find((n % 27))->second;
-			v.pb(curr);
-			n /= 27;
-		}
-		reverse(v.begin(), v.end());
-		string ans = "";
-		forn(i, v.size()) {
-			ans.pb(v[i]);
-		}
-
-
-		cout << ans << endl;
-
+	ll done = 26;
+	ll ct = 26;
+	ll count = 0;
+	while (done < n) {
+		ct = 26 * ct;
+		done += ct;
+		count++;
+		cout << done << endl;
 	}
+    char arr[count+1];
+    n = n-1;
+    for(int i = 0; i <= count; i++) {
+    	arr[i] = n%26 + 'a';
+    	n/=26;
+    }
+    cout << arr << endl;
+
+
 	return 0;
 }
