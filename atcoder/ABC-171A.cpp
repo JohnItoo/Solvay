@@ -49,32 +49,30 @@ int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	ll n; cin >> n;
+	map<int, char> mp;
+
+	mp[0] = 'z';
+	REP(i, 1, 25) {
+		mp[i] = (char) ((i - 1) + 'a');
+	}
+
 	if (n <= 26) {
-		cout << (char) (n + 'a') << endl;
+		cout << mp.find(n)->second << endl;
 	} else {
-		ll done = 26;
-		ll ct = 26;
-		ll count = 0;
-
-		while (done < n) {
-			ct = 26 * ct;
-			done += ct;
-			count++;
-			cout << done << endl;
+		vector<char> v;
+		while (n >= 1) {
+			char curr =  mp.find((n % 27))->second;
+			v.pb(curr);
+			n /= 27;
 		}
-		cout << count << endl;
-		char res[count + 1];
-
-		if (done == n) {
-			forn(i, count + 1) {
-				res[i] =  'z';
-			}
+		reverse(v.begin(), v.end());
+		string ans = "";
+		forn(i, v.size()) {
+			ans.pb(v[i]);
 		}
-		ll idx = n / 26;
 
-		forn(i, count + 1) {
-			res[i] =
-		}
+
+		cout << ans << endl;
 
 	}
 	return 0;
