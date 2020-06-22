@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -47,27 +47,27 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 int main() {
 	ios::sync_with_stdio(false);
- cin.tie(0);
- map<ll, ll> mp;
- int n; cin >> n;
- ll sum = 0;
- forn(i,n) {
- 	int x; cin >> x;
- 	mp[x]++;
- 	sum += x;
- }
- int tx; cin >> tx;
+	cin.tie(0);
+	map<ll, ll> mp;
+	int n; cin >> n;
+	ll sum = 0;
+	forn(i, n) {
+		int x; cin >> x;
+		mp[x]++;
+		sum += x;
+	}
+	int tx; cin >> tx;
 
- forn(i, tx) {
- 	ll a, b; cin >> a >> b;
- 	ll freq = mp.find(a) == mp.end()? 0 : mp.find(a)->second;
- 	ll freqt = mp.find(b) == mp.end() ? 0 : mp.find(b)->second;
- 	sum -= (a*freq);
- 	mp[a] = 0;
- 	mp[b] = freq + freqt;
- 	sum += freq * b;
- 	cout << sum << endl;
- }
+	forn(i, tx) {
+		ll a, b; cin >> a >> b;
+		ll freq = mp.find(a) == mp.end() ? 0 : mp.find(a)->second;
+		ll freqt = mp.find(b) == mp.end() ? 0 : mp.find(b)->second;
+		sum -= (a * freq);
+		mp[a] = 0;
+		mp[b] = freq + freqt;
+		sum += freq * b;
+		cout << sum << endl;
+	}
 
-return 0;
+	return 0;
 }
