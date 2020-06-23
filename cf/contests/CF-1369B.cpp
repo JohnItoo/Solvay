@@ -48,5 +48,27 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
  ios::sync_with_stdio(false);
  cin.tie(0);
+ int tc;
+ cin >> tc;
+ while(tc--) {
+ 	int n; cin >> n;
+ 	string s; cin >> s;
+ 	int meet = 0;
+ 	string ans = "";
+ 	forn(i, n) {
+      if(s[i] == '0') {
+      	if(meet > 0) meet = 0;
+        ans.pb('0');
+      } else if(s[i] == '1') {
+      	meet++;
+      }
+ 	}
+ 	// cout << "This is meet " << meet << endl;
+ 	if(meet > 0) {
+ 		string suff = string(meet, '1');
+ 		ans += suff;
+ 	}
+ 	cout << ans << endl;
+ }
 return 0;
 }
