@@ -69,20 +69,6 @@ int main() {
 	}
 
 	int ans = 0;
-	// for (int i = 0; i < x.size(); i++) {
-	// 	ii el = x[i];
-	// 	for (int q = l; q <= r; q++) {
-	// 		int nx, ny;
-	// 		nx = el.first + q;
-	// 		ny = el.second + q;
-	// 		for (int j = 0; j < z.size(); j++) {
-	// 			int dx = z[j].first;
-	// 			int dy = z[j].second;
-	// 			if (nx >= dx && nx <= dy) {
-	// 				int cp = min(ny, dy);
-	// 		   3 5 2 8    7 11 12 15
-	// 			} else if (nx > dx && nx > dy )break;
-	// 		}
 
 	REP(i, l, r) {
 		bool fd = false;
@@ -93,12 +79,10 @@ int main() {
 			forn(k, z.size()) {
 				int dx = z[k].first;
 				int dy = z[k].second;
-				int mnx = min(nx, dx);
-				int mny = min(ny, dy);
-				if ((nx >= dx && nx <= dy) || (ny >= dx && ny <= dy) || (dx >= nx && dy <= nx) || (dx >= ny && dy <= ny)) {
-					fd = true;
-					break;
-				}
+				if ((nx < dx && ny < dx) || (dx < nx && dy < nx)) continue;
+				fd = true;
+				break;
+
 			}
 			if (fd) {
 				ans++;
