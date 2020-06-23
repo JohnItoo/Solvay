@@ -80,8 +80,7 @@ int main() {
 	// 			int dy = z[j].second;
 	// 			if (nx >= dx && nx <= dy) {
 	// 				int cp = min(ny, dy);
-	// 				ans += (cp - nx) + 1;
-
+	// 		   3 5 2 8    7 11 12 15
 	// 			} else if (nx > dx && nx > dy )break;
 	// 		}
 
@@ -94,7 +93,9 @@ int main() {
 			forn(k, z.size()) {
 				int dx = z[k].first;
 				int dy = z[k].second;
-				if ((nx >= dx && nx <= dy) || (ny >= dx && ny <= dy)) {
+				int mnx = min(nx, dx);
+				int mny = min(ny, dy);
+				if ((nx >= dx && nx <= dy) || (ny >= dx && ny <= dy) || (dx >= nx && dy <= nx) || (dx >= ny && dy <= ny)) {
 					fd = true;
 					break;
 				}
