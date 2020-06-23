@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -10,7 +10,6 @@
 #include <algorithm>
 #include <set>
 #include <map>
-#include <cmath>
 #include <set>
 #include <vector>
 #include <string.h> // for memset in CF judge.
@@ -45,47 +44,9 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-// to_string(int)
-
-string trUpp(string s) {
-
-	transform(s.begin(), s.end(), s.begin(), ::toupper);
-	return "";
-}
 
 int main() {
-	int n;
-	cin >> n;
-	int r1[n];
-	forn(i, n) cin >> r1[i];
-
-	int m;
-	cin >> m;
-	int p1[m];
-	forn(i, m) cin >> p1[i];
-
-	int k;
-	cin >> k;
-	int p2[k];
-	forn(i, k) cin >> p2[i];
-
-	sort(r1, r1 + n);
-	sort(p2, p2 + k);
-
-	int r = r1[n - 1];
-	int pee2 = p2[0];
-
-	int a, b; cin >> a >> b;
-
-	float ansq = 0;
-
-	forn(i, m) {
-		float curr = (b * p1[i] * pow(r, 2)) / ((b * p1[i]) + ( a * pee2));
-		ansq = max(ansq, curr);
-	}
-
-	printf(" %.20f\n", pow(ansq, 0.5));
-
-
-	return 0;
+ ios::sync_with_stdio(false);
+ cin.tie(0);
+return 0;
 }
