@@ -62,23 +62,52 @@ int main() {
 		z.pb(mp(a, b));
 	}
 	vii x;
-	fon(i, q) {
+	forn(i, q) {
 		int c, d;
 		cin >> c >> d;
 		x.pb(mp(c, d));
 	}
 
-	for (int i = 0; i < x.size(); i++) {
-		ii el = x[i];
-		for (int q = l; q <= r; q++) {
+	int ans = 0;
+	// for (int i = 0; i < x.size(); i++) {
+	// 	ii el = x[i];
+	// 	for (int q = l; q <= r; q++) {
+	// 		int nx, ny;
+	// 		nx = el.first + q;
+	// 		ny = el.second + q;
+	// 		for (int j = 0; j < z.size(); j++) {
+	// 			int dx = z[j].first;
+	// 			int dy = z[j].second;
+	// 			if (nx >= dx && nx <= dy) {
+	// 				int cp = min(ny, dy);
+	// 				ans += (cp - nx) + 1;
 
-			for (int j = 0; j < z.size(); j++) {
+	// 			} else if (nx > dx && nx > dy )break;
+	// 		}
 
+	REP(i, l, r) {
+		bool fd = false;
+		forn(j, x.size()) {
+			ii el = x[j];
+			int nx = el.first + i;
+			int ny = el.second + i;
+			forn(k, z.size()) {
+				int dx = z[k].first;
+				int dy = z[k].second;
+				if ((nx >= dx && nx <= dy) || (ny >= dx && ny <= dy)) {
+					fd = true;
+					break;
+				}
 			}
-
+			if (fd) {
+				ans++;
+				break;
+			}
 		}
-
 	}
+
+
+	cout << ans << endl;
 
 
 	return 0;
