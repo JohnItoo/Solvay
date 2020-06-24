@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -46,29 +46,50 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
- int tc;
- cin >> tc;
- while(tc--) {
- 	int n; cin >> n;
- 	string s; cin >> s;
- 	int meet = 0;
- 	string ans = "";
- 	forn(i, n) {
-      if(s[i] == '0') {
-      	if(meet > 0) meet = 0;
-        ans.pb('0');
-      } else if(s[i] == '1') {
-      	meet++;
-      }
- 	}
- 	// cout << "This is meet " << meet << endl;
- 	if(meet > 0) {
- 		string suff = string(meet, '1');
- 		ans += suff;
- 	}
- 	cout << ans << endl;
- }
-return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc;
+	cin >> tc;
+	while (tc--) {
+		int n; cin >> n;
+		string s; cin >> s;
+		int meet = 0;
+		string ans = "";
+		int lead = 0;
+		int ldstp = -1;
+		forn(i, n) {
+			if (s[i] == '0') {
+				lead++;
+				ans.pb('0');
+			} else if (s[i] == '1') {
+				if (lead) {
+					ldstp = i - 1;
+				}
+				break;
+
+			}
+		}
+		int trail = 0;
+		int trailstp = -1;
+		for (int i = n - 1; i >= 0; i--) {
+			if (s[i] == '1') {
+				trail++;
+			} else if (s[i] == '0') {
+				if (trail > 0) {
+
+					trailstp = i + 1;
+				}
+				break;
+			}
+		}
+		if (ldstp >= 0 && ldstp + 1 != trailstp) {
+			ans.pb('0');
+			string aux = string((n - trailstp), '1');
+			ans += aux;
+		} else {
+			ans = s;
+		}
+		cout << ans << endl;
+	}
+	return 0;
 }
