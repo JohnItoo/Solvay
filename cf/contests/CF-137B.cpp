@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <set>
 #include <map>
+#include <cmath>
 #include <set>
 #include <vector>
 #include <string.h> // for memset in CF judge.
@@ -46,7 +47,22 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
-return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc;
+	cin >> tc;
+	while (tc--) {
+		string s;
+		cin >> s;
+		ll zs = 0; ll ones = 0;
+
+		forn(i, s.length()) {
+			if (s[i] == '1') ones++;
+			else zs++;
+		}
+		ll mn = min(ones, zs);
+		if (mn % 2 == 0) cout << "NET" << endl;
+		else cout << "DA" << endl;
+	}
+	return 0;
 }
