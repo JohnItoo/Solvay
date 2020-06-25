@@ -11,6 +11,7 @@
 #include <set>
 #include <map>
 #include <set>
+#include <cmath>
 #include <vector>
 #include <string.h> // for memset in CF judge.
 using namespace std;
@@ -56,22 +57,25 @@ int main() {
 		ll a[s.length()];
 		if (s[0] == '+') a[0] = 1;
 		else a[0] = -1;
+		ll mn = min(a[0], 1LL);
 		REP(i, 1, s.length() - 1) {
 			if (s[i] == '+') {
 				a[i] = a[i - 1] + 1;
 			} else {
 				a[i] = a[i - 1] - 1;
 			}
+			mn = min(a[i], mn);
 		}
 
-		int  n = s.length();
-
-		if (a[s.length() - 1] >= 0) {
-
+		if (mn < 0) {
+			ll xx = abs(mn);
+			ll ans = ((xx * (xx + 1)) / 2) + s.length();
+			cout << ans << endl;
 		} else {
-			ll ans = ((n * (n + 1)) / 2) + n;
-			cout << ans  << endl;
+			cout << s.length() << endl;
 		}
+
+
 	}
 
 	return 0;
