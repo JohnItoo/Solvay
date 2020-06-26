@@ -51,12 +51,12 @@ int main() {
 	ll a; cin >> a;
 	double b; cin >> b;
 	ll ans = a * b;
-	string s = string(ans);
-	ll  fin = 0;
+	string s = to_string(ans);
+	string fin = "";
 	forn(i, s.length()) {
 		if (s[i] == '.') break;
-		fin = (fin * 10) + (s[i] - '0');
+		fin.pb(s[i]);
 	}
-	cout << fin << endl;
+	cout << stoll(fin) << endl;
 	return 0;
 }
