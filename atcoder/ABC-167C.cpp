@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -47,20 +47,6 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 int main() {
 	ios::sync_with_stdio(false);
-	cin.tie(0);
-	long double a; cin >> a;
-	long double b; cin >> b;
-
-
-	long double ans = a * b;
-	// cout << "this is ans " << ans << endl
-
-	string s = to_string(ans);
-	string fin = "";
-	forn(i, s.length()) {
-		if (s[i] == '.') break;
-		fin.pb(s[i]);
-	}
-	cout << stoll(fin) << endl;
-	return 0;
+ cin.tie(0);
+return 0;
 }
