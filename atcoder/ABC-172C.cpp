@@ -44,49 +44,65 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
+int n, m, k;
+ll a[200005];
+ll b[200005];
+ll ans = 0;
+ll dfs(int i, int j, ll mins, ll curr) {
+	if (mins > k || (i >= n  && j >= m)) {
+		ans = max(ans, curr);
+		return curr;
+	}
+	return max( dfs(i + 1, j, mins + a[i], curr + 1), dfs(i, j + 1, mins + b[j], curr + 1));
+}
+
 
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	ll n, m, k;
 	cin >> n >> m >> k;
-	ll a[n];
-	ll b[m];
+
 	forn(i, n) cin >> a[i];
 	forn(i, m) cin >> b[i];
 
-	ll tp = 0; ll bt = 0;
-	ll tm = 0;
-	ll ans = 0;
-	while (tp < n && bt < m && tm < k) {
-		if (a[tp] < b[bt]) {
-			tm += a[tp];
-			tp++;
-		} else {
+	// ll tp = 0; ll bt = 0;
+	// ll tm = 0;
+	// ll ans = 0;
+	// while (tp < n && bt < m && tm < k) {
+	// 	bool wt = 0;
+	// 	if (a[tp] < b[bt]) {
+	// 		tm += a[tp];
+	// 		tp++;
+	// 	} else {
 
-			tm += a[bt];
-			bt++;
-		}
-		if (tm <= k) ans++;
-		else break;
-	}
-	if (tm < k) {
-		if (tp < n) {
-			while (tp < n && tm < k) {
-				tm += a[tp];
-				tp++;
-				if (tm <= k) ans++;
-				else break;
-			}
-		} else if (bt < m) {
-			while (bt < m && tm < k) {
-				tm += b[bt];
-				bt++;
-				if (tm <= k) ans++;
-				else break;
-			}
-		}
-	}
+	// 		tm += b[bt];
+	// 		bt++;
+	// 		wt = 1;
+	// 	}
+	// 	if (tm <= k) ans++;
+	// 	else {
+
+	// 		break;
+	// 	}
+	// }
+	// if (tm < k) {
+	// 	if (tp < n) {
+	// 		while (tp < n && tm < k) {
+	// 			tm += a[tp];
+	// 			tp++;
+	// 			if (tm <= k) ans++;
+	// 			else break;
+	// 		}
+	// 	} else if (bt < m) {
+	// 		while (bt < m && tm < k) {
+	// 			tm += b[bt];
+	// 			bt++;
+	// 			if (tm <= k) ans++;
+	// 			else break;
+	// 		}
+	// 	}
+	// }
+	dfs(0, 0, 0, 0);
 	cout << ans << endl;
 	return 0;
 }
