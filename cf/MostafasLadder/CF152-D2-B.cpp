@@ -51,44 +51,50 @@ int main() {
 	ll n, m; cin >> n >> m;
 	ll xc, yc; cin >> xc >> yc;
 	int k; cin >> k;
-	ll steps;
+	ll steps = 0;
 	forn(i, k) {
-		ll x, y;
+		ll x = 0; ll y = 0;
 		cin >> x >> y;
-		ll xlef = -1; ll ylef = -1;
+		ll xlef = 0; ll ylef = 0;
+		bool hasZ = false;
 		if (x < 0) {
-			xlef = xc / abs(x);
+			xlef = (xc - 1) / abs(x);
 		} else if (x == 0) {
 			xlef = 0;
+			hasZ = true;
 		} else {
 			xlef = (n - xc) / x;
 		}
 
 		if (y < 0) {
-			ylef = yc / abs(y);
+			ylef = (yc - 1) / abs(y);
 		} else if (y == 0) {
 			ylef = 0;
+			hasZ = true;
 		} else {
 			ylef = (m - yc) / y;
 		}
-		ll currSteps;
+		ll currSteps = 0;
+		// cout << xlef  << " xx " << ylef << endl;
 
-		if (xlef == 0 || ylef == 0) {
+		if (hasZ) {
 			currSteps = max(xlef, ylef);
 		} else {
 			currSteps = min(xlef, ylef);
 		}
+		// cout << "This is curr steps " << currSteps << endl;
+
 		if (x < 0) {
-			xc -= currSteps;
-		} else {
-			xc += currSteps;
+			xc -= currSteps * abs(x);
+		} else if (x > 0) {
+			xc += currSteps * x ;
 		}
 		if (y < 0) {
-			yc -= currSteps;
-		} else {
+			yc -= currSteps * abs(y);
+		} else if (y > 0) {
 			yc += currSteps;
 		}
-		cout << xc  << " ; " << yc << endl;
+		// cout << xc  << " ; " << yc << endl;
 		steps += currSteps;
 	}
 	cout << steps << endl;
