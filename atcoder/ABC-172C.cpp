@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -47,54 +47,6 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 int main() {
 	ios::sync_with_stdio(false);
-	cin.tie(0);
-	ll n, m; cin >> n >> m;
-	ll xc, yc; cin >> xc >> yc;
-	int k; cin >> k;
-	ll steps = 0;
-	forn(i, k) {
-		ll x = 0; ll y = 0;
-		cin >> x >> y;
-		ll xlef = 0; ll ylef = 0;
-		bool hasZ = false;
-		if (x < 0) {
-			xlef = (xc - 1) / abs(x);
-		} else if (x == 0) {
-			xlef = 0;
-			hasZ = true;
-		} else {
-			xlef = (n - xc) / x;
-		}
-
-		if (y < 0) {
-			ylef = (yc - 1) / abs(y);
-		} else if (y == 0) {
-			ylef = 0;
-			hasZ = true;
-		} else {
-			ylef = (m - yc) / y;
-		}
-		ll currSteps = 0;
-
-		if (hasZ) {
-			currSteps = max(xlef, ylef);
-		} else {
-			currSteps = min(xlef, ylef);
-		}
-
-		if (x < 0) {
-			xc -= (currSteps * abs(x));
-		} else if (x > 0) {
-			xc += (currSteps * x) ;
-		}
-		if (y < 0) {
-			yc -= (currSteps * abs(y));
-		} else if (y > 0) {
-			yc += currSteps * y;
-		}
-		steps += currSteps;
-	}
-	cout << steps << endl;
-
-	return 0;
+ cin.tie(0);
+return 0;
 }
