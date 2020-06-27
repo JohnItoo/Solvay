@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -10,7 +10,6 @@
 #include <algorithm>
 #include <set>
 #include <map>
-#include <cmath>
 #include <set>
 #include <vector>
 #include <string.h> // for memset in CF judge.
@@ -45,38 +44,15 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-// to_string(int)
-string trUpp(string s) {
+	// to_string(int)
 
-	transform(s.begin(), s.end(), s.begin(), ::toupper);
-	return "";
+string trUpp(string s) {
+	
+  	transform(s.begin(), s.end(), s.begin(), ::toupper);
+ return "";
 }
 
 int main() {
-	int r, c; cin >> r >> c;
-	char a[r][c];
-	bool can = true;
-	int ans  = 0;
-	set<int> st;
-	forn(i, r) {
-		string s; cin >> s;
-		int g = -1;
-		int se = -1;
-		forn(j, c) {
-			a[i][j] = s[j];
-			if (s[j] == 'G') g = j;
-			if (s[j] == 'S' ) {
-				if (g == -1) can = false;
-				se = j;
-			}
-		}
-		st.insert(se - g);
-	}
-	if (!can) cout << -1 << endl;
-	else {
-		cout << st.size() << endl;
-	}
-
-
-	return 0;
+	
+return 0;
 }
