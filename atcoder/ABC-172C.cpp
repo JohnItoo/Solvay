@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -47,6 +47,46 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 int main() {
 	ios::sync_with_stdio(false);
- cin.tie(0);
-return 0;
+	cin.tie(0);
+	ll n, m, k;
+	cin >> n >> m >> k;
+	ll a[n];
+	ll b[m];
+	forn(i, n) cin >> a[i];
+	forn(i, m) cin >> b[i];
+
+	ll tp = 0; ll bt = 0;
+	ll tm = 0;
+	ll ans = 0;
+	while (tp < n && bt < m && tm < k) {
+		if (a[tp] < b[bt]) {
+			tm += a[tp];
+			tp++;
+		} else {
+
+			tm += a[bt];
+			bt++;
+		}
+		if (tm <= k) ans++;
+		else break;
+	}
+	if (tm < k) {
+		if (tp < n) {
+			while (tp < n && tm < k) {
+				tm += a[tp];
+				tp++;
+				if (tm <= k) ans++;
+				else break;
+			}
+		} else if (bt < m) {
+			while (bt < m && tm < k) {
+				tm += b[bt];
+				bt++;
+				if (tm <= k) ans++;
+				else break;
+			}
+		}
+	}
+	cout << ans << endl;
+	return 0;
 }

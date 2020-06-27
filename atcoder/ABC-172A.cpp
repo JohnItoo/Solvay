@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <set>
 #include <map>
+#include <cmath>
 #include <set>
 #include <vector>
 #include <string.h> // for memset in CF judge.
@@ -47,6 +48,9 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 int main() {
 	ios::sync_with_stdio(false);
- cin.tie(0);
-return 0;
+	cin.tie(0);
+	int a;
+	cin >> a;
+	cout << (a + pow(a, 2) + pow(a, 3)) << endl;
+	return 0;
 }
