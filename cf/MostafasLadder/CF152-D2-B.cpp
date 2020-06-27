@@ -85,16 +85,16 @@ int main() {
 		// cout << "This is curr steps " << currSteps << endl;
 
 		if (x < 0) {
-			xc -= currSteps * abs(x);
+			xc -= (currSteps * abs(x));
 		} else if (x > 0) {
-			xc += currSteps * x ;
+			xc += (currSteps * x) ;
 		}
 		if (y < 0) {
-			yc -= currSteps * abs(y);
+			yc -= (currSteps * abs(y));
 		} else if (y > 0) {
-			yc += currSteps;
+			yc += currSteps * y;
 		}
-		// cout << xc  << " ; " << yc << endl;
+		// cout << xc  << " ; " << yc << "curr steps " << currSteps << endl;
 		steps += currSteps;
 	}
 	cout << steps << endl;
