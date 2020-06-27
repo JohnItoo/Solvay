@@ -65,44 +65,44 @@ int main() {
 	forn(i, n) cin >> a[i];
 	forn(i, m) cin >> b[i];
 
-	// ll tp = 0; ll bt = 0;
-	// ll tm = 0;
-	// ll ans = 0;
-	// while (tp < n && bt < m && tm < k) {
-	// 	bool wt = 0;
-	// 	if (a[tp] < b[bt]) {
-	// 		tm += a[tp];
-	// 		tp++;
-	// 	} else {
+	ll tp = 0; ll bt = 0;
+	ll tm = 0;
+	ll ans = 0;
+	while (tp < n && bt < m && tm < k) {
+		bool wt = 0;
+		if (a[tp] < b[bt]) {
+			tm += a[tp];
+			tp++;
+		} else {
 
-	// 		tm += b[bt];
-	// 		bt++;
-	// 		wt = 1;
-	// 	}
-	// 	if (tm <= k) ans++;
-	// 	else {
+			tm += b[bt];
+			bt++;
+			wt = 1;
+		}
+		if (tm <= k) ans++;
+		else {
 
-	// 		break;
-	// 	}
-	// }
-	// if (tm < k) {
-	// 	if (tp < n) {
-	// 		while (tp < n && tm < k) {
-	// 			tm += a[tp];
-	// 			tp++;
-	// 			if (tm <= k) ans++;
-	// 			else break;
-	// 		}
-	// 	} else if (bt < m) {
-	// 		while (bt < m && tm < k) {
-	// 			tm += b[bt];
-	// 			bt++;
-	// 			if (tm <= k) ans++;
-	// 			else break;
-	// 		}
-	// 	}
-	// }
-	dfs(0, 0, 0, 0);
+			break;
+		}
+	}
+	if (tm < k) {
+		if (tp < n) {
+			while (tp < n && tm < k) {
+				tm += a[tp];
+				tp++;
+				if (tm <= k) ans++;
+				else break;
+			}
+		} else if (bt < m) {
+			while (bt < m && tm < k) {
+				tm += b[bt];
+				bt++;
+				if (tm <= k) ans++;
+				else break;
+			}
+		}
+	}
+	// dfs(0, 0, 0, 0);
 	cout << ans << endl;
 	return 0;
 }
