@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -47,6 +47,50 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 int main() {
 	ios::sync_with_stdio(false);
- cin.tie(0);
-return 0;
+	cin.tie(0);
+	ll n, m; cin >> n >> m;
+	ll xc, yc; cin >> xc >> yc;
+	int k; cin >> k;
+	ll steps;
+	forn(i, k) {
+		ll x, y;
+		cin >> x >> y;
+		ll xlef = -1; ll ylef = -1;
+		if (x < 0) {
+			xlef = xc / abs(x);
+		} else if (x == 0) {
+			xlef = 0;
+		} else {
+			xlef = (n - xc) / x;
+		}
+
+		if (y < 0) {
+			ylef = yc / abs(y);
+		} else if (y == 0) {
+			ylef = 0;
+		} else {
+			ylef = (m - yc) / y;
+		}
+		ll currSteps;
+
+		if (xlef == 0 || ylef == 0) {
+			currSteps = max(xlef, ylef);
+		} else {
+			currSteps = min(xlef, ylef);
+		}
+		if (x < 0) {
+			xc -= currSteps;
+		} else {
+			xc += currSteps;
+		}
+		if (y < 0) {
+			yc -= currSteps;
+		} else {
+			yc += currSteps;
+		}
+		steps += currSteps;
+	}
+	cout << steps << endl;
+
+	return 0;
 }
