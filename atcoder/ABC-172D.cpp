@@ -44,31 +44,23 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-
-int noDivs(ll n) {
-	ll aux = n;
-	ll divs = 1;
-	ll curr = 2;
-	while (aux > 1) {
-		ll ct = 0;
-		while (aux % curr == 0) {
-			ct++;
-			aux /= curr;
-		}
-		if (ct) divs *= ct + 1;
-		curr++;
-	}
-
-	return divs;
-}
+int a[10000005];
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 
 	ll n; cin >> n;
+	memset(a, 0, sizeof a);
 	ll ans = 0;
-	REP(i, 1, n) {
-		ans += (i * noDivs(i));
+	for(ll i = 1; i <= n; i++) {
+		ll j = i;
+		while (j <= n ) {
+			a[j]++;
+			j += i;
+		}
+	}
+	for(ll i= 1; i <= n; i++) {
+		ans += a[i] * i;
 	}
 	cout << ans << endl;
 	return 0;
