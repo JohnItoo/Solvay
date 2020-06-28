@@ -48,5 +48,19 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
  ios::sync_with_stdio(false);
  cin.tie(0);
+ int tc;
+ cin >> tc;
+ while(tc--) {
+ 	int n; cin >> n;
+ 	string s; cin >> s;
+    int open = 0;
+    forn(i,n) {
+    	if(s[i] == '(') open++;
+    	else {
+    		if(open >= 1) open--;
+    	}
+    }
+    cout << open << endl;
+ }
 return 0;
 }
