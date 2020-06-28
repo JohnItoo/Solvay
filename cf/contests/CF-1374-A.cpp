@@ -44,35 +44,22 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-// to_string(int)
 
-string trUpp(string s) {
-
-	transform(s.begin(), s.end(), s.begin(), ::toupper);
-	return "";
-}
-
-bool comp(pair<double, int> a, pair<double, int> b) {
-	if (a.first == b.first) return a.second > b.second;
-	else return a.first < b.first;
-
-}
 int main() {
-	double n, ta, tb, k;
-	cin >> n >> ta >> tb >> k;
-	vector<pair<double, int> > res(n);
-	forn(i, n) {
-		double v1, v2; cin >> v1 >> v2;
-		double a = ta * min(v1, v2);
-		double h1 = a - ((double)(k / 100) * a);
-		double h2 = tb * max(v1, v2);
-		res[i] = mp(h1 + h2, i + 1);
-	}
-	sort(res.begin(), res.end(), comp);
-	for (int i = n - 1; i >= 0; i--) {
-		pair<double, int> curr = res[i];
-		printf("%d %.2f\n", curr.second,  curr.first);
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc; cin >> tc;
+	while (tc--) {
+		ll n, x, y;
+		cin >>x >> y >> n;
+		ll start = (n/x) * x;
+		while(start + y > n) {
+			// cout << start << endl;
+			start -= x;
 
+		}
+		cout << start + y << endl;
 	}
+
 	return 0;
 }
