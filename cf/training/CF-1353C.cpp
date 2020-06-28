@@ -56,8 +56,6 @@ int main() {
 		if (n == 1) {
 			cout << 0 << endl;
 		} else {
-
-
 			ll ans = 0;
 			ll sq = 1;
 			ll curr = 1;
