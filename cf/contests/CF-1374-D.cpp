@@ -53,53 +53,14 @@ int main() {
 		int n; ll k; cin >> n >> k;
 		ll a[n];
 		map<ll, int> freq;
-		ll ct = 0;
-		bool all = true;
-		forn(i, n) {
-			cin >> a[i];
-			freq[a[i]]++;
-			if (a[i] % k != 0) {
-				all = false;
-				ct++;
-			}
-		}
 		sort(a, a + n);
-	    int currmx = n - 1;
-		while(a[currmx] % k == 0) {
-			currmx--;
+		forn(i, n) {
+
 		}
-		if (all) {
-			cout << 0 << endl;
-		} else {
-			ll x = 1;
-			while (ct) {
-				ll curr = 1;
-				bool pic = false;
-				while ((k * curr ) - x <= a[currmx] && !pic) {
-					ll tofind = (k * curr ) - x;
-					auto idx = freq.find(tofind);
-					if ( idx != freq.end() && idx->second != 0) {
-						pic = true;
-						ct--;
-						if (tofind == a[currmx] && idx->second == 1) {
-							ll move = currmx;
-							while ((a[move] == a[currmx] && move >= 1) || a[move] % k == 0) {
-								move--;
-							}
-							currmx = move;
-						}
-						freq[tofind]--;
-
-					}
-					curr++;
-				}
-				x++;
-			}
-			cout << x << endl;
-		}
-
-
 	}
 
-	return 0;
+
+}
+
+return 0;
 }
