@@ -52,15 +52,47 @@ int main() {
 	while (tc--) {
 		int n; ll k; cin >> n >> k;
 		ll a[n];
+		forn(i, n) cin >> a[i];
 		map<ll, int> freq;
+		ll ans = -1;
+
 		sort(a, a + n);
-		forn(i, n) {
+		ll i = 0;
+		while (i < n) {
+			if (a[i] % k == 0) {i++; continue;}
+			ll div = (a[i] + k - 1) / k;
+			div *= k;
+			bool done = false;
+			ll used = 0;
+			for (ll j = div; ; j += k) {
+				ll curr = j - a[i];
+				auto it = freq.find(curr);
+				if (it == freq.end()) {
+					done = true;
+					freq[curr] = i;
+					used = curr;
+					break;
+				}
+			}
 
+			if (used) {
+				ll q = i + 1;
+				while ( q  < n && a[q] == a[q - 1]) {
+					used += k;
+					freq[used] = 1;
+					q++;
+				}
+				ans = max(ans, used);
+				i = q;
+
+			} else {
+				ans = max(ans, used);
+
+				i++;
+			}
 		}
+		if (ans == 0) cout << ans << endl;
+		else cout << ans + 1 << endl;
 	}
-
-
-}
-
-return 0;
+	return 0;
 }

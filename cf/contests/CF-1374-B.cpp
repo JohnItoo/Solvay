@@ -57,13 +57,11 @@ int main() {
 		else {
 			ll ct = 0;
 			while (n > 3) {
-				// if (n % 6 != 0 && n % 3 != 0) break;
 				if (n % 6 == 0) {
 					n /= 6;
 				} else {
 					n *= 2;
 				}
-                // cout << n << endl;
 				ct++;
 			}
 			if (n == 1) cout << ct << endl;

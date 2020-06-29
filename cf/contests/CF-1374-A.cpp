@@ -51,12 +51,10 @@ int main() {
 	int tc; cin >> tc;
 	while (tc--) {
 		ll n, x, y;
-		cin >>x >> y >> n;
-		ll start = (n/x) * x;
-		while(start + y > n) {
-			// cout << start << endl;
+		cin >> x >> y >> n;
+		ll start = (n / x) * x;
+		while (start + y > n) {
 			start -= x;
-
 		}
 		cout << start + y << endl;
 	}
