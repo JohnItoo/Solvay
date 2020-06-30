@@ -63,10 +63,9 @@ int main() {
 	vector<pair<double, int> > res(n);
 	forn(i, n) {
 		double v1, v2; cin >> v1 >> v2;
-		double a = ta * min(v1, v2);
-		double h1 = a - ((double)(k / 100) * a);
-		double h2 = tb * max(v1, v2);
-		res[i] = mp(h1 + h2, i + 1);
+		double opt1 = ((v1 * ta) - ((v1 * ta) * (k / 100))) + (v2 * tb);
+		double opt2 = ((v2 * ta) - ((v2 * ta) * (k / 100))) + (v1 * tb);
+		res[i] = mp(max(opt1, opt2), i + 1);
 	}
 	sort(res.begin(), res.end(), comp);
 	for (int i = n - 1; i >= 0; i--) {
