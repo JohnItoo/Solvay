@@ -53,17 +53,6 @@ string trUpp(string s) {
 }
 
 int main() {
-	int open = 0;
-	string s;
-	cin >> s;
-	ll ans = 0;
-	forn(i, s.length()) {
-		if(s[i] == '(') open++;
-		else if(open > 0) {ans++; open --;}
-
-	}
-			cout << ans*2 << endl;
-
 	
 return 0;
 }
