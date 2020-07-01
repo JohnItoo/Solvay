@@ -53,7 +53,9 @@ int main() {
  	ll n; cin >> n;
  	if(n == 1 || n == 2) cout << 1 << endl;
  	else {
- 		cout << 2 << endl;
+ 		ll ans = 0;
+ 		 ans = (n + 2 - 1)/ 2;
+ 		 cout << ans << endl;
  	}
  }
 
