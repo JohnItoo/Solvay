@@ -57,25 +57,31 @@ int main() {
 	int ans = 0;
 	ll pri = vp * t;
 
-	while (pri < c) {
-		ll currp = pri;
-		ll dra = 0;
-		ll hrs = 0;
-		while (currp > dra && currp < c) {
-			currp += vp;
-			dra += vd;
-			hrs++;
-		}
-		// cout << "This is curr p : " << currp << endl;
-		if (currp < c) {
-			ans++;
-			pri = currp + (vp * (f + hrs));
-		} else {
-			break;
+	if (vp >= vd) {
+		cout << 0 << endl;
+	} else {
+		while (pri < c) {
+			ll currp = pri;
+			ll dra = 0;
+			ll hrs = 0;
+			while (currp > dra && currp < c) {
+				currp += vp;
+				dra += vd;
+				hrs++;
+			}
+			// cout << "This is curr p : " << currp << endl;
+			if (currp < c) {
+				ans++;
+				pri = currp + (vp * (f + hrs));
+			} else {
+				break;
 
+			}
 		}
+		cout << ans << endl;
+
 	}
-	cout << ans << endl;
+
 
 
 
