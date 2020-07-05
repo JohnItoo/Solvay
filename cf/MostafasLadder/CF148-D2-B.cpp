@@ -45,6 +45,7 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 // to_string(int)
+//WA
 
 string trUpp(string s) {
 
@@ -81,9 +82,5 @@ int main() {
 		cout << ans << endl;
 
 	}
-
-
-
-
 	return 0;
 }
