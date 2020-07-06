@@ -53,17 +53,18 @@ int main() {
 	while (tc--) {
 		ll a, b, c;
 		cin >> a >> b >> c;
-		if (a < c) {
+		if (a == c) {
+			cout << -1 << " " << b << "\n";
+		} else if (a < c) {
 			if (a * b <= c) {
-				cout << 1 << " " << -1 << endl;
+				cout << 1 << " " << -1 << "\n";
 			} else {
-				cout << 1 << " " << b << endl;
+				cout << 1 << " " << b << "\n";
 			}
-		} else if (a == c) {
-			cout << -1 << " " << b << endl;
 		} else {
-			cout << -1 << " " << 1 << endl;
+			cout << -1 << " " << 1 << "\n";
 		}
 	}
+
 	return 0;
 }
