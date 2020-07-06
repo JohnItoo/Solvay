@@ -50,45 +50,16 @@ int main() {
 	cin.tie(0);
 	int n, k; cin >> n >> k;
 	vi a(n);
-	vi positives;
-	vi negatives;
 	forn(i, n) {
-		int x; cin >> x;
-		if (x >= 0) positives.pb(x);
-		else negatives.pb(x);
+		cin >> a[i];
 	}
-	sort(positives.begin(), positives.end());
-	sort(negatives.begin(), negatives.end());
 	ll ans = 0;
-
-	forn (i, negatives.size()) {
+	forn(i, a.size()) {
 		if (k > 0) {
-			ans += abs(negatives[i]);
+			ans += (a[i] * -1);
 			k--;
 		} else {
-			ans += negatives[i];
-		}
-	}
-	if (k % 2 == 0) {
-		forn(i , positives.size()) {
-			ans += positives[i];
-		}
-	} else {
-		if (positives.size() > 0) {
-			ll currmax = ans;
-			if (positives.size() > 0) {
-				currmax += (positives[0] * -1);
-			}
-			REP(i, 1, positives.size() - 1) {
-				currmax += positives[i];
-			}
-			ans = currmax;
-
-		} else {
-			ll secondMax = ans;
-			secondMax -= (abs(negatives[negatives.size() - 1]));
-			secondMax += negatives[negatives.size() - 1];
-			ans = secondMax;
+			ans += a[i];
 		}
 	}
 	cout << ans << endl;
