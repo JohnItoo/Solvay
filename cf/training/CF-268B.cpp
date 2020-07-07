@@ -57,13 +57,11 @@ int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	ll n; cin >> n;
-	ll ans = n;
-	n--;
-	while (n > 1) {
-		ans += (2 * (n)) - 1;
-		n--;
+	ll ans = 0;
+	ll presses = 0;
+	REP(i, 1, n) {
+		ans += (n-i)  * i;
 	}
-	ans += 1;
-	cout << ans << endl;
+	cout << ans + n << endl;
 	return 0;
 }
