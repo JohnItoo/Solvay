@@ -1,6 +1,6 @@
-
+//============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -45,11 +45,25 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
+// int main() {
+//   ios::sync_with_stdio(false);
+//   cin.tie(0);
+//   ll n; cin >> n;
+//   ll ans = n *(n-1) + 1;
+//   cout << ans << "\n";
+// return 0;
+// }
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-  ll n; cin >> n;
-  ll ans = n *(n-1) + 1;
-  cout << ans << "\n";
-return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	ll n; cin >> n;
+	ll ans = n;
+	n--;
+	while (n > 1) {
+		ans += (2 * (n)) - 1;
+		n--;
+	}
+	ans += 1;
+	cout << ans << endl;
+	return 0;
 }
