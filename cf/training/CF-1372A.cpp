@@ -51,20 +51,18 @@ int main() {
 	int tc;
 	cin >> tc;
 	while (tc--) {
-		int a, b; cin >> a >> b;
-		if (b == 1) {
-			if (a % 2 == 0) {
-				cout << "NO \n";
-			} else {
-				cout << "YES \n";
-			}
+		ll n, k; cin >> n >> k;
+		ll ksq = (ll)(k * k);
+		if (ksq > n) {
+			cout << "NO" << "\n";
 		} else {
-			if ( a % 2 == 0 && b % 2 == 0 && a % b == 0) {
-				cout << "YES \n";
+			if (n % 2 != k % 2) {
+				cout << "NO" << "\n";
 			} else {
-				cout << "NO \n";
+				cout << "YES" << "\n";
 			}
 		}
+
 	}
 	return 0;
 }
