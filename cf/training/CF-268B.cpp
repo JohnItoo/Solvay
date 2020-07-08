@@ -60,7 +60,7 @@ int main() {
 	ll ans = 0;
 	ll presses = 0;
 	REP(i, 1, n) {
-		ans += (n-i)  * i;
+		ans += (n - i)  * i;
 	}
 	cout << ans + n << endl;
 	return 0;
