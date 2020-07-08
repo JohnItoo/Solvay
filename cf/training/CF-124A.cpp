@@ -48,5 +48,15 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
+  ll n,a,b;
+  cin >> n >> a >> b;
+  ll petr = n - b;
+  ll mv = 0;
+  while(petr - 1 >=  a && n - petr < b) {
+  	petr++;
+  	mv++;
+  }
+  cout << mv << "\n";
+
 return 0;
 }
