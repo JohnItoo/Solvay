@@ -45,32 +45,34 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
-//WA
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	ll n, m;
-	cin >> n >> m;
-	if (n < m) {
-		cout << -1 << "\n";
-		return 0;
-	}
-	int ans = 0;
-	int idx = 1;
-	while (m * idx < n / 2) {
-		idx++;
-	}
-	m *= idx;
+	ll n, m; cin >> n >> m;
+	if (m % n != 0) {
+		cout << - 1 << "\n";
+	} else {
+		ll div = m / n;
+		ll mov = 0;
 
-	// cout << m << " " << idx << "\n";
-
-	// if (n % 2 == m) {
-	// 	ans = m;
-	// } else {
-	// 	if (n - 1 >= (m - 1)) ans = m;
-	// 	else ans = -1;
-	// }
-	ans = m;
-	cout << ans << "\n";
+		while (div > 1) {
+			bool pic = false;
+			if (div % 2 == 0) {
+				div /= 2;
+				pic = true;
+			}
+			if (!pic) {
+				if (div % 3 == 0) {
+					div /= 3;
+					pic = true;
+				}
+			}
+			// cout << div << "\n";
+			if (!pic) break;
+			else mov++;
+		}
+		if (div > 1) cout << -1 << "\n";
+		else cout << mov << "\n";
+	}
 	return 0;
 }
