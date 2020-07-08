@@ -60,9 +60,19 @@ int main() {
 		else {
 			ll numa = s / n;
 			ll numb = s % n;
-			string ans = "NO";
-			if ((numa <= a && numa >= 0 && numb <= b && numb >= 0) || b >= s) {
-				ans = "YES";
+			string ans = "";
+			if (numa > a) {
+				if (b >= s - (numa * n)) {
+					ans = "YES";
+				} else {
+					ans = "NO";
+				}
+			} else {
+				if (numb <= b) {
+					ans = "YES";
+				} else {
+					ans = "NO";
+				}
 			}
 
 			cout << ans << "\n";
