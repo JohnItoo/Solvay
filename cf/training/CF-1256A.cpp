@@ -1,4 +1,4 @@
-.//============================================================================
+//============================================================================
 // Name        : template.cpp
 // Author      :
 // Version     :
@@ -51,13 +51,24 @@ int main() {
 	int tc;
 	cin >> tc;
 	while (tc--) {
-		bool can = false;
-
 		ll a, b, n, s;
-		cin >> a, b, n, s;
-		if ()
-
+		cin >> a >> b >>  n >> s;
+		ll nx = n * a;
+		if (((n * a ) + b  < s)) {
+			cout << "NO" << endl;
 		}
+		else {
+			ll numa = s / n;
+			ll numb = s % n;
+			string ans = "NO";
+			if ((numa <= a && numa >= 0 && numb <= b && numb >= 0) || b >= s) {
+				ans = "YES";
+			}
+
+			cout << ans << "\n";
+		}
+
+	}
 
 	return 0;
 }
