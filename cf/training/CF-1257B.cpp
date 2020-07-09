@@ -10,7 +10,6 @@
 #include <algorithm>
 #include <set>
 #include <map>
-#include <cmath>
 #include <set>
 #include <vector>
 #include <string.h> // for memset in CF judge.
@@ -46,21 +45,23 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
-//WA
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	string s;
-	cin >> s;
-	int val = 0;
-	ll ct = 0;
-	val = std::stoi(s, nullptr, 2);
-
-	ll ans = 0;
-	for (int i = 0; i <= 100 ; i += 2) {
-		if (pow(2, i) < val) ans++;
-		else break;
+	int tc;
+	cin >> tc;
+	while (tc--) {
+		ll a, b;
+		cin  >> a >> b;
+		string ans = "YES";
+		if (a == 2) {
+			if (b != 1 && b != 3) ans = "NO";
+		} else if (a == 3) {
+			if (b != 1 && b != 2) ans = "NO";
+		} else if (a == 1) {
+			if (b != 1) ans = "NO";
+		}
+		cout << ans << "\n";
 	}
-	cout << ans << "\n";
 	return 0;
 }
