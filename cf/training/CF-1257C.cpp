@@ -51,19 +51,34 @@ int main() {
 	int tc;
 	cin >> tc;
 	while (tc--) {
-		ll a, b;
-		cin  >> a >> b;
-		string ans = "YES";
-		if (a == 2) {
-			if (b != 1 && b != 3) ans = "NO";
-		} else if (a == 3) {
-			if (b != 1 && b != 2) ans = "NO";
-		} else if (a == 1) {
-			if (b != 1) ans = "NO";
+		int n; cin >> n;
+		int a[n];
+		map<int, ii> aa;
+		int mn = INF;
+		forn(i, n) {
+			cin >> a[i];
+			if (aa.find(a[i]) == aa.end()) {
+				aa[a[i]] = mp(i, 0);
+			} else {
+				auto it = aa.find(a[i]);
+				int lastOc = (it->second).first;
+				int currDiff = (it->second).second;
+				int newDiff = (i - lastOc) + 1;
+				if (currDiff == 0) {
+					aa[a[i]] = mp(i, newDiff);
+					mn = min(mn, newDiff);
+				} else {
+					if (newDiff < currDiff) {
+						aa[a[i]] = mp(i, newDiff);
+						mn = min(mn, newDiff);
+					} else {
+						aa[a[i]] = mp(i, currDiff);
+					}
+				}
+			}
+			if (mn == INF) mn = -1;
+			cout << mn << "\n";
 		}
-
-		if (a == b) ans = "YES";
-		cout << ans << "\n";
+		return 0;
 	}
-	return 0;
 }
