@@ -63,9 +63,24 @@ int main() {
 	}
 	ll ans = 0;
 	ll bs = 555555555;
+	ll ml = 9;
 
 	if (fvs < 9 || zs < 1) ans = 0;
-	else ans =  bs * pow(10, zs);
+	else {
+		string val = "";
+		forn(i, fvs) {
+			val.pb('5');
+		}
+		forn(i, zs) {
+			val.pb('0');
+		}
+		ll nums = stoll(val);
+		while (nums % 90 != 0) {
+			val = val.substr(1, val.length() - 1);
+			nums = stoll(val);
+		}
+		ans = nums;
+	}
 
 	cout << ans << "\n";
 	return 0;
