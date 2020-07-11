@@ -9,7 +9,6 @@
 #include <iostream>
 #include <algorithm>
 #include <set>
-#include <cmath>
 #include <map>
 #include <set>
 #include <vector>
@@ -45,50 +44,33 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-//WA
+
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int n;
-	cin >> n;
-	int a[n];
-	int fvs = 0;
-	int zs = 0;
-	forn(i, n) {
-		int x;
-		cin >> x;
-		if (x == 5) fvs++;
-		else zs++;
-		a[i] = x;
-	}
-	ll ans = 0;
-	ll bs = 555555555;
-	ll ml = 9;
-
-
-	string val = "";
-	forn(i, fvs) {
-		val.pb('5');
-	}
-	forn(i, zs) {
-		val.pb('0');
-	}
-	ll nums = stoll(val);
-	if (nums > 10) {
-		while (nums % 90 != 0) {
-			val = val.substr(1);
-			// cout << val << "\n";
-
-			nums = stoll(val);
-			if (val.length() == 1 && val.length() != 0) break;
-
+	int n, a, b;
+	cin >> n >> a >> b;
+	int ans = 0;
+	if (b < 0) {
+		b = abs(b) % n;
+		while (b > 0) {
+			a -= 1;
+			if (a == 0) a = n;
+			b--;
 		}
+		ans = a;
+	} else if (b == 0) {
+		ans = a;
+	} else {
+		b = b % n;
+		while (b > 0) {
+			a += 1;
+			cout << a << "\n";
+			if (a > n) {a = 1; }
+			b--;
+		}
+		ans = a;
 	}
-
-	if (nums % 90 != 0) ans = -1;
-	else ans = nums;
-
-
 	cout << ans << "\n";
 	return 0;
 }
