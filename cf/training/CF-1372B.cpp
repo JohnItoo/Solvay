@@ -53,21 +53,28 @@ int main() {
 	cin.tie(0);
 	int tc;
 	cin >> tc;
-	int sv[1000000005];
+
 	while (tc--) {
 		ll n;
 		cin >> n;
-		ll i = 1;
+		ll top = 1;
+		ll bt = (n+1)/2;
 		ll best = INF;
 		ll idx = -1;
-		while (i * 2 <= n) {
-			ll a = i;
-			ll b = n - i;
-			if (a * b / gcd(a, b) < best) {
-				idx = i;
-				best = a * b / gcd(a, b);
-			}
-			i++;
+		while(top < bt) {
+			cout << top << " ; " << bt << "\n";
+          if((top * (n -top)) / gcd(top, n-top) < best) {
+            idx = top;
+            best = (top * (n -top)) / gcd(top, n-top);
+
+          }
+
+          if((bt * (n-bt)) / gcd(bt, n-bt) < best) {
+          	idx = bt;
+          	best =  (bt * (n-bt)) / gcd(bt, n-bt);
+          }
+          top++;
+          bt--;
 		}
 		cout << idx << " " << n - idx << "\n";
 	}
