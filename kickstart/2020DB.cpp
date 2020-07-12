@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -46,53 +46,56 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 string trUpp(string s) {
-	
-  	transform(s.begin(), s.end(), s.begin(), ::toupper);
- return "";
+
+	transform(s.begin(), s.end(), s.begin(), ::toupper);
+	return "";
 }
 // sorts with second in descending order and if second is equal sorts with first if descending order
 bool sortPairs(ii &a,  ii &b) {
-	if(a.second == b.second) return a.first > b.first;
+	if (a.second == b.second) return a.first > b.first;
 	else return a.second > b.second;
 }
 
 void solve() {
 	int n;
-	cin >>n;
+	cin >> n;
 	int a[n];
 	char ch[] = {'a', 'b', 'c', 'd'};
-	string seq; 
-	forn(i,n) {
+	string seq;
+	forn(i, n) {
 		cin >> a[i];
-		seq.pb('a' + (i%4));
+		seq.pb('a' + (i % 4));
 	}
 	// cout << seq << "\n";
-	string word ="";
-	forn(i,4) {
+	string word = "";
+	int sol = INF;
+	forn(k, 4) {
 		word = "";
-     forn(j, n) {
-     	word.pb(ch[(i+j) % 4]);
-     }
-     cout << word << "\n";
+		forn(j, n) {
+			word.pb(ch[(k + j) % 4]);
+		}
+		seq = word;
+		int ans = 0;
+		forn(i, n - 1) {
+			if ((a[i] < a[i + 1] && seq[i] > seq[i + 1]) || (a[i] > a[i + 1] && seq[i] < seq[i + 1])) {
+				ans++;
+				// cout << a[i] << " " << a[i+1] << " " << seq[i] << " " << seq[i+1] << "\n";
+			}
+		}
+		sol = min(sol, ans);
 	}
 
-	int ans = 0;
-	forn(i,n-1) {
-		if((a[i] < a[i+1] && seq[i] > seq[i+1]) || (a[i] > a[i+1] && seq[i] < seq[i+1])) {
-			ans++;
-			// cout << a[i] << " " << a[i+1] << " " << seq[i] << " " << seq[i+1] << "\n";
-		}
-	}
-	cout << ans << "\n";
+
+	cout << sol << "\n";
 }
 
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc ; cin >> tc; 
+	int tc ; cin >> tc;
 	forn(i, tc) {
-		cout << "Case #" << i+1 << ": ";
+		cout << "Case #" << i + 1 << ": ";
 		solve();
 	}
-return 0;
+	return 0;
 }
