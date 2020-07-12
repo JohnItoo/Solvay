@@ -58,23 +58,23 @@ int main() {
 		ll n;
 		cin >> n;
 		ll top = 1;
-		ll bt = (n+1)/2;
+		ll bt = (n + 1) / 2;
 		ll best = INF;
 		ll idx = -1;
-		while(top < bt) {
+		while (top < bt) {
 			cout << top << " ; " << bt << "\n";
-          if((top * (n -top)) / gcd(top, n-top) < best) {
-            idx = top;
-            best = (top * (n -top)) / gcd(top, n-top);
+			if ((top * (n - top)) / gcd(top, n - top) < best) {
+				idx = top;
+				best = (top * (n - top)) / gcd(top, n - top);
 
-          }
+			}
 
-          if((bt * (n-bt)) / gcd(bt, n-bt) < best) {
-          	idx = bt;
-          	best =  (bt * (n-bt)) / gcd(bt, n-bt);
-          }
-          top++;
-          bt--;
+			if ((bt * (n - bt)) / gcd(bt, n - bt) < best) {
+				idx = bt;
+				best =  (bt * (n - bt)) / gcd(bt, n - bt);
+			}
+			top++;
+			bt--;
 		}
 		cout << idx << " " << n - idx << "\n";
 	}

@@ -57,7 +57,22 @@ bool sortPairs(ii &a,  ii &b) {
 }
 
 void solve() {
-	
+	int n; cin >> n;
+	int a[n];
+	forn(i,n) {
+     cin >> a[i];
+	}
+	int mxPt = -1;
+	int days = 0;
+	forn(i,n) {
+		if(i == n-1) {
+          if(a[i] > mxPt) days++;
+		} else {
+			if(a[i] > mxPt && a[i] > a[i+1]) days++;
+		}
+		mxPt = max(mxPt, a[i]);
+	}
+	cout << days << "\n";
 }
 
 int main() {

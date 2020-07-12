@@ -57,7 +57,33 @@ bool sortPairs(ii &a,  ii &b) {
 }
 
 void solve() {
-	
+	int n;
+	cin >>n;
+	int a[n];
+	char ch[] = {'a', 'b', 'c', 'd'};
+	string seq; 
+	forn(i,n) {
+		cin >> a[i];
+		seq.pb('a' + (i%4));
+	}
+	// cout << seq << "\n";
+	string word ="";
+	forn(i,4) {
+		word = "";
+     forn(j, n) {
+     	word.pb(ch[(i+j) % 4]);
+     }
+     cout << word << "\n";
+	}
+
+	int ans = 0;
+	forn(i,n-1) {
+		if((a[i] < a[i+1] && seq[i] > seq[i+1]) || (a[i] > a[i+1] && seq[i] < seq[i+1])) {
+			ans++;
+			// cout << a[i] << " " << a[i+1] << " " << seq[i] << " " << seq[i+1] << "\n";
+		}
+	}
+	cout << ans << "\n";
 }
 
 int main() {
