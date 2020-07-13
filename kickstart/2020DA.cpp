@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -46,29 +46,29 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 string trUpp(string s) {
-	
-  	transform(s.begin(), s.end(), s.begin(), ::toupper);
- return "";
+
+	transform(s.begin(), s.end(), s.begin(), ::toupper);
+	return "";
 }
 // sorts with second in descending order and if second is equal sorts with first if descending order
 bool sortPairs(ii &a,  ii &b) {
-	if(a.second == b.second) return a.first > b.first;
+	if (a.second == b.second) return a.first > b.first;
 	else return a.second > b.second;
 }
 
 void solve() {
 	int n; cin >> n;
 	int a[n];
-	forn(i,n) {
-     cin >> a[i];
+	forn(i, n) {
+		cin >> a[i];
 	}
 	int mxPt = -1;
 	int days = 0;
-	forn(i,n) {
-		if(i == n-1) {
-          if(a[i] > mxPt) days++;
+	forn(i, n) {
+		if (i == n - 1) {
+			if (a[i] > mxPt) days++;
 		} else {
-			if(a[i] > mxPt && a[i] > a[i+1]) days++;
+			if (a[i] > mxPt && a[i] > a[i + 1]) days++;
 		}
 		mxPt = max(mxPt, a[i]);
 	}
@@ -78,10 +78,10 @@ void solve() {
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc ; cin >> tc; 
+	int tc ; cin >> tc;
 	forn(i, tc) {
-		cout << "Case #" << i+1 << ": ";
+		cout << "Case #" << i + 1 << ": ";
 		solve();
 	}
-return 0;
+	return 0;
 }
