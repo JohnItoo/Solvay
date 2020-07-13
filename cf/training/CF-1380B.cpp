@@ -48,52 +48,34 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc;
-	cin >> tc;
+	int tc; cin >> tc;
 	while (tc--) {
-		int n;
-		cin >> n;
-		int a[n];
+		string f; cin >> f;
+		int n = f.length();
+
+		int p = 0, r = 0 , s = 0;
 		forn(i, n) {
-			cin >> a[i];
-		}
-		int i = 0;
-		bool ans = false;
-		int p, q, r = 0;
-		while (i < n - 2) {
-			int j = i + 1;
-			bool proc = false;
-			while (j < n && a[j] < a[i]) j++;
-
-
-			if (j < n && a[j] > a[i]) proc = true;
-
-			if (!proc) {
-				i++;
-				continue;
-			}
-
-			proc = false;
-			int k = j + 1;
-			while (k < n && a[k] > a[j]) k++;
-
-			if (k < n && a[k] < a[j]) proc = true;
-
-			if (proc) {
-				p = i; q = j; r = k;
-				ans = true;
-				break;
+			if (f[i] == 'P') {
+				p++;
+			} else if (f[i] == 'R') {
+				r++;
 			} else {
-				i++;
+				s++;
 			}
-
 		}
-		if (ans) {
-			cout << "YES\n";
-			cout << p + 1 << " " << q + 1 << " " << r + 1 << "\n";
+		string sol = "";
+		if (p >= r && p >= s) {
+			string a(n, 'S');
+			sol = a;
+		} else if (s >= p && s >= r) {
+			string b(n, 'R');
+			sol = b;
 		} else {
-			cout << "NO\n";
+			string c(n, 'P');
+			sol = c;
 		}
+		cout << sol << "\n";
 	}
+
 	return 0;
 }
