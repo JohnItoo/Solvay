@@ -48,33 +48,27 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc;
-	cin >> tc;
+	int tc; cin >> tc;
 	while (tc--) {
-		int n; cin >> n;
-		int a[n];
-		int ev = 0, odds = 0;
-		forn(i, n) {
-			cin >> a[i];
-			if (a[i] % 2 == 0) ev++;
-			else odds++;
-		}
-		int aa = 0; int b = 0;
-		if (n % 2 == 0) aa = n / 2;
-		else aa = (n / 2) + 1;
-		b = n - aa;
-		if (aa == ev && b == odds) {
-			int ans = 0;
-			forn(i, n) {
-				if (a[i]  % 2 != 0 && i % 2 == 0) {
-					ans++;
-				}
+		ll n = 0, k = 0;
+		cin >> n >> k;
+		int sv[n + 1];
+		memset(sv, 0, sizeof sv);
+		REP(i, 2, n) {
+			if (sv[i] != 0) continue;
+			for (int j = i; j <= n ; j += i) {
+				sv[j] = i;
 			}
-			cout << ans <<  "\n";
-
-		} else {
-			cout << - 1 << "\n";
 		}
+		ll ans = 0;
+		if (n % 2 == 0) {
+			ans = n + (2 * k);
+		} else {
+			ll dm = sv[n] + n;
+			ans = dm + (2 * (k - 1));
+		}
+		cout << ans << "\n";
+
 
 	}
 	return 0;
