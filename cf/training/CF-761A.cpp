@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -9,7 +9,6 @@
 #include <iostream>
 #include <algorithm>
 #include <set>
-#include <cmath>
 #include <map>
 #include <set>
 #include <vector>
@@ -46,41 +45,8 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
-// MY OWN VERSION WITH SQUARE ROOT AND THE QUADRATIC EQUATION
-int sq() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	ll n, k; cin >> n >> k;
-	ll a = 1;
-	ll b = -(n + 1 + n + 2);
-	ll c = (n * (n + 1)) - (2 * k);
-	ll rt = (b * b) - (4 * a * c);
-	ll mis = sqrt(rt);
-	ll ans1 = (-(b) + mis) / (2 * a);
-	ll ans2 = (-(b) - mis) / (2 * a);
-
-	ll us = n - ans1;
-	ll ans = 0;
-	if (ans1 <= n) {
-		ans = ans1;
-	} else {
-		ans = ans2;
-	}
-	cout << ans << "\n";
-	return 0;
-}
-
-// EDITORIAL BINARY SEARCH.
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	ll n, k; cin >> n >> k;
-	ll l = -1; ll r = n + 1;
-	while (r > l + 1) {
-		ll m = (l + r) / 2;
-		ll curr = (((n - m) *  (n - m + 1)) / 2) - m;
-		if (curr > k) { l = m;}
-		else r = m;
-	}
-	cout << r << "\n";
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+return 0;
 }
