@@ -48,21 +48,16 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc;
-	cin >> tc;
+	int tc; cin >> tc;
 	while (tc--) {
-		ll n; cin >> n;
+		int n; cin >> n;
 		ll ans = 0;
-		while (n > 1) {
-			if (n % 6 == 0) {
-				n /= 6;
-			} else {
-				n *= 2;
-			}
-			ans += 1;
+		if (n %  2 == 0) {
+			ans = n / 2;
+		} else {
+			ans = (n - 1) / 2;
 		}
-		if (n == 1) cout << ans << "\n";
-		else cout << -1 << "\n";
+		cout << ans << "\n";
 	}
 	return 0;
 }

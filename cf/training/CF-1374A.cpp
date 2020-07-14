@@ -51,18 +51,14 @@ int main() {
 	int tc;
 	cin >> tc;
 	while (tc--) {
-		ll n; cin >> n;
-		ll ans = 0;
-		while (n > 1) {
-			if (n % 6 == 0) {
-				n /= 6;
-			} else {
-				n *= 2;
-			}
-			ans += 1;
+		ll x, y, n;
+		cin >> x >> y >> n;
+		ll k = (( n / x) * x) + y;
+		while (k > n) {
+			k -= x;
 		}
-		if (n == 1) cout << ans << "\n";
-		else cout << -1 << "\n";
+		cout << k << "\n";
 	}
+
 	return 0;
 }
