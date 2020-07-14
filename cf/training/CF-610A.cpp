@@ -48,12 +48,17 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int a, b; cin >> a >> b;
-	if ((abs(b - a) > 1) || a == 0 && b == 0 ) {
-		cout << "NO\n";
-	} else {
-		cout << "YES\n";
+	ll n; cin >> n;
+	ll ans = 0;
+	if (n < 6) ans = 0;
+	else if (n == 6 || n == 7) ans = 1;
+	else {
+		if (n % 2 != 0) n--;
+		ll r = n - 4;
+		ans = r / 4;
+		// if(r % 4 == 0) ans--;
 	}
+	cout << ans << "\n";
 
 	return 0;
 }
