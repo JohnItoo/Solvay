@@ -45,6 +45,20 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
+ll tst(ll n) {
+	ll l = 2;
+	ll r = n - 2;
+	ll ans = 1;
+	cout << l << " " << r << "\n";
+	while (l + 2  < r - 2) {
+		l += 2;
+		r -= 2;
+		ans++;
+		cout << l << " " << r << "\n";
+	}
+	return ans;
+}
+
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
@@ -53,10 +67,13 @@ int main() {
 	if (n < 6) ans = 0;
 	else if (n == 6 || n == 7) ans = 1;
 	else {
-		if (n % 2 != 0) n--;
-		ll r = n - 4;
-		ans = r / 4;
-		// if(r % 4 == 0) ans--;
+		if (n % 2 != 0) {
+			ans = 0;
+		} else {
+			ans = n / 4;
+			if (n % 4 == 0) ans--;
+		}
+
 	}
 	cout << ans << "\n";
 
