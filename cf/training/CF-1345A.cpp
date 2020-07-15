@@ -48,5 +48,25 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
+  int tc;
+  cin >> tc;
+  while(tc--) {
+  	int n,m;
+  	cin >> n >> m;
+  	if(n == 1 || m == 1) {
+  		cout << "YES\n";
+  	} else {
+  		ll sum = n + m;
+  		ll n = 1;
+  		while(n < sum) {
+  			n *= 4;
+  		}
+  		if(n == sum) {
+  			cout << "YES\n";
+  		} else {
+  			cout << "NO\n";
+  		}
+  	}
+  }
 return 0;
 }

@@ -52,7 +52,7 @@ int main() {
 		REP(i, 1, div - 1) {
 			mx += pow(2, i);
 		}
-		cout << "This is mx : " << mx << "\n";
+		// cout << "This is mx : " << mx << "\n";
 		REP(i, div, n - 1) {
 			mn += pow(2, i);
 		}
