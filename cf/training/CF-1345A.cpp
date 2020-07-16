@@ -56,12 +56,7 @@ int main() {
   	if(n == 1 || m == 1) {
   		cout << "YES\n";
   	} else {
-  		ll sum = n + m;
-  		ll n = 1;
-  		while(n < sum) {
-  			n *= 4;
-  		}
-  		if(n == sum) {
+  		if(n == 2 && m == 2) {
   			cout << "YES\n";
   		} else {
   			cout << "NO\n";
