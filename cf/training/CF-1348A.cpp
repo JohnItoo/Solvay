@@ -56,7 +56,7 @@ int main() {
 		REP(i, div, n - 1) {
 			mn += pow(2, i);
 		}
-		mx += pow(2,n);
+		mx += pow(2, n);
 		cout << mx - mn << "\n";
 	}
 	return 0;

@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : https://codeforces.com/contest/1354/problem/A
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -48,24 +48,5 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
-  int tc;
-  cin >> tc;
-  while (tc--) {
-    ll a, b, c, d;
-    cin >> a >> b >> c >> d;
-    ll ans  = 0;
-    if (a <= b) ans = b;
-    else {
-      if (d >= c ) ans = -1;
-      else {
-        ll x = (a - b); ll y = abs(c - d);
-        ll fct =  (ll) (x + y - 1) / y;
-
-        ans = (fct * c) + b;
-      }
-
-    }
-    cout << ans << endl;
-  }
-  return 0;
+return 0;
 }

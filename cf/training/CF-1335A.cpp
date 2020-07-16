@@ -54,9 +54,13 @@ int main() {
 		ll n; cin >> n;
 		ll ans = n - 2;
 		if (ans % 2 == 0) {
+			// if(ans == 0) cout << 0 << "\n";
+			// else
 			cout << ans / 2 << "\n";
-		} else {
+		} else if (ans > 0) {
 			cout << (ans / 2) + 1 << "\n";
+		} else {
+			cout << 0 << "\n";
 		}
 	}
 	return 0;
