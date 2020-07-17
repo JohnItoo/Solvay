@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -46,42 +46,25 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
-	int tc;
-	cin >> tc;
-	while (tc--) {
-		ll n, k; cin >> n >> k;
-		if (n < k ) {
-			cout << "NO\n";
-		} else if (n == k) {
-			cout << "YES\n";
-			forn(i, k) {
-				cout << 1 << " ";
-			}
-			cout << "\n";
-		} else {
-			ll div = n / k;
-			if (n % k == 0) {
-				cout << "YES\n";
-				forn(i, k) {
-					cout << div << " ";
-				}
-				cout << "\n";
-			} else {
-				if (div !=  1) div -= 1;
-				ll tent = div * (k - 1);
-				ll rem = n - tent;
-				if ((rem - div) % 2  == 0) {
-					cout << "YES\n";
-					forn(i, k - 1) {
-						cout << div << " ";
-					}
-					cout << rem << "\n";
-
-				} else {
-					cout << "NO\n";
-				}
-			}
-		}
-	}
-	return 0;
+ ios::sync_with_stdio(false);
+ cin.tie(0);
+ int tc; cin >> tc;
+ while(tc--) {
+ 	ll x, y, z; cin >> x >> y >> z;
+ 	if(x != z && ((y != z )|| (y == z && y < x))) {
+ 		cout << "NO\n";
+ 	} else {
+ 		cout << "YES\n";
+ 		if (x == z) {
+ 			if(x == z && y == z) {
+ 				cout << x  << " " << y  << " " << z << "\n"; 
+ 			} else {
+ 			   cout << x << y << y - 1 << "\n";
+ 			}
+ 		} else {
+ 			cout << x << " " << x << " "<< y << "\n";
+ 		}
+ 	}
+ }
+return 0;
 }
