@@ -64,7 +64,7 @@ int main() {
 			int i = 0; int j = n - 1;
 			int mx = 0; int ct = 0;
 			while ( i < j && i < n && j < n) {
-				cout << i << " " << j <<"\n";
+				cout << i << " " << j << "\n";
 				if (a[i] <= a[j]) {
 					ll curr = 0;
 					if (a[i] < mx) {
@@ -73,9 +73,9 @@ int main() {
 						curr = 0;
 						// cout << "a\n";
 					} else {
-                       curr = a[i];
-                       i++;
-                       // cout << "b\n";
+						curr = a[i];
+						i++;
+						// cout << "b\n";
 					}
 					mx = curr;
 				} else {
@@ -94,7 +94,7 @@ int main() {
 					mx = curr;
 				}
 			}
-			if (ct == n-1) {
+			if (ct == n - 1) {
 				cout << 1 << "\n";
 			} else {
 				cout << ct << "\n";

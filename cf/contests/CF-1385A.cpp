@@ -51,12 +51,12 @@ int main() {
 	int tc; cin >> tc;
 	while (tc--) {
 		ll x, y, z; cin >> x >> y >> z;
-		ll a = 0, b = 0, c= 0;
-         bool go = false;
-		if(x==y && x == z) {
-           cout << "YES\n";
-           a = x; b = x; c = x;
-           go = true;
+		ll a = 0, b = 0, c = 0;
+		bool go = false;
+		if (x == y && x == z) {
+			cout << "YES\n";
+			a = x; b = x; c = x;
+			go = true;
 		} else if (x == y && x > z) {
 			cout << "YES\n";
 			a = x; b = z ; c = 1;
@@ -66,14 +66,14 @@ int main() {
 			cout << "YES\n";
 			a = x; b = y ; c = 1;
 			go = true;
-		} else if(y == z && y > x) {
+		} else if (y == z && y > x) {
 			cout << "YES\n";
 			a = y; b = x ; c = 1;
 			go = true;
 		} else {
 			cout << "NO\n";
 		}
-		if(go) {
+		if (go) {
 			cout << a << " " << b << " " << c << "\n";
 		}
 
