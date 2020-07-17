@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -46,25 +46,37 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
- int tc; cin >> tc;
- while(tc--) {
- 	ll x, y, z; cin >> x >> y >> z;
- 	if(x != z && ((y != z )|| (y == z && y < x))) {
- 		cout << "NO\n";
- 	} else {
- 		cout << "YES\n";
- 		if (x == z) {
- 			if(x == z && y == z) {
- 				cout << x  << " " << y  << " " << z << "\n"; 
- 			} else {
- 			   cout << x << y << y - 1 << "\n";
- 			}
- 		} else {
- 			cout << x << " " << x << " "<< y << "\n";
- 		}
- 	}
- }
-return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc; cin >> tc;
+	while (tc--) {
+		ll x, y, z; cin >> x >> y >> z;
+		ll a = 0, b = 0, c= 0;
+         bool go = false;
+		if(x==y && x == z) {
+           cout << "YES\n";
+           a = x; b = x; c = x;
+           go = true;
+		} else if (x == y && x > z) {
+			cout << "YES\n";
+			a = x; b = z ; c = 1;
+			go = true;
+
+		} else if (x == z &&  x > y)  {
+			cout << "YES\n";
+			a = x; b = y ; c = 1;
+			go = true;
+		} else if(y == z && y > x) {
+			cout << "YES\n";
+			a = y; b = x ; c = 1;
+			go = true;
+		} else {
+			cout << "NO\n";
+		}
+		if(go) {
+			cout << a << " " << b << " " << c << "\n";
+		}
+
+	}
+	return 0;
 }

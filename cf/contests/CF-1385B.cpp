@@ -48,5 +48,20 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
  ios::sync_with_stdio(false);
  cin.tie(0);
+ int tc; cin >> tc;
+ while(tc--) {
+ 	int n ; cin >> n;
+ 	vector<ll> a(n);
+ 	map<ll, ll> mp;
+ 	mp.clear();
+ 	forn(i,n*2) {
+ 		ll x; cin >> x;
+      if(mp.find(x) == mp.end()) {
+      	mp[x] = 1;
+      	cout << x <<" ";
+      } 
+ 	}
+ 	cout << "\n";
+ }
 return 0;
 }
