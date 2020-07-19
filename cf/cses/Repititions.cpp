@@ -45,15 +45,15 @@ int main() {
 	string s;
 	cin >> s;
 	char last = '.';
-    int mx = 0;
-    int curr = 0;
+	int mx = 0;
+	int curr = 0;
 	forn(i, s.length()) {
-     if(s[i] != last) {
-     	last = s[i];
-     	mx = max(mx, curr);
-     	curr = 0;
-     }
-     curr++;
+		if (s[i] != last) {
+			last = s[i];
+			mx = max(mx, curr);
+			curr = 0;
+		}
+		curr++;
 	}
 	cout << max(mx, curr) << "\n";
 	return 0;
