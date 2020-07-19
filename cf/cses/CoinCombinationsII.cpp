@@ -54,19 +54,27 @@ int main() {
 	int coins[n];
 	forn(i, n) cin >> coins[i];
 
-	int dp[x + 1];
+	int dp[x+1][n+1];
 	memset(dp, 0, sizeof dp);
-	dp[0] = 1;
-
+	// dp[0] = 1;
+    sort(coins, coins + n);
 	REP(i, 1, x) {
-		for (auto coin : coins) {
-			if ((i - coin > 0 && coin <= i - coin) || i - coin == 0) {
-				dp[i] += dp[i - coin];
-				dp[i] %= 1000000007;
+		forn (j , n) {
+			int coin = coins[j];
+			if ( coin <= i) {
+				dp[i][j+1] += dp[i - coin][j] + 1;
+				cout << "coin " << coin << " " << i << "\n";
+				// dp[i] %= 1000000007;
 			}
 		}
 	}
-	cout << dp[9] << endl;
+	REP(i, 1, x) {
+		REP(j, 1, n) {
+			cout << dp[i][j] << " ";
+		}
+		cout << "\n";
+	}
+	cout << dp[x][n] << endl;
 
 	return 0;
 }
