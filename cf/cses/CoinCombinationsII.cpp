@@ -45,36 +45,31 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
-//WA
+
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	int n; int x;
 	cin >> n >> x;
-	int coins[n];
-	forn(i, n) cin >> coins[i];
+	vi coins(n);
+	int mod = 1e9+7;
+	for(int &i : coins) cin >> i;
 
-	int dp[x+1][n+1];
-	memset(dp, 0, sizeof dp);
-	// dp[0] = 1;
-    sort(coins, coins + n);
-	REP(i, 1, x) {
-		forn (j , n) {
-			int coin = coins[j];
-			if ( coin <= i) {
-				dp[i][j+1] += dp[i - coin][j] + 1;
-				cout << "coin " << coin << " " << i << "\n";
-				// dp[i] %= 1000000007;
+	vector<vector<int>> dp(x+1, vector<int>(n+1, 0));
+    	dp[0][0] = 1;
+
+	REP(i, 0, x) {
+		REP (j ,1,  n) {
+			int coin = coins[j-1];
+			int rem = i - coin;
+			dp[i][j] = dp[i][j-1];
+			if ( rem >=0) {
+				(dp[i][j] += dp[rem][j] )%= mod;
+				
 			}
 		}
 	}
-	REP(i, 1, x) {
-		REP(j, 1, n) {
-			cout << dp[i][j] << " ";
-		}
-		cout << "\n";
-	}
-	cout << dp[x][n] << endl;
+	cout << dp[x][n] << "\n";
 
 	return 0;
 }
