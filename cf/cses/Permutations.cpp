@@ -1,17 +1,16 @@
  #include <bits/stdc++.h>
 using namespace std;
-
+ 
 int main() {
-
+ 
 int n;
 cin >> n;
 vector<int> a(n);
-
+ 
 int i = 0; int j = n-1;
 int lef = 1; int curr = 1;
-int orig = n;
-if((n & 1 )== 0) n += 1;
-while(i < j) { 
+if((n & 1) == 1) {
+while(i < j) {
   if(lef) {
      lef = 0;
      a[i] = max(curr, n -curr);
@@ -24,17 +23,31 @@ while(i < j) {
   i++; j--;
   curr++;
 }
-if((orig & 1) == 1) a[i] = n;
+a[i] = n;
+} else {
+ int i = 0;
 
+ while(2* (i+1) <= n) {
+  a[i] = 2*(i+1);
+  i++;
+ }
+ int curr = 1;
+ while(i < n) {
+    a[i++] = curr;
+    curr += 2;
+ }
+}
+
+ 
 bool is = true;
-// for(int i = 0; i < orig-1; i++) {
-// 	if(abs(a[i] -a[i+1]) <=1) {
-// 		is = false;
-// 		break;
-// 	}
-// }
+for(int i = 0; i < n-1; i++) {
+	if(abs(a[i] -a[i+1]) <=1) {
+		is = false;
+		break;
+	}
+}
 if(is) {
-	for(int i = 0; i < orig ; i++) {
+	for(int i = 0; i < n ; i++) {
 		cout << a[i] << " ";
 	}
 	cout << "\n";
@@ -43,5 +56,5 @@ if(is) {
 }
 
 	return 0;
-
 }
+ 
