@@ -54,36 +54,17 @@ int main() {
 	forn(i, n) cin >> h[i];
 	forn(i, n) cin >> s[i];
 
-	int dp[x + 1];
-	memset(dp, -1, sizeof dp);
-	dp[0] = 0;
-
-	map<int, int> arr[x + 1];
-
-	REP(i, 1, x) {
-		vi used;
-
-		forn(j, n) {
-			int amount = h[j];
-			if ( i >= amount && dp[i - amount] != -1   && dp[i - amount] + s[j] > dp[i]) {
-				if (find(arr[i - amount].begin(), arr[i - amount].end(), j) != arr[i - amount].end() || j == i - amount ) continue;
-
-				dp[i] = dp[i - amount] + s[j];
-				arr[i].clear();
-				for (auto xx : arr[i - amount]) {
-					arr[i].pb(xx);
-				}
-				arr[i].pb(j);
+	vector<vector<int> > dp(n+1, vector<int>(x+1, 0));
+	for(int i = 1; i <= n; i++) {
+		for(int j = 1; j <=x; j++) {
+			int price = h[i-1];
+			int pages = s[i-1];
+			dp[i][j] = dp[i-1][j];
+			if(j - price >= 0) {
+             dp[i][j] = max(dp[i][j], dp[i-1][j-price] + pages);
 			}
 		}
 	}
-	int ans = 0;
-
-
-	REP(i, 1, x) {
-		ans = max(ans, dp[i]);
-	}
-	cout << ans << endl;
-
+	cout << dp[n][x] << "\n";
 	return 0;
 }

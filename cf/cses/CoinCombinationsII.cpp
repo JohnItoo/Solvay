@@ -55,21 +55,21 @@ int main() {
 	int mod = 1e9+7;
 	for(int &i : coins) cin >> i;
 
-	vector<vector<int>> dp(x+1, vector<int>(n+1, 0));
+	vector<vector<int>> dp(n+1, vector<int>(x+1, 0));
     	dp[0][0] = 1;
 
-	REP(i, 0, x) {
-		REP (j ,1,  n) {
-			int coin = coins[j-1];
-			int rem = i - coin;
-			dp[i][j] = dp[i][j-1];
+	REP(i, 1, n) {
+		REP (j ,0,  x) {
+			int coin = coins[i-1];
+			int rem = j - coin;
+			dp[i][j] = dp[i-1][j];
 			if ( rem >=0) {
-				(dp[i][j] += dp[rem][j] )%= mod;
+				(dp[i][j] += dp[i][rem] )%= mod;
 				
 			}
 		}
 	}
-	cout << dp[x][n] << "\n";
+	cout << dp[n][x] << "\n";
 
 	return 0;
 }
