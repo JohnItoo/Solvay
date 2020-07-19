@@ -42,5 +42,17 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
+  int tc;
+  cin >> tc;
+  while(tc--) {
+  	int n, x;
+  	cin >> n >> x;
+  	vi a(n+1);
+  	REP(i,1, n) {
+     cin >> x;
+     a[i] += a[i-1] + x;
+  	}
+  	for(int i = 0; )
+  }
 return 0;
 }
