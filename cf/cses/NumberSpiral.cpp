@@ -28,7 +28,7 @@ int main() {
 			last += 1;
 			grid[i][j] = last;
 
-			cout << "last " << last << "\n";
+			// cout << "last " << last << "\n";
              
              while(i+1 <= sq && grid[i+1][j-1] != 0) {
              	last += 1;
@@ -65,7 +65,7 @@ int main() {
 			i += 1;
 			grid[i][j] = last;
 
-			cout << "here " << last << "\n";
+			// cout << "here " << last << "\n";
 			while (last < (sq * sq ) && j <= sq && grid[i - 1][j] != 0) {
 				last += 1;
 				j += 1;
@@ -76,7 +76,7 @@ int main() {
 			i -= 1;
 			grid[i][j] = last;
 
-            cout <<" New last " << last << "\n";
+            // cout <<" New last " << last << "\n";
 			while (last < (sq * sq) && i > 1) {
 				last += 1;
 				i -= 1;
@@ -115,12 +115,12 @@ int main() {
 			// grid[i][j] = last;
 
 		}
-		for (int i = 0; i <= sq; i++) {
-			for (int j = 1; j <= sq; j++) {
-				cout << grid[i][j] << " ";
-			}
-			cout << "\n";
-		}
+		// for (int i = 0; i <= sq; i++) {
+		// 	for (int j = 1; j <= sq; j++) {
+		// 		cout << grid[i][j] << " ";
+		// 	}
+		// 	cout << "\n";
+		// }
 		cout << grid[x][y] << "\n";
 
 	}
