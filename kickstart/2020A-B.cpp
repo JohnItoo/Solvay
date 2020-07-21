@@ -21,13 +21,14 @@ void solve() {
 
  for(int i = 1; i <= p; i++) {
  	for(int j = 0; j < n; j++) {
- 		for(int q = 0; q < k; q++) {
+ 		for(int q = 0; q < i; q++) {
  			if(q + 1 < i) continue;
+ 			cout << i << " " <<  plates[j][q] << "\n";
  			dp[i] = max(dp[i], dp[q+1-i] + plates[j][q]);
  		}
  	}
  }
- cout << dp[p];
+ cout << dp[p] << "\n";
 }
 int main() {
 	int t;
