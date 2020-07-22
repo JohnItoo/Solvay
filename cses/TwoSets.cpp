@@ -40,7 +40,7 @@ int main() {
 				who = true;
 			}
 		}
-		cout << "YES\n";
+		cout << "YES\n"; f
 		cout << a.size() << "\n";
 		for (int i = 0; i < a.size(); i++) {
 			cout << a[i] << " ";
