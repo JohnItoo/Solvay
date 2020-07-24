@@ -49,36 +49,56 @@ int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	int tc; cin >> tc;
-	while(tc--) {
+	while (tc--) {
+		// cout << "new line\n";
 		int n; cin >> n;
 		vector<string> strings;
-		
-		vector<int> counts(n,0);
+
+		vector<int> counts(n, 0);
 		int mx = 0;
 		forn(i, n) {
-        int ct = 0; cin >> ct;
-        counts[i] = ct;
-        mx = max(ct, mx);
+			int ct = 0; cin >> ct;
+			counts[i] = ct;
+			mx = max(ct, mx);
 		}
-		string last = string(mx+1, 'a');
-        int ch = 0;
-		forn(i, n) {
-			int ct = counts[i];
-			if (ct <= last.length()) {
-				if (ct == 0) {
-					ch += 1;
-					char newCh = (char) ((ch%26) + 'a');
-					string newStr = string(mx, newCh);
-					last = newStr;
-				} else {
-					last = last.substr(0, last.length() - ct);
-				}
-			} else {
-				char newCh = (char) ((ch%26) + 'a');
-				string add = string(mx, newCh);
-				last = add;
+		if (mx == 0) {
+			int ff = 0;
+
+			string tp = string(1, 'a');
+			strings.pb(tp);
+			forn(i, n) {
+				ff += 1;
+				char newCh = (char) ((ff % 26) + 'a');
+				string ntp = string(1, newCh);
+				strings.pb(ntp);
 			}
+		}
+		else {
+			string last = string(mx + 1, 'a');
 			strings.push_back(last);
+			int ch = 0;
+			forn(i, n) {
+				int ct = counts[i];
+				if (ct <= last.length()) {
+					if (ct == 0) {
+						ch += 1;
+						char newCh = (char) ((ch % 26) + 'a');
+						string newStr = string(mx, newCh);
+						last = newStr;
+					} else {
+						last = last.substr(0, ct);
+						ch += 1;
+						char newCh = (char) ((ch % 26) + 'a');
+						string app = string(mx - ct, newCh);
+						last += app;
+					}
+				} else {
+					char newCh = (char) ((ch % 26) + 'a');
+					string add = string(mx, newCh);
+					last = add;
+				}
+				strings.push_back(last);
+			}
 		}
 
 		forn(i, strings.size()) {
