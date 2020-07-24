@@ -52,6 +52,35 @@ int main() {
 	while (tc--) {
 		int n;
 		cin >> n;
+		string a; string b;
+		cin >> a >> b;
+		bool possible = true;
+		forn(i, n) {
+			if(a[i] > b[i]) {
+				possible = false;
+				break;
+			}
+		}
+		if(possible) {
+			 int dp[n+1][n+1];
+			 memset(dp, MEMSET_INF, sizeof dp);
+			 dp[0][0] = 0;
+
+			 for(int i = 0; i <=n; i++) {
+			 	for(int j = 0; j <=n; j++) {
+			 		dp[i][j] = dp[i][j-1];
+			 		if(j < i) continue;
+			 		int mat = a[i] == b[j] ? 0 : 1;
+			 		dp[i][j] = min(dp[i][j], dp[i][j-i] + mat);
+			 	}
+			 }
+			 cout << dp[n][n] << "\n";
+
+
+
+		} else {
+			cout << - 1 << "\n";
+		}
 
 	}
 
