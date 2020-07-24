@@ -61,9 +61,21 @@ void solve() {
 				dp[i][j] = (b[i] == 'Y' && a[j] == 'Y') ? 'Y' : 'N';
 			}
 			}
-			
 		}
 	}
+
+	// for(int i = 0; i < n; i++) {
+	// 	for(int j = 0; j < n; j++) {
+	// 		if(dp[i][j] == 'Y' || b[j] == 'N') continue;
+	// 		int move = j;
+
+	// 		while(move+1  < n && dp[move][move+1] == 'Y' && a[move+1] == 'Y') {
+	// 			dp[i][move] = 'Y';
+	// 			move += 1;
+	// 			if(b[move] == 'N') break;
+	// 		}
+	// 	}
+	// }
 
 	forn(i, n) {
 		forn(j,n) {
