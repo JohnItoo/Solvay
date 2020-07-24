@@ -1,29 +1,38 @@
 #include <bits/stdc++.h>
 using namespace std;
+long long p[20];
+int len = 0;
+long long sum  = 0;
+long long ans = 10e9;
+vector<long long> curr;
 
-int main() {
-	int n;
-	cin >> n;
-	long long p[n];
-	for (int i = 0; i < n; i++) {
-		cin >> p[i];
-	}
-	sort(p , p + n);
+// We are simply generating all the subsets.
 
-	int trail = n - 1;
-	int front = 0;
-
-	long long sumA = 0;
-	long long sumB = 0;
-   
-	while (trail >= front) {
-		if (sumA < sumB) {
-			sumA += p[front++];
-		} else {
-			sumB += p[trail--];
+void generate(int i) {
+	if (i == len) {
+		long long s = 0;
+		for (int i = 0; i < curr.size(); i++) {
+			s += curr[i];
 		}
+		long long sub = sum - s;
+		ans = min(ans, abs(sub - s));
+	} else {
+		generate(i + 1);
+		curr.push_back(p[i]);
+		generate(i + 1);
+		curr.pop_back();
 	}
-	cout << sumB << "\n";
-	cout << abs(sumA - sumB) << "\n";
+
+}
+int main() {
+	cin >> len;
+	for (int i = 0; i < len; i++) {
+		cin >> p[i];
+		sum += p[i];
+	}
+
+	generate(0);
+
+	cout << ans << "\n";
 
 }
