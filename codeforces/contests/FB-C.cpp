@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -45,46 +45,96 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
- bool comp(ii a, ii b) {
-  if(a.second == b.second) return a.first < b.first;
-    return a.second > b.second;
- }
+bool comp(ii a, ii b) {
+  if (a.second == b.second) return a.first < b.first;
+  return a.second > b.second;
+}
 
 void solve() {
-  int n; 
+  int n;
   cin >> n;
   vii pairs(n);
   forn(i, n) {
     int x = 0; int y = 0;
     cin >> x >> y;
-    pairs[i] = mp(x,y);
+    pairs[i] = mp(x, y);
   }
-  
+
   sort(pairs.begin(), pairs.end(), comp);
 
   bool visited[n];
   memset(visited, false, sizeof visited);
 
+  int mx = 0;
   forn(i, n) {
-    if(visited[i]) continue;
+    if (visited[i]) continue;
 
     ii start = pairs[i];
     ii beg = mp(start.first - start.second, start.first + start.second);
+
+    int j = i + 1;
+    bool found = false;
+    bool dir = false;
+    int target = 0;
+    int currMax = start.second;
+    while (j < n && !found) {
+      if (!visited[j]) {
+        if (beg.first == pairs[j].first || (beg.first == pairs[j].first + pairs[j].second )) {
+          found = true;
+          currMax += pairs[j].second;
+          if (beg.first == pairs[j].first) {
+            target = pairs[j].first - pairs[j].second;
+            dir = false;
+          } else {
+            target = pairs[j].first;
+            dir = true; // we cut the beggining to left and this continuation cuts to right to meet so we keep cutting to the right.
+          }
+        } else if (beg.second == pairs[j].first || (beg.second == pairs[j].first - pairs[j].second)) {
+          found = true;
+          currMax += pairs[j].second;
+          if (beg.second == pairs[j].first) {
+            target = pairs[j].first + pairs[j].second;
+            dir = true;
+          } else {
+            target = pairs[j].first;
+            dir = false;
+          }
+        }
+      }
+      j++;
+    }
+
+    cout << "This is target : " << target << "\n";
+
+    if (found) {
+      while (j < n) {
+        if (!visited[j]) {
+          int moves = dir ? pairs[j].first + pairs[j].second : pairs[j].first - pairs[j].second;
+          if (moves == target) {
+            visited[j] = true;
+            target = pairs[j].first;
+          }
+        }
+        j++;
+      }
+    }
+
+    mx = max(mx, currMax);
   }
 
-  
+  cout << mx << " \n";
 }
 
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
- int tc = 0;
- cin >> tc;
- int ct = 1;
- while(tc--) {
- 	cout << "Case #" << ct << ": ";
- 	ct++;
- 	solve();
- }
-return 0;
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  int tc = 0;
+  cin >> tc;
+  int ct = 1;
+  while (tc--) {
+    cout << "Case #" << ct << ": ";
+    ct++;
+    solve();
+  }
+  return 0;
 }
