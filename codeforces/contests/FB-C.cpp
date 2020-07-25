@@ -45,18 +45,34 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
+ bool comp(ii a, ii b) {
+  if(a.second == b.second) return a.first < b.first;
+    return a.second > b.second;
+ }
+
 void solve() {
   int n; 
   cin >> n;
-  string s; cin >> s;
-  int as = 0;
-  int bs = 0;
+  vii pairs(n);
   forn(i, n) {
-     if(s[i] == 'A') as++;
-     else bs++;
+    int x = 0; int y = 0;
+    cin >> x >> y;
+    pairs[i] = mp(x,y);
   }
-  if(abs(as-bs) == 1) cout << "Y \n";
-  else cout << "N \n";
+  
+  sort(pairs.begin(), pairs.end(), comp);
+
+  bool visited[n];
+  memset(visited, false, sizeof visited);
+
+  forn(i, n) {
+    if(visited[i]) continue;
+
+    ii start = pairs[i];
+    ii beg = mp(start.first - start.second, start.first + start.second);
+  }
+
+  
 }
 
 int main() {
