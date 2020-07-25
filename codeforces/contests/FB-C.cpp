@@ -104,16 +104,18 @@ void solve() {
       j++;
     }
 
-    cout << "This is target : " << target << "\n";
+    // cout << "This is target : " << target << "\n";
 
     if (found) {
       while (j < n) {
-        if (!visited[j]) {
+        // if (!visited[j]) {
           int moves = dir ? pairs[j].first + pairs[j].second : pairs[j].first - pairs[j].second;
-          if (moves == target) {
+          if (pairs[j].first == target) {
             visited[j] = true;
-            target = pairs[j].first;
-          }
+            target = moves;
+            currMax += pairs[j].second;
+            // cout << "This is move " << moves << "\n";
+  //        }
         }
         j++;
       }
