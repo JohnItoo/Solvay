@@ -64,20 +64,6 @@ void solve() {
 		}
 	}
 
-	// for(int i = 0; i < n; i++) {
-	// 	for(int j = 1; j < n; j++) {
-	// 		if(dp[i][j-1] == 'Y' && dp[i][j] == 'N') {
-
-	// 		}
-	// 		int move = j;
-
-	// 		while(move+1  < n && dp[move][move+1] == 'Y' && a[move+1] == 'Y') {
-	// 			dp[i][move] = 'Y';
-	// 			move += 1;
-	// 			if(b[move] == 'N') break;
-	// 		}
-	// 	}
-	// }
 	for(int i = 1; i < n; i++) {
 		for(int j = 0; j < n; j++) {
 			if(i != j && dp[i][j] == 'Y') {

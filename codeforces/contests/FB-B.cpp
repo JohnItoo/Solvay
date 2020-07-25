@@ -45,8 +45,30 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
+void solve() {
+  int n; 
+  cin >> n;
+  string s; cin >> s;
+  int as = 0;
+  int bs = 0;
+  forn(i, n) {
+     if(s[i] == 'A') as++;
+     else bs++;
+  }
+  if(abs(as-bs) == 1) cout << "Y \n";
+  else cout << "N \n";
+}
+
 int main() {
  ios::sync_with_stdio(false);
  cin.tie(0);
+ int tc = 0;
+ cin >> tc;
+ int ct = 1;
+ while(tc--) {
+ 	cout << "Case #" << ct << ": ";
+ 	ct++;
+ 	solve();
+ }
 return 0;
 }
