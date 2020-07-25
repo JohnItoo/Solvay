@@ -65,8 +65,10 @@ void solve() {
 	}
 
 	// for(int i = 0; i < n; i++) {
-	// 	for(int j = 0; j < n; j++) {
-	// 		if(dp[i][j] == 'Y' || b[j] == 'N') continue;
+	// 	for(int j = 1; j < n; j++) {
+	// 		if(dp[i][j-1] == 'Y' && dp[i][j] == 'N') {
+
+	// 		}
 	// 		int move = j;
 
 	// 		while(move+1  < n && dp[move][move+1] == 'Y' && a[move+1] == 'Y') {
@@ -76,6 +78,18 @@ void solve() {
 	// 		}
 	// 	}
 	// }
+	for(int i = 1; i < n; i++) {
+		for(int j = 0; j < n; j++) {
+			if(i != j && dp[i][j] == 'Y') {
+				//everyone that can get to i can get to j;
+				for(int k = 0; k < n; k++) {
+					if(dp[k][i] == 'Y') {
+						dp[k][j] = 'Y';
+					}
+				}
+			}
+		}
+	}
 
 	forn(i, n) {
 		forn(j,n) {
@@ -92,7 +106,7 @@ int main() {
  cin >> tc;
  int ct = 1;
  while(tc--) {
- 	cout << "Case #" << ct << ":\n";
+ 	cout << "Case #" << ct << ": \n";
  	ct++;
  	solve();
  }
