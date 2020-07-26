@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -52,24 +52,24 @@ void solve() {
 	cin >> a >> b;
 	char dp[n][n];
 	// memset(dp, 'N', sizeof dp);
-	for(int i = 0; i < n; i++) {
-		for(int j = 0; j <n; j++) {
-			if(abs(i-j) >  1) dp[i][j] = 'N';
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			if (abs(i - j) >  1) dp[i][j] = 'N';
 			else {
-				if(i == j) dp[i][j] = 'Y';
-			else {
-				dp[i][j] = (b[i] == 'Y' && a[j] == 'Y') ? 'Y' : 'N';
-			}
+				if (i == j) dp[i][j] = 'Y';
+				else {
+					dp[i][j] = (b[i] == 'Y' && a[j] == 'Y') ? 'Y' : 'N';
+				}
 			}
 		}
 	}
 
-	for(int i = 1; i < n; i++) {
-		for(int j = 0; j < n; j++) {
-			if(i != j && dp[i][j] == 'Y') {
+	for (int i = 1; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			if (i != j && dp[i][j] == 'Y') {
 				//everyone that can get to i can get to j;
-				for(int k = 0; k < n; k++) {
-					if(dp[k][i] == 'Y') {
+				for (int k = 0; k < n; k++) {
+					if (dp[k][i] == 'Y') {
 						dp[k][j] = 'Y';
 					}
 				}
@@ -78,7 +78,7 @@ void solve() {
 	}
 
 	forn(i, n) {
-		forn(j,n) {
+		forn(j, n) {
 			cout << dp[i][j];
 		}
 		cout << "\n";
@@ -86,16 +86,16 @@ void solve() {
 }
 
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
- int tc = 0;
- cin >> tc;
- int ct = 1;
- while(tc--) {
- 	cout << "Case #" << ct << ": \n";
- 	ct++;
- 	solve();
- }
-return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc = 0;
+	cin >> tc;
+	int ct = 1;
+	while (tc--) {
+		cout << "Case #" << ct << ": \n";
+		ct++;
+		solve();
+	}
+	return 0;
 }
 

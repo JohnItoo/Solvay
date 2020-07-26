@@ -50,7 +50,7 @@ bool comp(ii a, ii b) {
   int bsum = b.first + b.second;
   // if (asum ==  bsum) return a.second > b.second;
   // return asum < bsum;
-  if(a.second == b.second) return a.first < b.first;
+  if (a.second == b.second) return a.first < b.first;
 
   return a.second  < b.second;
 }
@@ -74,7 +74,7 @@ void solve() {
   memset(visited, false, sizeof visited);
 
   int mx = 0;
-      ii beginning = mp(0,0);
+  ii beginning = mp(0, 0);
 
   forn(i, n) {
     if (visited[i]) continue;
@@ -141,7 +141,7 @@ void solve() {
       }
     }
 
-    if(currMax > mx) {
+    if (currMax > mx) {
       mx = currMax;
       beginning = start;
 
@@ -149,7 +149,7 @@ void solve() {
     mx = max(mx, currMax);
   }
 
-  cout << mx << " " << beginning.first << " "<< beginning.second << " \n";
+  cout << mx << " " << beginning.first << " " << beginning.second << " \n";
 }
 
 int main() {

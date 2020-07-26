@@ -51,7 +51,7 @@ bool comp(ii a, ii b) {
 }
 
 void solve() {
-  int n,m;
+  int n, m;
   cin >> n >> m;
   long long gal = m;
   int c[n];
@@ -61,34 +61,34 @@ void solve() {
     c[i] = x;
   }
   int i = 0;
-  while(gal > 0 && i < n) {
-    if(c[i] > 0) gal += m - 1;
+  while (gal > 0 && i < n) {
+    if (c[i] > 0) gal += m - 1;
     else gal -= 1;
     i += 1;
   }
-  if(i != n) {
+  if (i != n) {
     valid = false;
   }
 
-  if(valid) {
-    int dp[n+1][n+1];
+  if (valid) {
+    int dp[n + 1][n + 1];
     memset(dp, MEMSET_INF, sizeof dp);
     dp[0][0] = 0;
 
-    forn(i, n+1) {
+    forn(i, n + 1) {
       REP(j, 1, n) {
-        dp[i][j] = dp[i][j-1];
-        if(c[j-1] > 0) {
+        dp[i][j] = dp[i][j - 1];
+        if (c[j - 1] > 0) {
 
-          dp[i][j] = min(dp[i][j], dp[i-1][] + c[j-1]);
+          dp[i][j] = min(dp[i][j], dp[i - 1][] + c[j - 1]);
         }
       }
     }
     cout << dp[n][n] << " \n";
   } else {
-    cout << -1 <<" \n";
+    cout << -1 << " \n";
   }
- 
+
 }
 
 int main() {
