@@ -71,20 +71,20 @@ void solve() {
   }
 
   if (valid) {
-    int dp[n + 1][n + 1];
+    int dp[m + 1][n + 1];
     memset(dp, MEMSET_INF, sizeof dp);
     dp[0][0] = 0;
 
-    forn(i, n + 1) {
+    forn(i, m + 1) {
       REP(j, 1, n) {
         dp[i][j] = dp[i][j - 1];
         if (c[j - 1] > 0) {
 
-          dp[i][j] = min(dp[i][j], dp[i - 1][] + c[j - 1]);
+          dp[i][j] = min(dp[i][j], dp[i - 1][j] + c[j - 1]);
         }
       }
     }
-    cout << dp[n][n] << " \n";
+    cout << dp[m][n] << " \n";
   } else {
     cout << -1 << " \n";
   }
