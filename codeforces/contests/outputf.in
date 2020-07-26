@@ -1,27 +1,27 @@
-Case #1: 5 3
--14 5
-13 8
--31 9
-33 10
--6 11
-25 12
--22 16
-21 18
-2 19
+Case #1: -40 24
 15 21
--40 24
-This is target : -17
+2 19
+21 18
+-22 16
+25 12
+-6 11
+33 10
+-31 9
+13 8
+-14 5
+5 3
 This is target : 0
-This is target : -6
-found at j 7
-This is target : -6
+This is target : -22
+found at j 3
+This is target : 39
+This is target : 0
+found at j 6
+This is target : 5
+This is target : 5
+found at j 9
+This is target : 13
 This is target : 0
 This is target : 0
 This is target : 0
-found at j 10
-This is target : 15
 This is target : 0
-This is target : 0
-This is target : 0
-This is target : 0
-37 -22 16 
+37 15 21 

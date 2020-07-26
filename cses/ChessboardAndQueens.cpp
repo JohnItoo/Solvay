@@ -6,7 +6,7 @@ int diag1[64];
 int diag2[64];
 int columns[64];
 int ans = 0;
-//NOT USING.
+//NOT USING this can place
 bool canplace(int n, int i) {
 	if (grid[i][n] == '*') return false;
 
@@ -73,7 +73,7 @@ void search(int y) {
 		columns[row] = 1; diag1[row + y] = 1; diag2[row - y + sz - 1] = 1;
 
 		search(y + 1);
-	
+
 		columns[row] = 0; diag1[row + y] = 0; diag2[row - y + sz - 1] = 0;
 		grid[row][y] = '.';
 

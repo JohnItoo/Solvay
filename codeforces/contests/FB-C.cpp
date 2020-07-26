@@ -50,9 +50,9 @@ bool comp(ii a, ii b) {
   int bsum = b.first + b.second;
   // if (asum ==  bsum) return a.second > b.second;
   // return asum < bsum;
-  if (a.second == b.second) return a.first < b.first;
+  if (a.second == b.second) return a.first > b.first;
 
-  return a.second  < b.second;
+  return a.second  > b.second;
 }
 
 void solve() {
