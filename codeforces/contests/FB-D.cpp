@@ -80,7 +80,7 @@ void solve() {
         dp[i][j] = dp[i][j-1];
         if(c[j-1] > 0) {
 
-          dp[i][j] = min(dp[i][j], dp[i-1][j-1] + c[j-1]);
+          dp[i][j] = min(dp[i][j], dp[i-1][] + c[j-1]);
         }
       }
     }

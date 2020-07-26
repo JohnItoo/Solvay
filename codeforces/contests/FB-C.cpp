@@ -46,8 +46,10 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 bool comp(ii a, ii b) {
-  if (a.second == b.second) return a.first < b.first;
-  return a.second > b.second;
+  int asum = a.first + a.second;
+  int bsum = b.first + b.second;
+  if (asum ==  bsum) return a.first > b.first;
+  return asum < bsum;
 }
 
 void solve() {
@@ -61,6 +63,9 @@ void solve() {
   }
 
   sort(pairs.begin(), pairs.end(), comp);
+  forn(i, pairs.size()) {
+    cout << pairs[i].first << " " << pairs[i].second << "\n";
+  }
 
   bool visited[n];
   memset(visited, false, sizeof visited);
@@ -99,20 +104,22 @@ void solve() {
             target = pairs[j].first;
             dir = false;
           }
+          cout << "found at j " <<  j << "\n";
         }
       }
       j++;
     }
 
-    // cout << "This is target : " << target << "\n";
+    cout << "This is target : " << target << "\n";
 
     if (found) {
       while (j < n) {
         // if (!visited[j]) {
           int moves = dir ? pairs[j].first + pairs[j].second : pairs[j].first - pairs[j].second;
-          if (pairs[j].first == target) {
+
+          if (moves == target) {
             visited[j] = true;
-            target = moves;
+            target = pairs[j].first;
             currMax += pairs[j].second;
             // cout << "This is move " << moves << "\n";
   //        }

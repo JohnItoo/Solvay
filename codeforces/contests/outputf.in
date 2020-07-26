@@ -1,7 +1,23 @@
-Case #1: 2139062143 
-Case #2: 2139062143 
-Case #3: -1 
-Case #4: 330 
-Case #5: 330 
-Case #6: -1 
-Case #7: 2139062143 
+Case #1: 10 20
+20 20
+30 20
+40 20
+50 20
+60 20
+70 20
+80 20
+found at j 2
+This is target : 50
+found at j 3
+This is target : 60
+found at j 4
+This is target : 70
+found at j 5
+This is target : 80
+found at j 6
+This is target : 90
+found at j 7
+This is target : 100
+This is target : 0
+This is target : 0
+40 
