@@ -48,8 +48,11 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 bool comp(ii a, ii b) {
   int asum = a.first + a.second;
   int bsum = b.first + b.second;
-  if (asum ==  bsum) return a.first > b.first;
-  return asum < bsum;
+  // if (asum ==  bsum) return a.second > b.second;
+  // return asum < bsum;
+  if(a.second == b.second) return a.first < b.first;
+
+  return a.second  < b.second;
 }
 
 void solve() {
@@ -71,6 +74,8 @@ void solve() {
   memset(visited, false, sizeof visited);
 
   int mx = 0;
+      ii beginning = mp(0,0);
+
   forn(i, n) {
     if (visited[i]) continue;
 
@@ -115,23 +120,36 @@ void solve() {
     if (found) {
       while (j < n) {
         // if (!visited[j]) {
-          int moves = dir ? pairs[j].first + pairs[j].second : pairs[j].first - pairs[j].second;
+        int moves = dir ? pairs[j].first + pairs[j].second : pairs[j].first - pairs[j].second;
 
-          if (moves == target) {
+        if (dir) {
+          if (target == pairs[j].first) {
+            visited[j] = true;
+            target = moves;
+            currMax += pairs[j].second;
+            // cout << "This is move " << moves << "\n";
+            //        }
+          }
+        } else {
+          if (target == moves) {
             visited[j] = true;
             target = pairs[j].first;
             currMax += pairs[j].second;
-            // cout << "This is move " << moves << "\n";
-  //        }
+          }
         }
         j++;
       }
     }
 
+    if(currMax > mx) {
+      mx = currMax;
+      beginning = start;
+
+    }
     mx = max(mx, currMax);
   }
 
-  cout << mx << " \n";
+  cout << mx << " " << beginning.first << " "<< beginning.second << " \n";
 }
 
 int main() {
