@@ -77,6 +77,7 @@ void solve() {
 
     forn(i, m + 1) {
       REP(j, 1, n) {
+
         dp[i][j] = dp[i][j - 1];
         if (c[j - 1] > 0) {
 
