@@ -42,13 +42,24 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int n; cin >> n;
-	double tot = 0;
-	forn(i, n) {
-		double curr; cin >> curr;
-		tot += curr;
+	int n;
+	cin >> n;
+	int sv[n + 1];
+	memset(sv, 0, sizeof sv);
+	REP(i, 2, n) {
+		if (sv[i])continue;
+		for (int j = i; j <= n; j+=i) {
+			sv[j] = i;
+		}
 	}
-	double x = tot / n;
-	printf("%.9f\n", x);
+	int a = 0; int b = 0;
+	REP(i, 2, n ) {
+		if (sv[i] == 0) continue;
+		if (sv[n - i] == 0) continue;
+		 a = i;
+		b = n - i;
+		break;
+	}
+	cout << a << " " << b << "\n";
 	return 0;
 }

@@ -42,13 +42,25 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int n; cin >> n;
-	double tot = 0;
-	forn(i, n) {
-		double curr; cin >> curr;
-		tot += curr;
+	int k, l, m, n, d;
+	cin >> k >> l >> m >> n >> d;
+	int arr[4] = {k, l, m, n};
+	int ans = 0;
+	if (min(min(k, l), min(m, n)) == 1) ans = d;
+	else {
+		int tot = 0;
+		int done[d + 1];
+		memset(done, 0, sizeof done);
+		for (auto a : arr) {
+			for (int x = a; x <= d; x += a) {
+				if (done[x]) continue;
+				done[x] = a;
+				tot++;
+			}
+		}
+		ans = tot;
 	}
-	double x = tot / n;
-	printf("%.9f\n", x);
+	cout << ans << "\n";
+
 	return 0;
 }
