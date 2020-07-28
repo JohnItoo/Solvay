@@ -42,16 +42,9 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int n;
-	cin >> n;
-	string ans = "NO";
-	for (int i = 2; i <= n / 2; i += 2) {
-		if ((n - i) % 2 == 0) {
-			ans = "YES";
-			break;
-		}
-	}
+	int n; cin >> n;
+	int ans = n / 5;
+	if (n % 5 != 0) ans += 1;
 	cout << ans << "\n";
-
 	return 0;
 }
