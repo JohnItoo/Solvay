@@ -39,27 +39,29 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
+int simulate() {
+	int n, m; cin >> n >> m;
+	int next = m;
+	int day = 1;
+	while (n > 0) {
+		if (day == next) {
+			next += m;
+			n++;
+		}
+		n--;
+		day++;
+	}
+	cout << day - 1 << "\n";
+	return 0;
+}
+
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int n;
-	cin >> n;
-	int sv[n + 1];
-	memset(sv, 0, sizeof sv);
-	REP(i, 2, n) {
-		if (sv[i])continue;
-		for (int j = i; j <= n; j += i) {
-			sv[j] = i;
-		}
-	}
-	int a = 0; int b = 0;
-	REP(i, 4, n ) {
-		if (sv[i] == 0 || sv[i] == i) continue;
-		if (sv[n - i] == 0 || sv[n - i] == n - i) continue;
-		a = i;
-		b = n - i;
-		break;
-	}
-	cout << a << " " << b << "\n";
-	return 0;
+	int n, m; cin >> n >> m;
+	int a = n + (n / m);
+	int lst = (n / m) * m;
+	int det = ((a - lst) / m);
+	if ( det >= 1) a += det;
+	cout << a << "\n";
 }
