@@ -6,13 +6,7 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include <iostream>
-#include <algorithm>
-#include <set>
-#include <map>
-#include <set>
-#include <vector>
-#include <string.h> // for memset in CF judge.
+#include <bits/stdc++.h>
 using namespace std;
 #define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
 // Shortcuts for "common" data types in contests
@@ -44,36 +38,18 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-//WA
+
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc;
-	cin >> tc;
-	while (tc--) {
-		string s;
-		cin >> s;
-		map<char, int> mp;
-		vector<char> vc;
-		int freq = 0;
-		forn(i, s.length()) {
-			if (mp.find(s[i]) == mp.end()) {
-				mp[s[i]] = 1;
-				vc.push_back(s[i]);
-				freq = max(freq, 1);
-			} else {
-				mp[s[i]]++;
-				freq = max(mp.find(s[i])->second, freq);
-			}
-		}
-		if (vc.size() <= 2) cout << 0;
-		else {
-			if (vc.size() == s.length()) {
-				cout << s.length() - 2 << "\n";
-			} else {
-				cout << s.length() - freq << "\n";
-			}
-		}
-	}
+	ll a, b, c, d;
+	cin >> a >> b >> c >> d;
+	int arr[4] = {a, b, c, d};
+	sort(arr, arr + 4);
+	ll  y = arr[3] - arr[0];
+	ll x = arr[2] - y;
+
+	ll z = arr[3] - (x + y);
+	cout << x  << " " << y << " " << z << "\n";
 	return 0;
 }
