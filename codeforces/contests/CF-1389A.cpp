@@ -55,24 +55,9 @@ int main() {
 	int tc;
 	cin >> tc;
 	while (tc--) {
-		ll l, r;
-		cin >> l >> r;
-		ll x = -1; ll y = -1;
-		for (int i = 2; i <= 9; i++) {
-			ll div = (l / i);
-			div += 1;
-			if (div <= 1) continue;
-
-			ll a = div * i;
-			ll b = (div + 1) * i;
-			if (a * b  / gcd(a, b) <= r) {
-				x = a;
-				y = b;
-			} else {
-				continue;
-			}
-		}
-		cout << x << " " << y << "\n";
+		ll l, r; cin >> l >> r;
+		if (l * 2 > r) cout << -1 << " " << -1 << "\n";
+		else cout << l << " " << l * 2 << "\n";
 	}
 	return 0;
 }
