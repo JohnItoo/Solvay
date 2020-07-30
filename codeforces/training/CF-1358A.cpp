@@ -42,5 +42,16 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
+  int tc;
+  cin >> tc;
+  while(tc--) {
+  	int n,m; cin >> n >> m;
+  	ll a, b= 0;
+  	a = max(n,m);
+  	b = min(n,m);
+  	ll ans = (a/2) * b;
+  	if(a&1) ans += (b+1)/2;
+  	cout << ans << "\n";
+  }
 return 0;
 }
