@@ -42,5 +42,17 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
+  int tc; cin >> tc;
+  while(tc--) {
+  	int n; cin >> n;
+  	int od, evs;
+  	forn(i, n) {
+  		int x; cin >> x;
+  		if(x&1)od++;
+  		else evs++; 
+  	}
+  	if(od & 1) cout << "YES\n";
+  	else cout <<"NO\n";
+  }
 return 0;
 }
