@@ -45,13 +45,15 @@ int main() {
 	int tc;
 	cin >> tc;
 	while (tc--) {
-		int n, m; cin >> n >> m;
-		ll a, b = 0;
-		a = max(n, m);
-		b = min(n, m);
-		ll ans = (a / 2) * b;
-		if (a & 1) ans += (b + 1) / 2;
-		cout << ans << "\n";
+		ll a, b;
+		cin >> a >> b;
+		if (a == b) {
+			cout << 0 << "\n";
+		} else if (((a & 1) && (b & 1)) || abs(b - a) == 1) {
+			cout << 1 << "\n";
+		} else  {
+			cout << 2 << "\n";
+		}
 	}
 	return 0;
 }

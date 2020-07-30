@@ -45,13 +45,17 @@ int main() {
 	int tc;
 	cin >> tc;
 	while (tc--) {
-		int n, m; cin >> n >> m;
-		ll a, b = 0;
-		a = max(n, m);
-		b = min(n, m);
-		ll ans = (a / 2) * b;
-		if (a & 1) ans += (b + 1) / 2;
-		cout << ans << "\n";
+		ll a, b, c, n;
+
+		cin >> a >> b >> c >> n;
+		ll arr[3] = {a, b, c};
+		sort(arr, arr + 3);
+		n -= arr[2] - arr[1];
+		n -= arr[2] - arr[0];
+
+		if (n >= 0 && n % 3 == 0) cout << "YES\n";
+		else cout << "NO\n";
+
 	}
 	return 0;
 }
