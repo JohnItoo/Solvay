@@ -42,28 +42,8 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc;
-	cin >> tc;
-	while (tc--) {
-		ll a, b;
-		cin >> a >> b;
-		if (a == b) {
-			cout << 0 << "\n";
-		}
-
-		else if ( a > b) {
-			if ((a & 1) && (b & 1) || ((a % 2 == 0) && (b % 2 == 0))) {
-				cout << 1 << "\n";
-			} else {
-				cout << 2 << "\n";
-			}
-		} else {
-			if (((a & 1) && (b % 2 == 0)) || ((b & 1) && (a % 2 == 0))) {
-				cout << 1 << "\n";
-			} else {
-				cout << 2 << "\n";
-			}
-		}
-	}
+	ll n; cin >> n;
+	if (n & 1) cout << "Ehab" << "\n";
+	else cout << "Mahmoud" << "\n";
 	return 0;
 }

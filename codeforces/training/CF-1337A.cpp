@@ -45,25 +45,10 @@ int main() {
 	int tc;
 	cin >> tc;
 	while (tc--) {
-		ll a, b;
-		cin >> a >> b;
-		if (a == b) {
-			cout << 0 << "\n";
-		}
+		ll w, x, y, z;
+		cin >> w >> x >> y >> z;
+		cout << x << " " << y << " " << y << "\n";
 
-		else if ( a > b) {
-			if ((a & 1) && (b & 1) || ((a % 2 == 0) && (b % 2 == 0))) {
-				cout << 1 << "\n";
-			} else {
-				cout << 2 << "\n";
-			}
-		} else {
-			if (((a & 1) && (b % 2 == 0)) || ((b & 1) && (a % 2 == 0))) {
-				cout << 1 << "\n";
-			} else {
-				cout << 2 << "\n";
-			}
-		}
 	}
 	return 0;
 }
