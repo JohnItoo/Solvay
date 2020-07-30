@@ -45,9 +45,23 @@ int main() {
 	int tc;
 	cin >> tc;
 	while (tc--) {
-		int h, m; cin >> h >> m;
-		int ans = (24 - h) * 60;
-		cout << ans - m << "\n";
+		int x, y, z;
+		cin >> x >> y >> z;
+		if ((y == z && y < x) || (x == z && x < y) || (x == y && x < z) || (x != y && x != z && y != z)) {
+			cout << "NO" << endl;
+		} else {
+			cout << "YES\n";
+			if (x == y && x == z) {
+				cout << x <<  " " << z << " " << y;
+			} else if (x == y) {
+				cout << x << " " << z << " " << 1 ;
+			} else if (y == z) {
+				cout << x << " " << 1 << " " << y;
+			} else if (x == z) {
+				cout << x << " " << y << " " << 1;
+			}
+			cout << "\n";
+		}
 	}
 	return 0;
 }
