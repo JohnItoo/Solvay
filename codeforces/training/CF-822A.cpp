@@ -42,14 +42,15 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int k2, k3, k4, k5, k6;
-	cin >> k2 >> k3 >> k5 >> k6;
-	int ct =  min(min(k2, k5), k6);
-	int tm = k2 - ct;
-	int tq = k3;
-	int th = min(tm, tq);
-	ll ans = 256 * ct;
-	if (th >= 1) ans += (32 * th);
-	cout << ans << "\n";
+	ll a, b;
+	cin >> a >> b;
+	ll mn  = min(a, b);
+	ll fc = 1;
+
+	while (mn > 1) {
+		fc *= mn;
+		mn--;
+	}
+	cout << fc << "\n";
 	return 0;
 }
