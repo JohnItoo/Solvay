@@ -44,19 +44,21 @@ int main() {
 	cin.tie(0);
 	int n;
 	cin >> n;
-	if (n & 1) cout << -1 << "\n";
-	else {
-		vi a(n + 1);
-		REP(i, 1, n) {
-			a[i] = i;
-		}
-		for (int i = 1; i <= n - 1; i += 2) {
-			swap(a[i], a[i + 1]);
-		}
-		REP(i, 1, n) {
-			cout << a[i] << " ";
-		}
-		cout << "\n";
+	int x = 0;
+	x = n;
+	vi aa(n);
+	forn(i, n) {
+		cin >> aa[i];
 	}
+
+	cin >> n;
+	vi bb(n);
+	forn(i, n) {
+		cin >> bb[i];
+	}
+	sort(aa.begin(), aa.end());
+	sort(bb.begin(), bb.end());
+	cout << aa[x - 1] << " " << bb[n - 1] << "\n";
+
 	return 0;
 }
