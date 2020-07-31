@@ -42,27 +42,29 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc;
-	cin >> tc;
+	int tc; cin >> tc;
 	while (tc--) {
-		int n, x, a, b;
-		cin >> n >> x >> a >> b;
-		int left = min(a, b);
-		int right = max(a, b);
-		int ans = 0;
-		if (x > n - right) {
-			x -= (n - right);
-			if (left - x < 1) {
-				ans = n - 1;
-			} else {
-				ans = n - (left - x);
+		int n; cin >> n;
+		if ( n < 31) {
+			cout << "NO\n";
+		} else {
+			int sv[n + 1];
+			memset(sv, 0, sizeof sv);
+			for (int i = 2; i <= n; i++) {
+				if (sv[i] != 0) continue;
+				for (int j = i; j <= n; j += i) {
+					sv[j] = i;
+				}
+			}
+			vector<int> primes;
+			REP(i , 2, n) {
+				if (sv[i] == i ) {
+					primes.push_back(sv[i]);
+				}
 			}
 
-		} else {
-			ans = (right + x) - left;
-		}
-		cout << ans << "\n";
 
+		}
 	}
 	return 0;
 }

@@ -42,26 +42,23 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc;
-	cin >> tc;
+	int tc; cin >> tc;
 	while (tc--) {
-		int n, x, a, b;
-		cin >> n >> x >> a >> b;
-		int left = min(a, b);
-		int right = max(a, b);
-		int ans = 0;
-		if (x > n - right) {
-			x -= (n - right);
-			if (left - x < 1) {
-				ans = n - 1;
-			} else {
-				ans = n - (left - x);
+		int n;
+		cin >> n;
+		vi a(n);
+		int count = 0;
+		int sum = 0;
+		forn(i, n) {
+			int x; cin >> x;
+			if (x == 0) {
+				count++;
+				x++;
 			}
-
-		} else {
-			ans = (right + x) - left;
+			sum += x;
 		}
-		cout << ans << "\n";
+		if (sum == 0) count++;
+		cout << count << "\n";
 
 	}
 	return 0;
