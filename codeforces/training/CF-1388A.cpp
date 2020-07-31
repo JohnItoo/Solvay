@@ -48,20 +48,12 @@ int main() {
 		if ( n < 31) {
 			cout << "NO\n";
 		} else {
-			int sv[n + 1];
-			memset(sv, 0, sizeof sv);
-			for (int i = 2; i <= n; i++) {
-				if (sv[i] != 0) continue;
-				for (int j = i; j <= n; j += i) {
-					sv[j] = i;
-				}
+			if(n-30 == 6 || n - 30 == 10 || n - 30 == 14) {
+				cout << 6 << " " << 10 << " " << 15 <<  " " << n - 31 << "\n";
+			} else {
+				cout << 6 << " " << 10 << " " << 14 <<  " " << n - 31 << "\n";
 			}
-			vector<int> primes;
-			REP(i , 2, n) {
-				if (sv[i] == i ) {
-					primes.push_back(sv[i]);
-				}
-			}
+		
 
 
 		}
