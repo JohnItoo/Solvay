@@ -42,21 +42,27 @@ int n;
 string ss;
 string org;
 int ans = -1;
+map<string, int> mps;
 void solve(int ct) {
-	// if(ans != -1) return;
+	if (ans != -1) return;
 	if (ct == n) {
-       cout << "here " << ss << "\n";
-		// ll x = -1;
-		// for(int i = 0; i <ss.length(); i++) {
-		// 	if(i == 0) {
-		// 		x = ss[i] - '0';
-		// 	} else {
-		// 		x = (x * 10) + ss[i] - '0';
-		// 	}
-		// }
- 	// 	if (x % 8 == 0) {
-		// 	ans =  x;
-		// }
+		if (mps.find(ss) != mps.end()) {
+			return;
+		}
+
+		ll x = -1;
+		for (int i = 0; i < ss.length(); i++) {
+			if (i == 0) {
+				x = ss[i] - '0';
+			} else {
+				x = (x * 10) + ss[i] - '0';
+			}
+		}
+		if (x % 8 == 0) {
+			ans =  x;
+		} else {
+			mps[ss] = 1;
+		}
 		return;
 	}
 
