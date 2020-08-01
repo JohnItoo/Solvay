@@ -48,6 +48,7 @@ int main() {
 		if ( n < 31) {
 			cout << "NO\n";
 		} else {
+			cout << "YES\n";
 			if (n - 30 == 6 || n - 30 == 10 || n - 30 == 14) {
 				cout << 6 << " " << 10 << " " << 15 <<  " " << n - 31 << "\n";
 			} else {
