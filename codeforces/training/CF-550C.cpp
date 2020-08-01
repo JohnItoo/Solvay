@@ -43,24 +43,20 @@ string ss;
 string org;
 int ans = -1;
 void solve(int ct) {
+	// if(ans != -1) return;
 	if (ct == n) {
-		// int x = 0;
-		// cout << ss << "\n";
-		// bool vst = false;
-		//      for(char c : ss) {
-
-		//      	 x = (x * 10) + (c - '0');
-
-		//      }
-		// cout << ss << "\n";
-		int x = -1;
-		if (ss.length() > 0) {
-			 x = stoi(ss, nullptr, 10);
-
-		}
-		if (x % 8 == 0) {
-			ans =  x;
-		}
+       cout << "here " << ss << "\n";
+		// ll x = -1;
+		// for(int i = 0; i <ss.length(); i++) {
+		// 	if(i == 0) {
+		// 		x = ss[i] - '0';
+		// 	} else {
+		// 		x = (x * 10) + ss[i] - '0';
+		// 	}
+		// }
+ 	// 	if (x % 8 == 0) {
+		// 	ans =  x;
+		// }
 		return;
 	}
 
