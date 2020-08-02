@@ -68,12 +68,33 @@ int main() {
 	}
 
 
-	for(int i = 0; i <=s; i++) {
-		for(int j = 0; j <=m; j++) {
-			cout << mxx[i][j] << " ";
-		}
-		cout << "\n";
-	}
+	// for(int i = 0; i <=s; i++) {
+	// 	for(int j = 0; j <=m; j++) {
+	// 		cout << mnn[i][j] << " ";
+	// 	}
+	// 	cout << "\n";
+	// }
+
+	string maxs;
+    int smmx = 0;
+    int ct = 0;
+    int i = s;
+    int j = m;
+    while(smmx < s && ct < m) {
+    	smmx += mxx[i][j];
+    	maxs.pb(mxx[i][j] - '0');
+        i = mxx[i][j];
+        j -= 1;
+        ct++;
+    }
+    if(maxs.length() != m) {
+       int diff = m - maxs.length();
+       string sb = string(diff, 0);
+       maxs += sb;
+    }
+
+   cout << maxs;
+
 
 
 	return 0;
