@@ -67,13 +67,14 @@ int main() {
 		}
 	}
 
-	// forn(i, s) {
-	// 	forn(j, m) {
-	// 		cout << mxx[i][j] << " ";
-	// 	}
-	// 	cout << "\n";
-	// }
-	// return 0;
+	REP(i, 1,  s) {
+		REP(j,1, m) {
+			cout << mnn[i][j] << " ";
+		}
+		cout << "\n";
+	}
+	cout << mnn[s][m] << "\n";
+	return 0;
 
 	string maxs;
 	int smmx = 0;
