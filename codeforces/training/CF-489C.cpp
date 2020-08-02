@@ -67,14 +67,14 @@ int main() {
 		}
 	}
 
-	REP(i, 1,  s) {
-		REP(j,1, m) {
-			cout << mnn[i][j] << " ";
-		}
-		cout << "\n";
-	}
-	cout << mnn[s][m] << "\n";
-	return 0;
+	// REP(i, 1, s+1) {
+	// 	REP(j,1, m) {
+	// 		cout << mnn[i][j] << " ";
+	// 	}
+	// 	cout << "\n";
+	// }
+	// cout << mnn[s][m] << "\n";
+	// return 0;
 
 	string maxs;
 	int smmx = 0;
@@ -119,6 +119,14 @@ int main() {
 			string sb = string(diff, 0);
 			manns += sb;
 		}
+	}
+
+	if(manns == "-1" && maxs != "-1") {
+		manns = maxs;
+	}
+
+	if(manns != "-1" && maxs == "-1") {
+		maxs = manns;
 	}
 
 
