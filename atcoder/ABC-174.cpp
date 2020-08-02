@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -39,8 +39,54 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
+int A() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int n;
+	cin >> n;
+	if (n >= 30) cout << "Yes\n";
+	else cout << "No\n";
+	return 0;
+}
+
+int B() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	ll n, d;
+	cin >> n >> d;
+	int an = 0;
+	while (n--) {
+		double x, y; cin >> x >> y;
+		double dis = (x * x) + (y * y);
+		if (dis <= d * d) {
+			an++;
+		}
+	}
+	cout << an << "\n";
+	return 0;
+}
+
 int main() {
 	ios::sync_with_stdio(false);
- cin.tie(0);
-return 0;
+	cin.tie(0);
+	int n;
+	cin >> n;
+	string s ; cin >> s;
+	string org = s;
+	 int fr = 0, sc = 0;
+	 forn(i, n-1) {
+	 	if(s[i] == 'W' && s[i+1] == 'R') {
+	 		s[i] = 'R';
+	 		fr++;
+	 	}
+	 }
+	 s = org;
+	 forn(i, n-1) {
+	 	if(s[i] == 'W' && s[i] == 'R') {
+	 		s[i+1] = 'W';
+	 		sc++;
+	 	}
+	 }
+	 cout << min(sc, fr) << "\n";
+	return 0;
 }
