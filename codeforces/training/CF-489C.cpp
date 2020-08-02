@@ -46,9 +46,9 @@ int main() {
 	cin >> m >> s;
 
 
-	// vector<vector<int> > mxx(s + 1, vector<int>(m + 1, -1));
-	// vector<vector<int> > mnn(s + 1, vector<int>(m + 1, -1));
+	vector<vector<int> > mxx(s + 1, vector<int>(m + 1, -1));
 	vector<vector<int> > mnn(s + 1, vector<int>(m + 1, -1));
+	vector<vector<int> > prev(s + 1, vector<int>(m + 1, -1));
 
 	for (int i = 0; i <= 9; i++) {
 		prev[i][1] = 0;
@@ -56,11 +56,22 @@ int main() {
 
 	for (int i = 1; i <= s; i++) {
 		for (int k = 1; k <= m; k++) {
-			for (int j = 0; j <= 9; j++) {
-				if (i >= 10)
-				}
-		}
+			for (int j = 0; j <= min(9, i); j++) {
+				if (i > 9 && k == 1) continue;
+				if(mnn[i][k] == -1) mnn[i][k] = j;
+				else mnn[i][k] = min(mnn[i][k], j);
 
+				if(mxx[i][k] == -1) mxx[i][k] = j;
+				else mxx[i][k] = max(mxx[i][k], j);
+			}
+		}
+	}
+
+	for(int i = 1; i <=s; i++) {
+		for(int j = 1; j <=m; j++) {
+			cout << mxx[i][j] << " ";
+		}
+		cout << "\n";
 	}
 
 
