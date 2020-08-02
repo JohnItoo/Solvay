@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -41,89 +41,6 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 int main() {
 	ios::sync_with_stdio(false);
-	cin.tie(0);
-	int m, s;
-	cin >> m >> s;
-
-
-	vector<vector<int> > mxx(s + 1, vector<int>(m + 1, -1));
-	vector<vector<int> > mnn(s + 1, vector<int>(m + 1, 900));
-
-	for (int i = 1; i <= min(9, s); i++) {
-		mxx[i][1] = i;
-		mnn[i][1] = i;
-	}
-
-	for (int i = 1; i <= s; i++) {
-		for (int k = 1; k <= m; k++) {
-			for (int j = 1; j <= min(9, i); j++) {
-				if (i > 9 && k == 1) continue;
-				// if(mnn[i][k] == 900) mnn[i][k] = j;
-				if (mnn[i - j][k - 1] != 900) mnn[i][k] = min(mnn[i][k], j);
-
-				if (mxx[i][k] == -1) mxx[i][k] = j;
-				else mxx[i][k] = max(mxx[i][k], j);
-			}
-		}
-	}
-
-	// forn(i, s) {
-	// 	forn(j, m) {
-	// 		cout << mxx[i][j] << " ";
-	// 	}
-	// 	cout << "\n";
-	// }
-	// return 0;
-
-	string maxs;
-	int smmx = 0;
-	int ct = 0;
-	int i = s;
-	int j = m;
-	if (mxx[i][j] == -1 || (9*m) < s) {
-		maxs = "-1";
-	} else {
-		while (smmx < s && ct < m) {
-			smmx += mxx[i][j];
-			char curr = (char) (mxx[i][j] + '0');
-			maxs.pb(curr);
-			i = s - smmx;
-			j -= 1;
-			ct++;
-		}
-		if (maxs.length() != m) {
-			int diff = m - maxs.length();
-			string sb = string(diff, '0');
-			maxs += sb;
-		}
-	}
-	string manns;
-	int smmn = 0;
-	ct = 0;
-	i = s;
-	j = m;
-	if (mnn[i][j] == 900 || (9*m) < s) {
-		manns = "-1";
-	} else {
-		while (smmn < s && ct < m) {
-			smmn += mnn[i][j];
-			char curr = (char) (mnn[i][j] + '0');
-			manns.pb(curr);
-			i = s - smmn;
-			j -= 1;
-			ct++;
-		}
-		if (manns.length() != m) {
-			int diff = m - manns.length();
-			string sb = string(diff, 0);
-			manns += sb;
-		}
-	}
-
-
-	cout << manns << " " << maxs << "\n";
-
-
-
-	return 0;
+ cin.tie(0);
+return 0;
 }
