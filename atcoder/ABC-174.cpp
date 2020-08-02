@@ -66,27 +66,45 @@ int B() {
 	return 0;
 }
 
-int main() {
+int C() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int k; cin >> k;
+	ll x = 0;
+	ll ct = 0;
+	ll lmt = 10e7;
+	bool fd = false;
+	while (ct < lmt) {
+		ct++;
+		x = (x * 10) + 7;
+		x %= k;
+		if (x == 0) {
+			fd = true;
+			cout << ct << "\n";
+			break;
+		}
+	}
+	if (!fd) {
+		cout << -1 << "\n";
+	}
+	return 0;
+}
+
+int D() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	int n;
 	cin >> n;
 	string s ; cin >> s;
 	string org = s;
-	 int fr = 0, sc = 0;
-	 forn(i, n-1) {
-	 	if(s[i] == 'W' && s[i+1] == 'R') {
-	 		s[i] = 'R';
-	 		fr++;
-	 	}
-	 }
-	 s = org;
-	 forn(i, n-1) {
-	 	if(s[i] == 'W' && s[i] == 'R') {
-	 		s[i+1] = 'W';
-	 		sc++;
-	 	}
-	 }
-	 cout << min(sc, fr) << "\n";
+	int reds = 0;
+	forn(i, n) {
+		if (s[i] == 'R') reds++;
+	}
+	int ans = 0;
+	forn(i , reds) {
+		if (org[i] == 'W') ans++;
+	}
+	cout << ans << "\n";
 	return 0;
 }
