@@ -49,19 +49,11 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	long double a; cin >> a;
-	long double b; cin >> b;
-
-
-	long double ans = a * b;
-	// cout << "this is ans " << ans << endl
-
-	string s = to_string(ans);
-	string fin = "";
-	forn(i, s.length()) {
-		if (s[i] == '.') break;
-		fin.pb(s[i]);
-	}
-	cout << stoll(fin) << endl;
+	ll a; cin >> a;
+	double b; cin >> b;
+	int bee = b * 100;
+	// ll ans = (a * bee) / 100;
+	ll ans = a * b;
+	cout << ans << "\n";
 	return 0;
 }
