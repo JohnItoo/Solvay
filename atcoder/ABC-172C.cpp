@@ -44,65 +44,45 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-int n, m, k;
-ll a[200005];
-ll b[200005];
-ll ans = 0;
-ll dfs(int i, int j, ll mins, ll curr) {
-	if (mins > k || (i >= n  && j >= m)) {
-		ans = max(ans, curr);
-		return curr;
-	}
-	return max( dfs(i + 1, j, mins + a[i], curr + 1), dfs(i, j + 1, mins + b[j], curr + 1));
-}
+
 
 
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
+	ll n, m, k;
 	cin >> n >> m >> k;
 
-	forn(i, n) cin >> a[i];
-	forn(i, m) cin >> b[i];
+	vector<ll> a(n + 1, 0);
+	vector<ll> b(m + 1, 0);
 
-	ll tp = 0; ll bt = 0;
-	ll tm = 0;
-	ll ans = 0;
-	while (tp < n && bt < m && tm < k) {
-		bool wt = 0;
-		if (a[tp] < b[bt]) {
-			tm += a[tp];
-			tp++;
+	REP(i, 1,  n) {
+		ll x; cin >> x;
+		a[i] = a[i - 1] + x;
+
+	}
+	REP(i, 1,  m) {
+		ll x; cin >> x;
+		b[i] = b[i - 1] + x;
+	}
+
+	int i = n;
+	while (i > 0 && a[i] > k) {
+		i--;
+	}
+	int ans = i;
+	int j = 0;
+	bool gone = false;
+	while (i >= 0 && j <= m ) {
+		if (a[i] + b[j] > k) {
+			i--;
 		} else {
+			ans = max(ans, i + j);
+			j++;
 
-			tm += b[bt];
-			bt++;
-			wt = 1;
-		}
-		if (tm <= k) ans++;
-		else {
-
-			break;
 		}
 	}
-	if (tm < k) {
-		if (tp < n) {
-			while (tp < n && tm < k) {
-				tm += a[tp];
-				tp++;
-				if (tm <= k) ans++;
-				else break;
-			}
-		} else if (bt < m) {
-			while (bt < m && tm < k) {
-				tm += b[bt];
-				bt++;
-				if (tm <= k) ans++;
-				else break;
-			}
-		}
-	}
-	// dfs(0, 0, 0, 0);
+	if (i >= 0 && j <= m && a[i] + b[j] <= k) ans = max(ans, i + j);
 	cout << ans << endl;
 	return 0;
 }
