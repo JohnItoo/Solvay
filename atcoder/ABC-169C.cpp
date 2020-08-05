@@ -51,7 +51,7 @@ int main() {
 	cin.tie(0);
 	ll a; cin >> a;
 	long double b; cin >> b;
-	ll bee = round(b * 100);
+	ll bee = (b * 100) + .5;
 	ll ans = (a * bee) / 100;
 	cout << ans << "\n";
 	return 0;
