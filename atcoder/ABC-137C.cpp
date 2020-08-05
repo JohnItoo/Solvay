@@ -15,13 +15,14 @@ int main() {
 		if (strings[i] == strings[i - 1]) {
 			curr++;
 		} else {
-			long long dic = ((curr * (curr + 1)) / 2) - 1;
-			if (dic >= 0) ans += dic;
+
+			long long dict = (curr * (curr + 1)) / 2;
+			ans += dict;
 			curr = 0;
 
 		}
 	}
-	long long dic = ((curr * (curr + 1)) / 2) - 1;
+	long long dic = (curr * (curr + 1)) / 2;
 	if (dic >= 0) ans += dic;
 
 	cout << ans << "\n";
