@@ -7,17 +7,19 @@ int main() {
 
 	long long fact = 1;
 	long  long ans = 0;
+	long long lstVstd = 1;
 	map<long long, int> fq;
 	for (int i = 1; i <= n; i++) {
 		fact *= i;
-		fact %= mod;
 
-		for (int j = 1 ; j <= fact; j++) {
+		for (int j = lstVstd ; j <= fact; j++) {
 			if (fact % j == 0 && fq.find(j) == fq.end()) {
 				ans++;
 				fq[j] = 1;
 			}
 		}
+		fact %= mod;
+
 	}
 
 
