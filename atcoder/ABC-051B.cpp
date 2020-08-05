@@ -3,17 +3,12 @@ using namespace std;
 
 int main() {
 	int s, k; cin >> k >> s;
-	if(s == 0 || k * 3 == s) {
-		cout << 1 << "\n";
-	} else {
-		int ans = 0;
-		for(int i = k; i > 0; i--) {
-			int j = (s - i + 1) / 2;
-			if(j > k) break;
-			else {
-				ans += 1;
-			}
+	long long ans = 0;
+	for (int x = 0; x <= k; x++) {
+		for (int y = 0; y <= k; y++) {
+			int z = s - (x + y);
+			if (z >= 0 && z <= k) ans++;
 		}
-		cout << ans * 3 << "\n";
 	}
+	cout << ans << "\n";
 }
