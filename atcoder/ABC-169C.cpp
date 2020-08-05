@@ -50,10 +50,9 @@ int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	ll a; cin >> a;
-	double b; cin >> b;
-	int bee = b * 100;
-	// ll ans = (a * bee) / 100;
-	ll ans = a * b;
+	long double b; cin >> b;
+	ll bee = round(b * 100);
+	ll ans = (a * bee) / 100;
 	cout << ans << "\n";
 	return 0;
 }
