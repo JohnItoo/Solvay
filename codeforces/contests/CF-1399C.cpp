@@ -48,5 +48,59 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
  ios::sync_with_stdio(false);
  cin.tie(0);
+
+ int tc; cin >> tc;
+ while(tc--) {
+ 	int n; cin >> n;
+ 	int a[n];
+ 	int fmx = 0;
+ 	int smx = 0;
+ 	forn(i,n) {
+ 		cin  >> a[i];
+ 		if(a[i] > fmx) {
+ 			smx = fmx;
+ 			fmx = a[i];
+ 		} else if(a[i] > smx) {
+ 			smx = a[i];
+ 		}
+ 	}
+ 	int tot = fmx * smx;
+
+    sort(a, a+n);
+    int mxtms = 0;
+ 	REP(i, 1, tot) {
+ 	vector<bool> has(n, false);
+ 	 forn(j, n) {
+ 	 	if(a[j] >= i) continue;
+ 	 	if(has[j]) continue;
+
+        int high = n-1, low  = 0;
+ 	 	if(i - a[j] > a[j]) {
+ 	 		high = n-1;
+ 	 		low = j+1;
+ 	 	} else if(i - a[j] < a[j]) {
+ 	 		high = j-1;
+ 	 		low = 0;
+ 	 	}
+
+ 	 	while(low <= high) {
+ 	 		int mid = (high + low) / 2;
+ 	 		if(a[mid] + a[j] == i) {
+ 	 			if(!has[mid]) has[mid] = true;
+ 	 			else 
+ 	 			
+ 	 			break;
+ 	 		}
+
+ 	 		if(a[mid])
+ 	 	}
+
+ 	 }
+
+
+
+       
+ 	}
+ }
 return 0;
 }
