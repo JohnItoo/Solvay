@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -38,51 +38,64 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-	// to_string(int)
+// to_string(int)
 
 string trUpp(string s) {
-	
-  	transform(s.begin(), s.end(), s.begin(), ::toupper);
- return "";
+
+	transform(s.begin(), s.end(), s.begin(), ::toupper);
+	return "";
 }
 
 int main() {
-	int n,k;
+	int n, k;
 	cin >> n >> k;
 	int a[n];
 	int negs = 0;
+	int lastneg = 0;
 	forn(i, n) {
 		cin >> a[i];
-		if(a[i] < 0) negs++;
+		if (a[i] < 0) {
+			negs++;
+			lastneg = i;
+		}
 	}
 
-	if(negs <= k) {
-     int i = 0;
-     while(i < k && i < n) {
-     	a[i] = abs(a[i]);
-     	i++;
-     }
+	if (negs < k) {
+		if (negs == 0) {
+			if (k & 1) {
+				a[0] = -a[0];
+			}
+		} else {
+			int i = 0;
+			while (i < negs) {
+				a[i] = abs(a[i]);
+				i++;
+			}
+			if ((k - negs) & 1) {
+				if (lastneg + 1 < n  && abs(a[lastneg]) > a[lastneg + 1]) {
+					a[lastneg + 1] = -a[lastneg + 1];
+				} else {
+					a[lastneg] = -a[lastneg];
+				}
+			}
+		}
+
 	} else {
-       int dif = k - n;
-       if(dif & 1) {
-       	int i = 0;
-       	while(i < negs && i < n) {
-       		a[i] = abs(a[i]);
-       		i++;
-       	}
-       } else {
-       	  int i = 0;
-       	  while(i < negs-1 && i < n) {
-       	  	a[i] = abs(a[i]);
-       	  	i++;
-       	  }
-       }
+
+		int i = 0;
+
+		while (i < k) {
+			a[i] = abs(a[i]);
+			i++;
+		}
+
 	}
+
 	ll sm = 0;
 	forn(i, n) sm += a[i];
 
 	cout << sm << "\n";
 
 
-return 0;
+	return 0;
 }
