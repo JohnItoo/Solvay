@@ -6,13 +6,7 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include <iostream>
-#include <algorithm>
-#include <set>
-#include <map>
-#include <set>
-#include <vector>
-#include <string.h> // for memset in CF judge.
+#include <bits/stdc++.h>
 using namespace std;
 #define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
 // Shortcuts for "common" data types in contests
@@ -44,30 +38,54 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
+// to_string(int)
+
+string trUpp(string s) {
+
+	transform(s.begin(), s.end(), s.begin(), ::toupper);
+	return "";
+}
 
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	int tc; cin >> tc;
-	while (tc--) {
-		int n;
-		cin >> n;
-		vi a(n);
-		forn(i, n) {
-			cin >> a[i];
-		}
+	string s; cin >> s;
+	int n = s.length();
+	int last = 0;
+	vector<int> bears;
 
-		bool f = true;
-		sort(a.begin(), a.end());
-		REP(i, 1, n - 1) {
-			if (a[i] - a[i - 1] > 1) {
-				f = false;
-				break;
+	while (last + 3 < n) {
+		if (s.substr(last, 4) == "bear") {
+			bears.pb(last);
+			last += 4;
+		} else {
+			last++;
+		}
+	}
+
+	if (bears.size() == 0) {
+		cout << 0 << "\n";
+	} else {
+		ll ans = 0;
+
+		for (int i = 0; i + 3 < n; i++) {
+			for (int j = i + 3; j < n; j++) {
+				bool ok = false;
+				for (int k = 0; k < bears.size(); k++) {
+					int begi = bears[k];
+					if (i <= begi && j >= begi + 3) {
+						ok = true;
+						ans += (n - j);
+						break;
+					}
+				}
+
+				if (ok) break;
 			}
 		}
-		if (f) cout << "YES\n";
-		else cout << "NO\n";
+
+		cout << ans << "\n";
 
 	}
+
+
 	return 0;
 }
