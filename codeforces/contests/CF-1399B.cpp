@@ -48,5 +48,31 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
  ios::sync_with_stdio(false);
  cin.tie(0);
+ int tc; cin >> tc;
+ while(tc-- ) {
+ 	int n; cin >> n;
+ 	ll a[n]; ll b[n];
+ 	ll mina = INF; ll minb = INF;
+ 	forn(i,n) {
+ 		cin >> a[i];
+ 		mina = min(a[i], mina);
+ 	}
+ 	forn(i,n) {
+ 		cin >> b[i];
+ 		minb = min(b[i], minb);
+ 	}
+
+ll ans = 0;
+ 	forn(i, n) {
+ 		ans += a[i] - mina;
+ 	}
+
+ 	forn(i, n) {
+ 		ans += b[i] - minb;
+ 	}
+
+ 	cout << ans << "\n";
+ }
+
 return 0;
 }
