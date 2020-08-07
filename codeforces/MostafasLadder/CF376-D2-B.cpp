@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -38,15 +38,48 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-	// to_string(int)
+// to_string(int)
 
 string trUpp(string s) {
-	
-  	transform(s.begin(), s.end(), s.begin(), ::toupper);
- return "";
+
+	transform(s.begin(), s.end(), s.begin(), ::toupper);
+	return "";
 }
 
 int main() {
-	
-return 0;
+	int n, m;
+	cin >> n >> m;
+
+	vector<vector<ii> >a(n + 1);
+	ll sum = 0;
+	forn(i, m) {
+		int cred, deb, amt;
+		cin >> deb >> cred >> amt;
+		sum += amt;
+		a[deb].pb(make_pair(cred, amt));
+	}
+
+	REP(i, 1, n) {
+		if (a[i].size() == 0) continue;
+		map<int, int> iowes;
+		vector<int> js;
+		for(ii oweamt : a[i]) {
+			int j = oweamt.first;
+			js.pb(j);
+			iowes[j] = 1;
+		}
+
+		for(int j : js) {
+			for(ii joweamt : a[j]) {
+				int k = joweamt.first;
+				ll jowesk = joweamt.second;
+				if(iowes.find(k) != iowes.end()) continue;
+				if(sum > 0) sum -= min(sum, jowesk);
+			}
+		}
+	}
+	cout << sum << "\n";
+
+
+	return 0;
 }
