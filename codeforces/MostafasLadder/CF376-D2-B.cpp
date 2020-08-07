@@ -57,24 +57,25 @@ int main() {
 		cin >> deb >> cred >> amt;
 		sum += amt;
 		a[deb].pb(make_pair(cred, amt));
+
 	}
 
 	REP(i, 1, n) {
 		if (a[i].size() == 0) continue;
 		map<int, int> iowes;
 		vector<int> js;
-		for(ii oweamt : a[i]) {
+		for (ii oweamt : a[i]) {
 			int j = oweamt.first;
 			js.pb(j);
 			iowes[j] = 1;
 		}
 
-		for(int j : js) {
-			for(ii joweamt : a[j]) {
+		for (int j : js) {
+			for (ii joweamt : a[j]) {
 				int k = joweamt.first;
 				ll jowesk = joweamt.second;
-				if(iowes.find(k) != iowes.end()) continue;
-				if(sum > 0) sum -= min(sum, jowesk);
+				if (iowes.find(k) != iowes.end()) continue;
+				if (sum > 0) sum -= min(sum, jowesk);
 			}
 		}
 	}
