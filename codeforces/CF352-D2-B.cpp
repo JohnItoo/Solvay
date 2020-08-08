@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -40,7 +40,56 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int n;
+	cin >> n;
+	vi a(n);
+	map<int, int> found;
+	forn(i, n) {
+		cin >> a[i];
+		found[a[i]] = 1;
+	}
+	map<int, int> cant;
+	map<int, ii> done;
+
+	forn(i, n) {
+		if (cant.find(a[i]) != cant.end()) continue;
+		auto it = done.find(a[i]);
+
+		if (it  == done.end()) {
+			done[a[i]] = mp(0, i);
+		} else {
+			ii par = it->second;
+			if (par.first == 0) {
+				done[a[i]] = mp(i, i - par.second);
+			} else {
+				if (par.second != i - par.first) {
+					cant[a[i]] = 1;
+					done.erase(a[i]);
+				} else {
+					done[a[i]] = mp(i, par.second);
+				}
+			}
+		}
+	}
+
+	vector<ii> res;
+	for (auto it : done) {
+		ii hlf = it.second;
+		if (hlf.first == 0) {
+			res.pb(mp(it.first, 0));
+		} else {
+			res.pb(mp(it.first, hlf.second));
+
+		}
+	}
+
+	cout << res.size() << "\n";
+	forn(i, res.size()) {
+		ii par = res[i];
+		cout << par.first << " " << par.second << "\n";
+	}
+
+	return 0;
 }
