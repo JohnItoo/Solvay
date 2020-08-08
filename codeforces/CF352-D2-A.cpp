@@ -42,10 +42,35 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc; cin >> tc;
-	while (tc--) {
-		ll n; cin >> n;
-		cout << (n / 2) + 1;
+	int n; cin >> n;
+	ll sum = 0;
+	int zs = 0;
+	forn(i , n) {
+		int x; cin >> x;
+		sum += x;
+		if (x == 0) zs++;
 	}
+	int i = 1;
+	int act = 0;
+	int curr = 0;
+	while (act < sum) {
+		if ((9 * i) % 5 == 0) {
+			curr = 9 * i;
+		}
+		act = 9 * i;
+		i++;
+	}
+
+	string ans = "-1";
+	if (zs > 0) {
+		if (curr == 0) ans = "0";
+		else {
+			int fives = curr / 5;
+			string fv = string(fives, '5');
+			string zeros = string(zs , '0');
+			ans = fv + zeros;
+		}
+	}
+	cout << ans << "\n";
 	return 0;
 }
