@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -38,58 +38,38 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
+	// to_string(int)
+
+string trUpp(string s) {
+	
+  	transform(s.begin(), s.end(), s.begin(), ::toupper);
+ return "";
+}
 
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	int xa, ya, xb, yb; cin >> xa >> ya >> xb >> yb;
-	if (xa > xb) swap(xa, xb);
-
-	vector<ii> seats;
-
-	REP(x, xa, xb - 1) {
-		if (x != xa) {
-			seats.pb(mp(x, ya));
-			seats.pb(mp(x, yb));
-		} else {
-			int mny = min(ya, yb);
-			int mxy = max(ya, yb);
-			REP(y, mny, mxy) {
-				seats.pb(mp(x, y));
-				seats.pb(mp(xb, y));
-			}
-		}
-	}
-
 	int n; cin >> n;
-
-	vector<bool> htd(seats.size(), false);
-	forn(i, n) {
-		int x, y, r ; cin >> x  >> y >> r;
-		forn(j , seats.size()) {
-			if (htd[j]) continue;
-			ii seat = seats[j];
-			int x2 = seat.first;
-			int y2 = seat.second;
-
-			int xdiff = x - x2;
-			int ydiff = y - y2;
-			if ((xdiff * xdiff) + (ydiff * ydiff) <= (r * r)) {
-				htd[j] = true;
-			}
-		}
-	}
-
 	int ans = 0;
+	int last = 0;
+	bool inone = false;
+    int zeros = 0;
 
-	forn(i, htd.size()) {
-		if (!htd[i]) ans++;
+	forn(i, n) {
+		int x; cin >> x;
+		if(x == 1) {
+			if(inone) {
+             ans += zeros + 1;
+             zeros = 0;
+			}
+			inone = true;
+		} else {
+			if(inone) {
+				zeros++;
+			}
+		}	
 	}
-
 
 	cout << ans << "\n";
-
-
-
-	return 0;
+	
+	
+return 0;
 }
