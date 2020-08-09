@@ -52,10 +52,12 @@ int main() {
 	int last = 0;
 	bool inone = false;
     int zeros = 0;
+    bool hasone  = false;
 
 	forn(i, n) {
 		int x; cin >> x;
 		if(x == 1) {
+			hasone = true;
 			if(inone) {
              ans += zeros + 1;
              zeros = 0;
@@ -67,6 +69,8 @@ int main() {
 			}
 		}	
 	}
+
+	if(!ans && hasone) ans = 1; 
 
 	cout << ans << "\n";
 	
