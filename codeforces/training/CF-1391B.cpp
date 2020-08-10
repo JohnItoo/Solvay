@@ -42,5 +42,28 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
+  int tc; cin >> tc;
+  while(tc--) {
+  	int n,m; cin >> n >> m;
+  	vector<string> sts(n);
+  	forn(i, n) {
+  		string s;
+  		cin >> s;
+  		sts[i] = s;
+  	}
+
+  	string lr = sts[n-1];
+  	int ans = 0;
+
+  	forn(i, lr.size()-1) {
+    if(lr[i] != 'R') ans++;
+  	}
+  	forn(i, n-1) {
+     if(sts[i][m-1] != 'D') ans++;
+  	}
+
+  	cout << ans << "\n";
+
+  }
 return 0;
 }
