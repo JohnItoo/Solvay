@@ -33,22 +33,24 @@ int main() {
 				pq.pop();
 				prs  = make_pair(pi - top.second.first, make_pair(top.second.first, pi));
 				pss = make_pair(top.second.second - pi, make_pair(pi, top.second.second));
-			} else if (pi < top.second.first){
-				prs = make_pair(top.second.first-pi, make_pair(pi, top.second.first));
-			} else {
-				prs = make_pair(pi - top.second.second, make_pair(top.second.second, pi));
+		    } 
+
+				//else if (pi < top.second.first) {
+			// 	prs = make_pair(top.second.first - pi, make_pair(pi, top.second.first));
+			// 	// } else {
+			// 	// 	prs = make_pair(pi - top.second.second, make_pair(top.second.second, pi));
+			// 	// }
 			}
+
+			pq.push(prs);
+			pq.push(pss);
+
+			auto curr = pq.top();
+
+			ans[i] = curr.first;
 		}
 
-		pq.push(prs);
-		pq.push(pss);
-
-		auto curr = pq.top();
-
-		ans[i] = curr.first;
+		for (int i = 0; i < n; i++) {
+			cout << ans[i] << " ";
+		}
 	}
-
-	for (int i = 0; i < n; i++) {
-		cout << ans[i] << " ";
-	}
-}
