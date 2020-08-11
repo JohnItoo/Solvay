@@ -16,18 +16,17 @@ int main() {
 
 	for (int i = 0; i < n; i++) {
 		int pi; cin >> pi;
-		auto l = s.lower_bound(pi), r = --s.upper_bound(pi);
+		auto it = s.upper_bound(pi);
+		int r = *it;
+		--it;
+		int l = *it;
 
-		cout << *l << " " << *r << "\n";
+		--mp[r - l];
 
-		// if (*l > pi) --l;
-		// if (*r < pi) ++r;
-		--mp[*r-*l];
+		if (!mp[r - l]) mp.erase(r - l);
 
-		if (!mp[*r-*l]) mp.erase(*r-*l);
-
-		++mp[pi - *l];
-		++mp[*r - pi];
+		++mp[pi - l];
+		++mp[r - pi];
 		s.insert(pi);
 
 

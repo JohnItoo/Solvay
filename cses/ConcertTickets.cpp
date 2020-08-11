@@ -3,45 +3,23 @@ using namespace std;
 
 int main() {
 	int n, m; cin >> n >> m;
-	vector<long long> tickets(n);
+	multiset<int> tickets;
+	map<int, int> done;
 	for (int i = 0; i < n; i++) {
-		cin >> tickets[i];
+		int x; cin >> x;
+		tickets.insert(x);
+		done[x]++;
 	}
-
-	vector<long long> prices(m);
-
-
 	for (int i = 0; i < m; i++) {
-		cin >> prices[i];
+		int p; cin >> p;
+		auto it = tickets.lower_bound(p);
+		if (*it > p) --it;
+		int ans = -1;
+		if (it != tickets.begin()) ans = *it;
+		cout << ans << " ";
+		tickets.erase(it);
+
 	}
-	sort(tickets.begin(), tickets.end());
-
-	vector<long long> result(m, -1);
-
-	int i = 0; int j = 0;
-	while (i < n && j < m) {
-		if (prices[j] < tickets[i]) {
-			j++;
-		} else {
-			if (prices[j] == tickets[i]) {
-				result[j] = tickets[i];
-				i++; j++;
-			} else if (prices[j] > tickets[i]) {
-				if (i + 1 >= n  || tickets[i + 1] > prices[j]) {
-					result[j] = tickets[i];
-					i++; j++;
-				} else {
-					i++;
-				}
-			}
-
-		}
-	}
-
-	for (int i = 0; i < m; i++) {
-		cout << result[i] << "\n";
-	}
-
 
 
 }
