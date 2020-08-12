@@ -62,10 +62,13 @@ int main() {
         fd = true;
       }
     }
-    r -= mn;
-    b -= mn;
-    g -= mn;
-    w += (mn * 3);
+    if (mn >= 1) {
+      r -= 1;
+      b -= 1;
+      g -= 1;
+      w += (1 * 3);
+    }
+
 
 
     if (!fd) {
