@@ -46,22 +46,38 @@ int main() {
   while (tc--) {
     ll r, b, g, w;
     cin >> r >> b >> g >> w;
+
+
     ll mn = min(r, min(b, g));
+    bool fd = false;
+
+    if (w & 1) {
+      if (r % 2 == 0 && b % 2 == 0 && g % 2 == 0) {
+        cout << "Yes\n";
+        fd = true;
+      }
+    } else {
+      if ((r % 2 == 0 && b % 2 == 0) || (r % 2 == 0 && g % 2 == 0 )  || (b % 2 == 0 && g % 2 == 0)) {
+        cout << "Yes\n";
+        fd = true;
+      }
+    }
     r -= mn;
     b -= mn;
     g -= mn;
     w += (mn * 3);
 
 
-
-    if (w & 1) {
-      if (r % 2 == 0 && b % 2 == 0 && g % 2 == 0) cout << "Yes\n";
-      else cout << "No\n";
-    } else {
-      if ((r & 1 && b & 1 ) || (g & 1 && r & 1) || (g & 1 && b & 1)) cout << "No\n";
-      else cout << "Yes\n";
-
+    if (!fd) {
+      if (w & 1) {
+        if (r % 2 == 0 && b % 2 == 0 && g % 2 == 0) cout << "Yes\n";
+        else cout << "No\n";
+      } else {
+        if ((r & 1 && b & 1 ) || (g & 1 && r & 1) || (g & 1 && b & 1)) cout << "No\n";
+        else cout << "Yes\n";
+      }
     }
+
   }
   return 0;
 }
