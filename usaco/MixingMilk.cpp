@@ -2,7 +2,9 @@
 using namespace std;
 
 int main() {
-	int am, a, bm, b, cm, c;
+	freopen("mixmilk.in", "r", stdin);
+	freopen("mixmilk.out", "w", stdout);
+	int am, a, bm, b, cm, c = 0;
 	cin >> am >> a >> bm >> b >> cm >> c;
 
 	int prs = 0;
@@ -36,4 +38,5 @@ int main() {
 
 	cout << a << "\n" << b << "\n" << c << "\n";
 
+	return 0;
 }
