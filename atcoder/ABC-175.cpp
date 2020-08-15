@@ -60,85 +60,91 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 
 
-// int main() {
-// 	ios::sync_with_stdio(false);
-// 	cin.tie(0);
-// 	int n = 0; cin >> n;
-// 	vector<ll> l(n + 1);
-// 	REP(i, 1, n) {
-// 		cin >> l[i];
-// 	}
-
-// 	map<string, int> mp;
-
-// 	int ans = 0;
-// 	for (int i = 1; i + 2 <= n; i++) {
-// 		for (int j = i + 1; j + 1 <= n; j++) {
-// 			for (int k = j + 1; k <= n; k++) {
-// 				if (l[i] != l[j] && l[j] != l[k]) {
-// 					// vector<ll> bs;
-// 					// bs.pb(l[i]); bs.pb(l[j]); bs.pb(l[k]);
-
-// 					// if (st.count(make_tuple(bs[0], bs[1], bs[2])) == 0) {
-// 					    string s;
-// 					    s.pb(l[i] -'0');
-// 					    s.pb(l[j] - '0');
-// 					    s.pb(l[k] - '0');
-// 					    sort(s.begin(), s.end());
-// 					    if(mp.find(s) == mp.end()) {
-// 					    	cout << l[i] << l[j] << l[k] << "here\n";
-// 						ans++;
-// 						mp[s] = 1;
-// 					    }
-
-// 					// }
-
-// 				}
-// 			}
-// 		}
-// 	}
-// 	cout << ans << "\n";
-// 	return 0;
-// }
-
-
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	ll x, k, d;
-	cin >> x >> k >> d;
+	int n = 0; cin >> n;
+	vector<ll> l(n + 1);
+	REP(i, 1, n) {
+		cin >> l[i];
+	}
 
-	if (x < 0) {
+	map<string, int> mp;
 
-		ll f =   0 - x;
-		if ( k * d < f) {
-			cout << abs(x + (k * d)) << "\n";
-		} else {
-			ll div = f / d;
-			ll rem = f - (div * d);
-			ll curr = x + (d * div);
-			k -= d;
-			if (k & 1) {
-				cout << min(abs(curr - d), abs(curr + d)) << "\n";
-			} else {
-				cout << curr << "\n";
-			}
-		}
+	int ans = 0;
+	for (int i = 1; i + 2 <= n; i++) {
+		for (int j = i + 1; j + 1 <= n; j++) {
+			for (int k = j + 1; k <= n; k++) {
+				if (l[i] != l[j] && l[j] != l[k] && l[i] != l[k] ) {
+					// vector<ll> bs;
+					// bs.pb(l[i]); bs.pb(l[j]); bs.pb(l[k]);
 
-	} else {
-		ll f = x - 0; //steps to 0;
-		if (k * d < f) {
-			cout << f - (k * d) << "\n";
-		} else {
-			ll div =  x / d;
-			ll rem = x - (div * d);
-			k -= div;
-			if (k & 1) {
-				cout << min(rem + d, abs(rem - d)) << "\n";
-			} else {
-				cout << rem << "\n";
+					// if (st.count(make_tuple(bs[0], bs[1], bs[2])) == 0) {
+					//&&
+					string s;
+					char ii = (char) l[i] + '0';
+					char jj = (char) l[j] + '0';
+					char kk = (char) l[k] + '0';
+					s.pb(ii);
+					s.pb(jj);
+					s.pb(kk);
+					sort(s.begin(), s.end());
+					// cout << s << "\n";
+					if (((s[0] - '0' + s[1] - '0') > s[2] - '0')) {
+						ans++;
+					}
+
+					// }
+
+				}
 			}
 		}
 	}
+	cout << ans << "\n";
 	return 0;
 }
+
+
+// int main() {
+// 	ios::sync_with_stdio(false);
+// 	cin.tie(0);
+// 	ll x, k, d;
+// 	cin >> x >> k >> d;
+
+// 	if (x < 0) {
+// 		ll f =    -x;
+// 		if ( k * d < f) {
+// 			cout << abs(x + (k * d)) << "\n";
+// 		} else {
+// 			ll div = f / d;
+// 			ll curr = x + (d * div);
+// 			k -= div;
+// 			if (k & 1) {
+// 				cout << min(abs(curr - d), abs(curr + d)) << "\n";
+// 			} else {
+// 				if (k != 0) cout << min(abs(curr + (2 * d)), abs(curr));
+// 				else cout << abs(curr) << "\n";
+// 			}
+// 		}
+
+// 	} else {
+// 		ll f = x - 0; //steps to 0;
+// 		if (k * d < f) {
+// 			cout << f - (k * d) << "\n";
+// 		} else {
+// 			ll div =  x / d;
+// 			ll rem = x - (div * d);
+// 			k -= div;
+// 			if (k & 1) {
+// 				cout << min(abs(rem + d), abs(rem - d)) << "\n";
+// 			} else {
+// 				if (k == 0) cout << rem << "\n";
+// 				else {
+// 					cout << min(abs(rem - (2 * d)), abs(rem));
+// 				}
+
+// 			}
+// 		}
+// 	}
+// 	return 0;
+// }
