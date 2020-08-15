@@ -81,29 +81,72 @@ void solve() {
 		rooms[i] = tp;
 	}
 
+	vector<ll> per(n);
+	int laststart = 0;
+
 	forn(i, n) {
+
 
 		ll p, q, r, s;
 		tie(p, q, r, s) = rooms[i];
-		ll side1 = h[0];
-		ll width = r - l[0];
+
+		bool overlap = true;
+
+		if (i > 0) {
+			ll plast, qlast, rlast, slast;
+			tie(plast, qlast, rlast, slast) = rooms[i - 1];
+			// cout << p << " " << q << " " << r << " " << s  << "\n";
+			if (rlast < p) {
+				overlap = false;
+				// cout << "no overlap\n";
+				laststart = i;
+			}
+		}
+
+
+		ll side1 = h[laststart];
+		ll width = r - l[laststart];
 		ll side2 =  width;
 		ll side3 = h[i];
 		ll side4 = width;
-		cout << width << "\n";
+		// cout << width << "\n";
+		// cout << r;
+		// cout << side1 << " " << side2 << " " << side3 << " " << side4 << "\n";
 		if (side3 != side1) {
 			ll diff = abs(side1 - side3);
 			ll side4sq = diff * diff + side2 * side2;
 			side4 = pow(side4sq, 0.5);
 		}
+
 		ll currp = side1 + side2 + side3 + side4;
 
-		g *= currp;
+
+		// g *= currp;
+		// g %= 1000000007;
+		if (!overlap) {
+			// g *= (per[i - 1] + currp);
+			per[i] = (per[i - 1] + currp);
+		} else {
+			per[i] = currp;
+			// g *= currp;
+		}
+		// g %= 1000000007;
+
+		// per[i] = g;
+
+	}
+
+	forn(i, n) {
+		cout << per[i] << " ";
+		g *= per[i];
 		g %= 1000000007;
 
 	}
 
-	cout << g << "\n";
+	// cout << g << "\n";
+
+
+	cout << g <<  "\n";
 
 }
 
