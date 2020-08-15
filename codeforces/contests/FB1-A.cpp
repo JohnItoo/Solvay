@@ -9,6 +9,7 @@
 #include <iostream>
 #include <algorithm>
 #include <set>
+#include <cmath>
 #include <map>
 #include <set>
 #include <vector>
@@ -47,12 +48,12 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 
 void solve() {
-	ll n, k, w;
+	int n, k, w;
 	cin >> n >> k >> w;
 	vector<ll> l(n);
-	forn(i, k) {
-      cin >> l[i];
-	}
+
+	forn(i, k)  cin >> l[i];
+	
 
 	ll al,bl,cl,dl;
 	cin >> al >> bl >> cl >> dl;
@@ -64,10 +65,42 @@ void solve() {
 	cin >> ah >> bh >> ch >> dh;
 
 
-	for(int i = k; i < n; i++) {
-
+	REP( i , k , n-1) {
+       l[i] = ((al * l[i-2] + bl * l[i-1] + cl) % dl) + 1;
+       h[i] = ((ah * h[i-2] + bh * h[i-1] + ch) % dh) + 1;
 	}
 
+	vector<pair<pair<ll, ll>, pair<ll, ll> > > rooms;
+
+	ll p = 1;
+
+	forn(i,n) {
+		pair<ll,ll> st = mp(l[i], 0);
+		pair<ll, ll> ed = mp(l[i]+w, h);
+		pair<pair<ll, ll>, pair<ll, ll> > qr = mp(st,ed);
+		rooms.pb(qr);
+	}
+
+	forn(i, n) {
+        
+		ll side1 = h[0];
+		ll width = rooms[i].second.first - rooms[0].first.first;
+		ll side2 =  width;
+		ll side3 = h[i];
+		ll side4 = width;
+		if(side3 != side1) {
+			ll diff = abs(side1- side3);
+			ll side4sq = diff * diff + side2*side2;
+			side4 = pow(side4sq, 0.5);
+		}
+		ll currp = side1 + side2 + side3 + side4;
+
+		p *= currp;
+		cout << p << "\n";
+		p %= 1000000007;
+	}
+
+	cout << p << "\n";
 
 }
 
