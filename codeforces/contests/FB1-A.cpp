@@ -77,7 +77,6 @@ void solve() {
 
 	forn(i, n) {
 		tuple<ll, ll, ll , ll> tp = make_tuple(l[i], 0L, l[i] + w, h[i]);
-
 		rooms[i] = tp;
 	}
 
@@ -87,6 +86,7 @@ void solve() {
 	int lastoverlap = 0;
 	vector<int>overlaps(n, 0);
 	overlaps[0] = 1;
+	ll heightHere = h[0];
 
 	forn(i, n) {
 
@@ -106,57 +106,49 @@ void solve() {
 					//prev overlaps with 0 && curr overlaps prev;
 					overlaps[i] = 1;
 					lastoverlap = i;
+					heightHere = max(heightHere, h[i]);
 				} else {
 					laststart = i;
+					heightHere = h[i];
 				}
 			} else {
 				overlaps[i] = overlaps[i - 1];
+
+				if (overlaps[i] || get<0>(rooms[i]) <= get<2>(rooms[laststart])) {
+					heightHere = max(heightHere, h[i]);
+				} else {
+					heightHere = h[i];
+				}
 				lastoverlap = i;
 
 			}
 
 		}
-
-
-		ll side1 = h[laststart];
 		ll width = r - l[laststart];
-		ll side2 =  width;
-		ll side3 = h[i];
-		ll side4 = width;
 
-		if (side3 != side1) {
-			side3 = max(side3, side1);
-			side1 = side3;
-
-		}
-
-		ll currp = side1 + side2 + side3 + side4;
+		ll currp = 2 * (heightHere + width);
 
 		ll porg, qorg, rorg, sorg = 0;
 		tie(porg, qorg, rorg, sorg) = rooms[0];
-		if (rorg >= p) lastorg = i;
-		// if (!overlap || lastorg != i) {
+		if (rorg >= p) {
+			lastorg = i;
+			cout <<"lastorgs\n";
+		}
 		if (!overlaps[i]) {
-
-			cout << i << " " << lastorg <<  "no overlap \n" ;
-			// if (lastorg == i) per[i] = currp;
-			// else
 			per[i] = (per[lastorg] + currp);
 		} else {
 			per[i] = currp;
 		}
+
 	}
 
 	forn(i, n) {
-		cout << per[i] << " ";
 		g *= per[i];
 		g %= 1000000007;
 
 	}
 
-
 	cout << g <<  "\n";
-
 }
 
 int main() {
@@ -166,7 +158,7 @@ int main() {
 	cin >> tc;
 	int ct = 1;
 	while (tc--) {
-		cout << "Case #" << ct << ": \n";
+		cout << "Case #" << ct << ": ";
 		ct++;
 		solve();
 	}
