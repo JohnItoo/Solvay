@@ -45,14 +45,14 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
-int main() {
+int contest() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	int tc; cin >> tc;
 	while (tc--) {
 		int n; cin >> n;
 		vector<ll> a(n);
-		set<ll> st;
+		set<int> st;
 		forn(i, n) {
 			cin >> a[i];
 			st.insert(a[i]);
@@ -62,6 +62,20 @@ int main() {
 		} else {
 			cout << n << "\n";
 		}
+	}
+	return 0;
+}
+
+//upsolve
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc; cin >> tc;
+	while (tc--) {
+		int n; cin >> n;
+		vector<ll> a(n);
+		forn(i,n) cin>> a[i];
+		cout << ((*min_element(a.begin(), a.end()) == *max_element(a.begin(), a.end())) ? n : 1 )<< "\n";
 	}
 	return 0;
 }
