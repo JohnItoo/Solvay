@@ -94,7 +94,7 @@ void solve() {
 
 		if (i > 0) {
 			ll plast, qlast, rlast, slast;
-			tie(plast, qlast, rlast, slast) = rooms[i - 1];
+			tie(plast, qlast, rlast, slast) = rooms[laststart];
 			// cout << p << " " << q << " " << r << " " << s  << "\n";
 			if (rlast < p) {
 				overlap = false;
