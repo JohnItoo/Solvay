@@ -44,7 +44,7 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-
+ll dp[2000007];
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
@@ -53,35 +53,19 @@ int main() {
 	while (tc--) {
 		int n; cin >> n;
 		vector<ll> a(n);
+		memset(dp, MEMSET_INF, sizeof dp);
 		forn(i, n) {
 			cin >> a[i];
 		}
-		int i = 1;
-		ll ans = 0;
-		while (i < n) {
-			if (a[i] < a[i - 1]) {
-				int j = i + 1;
-				ll mn = a[i];
-				ll mx = a[i];
-				while (j < n && a[j] < a[i - 1]) {
-					mn = min(mn, a[j]);
-					mx = max(mx, a[j]);
+		dp[0] = 0;
 
-					if (j + 1 < n && a[j] <= a[j + 1]) {
-						j++;
-					} else {
-						break;
-					}
-				}
-				ans += mx - mn;
-				ans += a[i - 1] - mx;
-				a[j] = a[i - 1];
-				i = j + 1;
-			} else {
-				i++;
+		for(int i = 1; i < n; i++) {
+			dp[i] = dp[i-1];
+			if(a[i] < a[i-1]) {
+				dp[i] = dp[i] + a[i-1] -a[i];
 			}
 		}
-		cout << ans << "\n";
+		cout << dp[n-1] << "\n";
 	}
 	return 0;
 }
