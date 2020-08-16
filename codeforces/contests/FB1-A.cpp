@@ -83,6 +83,7 @@ void solve() {
 
 	vector<ll> per(n);
 	int laststart = 0;
+	int lastorg = 0;
 
 	forn(i, n) {
 
@@ -113,9 +114,12 @@ void solve() {
 		// cout << r;
 		// cout << side1 << " " << side2 << " " << side3 << " " << side4 << "\n";
 		if (side3 != side1) {
-			ll diff = abs(side1 - side3);
-			ll side4sq = diff * diff + side2 * side2;
-			side4 = pow(side4sq, 0.5);
+			// ll diff = abs(side1 - side3);
+			// ll side4sq = diff * diff + side2 * side2;
+			// side4 = pow(side4sq, 0.5);
+			side3 = max(side3, side1);
+			side1 = side3;
+
 		}
 
 		ll currp = side1 + side2 + side3 + side4;
@@ -123,9 +127,13 @@ void solve() {
 
 		// g *= currp;
 		// g %= 1000000007;
-		if (!overlap) {
+		ll porg,qorg,rorg,sorg=0;
+		tie(porg,qorg,rorg,sorg) = rooms[0];
+		if (rorg >= p) lastorg = i;
+		if (!overlap || lastorg != i) {
 			// g *= (per[i - 1] + currp);
-			per[i] = (per[i - 1] + currp);
+			cout << i << "no overlap\n" ;
+			per[i] = (per[lastorg] + currp);
 		} else {
 			per[i] = currp;
 			// g *= currp;
