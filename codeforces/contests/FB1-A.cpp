@@ -83,7 +83,6 @@ void solve() {
 	vector<ll> per(n);
 	int laststart = 0;
 	int lastorg = 0;
-	int lastoverlap = 0;
 	vector<int>overlaps(n, 0);
 	overlaps[0] = 1;
 	ll heightHere = h[0];
@@ -105,7 +104,6 @@ void solve() {
 				if (overlaps[i - 1] && get<0>(rooms[i])  < get<2>(rooms[i - 1]))  {
 					//prev overlaps with 0 && curr overlaps prev;
 					overlaps[i] = 1;
-					lastoverlap = i;
 					heightHere = max(heightHere, h[i]);
 				} else {
 					laststart = i;
@@ -119,7 +117,6 @@ void solve() {
 				} else {
 					heightHere = h[i];
 				}
-				lastoverlap = i;
 
 			}
 
