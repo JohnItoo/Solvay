@@ -84,6 +84,7 @@ void solve() {
 	vector<ll> per(n);
 	int laststart = 0;
 	int lastorg = 0;
+	vector<int>overlaps(n, 0);
 
 	forn(i, n) {
 
@@ -100,8 +101,16 @@ void solve() {
 			if (rlast < p) {
 				overlap = false;
 				// cout << "no overlap\n";
-				laststart = i;
+
+				if (overlaps[i - 1] && get<0>(rooms[i])  < get<2>(rooms[i-1]))  {
+					overlaps[i] = 1;
+				} else {
+					laststart = i;
+				}
+			} else {
+				overlaps[i] = 1;
 			}
+
 		}
 
 
@@ -127,15 +136,19 @@ void solve() {
 
 		// g *= currp;
 		// g %= 1000000007;
-		ll porg,qorg,rorg,sorg=0;
-		tie(porg,qorg,rorg,sorg) = rooms[0];
+		ll porg, qorg, rorg, sorg = 0;
+		tie(porg, qorg, rorg, sorg) = rooms[0];
 		if (rorg >= p) lastorg = i;
-		if (!overlap || lastorg != i) {
+		// if (!overlap || lastorg != i) {
+		if (!overlaps[i]) {
+
 			// g *= (per[i - 1] + currp);
 			cout << i << "no overlap\n" ;
+			if(lastorg ) per[i] = currp;
+			else 
 			per[i] = (per[lastorg] + currp);
 		} else {
-			per[i] = currp;
+			per[i] = currp + per[lastorg];
 			// g *= currp;
 		}
 		// g %= 1000000007;
