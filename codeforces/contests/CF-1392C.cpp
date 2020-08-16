@@ -59,13 +59,13 @@ int main() {
 		}
 		dp[0] = 0;
 
-		for(int i = 1; i < n; i++) {
-			dp[i] = dp[i-1];
-			if(a[i] < a[i-1]) {
-				dp[i] = dp[i] + a[i-1] -a[i];
+		for (int i = 1; i < n; i++) {
+			dp[i] = dp[i - 1];
+			if (a[i] < a[i - 1]) {
+				dp[i] = dp[i] + a[i - 1] - a[i];
 			}
 		}
-		cout << dp[n-1] << "\n";
+		cout << dp[n - 1] << "\n";
 	}
 	return 0;
 }

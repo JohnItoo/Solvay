@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -46,38 +46,38 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
- int tc; cin >> tc;
- while(tc--) {
- 	int n; ll k; cin >>  n >> k;
- 	vector<ll> a(n);
- 	forn(i, n) {
-     cin >> a[i];
- 	}
- 	 auto mx = max_element(a.begin(), a.end());
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc; cin >> tc;
+	while (tc--) {
+		int n; ll k; cin >>  n >> k;
+		vector<ll> a(n);
+		forn(i, n) {
+			cin >> a[i];
+		}
+		auto mx = max_element(a.begin(), a.end());
 
-   int ct = 0;
+		int ct = 0;
 
- 	ll bg = *mx;
- 	if(k&1) {
- 		forn(i,n)
- 		a[i] = bg - a[i];
- 	} else {
- 			while(ct < 2) {
-     	 auto mx = max_element(a.begin(), a.end());
-     	 ll val = *mx;
+		ll bg = *mx;
+		if (k & 1) {
+			forn(i, n)
+			a[i] = bg - a[i];
+		} else {
+			while (ct < 2) {
+				auto mx = max_element(a.begin(), a.end());
+				ll val = *mx;
 
- 		forn(i,n) {
- 			a[i]  = val - a[i];
- 			// cout << a[i] << " ";
- 		}
- 		ct++;
- 		// cout << "\n";
- 	}
- 	}
- 	forn(i, n) cout << a[i] <<" ";
- 	cout << "\n";
- }
-return 0;
+				forn(i, n) {
+					a[i]  = val - a[i];
+					// cout << a[i] << " ";
+				}
+				ct++;
+				// cout << "\n";
+			}
+		}
+		forn(i, n) cout << a[i] << " ";
+		cout << "\n";
+	}
+	return 0;
 }
