@@ -55,14 +55,26 @@ int main() {
  	forn(i, n) {
      cin >> a[i];
  	}
- 	auto mx = max_element(a.begin(), a.end());
+ 	 auto mx = max_element(a.begin(), a.end());
+
+   int ct = 0;
+
  	ll bg = *mx;
  	if(k&1) {
  		forn(i,n)
  		a[i] = bg - a[i];
  	} else {
- 		int diff = mx - a.begin();
- 		a[diff] = 0;
+ 			while(ct < 2) {
+     	 auto mx = max_element(a.begin(), a.end());
+     	 ll val = *mx;
+
+ 		forn(i,n) {
+ 			a[i]  = val - a[i];
+ 			// cout << a[i] << " ";
+ 		}
+ 		ct++;
+ 		// cout << "\n";
+ 	}
  	}
  	forn(i, n) cout << a[i] <<" ";
  	cout << "\n";

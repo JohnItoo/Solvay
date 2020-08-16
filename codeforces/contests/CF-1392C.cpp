@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -46,7 +46,42 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
-return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc;
+	cin >> tc;
+	while (tc--) {
+		int n; cin >> n;
+		vector<ll> a(n);
+		forn(i, n) {
+			cin >> a[i];
+		}
+		int i = 1;
+		ll ans = 0;
+		while (i < n) {
+			if (a[i] < a[i - 1]) {
+				int j = i + 1;
+				ll mn = a[i];
+				ll mx = a[i];
+				while (j < n && a[j] < a[i - 1]) {
+					mn = min(mn, a[j]);
+					mx = max(mx, a[j]);
+
+					if (j + 1 < n && a[j] <= a[j + 1]) {
+						j++;
+					} else {
+						break;
+					}
+				}
+				ans += mx - mn;
+				ans += a[i - 1] - mx;
+				a[j] = a[i - 1];
+				i = j + 1;
+			} else {
+				i++;
+			}
+		}
+		cout << ans << "\n";
+	}
+	return 0;
 }
