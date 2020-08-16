@@ -45,7 +45,7 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
-int main() {
+int contest() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	int tc; cin >> tc;
@@ -70,10 +70,8 @@ int main() {
 
 				forn(i, n) {
 					a[i]  = val - a[i];
-					// cout << a[i] << " ";
 				}
 				ct++;
-				// cout << "\n";
 			}
 		}
 		forn(i, n) cout << a[i] << " ";
@@ -81,3 +79,33 @@ int main() {
 	}
 	return 0;
 }
+
+//upsolve.
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc; cin >> tc;
+	while (tc--) {
+		int n; ll k; cin >>  n >> k;
+		vector<ll> a(n);
+		forn(i, n) {
+			cin >> a[i];
+		}
+		ll mx = *max_element(a.begin(), a.end());
+		ll mn = *min_element(a.begin(), a.end());
+
+		if (k & 1) {
+			forn(i, n) {
+				a[i] = mx - a[i];
+			}
+		} else {
+			forn(i, n) {
+				a[i] = (mx - mn) - (mx - a[i]);
+			}
+		}
+		forn(i, n) cout << a[i] << " ";
+		cout << "\n";
+	}
+	return 0;
+}
+
