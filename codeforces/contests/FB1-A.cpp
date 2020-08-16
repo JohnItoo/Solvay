@@ -84,7 +84,9 @@ void solve() {
 	vector<ll> per(n);
 	int laststart = 0;
 	int lastorg = 0;
+	int lastoverlap = 0;
 	vector<int>overlaps(n, 0);
+	overlaps[0] = 1;
 
 	forn(i, n) {
 
@@ -97,18 +99,20 @@ void solve() {
 		if (i > 0) {
 			ll plast, qlast, rlast, slast;
 			tie(plast, qlast, rlast, slast) = rooms[laststart];
-			// cout << p << " " << q << " " << r << " " << s  << "\n";
 			if (rlast < p) {
 				overlap = false;
-				// cout << "no overlap\n";
 
-				if (overlaps[i - 1] && get<0>(rooms[i])  < get<2>(rooms[i-1]))  {
+				if (overlaps[i - 1] && get<0>(rooms[i])  < get<2>(rooms[i - 1]))  {
+					//prev overlaps with 0 && curr overlaps prev;
 					overlaps[i] = 1;
+					lastoverlap = i;
 				} else {
 					laststart = i;
 				}
 			} else {
-				overlaps[i] = 1;
+				overlaps[i] = overlaps[i - 1];
+				lastoverlap = i;
+
 			}
 
 		}
@@ -119,13 +123,8 @@ void solve() {
 		ll side2 =  width;
 		ll side3 = h[i];
 		ll side4 = width;
-		// cout << width << "\n";
-		// cout << r;
-		// cout << side1 << " " << side2 << " " << side3 << " " << side4 << "\n";
+
 		if (side3 != side1) {
-			// ll diff = abs(side1 - side3);
-			// ll side4sq = diff * diff + side2 * side2;
-			// side4 = pow(side4sq, 0.5);
 			side3 = max(side3, side1);
 			side1 = side3;
 
@@ -133,28 +132,19 @@ void solve() {
 
 		ll currp = side1 + side2 + side3 + side4;
 
-
-		// g *= currp;
-		// g %= 1000000007;
 		ll porg, qorg, rorg, sorg = 0;
 		tie(porg, qorg, rorg, sorg) = rooms[0];
 		if (rorg >= p) lastorg = i;
 		// if (!overlap || lastorg != i) {
 		if (!overlaps[i]) {
 
-			// g *= (per[i - 1] + currp);
-			cout << i << "no overlap\n" ;
-			if(lastorg ) per[i] = currp;
-			else 
+			cout << i << " " << lastorg <<  "no overlap \n" ;
+			// if (lastorg == i) per[i] = currp;
+			// else
 			per[i] = (per[lastorg] + currp);
 		} else {
-			per[i] = currp + per[lastorg];
-			// g *= currp;
+			per[i] = currp;
 		}
-		// g %= 1000000007;
-
-		// per[i] = g;
-
 	}
 
 	forn(i, n) {
@@ -163,8 +153,6 @@ void solve() {
 		g %= 1000000007;
 
 	}
-
-	// cout << g << "\n";
 
 
 	cout << g <<  "\n";
