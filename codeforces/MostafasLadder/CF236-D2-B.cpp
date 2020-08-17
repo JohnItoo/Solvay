@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -38,15 +38,70 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-	// to_string(int)
+// to_string(int)
 
 string trUpp(string s) {
-	
-  	transform(s.begin(), s.end(), s.begin(), ::toupper);
- return "";
+
+	transform(s.begin(), s.end(), s.begin(), ::toupper);
+	return "";
 }
 
 int main() {
-	
-return 0;
+	vector<int> ds;
+	int mod = 1073741824;
+	int ans = 1;
+
+	int a, b, c; cin >> a >> b >> c;
+
+	vector<int> sieve(105, 0);
+
+
+	for (int i = 2; i <= 100; i++) {
+		if (sieve[i]) continue;
+		for (int j = i; j <= 100; j += i) {
+			sieve[j] = i;
+		}
+	}
+	vi primes;
+	for (int i = 2; i <= 100; i++) {
+		int x = sieve[i];
+		if (x == i || !x) {
+			primes.pb(i);
+		}
+	}
+
+	REP(i, 1, a) {
+		REP(j, 1, b) {
+			REP(k, 1, c) {
+				if (i * j * k == 1) continue;
+				int prod = i * j * k;
+				int start = 0;
+				int ct = 0;
+				vector<int> alphasi;
+				while (prod > 1) {
+					// cout << prod << "\n";
+					while (start < primes.size() && prod % primes[start] == 0) {
+						ct++;
+						prod /= primes[start];
+					}
+
+					if (ct > 0) {
+						alphasi.pb(ct);
+						ct = 0;
+					}
+					start++;
+				}
+				int factors = 1;
+				for (int factori : alphasi) {
+					factors *= factori + 1;
+				}
+
+				ans += factors;
+				ans %= mod;
+			}
+		}
+	}
+	cout << ans << "\n";
+
+	return 0;
 }
