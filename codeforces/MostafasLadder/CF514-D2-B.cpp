@@ -47,6 +47,62 @@ string trUpp(string s) {
 }
 
 int main() {
+	int n, xorg, yorg; cin >> n >> xorg >> yorg;
+	vector<ii> points(n);
+	vector<bool> done(n, false);
+	forn(i,n) {
+		int x,y; cin >> x >> y;
+		ii pr = mp(x,y);
+		points[i]= pr;
+	}
+
+    int ans = 0;
+    int tm = 0;
+
+	while(n) {
+		ii start = points[0];
+		vi toremove;
+		cout << tm << "\n";
+		tm++;
+		if(start.first == xorg) {
+			toremove.pb(0);
+			for(int i = 1; i <points.size(); i++) {
+				if(points[i].first == xorg) {
+					toremove.pb(i);
+				}
+			}
+		}  else if(start.second == yorg) {
+			toremove.pb(0);
+			for(int i = 1; i < points.size(); i++) {
+				if(points[i].second == yorg) {
+					toremove.pb(i);
+				}
+			}
+		} else {
+			int slope = (points[0].first - xorg) / (points[0].second - yorg);
+			toremove.pb(0);
+			for(int i = 1; i < points.size(); i++) {
+				if((points[i].second - yorg) == 0) continue;
+				int currslope = (points[i].first - xorg) / (points[i].second - yorg);
+				if(currslope == slope) {
+					toremove.pb(i);
+				}
+			}
+
+		}
+
+        cout << "about to remove" << "\n";
+        if(n - toremove.size() == 0) break;
+		for(auto rem : toremove) {
+			cout << rem << "\n";
+			points.erase(points.begin() + rem);
+			n-=1;
+		}
+		ans++;
+
+	}
+	if(n != 0) ans++;
+	cout << ans << "\n";
 	
 return 0;
 }
