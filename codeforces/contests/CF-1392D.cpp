@@ -52,16 +52,36 @@ int main() {
  int tc;
  cin >> tc;
  while(tc--) {
- 	int n;
+ 	int n; cin >> n;
  	string s; cin >> s;
- 	memset(dp, MEMSET_INF, sizeof dp);
- 	dp[0][0] = 0;
- 	dp[0][1] = 1;
- 	for(int i = 1; i < n; i++) {
- 		dp[i][0] = dp[i-1][1];
- 		if(a[i][0] <  )
- 	} 
+ 	int ans  = 0;
+ 	int l,r = 0;
+ 	int i = 0;
+ 	while(i < n-1) {
+ 		if(i == n-2) {
+ 			l = r = 0;
+ 		  for(int j = i; j < n; j++) {
+ 		  	if(s[j] == 'L') l++;
+ 		  	else  r++;
+ 		  }
+ 		  if(s[0] == 'L') l++;
+ 		  else r++;
 
+ 		  if(l == 3 || r == 3) ans+=1;
+ 		} else {
+           l = r = 0;
+           for(int j = i; j < i+3; j++) {
+           	if(s[j] == 'L') l++;
+           	else r++;
+           }
+           if(l == 3 || r == 3) {
+           	ans += 1;
+           	s[i+1] = s[i+1] == 'R' ? 'L' : 'R';
+           }
+ 		}
+ 		i++;
+ 	}
+    cout << ans << "\n";
  }
 return 0;
 }
