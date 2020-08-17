@@ -1,18 +1,12 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include <iostream>
-#include <algorithm>
-#include <set>
-#include <map>
-#include <set>
-#include <vector>
-#include <string.h> // for memset in CF judge.
+#include <bits/stdc++.h>
 using namespace std;
 #define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
 // Shortcuts for "common" data types in contests
@@ -44,44 +38,15 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-ll dp[2000007][2];
+	// to_string(int)
+
+string trUpp(string s) {
+	
+  	transform(s.begin(), s.end(), s.begin(), ::toupper);
+ return "";
+}
 
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	int tc;
-	cin >> tc;
-	while (tc--) {
-		int n; cin >> n;
-		string s; cin >> s;
-		int ans  = 0;
-		int l, r = 0;
-		int i = 0;
-		while (i < n - 1) {
-			if (i == n - 2) {
-				l = r = 0;
-				for (int j = i; j < n; j++) {
-					if (s[j] == 'L') l++;
-					else  r++;
-				}
-				if (s[0] == 'L') l++;
-				else r++;
-
-				if (l == 3 || r == 3) ans += 1;
-			} else {
-				l = r = 0;
-				for (int j = i; j < i + 3; j++) {
-					if (s[j] == 'L') l++;
-					else r++;
-				}
-				if (l == 3 || r == 3) {
-					ans += 1;
-					s[i + 1] = s[i + 1] == 'R' ? 'L' : 'R';
-				}
-			}
-			i++;
-		}
-		cout << ans << "\n";
-	}
-	return 0;
+	
+return 0;
 }

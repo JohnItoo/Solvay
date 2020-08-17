@@ -129,7 +129,7 @@ void solve() {
 		tie(porg, qorg, rorg, sorg) = rooms[0];
 		if (rorg >= p) {
 			lastorg = i;
-			cout <<"lastorgs\n";
+			cout << "lastorgs\n";
 		}
 		if (!overlaps[i]) {
 			per[i] = (per[lastorg] + currp);
