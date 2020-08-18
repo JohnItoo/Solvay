@@ -47,15 +47,25 @@ string trUpp(string s) {
 }
 
 int main() {
-	int n;
+	int n = 0;
 	cin >> n;
-	multiset<int> st;
-	vi a(n);
+	vector<int> a(n, 0);
 	forn(i, n) {
 		int x; cin >> x;
-		st.insert(x);
 		a[i] = x;
 	}
+	sort(a.begin(), a.end());
+	int ans = 1000004;
+	forn(i, n) {
+		int curr = a[i];
+		auto it = lower_bound(a.begin(), a.end(), curr * 2);
+		if (it != a.end() && *it > curr * 2) --it;
+		int pref = i - 0;
+		int suff = n - 1 - (it - a.begin());
+		// cout << suff << " " << *it <<  "\n";
+		ans = min(ans, pref + suff);
+	}
+	cout << ans << "\n";
 
 
 	return 0;
