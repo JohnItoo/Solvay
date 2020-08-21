@@ -53,67 +53,43 @@ bool isPrime(int x) {
 int main() {
 	int n; cin >> n;
 	string s; cin >> s;
-	int arr[4] = {2, 3, 5, 7};
 	sort(s.begin(), s.end());
 	set<int> brks;
 	map<int, int> mp;
 	mp.clear();
-	int ans = 0;
 	bool allPrime = true;
-	int arr[7][4] = { {1, 0, 0, 0}, {1, 1, 0, 0}, {3, 1, 0, 0}, {3, 1, 1, 0}, {4, 2, 1, 0}, {4, 2, 1, 1}, {8, 2, 1, 1}, {8, 5, 1, 1}};
+	int arr[8][4] = { {1, 0, 0, 0}, {1, 1, 0, 0}, {3, 1, 0, 0}, {4, 2, 1, 0}, {5, 2, 1, 0}, {4, 2, 1, 1}, {7, 2, 1, 1}, {7, 4, 1, 1}};
+	int primes[4] = {2, 3, 5, 7};
 	for (int i = n - 1; i >= 0; i--) {
 		int curr = s[i] - '0';
+		if (curr < 2) continue;
+		if (isPrime(curr) && curr != 3) {
+			mp[curr]++;
+		} else {
+			forn(i, 4) {
+				if (arr[curr - 2][i] > 0) {
+					mp[primes[i]] += arr[curr - 2][i];
 
-
+				}
+			}
+		}
 
 	}
-}
 
-if ((mp.find(3) != mp.end() && mp.find(2) != mp.end() && mp.find(3)->second > mp.find(2)->second ) || allPrime) {
-	for (int i = n - 1; i >= 0; i--) {
-		int curr = s[i] - '0';
-		if (curr == 1) continue;
-		ans = (ans * 10) + curr;
-	}
-} else {
-	int sevens = 0;
-	if (mp.find(7) != mp.end()) {
-		sevens = mp.find(7)->second;
-	}
-	forn(i, sevens) {
-		ans = (ans * 10) + 7;
+	if (mp.find(3) != mp.end() && mp.find(2) != mp.end()) {
+		mp[2] -= mp.find(3)->second;
 	}
 
-	int fives = 0;
-	if (mp.find(5)  != mp.end()) {
-		fives = mp.find(5)->second;
+	string ans = "";
+
+	for (int i = 3; i >= 0; i--) {
+		if (mp.find(primes[i]) != mp.end()) {
+			int times = mp.find(primes[i])->second;
+			char c = (char) primes[i] + '0';
+			string suff = string(times, c);
+			ans += suff;
+		}
 	}
-
-	forn(i, fives) {
-		ans = (ans * 10) + 5;
-	}
-
-	int threes = 0;
-	if (mp.find(3) != mp.end()) {
-		threes = mp.find(3)->second;
-	}
-
-
-	mp[2] -= threes;
-	forn(i, threes) {
-		ans = (ans * 10) + 3;
-	}
-
-	int twos = mp.find(2)->second;
-	forn(i, twos) {
-		ans = (ans * 10) + 2;
-	}
-
-}
-
-cout << ans << "\n";
-
-
-
-return 0;
+	cout << ans << "\n";
+	return 0;
 }
