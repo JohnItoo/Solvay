@@ -52,12 +52,12 @@ int main() {
 	while (tc--) {
 		int x1, y1, z1; cin >> x1 >> y1 >> z1;
 		int x2, y2, z2; cin >> x2 >> y2 >> z2;
-		ll usetwoa = min(z1, y2) * 2;
+		ll usetwoa = min(z1, y2);
 		ll remtwob = 0;
 		ll remtwoa = z1 - usetwoa;
 		if (z2 > x1) remtwob = (z2 - x1);
 		if (remtwoa > 0) remtwob -= remtwoa;
-		ll ans = usetwoa;
+		ll ans = usetwoa * 2;
 		if (remtwob > 0) ans -= (remtwob * 2);
 		cout << ans << "\n";
 	}
