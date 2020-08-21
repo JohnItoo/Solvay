@@ -59,33 +59,33 @@ int main() {
 	map<int, int> mp;
 	mp.clear();
 	int ans = 0;
+	bool allPrime = true;
 	for (int i = n - 1; i >= 0; i--) {
 		int curr = s[i] - '0';
-		cout << "This is curr " << curr << "\n";
-		if (isPrime(curr)) {
-			brks.insert(curr);
-			while (curr > 1) {
+		if (!isPrime(curr)) allPrime = false;
+		while (curr > 1) {
+			if (isPrime(curr)) {
 				mp[curr]++;
-				curr--;
-			}
-		} else {
-			int sp = 0;
-			int start = curr;
-			cout << "STRANGE!!" << "\n";
-			while (start > 1 && sp < 4) {
-				cout << "THis is sp" << arr[sp] << "\n";
-				if (start % arr[sp] == 0) {
-					mp[arr[sp]]++;
-					start /= arr[sp];
-					brks.insert(arr[sp]);
-				} else {
-					sp++;
+			} else {
+				int sp = 0;
+				int start = curr;
+				while (start > 1 && sp < 4) {
+					if (start % arr[sp] == 0) {
+						mp[arr[sp]]++;
+						start /= arr[sp];
+						brks.insert(arr[sp]);
+					} else {
+						sp++;
+					}
 				}
 			}
+			curr--;
+
+
 		}
 	}
 
-	if (mp.find(3)->second  > mp.find(2)->second) {
+	if ((mp.find(3) != mp.end() && mp.find(2) != mp.end() && mp.find(3)->second > mp.find(2)->second ) || allPrime) {
 		for (int i = n - 1; i >= 0; i--) {
 			int curr = s[i] - '0';
 			if (curr == 1) continue;
