@@ -60,76 +60,60 @@ int main() {
 	mp.clear();
 	int ans = 0;
 	bool allPrime = true;
+	int arr[7][4] = { {1, 0, 0, 0}, {1, 1, 0, 0}, {3, 1, 0, 0}, {3, 1, 1, 0}, {4, 2, 1, 0}, {4, 2, 1, 1}, {8, 2, 1, 1}, {8, 5, 1, 1}};
 	for (int i = n - 1; i >= 0; i--) {
 		int curr = s[i] - '0';
-		if (!isPrime(curr)) allPrime = false;
-		while (curr > 1) {
-			if (isPrime(curr)) {
-				mp[curr]++;
-			} else {
-				int sp = 0;
-				int start = curr;
-				while (start > 1 && sp < 4) {
-					if (start % arr[sp] == 0) {
-						mp[arr[sp]]++;
-						start /= arr[sp];
-						brks.insert(arr[sp]);
-					} else {
-						sp++;
-					}
-				}
-			}
-			curr--;
 
 
-		}
-	}
-
-	if ((mp.find(3) != mp.end() && mp.find(2) != mp.end() && mp.find(3)->second > mp.find(2)->second ) || allPrime) {
-		for (int i = n - 1; i >= 0; i--) {
-			int curr = s[i] - '0';
-			if (curr == 1) continue;
-			ans = (ans * 10) + curr;
-		}
-	} else {
-		int sevens = 0;
-		if (mp.find(7) != mp.end()) {
-			sevens = mp.find(7)->second;
-		}
-		forn(i, sevens) {
-			ans = (ans * 10) + 7;
-		}
-
-		int fives = 0;
-		if (mp.find(5)  != mp.end()) {
-			fives = mp.find(5)->second;
-		}
-
-		forn(i, fives) {
-			ans = (ans * 10) + 5;
-		}
-
-		int threes = 0;
-		if (mp.find(3) != mp.end()) {
-			threes = mp.find(3)->second;
-		}
-
-
-		mp[2] -= threes;
-		forn(i, threes) {
-			ans = (ans * 10) + 3;
-		}
-
-		int twos = mp.find(2)->second;
-		forn(i, twos) {
-			ans = (ans * 10) + 2;
-		}
 
 	}
+}
 
-	cout << ans << "\n";
+if ((mp.find(3) != mp.end() && mp.find(2) != mp.end() && mp.find(3)->second > mp.find(2)->second ) || allPrime) {
+	for (int i = n - 1; i >= 0; i--) {
+		int curr = s[i] - '0';
+		if (curr == 1) continue;
+		ans = (ans * 10) + curr;
+	}
+} else {
+	int sevens = 0;
+	if (mp.find(7) != mp.end()) {
+		sevens = mp.find(7)->second;
+	}
+	forn(i, sevens) {
+		ans = (ans * 10) + 7;
+	}
+
+	int fives = 0;
+	if (mp.find(5)  != mp.end()) {
+		fives = mp.find(5)->second;
+	}
+
+	forn(i, fives) {
+		ans = (ans * 10) + 5;
+	}
+
+	int threes = 0;
+	if (mp.find(3) != mp.end()) {
+		threes = mp.find(3)->second;
+	}
+
+
+	mp[2] -= threes;
+	forn(i, threes) {
+		ans = (ans * 10) + 3;
+	}
+
+	int twos = mp.find(2)->second;
+	forn(i, twos) {
+		ans = (ans * 10) + 2;
+	}
+
+}
+
+cout << ans << "\n";
 
 
 
-	return 0;
+return 0;
 }
