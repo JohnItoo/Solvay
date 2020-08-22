@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -39,8 +39,85 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
+int A() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int n, x, t; cin >> n >> x >> t;
+	int ans = ((n + x - 1) / x) * t;
+	cout << ans << "\n";
+	return 0;
+}
+
+int B() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	string s;
+	ll sm = 0;
+	cin >> s;
+	forn(i, s.length()) {
+		int c = s[i] - '0';
+		sm += c;
+	}
+	if (sm % 9 == 0) cout << "Yes\n";
+	else cout << "No\n";
+	return 0;
+}
+
+int C() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	ll n; cin >> n;
+	vi a(n);
+	forn(i, n) cin >> a[i];
+	ll ans = 0;
+	REP(i, 1, n - 1) {
+		if (a[i - 1] > a[i]) {
+			ans += a[i - 1] - a[i];
+			a[i] = a[i - 1];
+		}
+	}
+	cout << ans << "\n";
+	return 0;
+}
+
 int main() {
 	ios::sync_with_stdio(false);
- cin.tie(0);
-return 0;
+	cin.tie(0);
+	int h, w, ch, cw, dh, dw;
+	cin >> h >> w >> ch >> cw >> dh >> dw;
+	vector<string> s(h + 1);
+	REP(i, 1, h) {
+		cin >> s[i];
+	}
+	vector<vector<int> > dp(h + 1, vector<int>(w + 1, MEMSET_INF));
+	forn(i, w + 1) {
+		dp[0][i] = 0;
+	}
+	forn(i, h + 1) {
+		dp[i][0] = 0;
+	}
+	REP(i, 1, h) {
+		REP(j, 1, w) {
+			if (s[i - 1][j - 1] == '.') {
+				dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]);
+
+				if (dp[i][j] == MEMSET_INF) {
+					for (int p = i - 2; p <= i + 2; p++) {
+						for (int q = j - 2; q <= j + 2; q++) {
+							if (p < 1 || p > h || q < 1 || q > w) continue;
+							dp[i][j] = (min(dp[i][j], dp[p][q] + 1));
+						}
+					}
+				}
+			}
+		}
+	}
+	if (dp[dh][dw] == MEMSET_INF) {
+		cout << -1 << "\n";
+	} else {
+		cout << dp[dh][dw] << "\n";
+
+	}
+	return 0;
 }
+
