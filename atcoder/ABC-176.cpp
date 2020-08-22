@@ -81,7 +81,7 @@ int C() {
 }
 
 //Previously Nice DP solution does not work because of BFS possib
-int main() {
+int D() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	int h, w, ch, cw, dh, dw;
@@ -103,50 +103,86 @@ int main() {
 
 		if (val < res[row][col]) {
 			res[row][col] = val;
-		}
-		forn(i, 4) {
-			int nr = row + mov[i][0];
-			int nc = col + mov[i][1];
-			cout << i << "i is \n";
-			cout << nr << " nc " << nc << " " << s[nr - 1][nc - 1] <<  "\n";
-			if (nr < 1 || nc < 1 || nr > h || nc  > w || s[nr - 1][nc - 1] == '#') continue;
-			cout << nr << " got nc " << nc << "\n";
-			if (val < res[nr][nc]) {
-				res[nr][nc] = val;
-				q.push(make_tuple(nr, nc, val));
+			forn(i, 4) {
+				int nr = row + mov[i][0];
+				int nc = col + mov[i][1];
+				cout << i << "i is \n";
+				cout << nr << " nc " << nc << " " << s[nr - 1][nc - 1] <<  "\n";
+				if (nr < 1 || nc < 1 || nr > h || nc  > w || s[nr - 1][nc - 1] == '#') continue;
+				cout << nr << " got nc " << nc << "\n";
+				if (val < res[nr][nc]) {
+					res[nr][nc] = val;
+					q.push(make_tuple(nr, nc, val));
+				}
+
 			}
+			//	}
 
+
+
+			// REP(p, row - 2, row + 2) {
+			// 	REP(r, col - 2, col + 2) {
+			// 		if (p < 1 || r < 1 || p > h || r  > w || s[p - 1][r - 1] == '#') continue;
+			// 		cout << "here but : " << res[p][r] << "\n";
+			// 		if (res[row][col] + 1 < res[p][r]) {
+			// 			res[p][r] = res[row][col] + 1;
+			// 			cout << p << " p fives" << r << "\n";
+			// 			q.push(make_tuple(p, r, res[row][col] + 1));
+			// 		}
+
+			// 	}
+			// }
 		}
-		//	}
 
-
-
-		// REP(p, row - 2, row + 2) {
-		// 	REP(r, col - 2, col + 2) {
-		// 		if (p < 1 || r < 1 || p > h || r  > w || s[p - 1][r - 1] == '#') continue;
-		// 		cout << "here but : " << res[p][r] << "\n";
-		// 		if (res[row][col] + 1 < res[p][r]) {
-		// 			res[p][r] = res[row][col] + 1;
-		// 			cout << p << " p fives" << r << "\n";
-		// 			q.push(make_tuple(p, r, res[row][col] + 1));
-		// 		}
-
-		// 	}
-		// }
+		REP(i, 1, h) {
+			REP(j, 1, w) {
+				cout << res[i][j] << " ";
+			}
+			cout << "\n";
+		}
+		if (res[dh][dw] == INF) {
+			cout << - 1 << "\n";
+		} else {
+			cout << res[dh][dw] << "\n";
+		}
 	}
 
+	return 0;
+}
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int h, w, m; cin >> h >> w >> m;
+	vector<vector<int> > bombs(h + 1, vector<int>(w + 1, 0));
+	forn(i, m) {
+		int hi, wi; cin >> hi >> wi;
+		bombs[hi][wi] = 1;
+	}
+	vector<int> rows(h + 1, 0);
+	vector<int> cols(w + 1, 0);
 	REP(i, 1, h) {
 		REP(j, 1, w) {
-			cout << res[i][j] << " ";
+			if (bombs[i][j] == 1) {
+				// cout << "bomb here" << i << " " << j << "\n";
+				rows[i]++;
+				cols[j]++;
+			}
 		}
-		cout << "\n";
 	}
-	if (res[dh][dw] == INF) {
-		cout << - 1 << "\n";
-	} else {
-		cout << res[dh][dw] << "\n";
+	int ans = 0;
+	REP(i, 1, h) {
+		REP(j, 1, w) {
+			if (bombs[i][j] && (rows[i] + cols[j]) - 1 > ans) {
+				// cout << "first " << "\n";
+				ans = (cols[j] + rows[i]) - 1;
+			} else if (!bombs[i][j] && rows[i] + cols[j] > ans) {
+				// cout << "second" << i << j <<"\n";
+				ans = rows[i] + cols[j];
+			}
+		}
 	}
-
+	cout << ans << "\n";
 	return 0;
 }
 
