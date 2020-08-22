@@ -104,47 +104,19 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 // 	return 0;
 // }
 
-
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	ll x, k, d;
-	cin >> x >> k >> d;
-
-	if (x < 0) {
-		ll f =    -x;
-		if ( k * d < f) {
-			cout << abs(x + (k * d)) << "\n";
-		} else {
-			ll div = f / d;
-			ll curr = x + (d * div);
-			k -= div;
-			if (k & 1) {
-				cout << min(abs(curr - d), abs(curr + d)) << "\n";
-			} else {
-				if (k != 0) cout << min( min(abs(curr + (2 * d)), abs(curr)), abs(curr - (2 * d)));
-				else cout << abs(curr) << "\n";
-			}
-		}
-
-	} else {
-		ll f = x - 0; //steps to 0;
-		if (k * d < f) {
-			cout << f - (k * d) << "\n";
-		} else {
-			ll div =  x / d;
-			ll rem = x - (div * d);
-			k -= div;
-			if (k & 1) {
-				cout << min(abs(rem + d), abs(rem - d)) << "\n";
-			} else {
-				if (k == 0) cout << rem << "\n";
-				else {
-					cout << min(min(abs(rem - (2 * d)), abs(rem)), abs(rem + (2 * d)));
-				}
-
-			}
-		}
-	}
-	return 0;
+  
+  long long x,k,d; cin >> x >> k >> d;
+   x= abs(x);
+  long long ans = 0;
+  if(k*d > x)  {
+    if(k & 1) ans = abs(x-d);
+    else ans = min(abs(x-(2*d)), x);
+  } else if(k*d < x) {
+    ans = abs(x - (k*d));
+  }
+  cout << ans << "\n";
+  
+  
+ return 0; 
 }
