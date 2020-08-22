@@ -105,9 +105,12 @@ int main() {
 			forn(i, 4) {
 				int nr = row + mov[i][0];
 				int nc = col + mov[i][1];
-				if (nr < 1 || nc < 1 || nr > h || nc  > w || s[nr][nc] == '#') continue;
-				res[nr][nc] = val;
+				cout << i << "is is \n";
 				cout << nr << " nc " << nc << "\n";
+				if (nr < 1 || nc < 1 || nr > h || nc  > w || s[nr][nc] == '#') continue;
+								cout << nr << " got nc " << nc << "\n";
+
+				res[nr][nc] = val;
 				q.push(make_tuple(nr, nc, val));
 			}
 			REP(p, row - 2, row + 2) {
