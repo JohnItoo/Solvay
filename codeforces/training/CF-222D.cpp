@@ -45,28 +45,31 @@ int main() {
 	int n, k;
 	cin >> n >> k;
 	vector<int> a;
-	map<int, int> mp;
 	forn(i, n) {
 		int x; cin >> x;
 		a.push_back(x);
-		mp[x]++;
 	}
-	int i = 0;
-	int ans = 0;
-	int curr = a[i + k - 1];
-	int ct = mp.find(curr)->second;
-	while (i + k - 1 < n && curr == a[i + k - 1] && ct < n) {
-		ans++;
-		a.pb(a[i + k - 1]);
-		if (a[i] != curr) ct++;
-		i++;
+
+	bool can = true;
+	int curr = a[k - 1];
+	REP(i, k - 1, n - 1) {
+		if (a[i] != curr) {
+			can = false;
+			break;
+		}
 	}
-	set<int> st;
-	while (i < a.size()) {
-		st.insert(a[i++]);
+	int start = k - 1;
+	int need = a[start];
+	while (start - 1 >= 0 && a[start - 1] == need) {
+		start--;
 	}
-	if (st.size() == 1) {
-		cout << ans << "\n";
+
+	if (can) {
+		if (start > 0) {
+			cout << start  << "\n";
+		} else {
+			cout << 0 << "\n";
+		}
 	} else {
 		cout << -1 << "\n";
 	}

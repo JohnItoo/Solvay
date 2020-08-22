@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -40,7 +40,53 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int n, m, k; cin >> n >> m >> k;
+
+	int grid[n][m];
+
+	forn(i, n) {
+		forn(j, m) {
+			cin >> grid[i][j];
+		}
+	}
+	map<int, int> rowswap;
+	map<int, int> colswap;
+	forn(i, n) {
+		rowswap[i] = i;
+	}
+	forn(i, m) {
+		colswap[i] = i;
+	}
+
+
+	vector<int> result;
+
+	forn(i, k) {
+		string q; int r, c;
+		cin >> q >> r >> c;
+		r -= 1;
+		c -= 1;
+		if (q == "g") {
+			int currrow = rowswap.find(r)->second;
+			int currcol = colswap.find(c)->second;
+			result.pb(grid[currrow][currcol]);
+		} else if (q == "c") {
+			int prevcol = colswap.find(c)->second;
+			int nextcol = colswap.find(r)->second;
+			colswap[c] = nextcol;
+			colswap[r] = prevcol;
+		} else {
+			int prevrow = rowswap.find(c)->second;
+			int nextrow = rowswap.find(r)->second;
+			rowswap[c] = nextrow;
+			rowswap[r] = prevrow;
+		}
+	}
+	forn(i, result.size()) {
+		cout << result[i] << "\n";
+	}
+
+	return 0;
 }
