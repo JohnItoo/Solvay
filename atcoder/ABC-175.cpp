@@ -108,14 +108,8 @@ int main() {
   
   long long x,k,d; cin >> x >> k >> d;
    x= abs(x);
-  long long ans = 0;
-  if(k*d > x)  {
-    if(k & 1) ans = abs(x-d);
-    else ans = min(abs(x-(2*d)), x);
-  } else if(k*d < x) {
-    ans = abs(x - (k*d));
-  }
-  cout << ans << "\n";
+  long long tm = (x/d) * d;
+  if(x < d)
   
   
  return 0; 

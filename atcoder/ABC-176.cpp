@@ -80,6 +80,7 @@ int C() {
 	return 0;
 }
 
+//Previously Nice DP solution does not work because of BFS possib
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
@@ -89,35 +90,46 @@ int main() {
 	REP(i, 1, h) {
 		cin >> s[i];
 	}
-	vector<vector<int> > dp(h + 1, vector<int>(w + 1, MEMSET_INF));
-	forn(i, w + 1) {
-		dp[0][i] = 0;
-	}
-	forn(i, h + 1) {
-		dp[i][0] = 0;
-	}
-	REP(i, 1, h) {
-		REP(j, 1, w) {
-			if (s[i - 1][j - 1] == '.') {
-				dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]);
+	queue<tuple<int, int, int> >  q;
+	tuple<int, int, int> tup = make_tuple(ch, cw, 0);
+	vector<vector<int> > res(h + 1, vector<int>(w + 1, INF));
+	q.push(tup);
+	int mov[4][2] = { { -1, 0}, {1, 0}, {0, -1}, {0, 1}};
+	while (!q.empty()) {
+		tuple<int, int, int> curr = q.front(); q.pop();
+		int row, col, val = 0;
+		tie(row, col, val) = curr;
+		if (val < res[row][col]) {
+			res[row][col] = val;
 
-				if (dp[i][j] == MEMSET_INF) {
-					for (int p = i - 2; p <= i + 2; p++) {
-						for (int q = j - 2; q <= j + 2; q++) {
-							if (p < 1 || p > h || q < 1 || q > w) continue;
-							dp[i][j] = (min(dp[i][j], dp[p][q] + 1));
-						}
+			forn(i, 4) {
+				int nr = row + mov[i][0];
+				int nc = col + mov[i][1];
+				if (nr < 1 || nc < 1 || nr > h || nc  > w || s[nr][nc] == '#') continue;
+				res[nr][nc] = val;
+				cout << nr << " nc " << nc << "\n";
+				q.push(make_tuple(nr, nc, val));
+			}
+			REP(p, row - 2, row + 2) {
+				REP(r, col - 2, col + 2) {
+					if (p < 1 || r < 1 || p > h || r  > w || s[p][r] == '#') continue;
+					if (val + 1 < res[p][r]) {
+						res[p][r] = val + 1;
+						cout << p << " p " << r << "\n";
+						q.push(make_tuple(p, r, val + 1));
 					}
+
 				}
 			}
+
 		}
 	}
-	if (dp[dh][dw] == MEMSET_INF) {
-		cout << -1 << "\n";
+	if (res[dh][dw] == INF) {
+		cout << - 1 << "\n";
 	} else {
-		cout << dp[dh][dw] << "\n";
-
+		cout << res[dh][dw] << "\n";
 	}
+
 	return 0;
 }
 
