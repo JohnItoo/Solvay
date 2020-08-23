@@ -16,7 +16,7 @@ int main() {
 		trail.push_back(lst);
 
 		ll idx = 2;
-		while (getLast(idx * lst) != lst) {
+		while (idx < 11) {
 			int ths = getLast(idx * lst);
 			idx++;
 			trail.push_back(ths);
@@ -28,13 +28,16 @@ int main() {
 			for (int i = 0; i < k; i++) {
 				sm += trail[i];
 			}
-			cout << sm << "\n";
-			ll d = n / k;
-			ll rem = n - (k * d);
+			// cout << sm << " this is sum \n";
+			ll d = (n / m) / k;
+			// cout << d << "this is d \n";
+			ll rem = (n / m) - (k * d);
+			// cout << rem << " this is rem \n";
 			ll sumrem = 0;
 			for (int i = 0; i < rem; i++) {
 				sumrem += trail[i];
 			}
+
 			ans = (sm * d) + sumrem;
 
 		} else {
