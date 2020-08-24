@@ -30,9 +30,7 @@ int main() {
 			}
 			// cout << sm << " this is sum \n";
 			ll d = (n / m) / k;
-			// cout << d << "this is d \n";
 			ll rem = (n / m) - (k * d);
-			// cout << rem << " this is rem \n";
 			ll sumrem = 0;
 			for (int i = 0; i < rem; i++) {
 				sumrem += trail[i];
