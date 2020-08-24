@@ -46,27 +46,32 @@ int main() {
 	cin >> tc;
 	while (tc--) {
 		int n; cin >> n;
-		set<pair<ll, int>> st;
+		set<pair<ll, int> > st;
+
 		ll tot = 0;
 		forn(i, n) {
 			ll x; cin >> x;
 			tot += x;
-			st.insert(make_pair(x, i));
+			st.insert(make_pair(i, x));
 		}
-		auto it = st.begin();
+
 		int last = 2;
-		while (it != st.end()) {
+		while (st.size() != 0) {
+			auto it = st.begin();
 			pair<ll, int> curr = *it;
+			cout << curr.first << " " << curr.second << "\n";
 			st.erase(it);
-			if (curr.first == tot) {
+			if (curr.second == tot) {
 				tot = 0;
+			} else if (curr.second != 1) {
+				tot -= (curr.second - 1);
+				st.insert(mp(curr.first, 1));
 			} else {
-				tot -= (curr.first-1);
-				st.insert(mp(1, curr.second));
+				tot -= 1;
 			}
 			last = (last == 2) ? 1 : 2;
 		}
-		if(last == 2) cout << "Second\n";
+		if (last == 2) cout << "Second\n";
 		else cout << "First\n";
 	}
 	return 0;
