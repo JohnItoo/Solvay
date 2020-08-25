@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -46,46 +46,57 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
- int tc; cin >>tc;
- while(tc--) {
- 	string s; cin >>s ;
- 	int n = s.length();
- 	int x; cin >> x;
- 	char arr[n];
- 	bool can = true;
- 	map<int, int> zeros;
- 	string res = string(n, '0');
- 	forn(i, n) {
- 		if(s[i] == '1') {
-          if(i+x < n) {
-          	res[i+x] = '1';
-          } 
-          if(i-x >= 0) {
-          	res[i-x] = '1';
-          }
- 		}
- 	}
- 	string mt = string(n, '0');
- 	forn(i, n) {
- 		bool fd = false;
- 		if(i-x >=0) {
- 			if(res[i-x] == '1') {
- 				fd = true;
- 			}
- 		}
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc; cin >> tc;
+	while (tc--) {
+		string s; cin >> s ;
+		int n = s.length();
+		int x; cin >> x;
+		string res = string(n, '1');
+		forn(i, n) {
+			if (s[i] == '0') {
+				if (i + x < n) {
+					res[i + x] = '0';
+				}
+				if (i - x >= 0) {
+					res[i - x] = '0';
+				}
+			}
+		}
+		string mt = string(n, '0');
+		bool fd = true;
 
- 		if(i+x < n) {
- 			if(res[i+x] == '1') {
- 				fd = true;
- 			}
- 		}
+		forn(i, n) {
+			if (s[i] == '1') {
+				if (i - x >= 0 && i + x < n) {
+					if (res[i - x] == '0' && res[i + x] == '0' ) {
+						fd = false;
+						break;
+					}
 
- 		if(fd) mt[i] = '1';
- 	}
- 	if(s == mt) cout << res << "\n";
- 	else cout << -1 << "\n";
- }
-return 0;
+				}
+				else if (i + x < n) {
+					if (res[i + x] == '0') {
+						fd = false;
+						break;
+					}
+				} else if (i - x >= 0) {
+					if (res[i - x] == '0') {
+						fd = false;
+						break;
+					}
+				} else {
+					fd = false;
+					break;
+				}
+			}
+
+			if (!fd) break;
+
+		}
+		if (!fd) cout << -1 << "\n";
+		else cout << res << "\n";
+	}
+	return 0;
 }
