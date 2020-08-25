@@ -47,12 +47,12 @@ int main() {
 		int n; cin >> n;
 		string s = "";
 		int zeros = (n >= 4 ) ? n / 4 : 0;
-		int eights =  n - (4 * zeros);
+		int eights =  (n  % 4 == 0) ? 0 : 1;
 		int nines = n - (eights + zeros);
 		string x = string(zeros, '0');
 		string y = string(eights, '8');
 		string z = string(nines, '9');
-		s = x + y + z;
+		s = z + y + x;
 		cout << s << "\n";
 	}
 
