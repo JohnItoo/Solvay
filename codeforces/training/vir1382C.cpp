@@ -55,7 +55,7 @@ int main() {
 			i++;
 		}
 		int ans = 0;
-		if (i == n && a[i-1] == 1) {
+		if (i == n && a[i - 1] == 1) {
 			if (n & 1) ans = 1;
 			else ans = 2;
 		} else {
