@@ -47,9 +47,9 @@ int main() {
 		int n;
 		cin >> n;
 		vector<ll> ap;
-		ll pref = 3;
+		ll prev = 3;
 		int j = 0;
-		ap.pb(pref);
+		ap.pb(prev);
 
 		while (ap[j] <= n) {
 			ap.pb(ap[j] + 3);
@@ -60,20 +60,25 @@ int main() {
 		// }
 		int i = 0;
 		int ans = 0;
+		ll pref = 0;
 
-		while (n > ap[i]) {
-			while (n > ap[i]) {
+		while (n >= (ap[i] + pref) - (i+1)) {
+			while (n >= (ap[i] + pref) - (i + 1)) {
+				pref += ap[i];
 				i++;
+
 			}
-			if (n > ap[i]) {
+			if (n > pref - i) {
 				i--;
 			}
 			if (i >= 0) {
-				n -= (ap[i] - (i + 1));
+				n -= (pref - (i + 1));
+				// cout << n << " " << pref << " " << i << "\n";
 				ans++;
 			}
 
 			i = 0;
+			pref = 0;
 		}
 		cout << ans << "\n";
 
