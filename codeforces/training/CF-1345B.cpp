@@ -39,33 +39,45 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
-
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	int tc; cin >> tc;
 	while (tc--) {
-		ll n, k; cin >> n >> k;
-		vector<ll> a(100001);
-		a[1] = n;
-		bool can = true;
-		int i = 2;
-		while (can && k >= i) {
-			ll lst = a[i - 1];
-			ll mv = lst;
-			int mn = 10;
-			int mx = 0;
-			while (mv > 0) {
-				int x = mv % 10;
-				mn = min(mn, x);
-				mx = max (mx, x);
-				mv /= 10;
-				if (x == 0) can = false;
-			}
-			a[i] = lst + (mn * mx);
-			i++;
+		int n;
+		cin >> n;
+		vector<ll> ap;
+		ll pref = 3;
+		int j = 0;
+		ap.pb(pref);
+
+		while (ap[j] <= n) {
+			ap.pb(ap[j] + 3);
+			j++;
 		}
-		cout << a[i - 1] << "\n";
+		// forn(i, ap.size()) {
+		// 	cout << ap[i] << "\n";
+		// }
+		int i = 0;
+		int ans = 0;
+
+		while (n > ap[i]) {
+			while (n > ap[i]) {
+				i++;
+			}
+			if (n > ap[i]) {
+				i--;
+			}
+			if (i >= 0) {
+				n -= (ap[i] - (i + 1));
+				ans++;
+			}
+
+			i = 0;
+		}
+		cout << ans << "\n";
+
 	}
+
 	return 0;
 }
