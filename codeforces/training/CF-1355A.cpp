@@ -1,18 +1,12 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include <iostream>
-#include <algorithm>
-#include <set>
-#include <map>
-#include <set>
-#include <vector>
-#include <string.h> // for memset in CF judge.
+#include <bits/stdc++.h>
 using namespace std;
 #define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
 // Shortcuts for "common" data types in contests
@@ -46,98 +40,7 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	int tc; cin >> tc;
-	while (tc--) {
-		ll p, f; cin >> p >> f;
-		ll cs, cw; cin >> cs >> cw;
-		ll s, w; cin >> s >> w;
-		ll eve = (cs * s) + (cw * w);
-
-
-		ll ans = 0;
-		if (p > eve || f > eve) {
-			ans = cs + cw;
-		} else {
-			ll mxcar = max(p, f) / (s + w);
-			ll took = min(mxcar, min(cs, cw));
-			ll actual = took * (s + w);
-			cs -= took;
-			cw -= took;
-			ans += took;
-			if (p > f) {
-				p -= actual;
-				if (p > s && cs > 0) {
-					p -= s;
-					ans += 1;
-					cs--;
-				}
-				if ( p > w && cw > 0) {
-					p -= w;
-					ans += 1;
-					cw--;
-				}
-
-				ll mn = f / (s + w);
-				ll mntook = min(mn, min(cs, cw));
-				ll rem = mntook * (s + w);
-				cs -= mntook;
-				cw -= mntook;
-
-				if (f > s && cs > 0) {
-					f -= s;
-					ans += 1;
-					cs--;
-				}
-
-				if (f > w && cw > 0) {
-					f -= w;
-					ans += 1;
-					cw--;
-				}
-
-			} else {
-				f -= actual;
-				if (f > s && cs > 0) {
-					f -= s;
-					ans += 1;
-					cs--;
-				}
-				if ( f > w && cw > 0) {
-					f -= w;
-					ans += 1;
-					cw--;
-				}
-
-				ll mn = p / (s + w);
-				ll mntook = min(mn, min(cs, cw));
-				ll rem = mntook * (s + w);
-				cs -= mntook;
-				cw -= mntook;
-
-				if (p > s && cs > 0) {
-					p -= s;
-					ans += 1;
-					cs--;
-				}
-
-				if (p > w && cw > 0) {
-					p -= w;
-					ans += 1;
-					cw--;
-				}
-			}
-
-
-		}
-
-
-
-
-		cout << ans << "\n";
-	}
-
-	return 0;
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+return 0;
 }
-
