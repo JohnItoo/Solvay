@@ -40,54 +40,30 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	int n; cin >> n;
-	vector<ii> lef; vector<ii> rig;
-	while (n--) {
-		int x , y;
-		cin >> x >> y;
-		if (x < 0) lef.pb(mp(x, y));
-		else rig.pb(mp(x, y));
-	}
-	sort(lef.begin(), lef.end());
-	sort(rig.begin(), rig.end());
-	int i = 0; int j = 0;
-	int sol = 0;
-	int mn = min(lef.size(), rig.size());
-	bool is = 0;
-	if (lef.size() < rig.size()) is = 1;
-	if (is && mn > 0) {
-		forn(i , lef.size()) {
-			sol += lef[i].second;
-		}
-
-		forn(i, rig.size()) {
-			sol += rig[i].second;
-		}
-		sol += rig[mn].second;
-	} else if (!is && mn > 0) {
-		forn(i , rig.size()) {
-			sol += rig[i].second;
-		}
-
-		forn(i, lef.size()) {
-			sol += lef[i].second;
-		}
-		if (mn < rig.size()) {
-			sol += rig[mn].second;
-
-		}
-
-	} else if (mn == 0) {
-		if (is) {
-			if (rig.size() >= 1)
-				sol = rig[0].second;
-		} else {
-			if (lef.size() >= 1)
-				sol = lef[0].second;
-		}
-	}
-	cout << sol << "\n";
-	return 0;
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  int n; cin >> n;
+  vector<ii> lef; vector<ii> rig;
+  while (n--) {
+    int x , y;
+    cin >> x >> y;
+    if (x < 0) lef.pb(mp(-x, y));
+    else rig.pb(mp(x, y));
+  }
+  sort(lef.begin(), lef.end());
+  sort(rig.begin(), rig.end());
+  int i = 0; int j = 0;
+  int sol = 0;
+  while (i < lef.size() && j < rig.size()) {
+    sol += lef[i++].second;
+    sol += rig[j++].second;
+  }
+  if (i < lef.size()) {
+    sol += lef[i++].second;
+  }
+  if (j < rig.size()) {
+    sol += rig[j++].second;
+  }
+  cout << sol << "\n";
+  return 0;
 }
