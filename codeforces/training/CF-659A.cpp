@@ -51,25 +51,31 @@ int main() {
 	int n, a, b;
 	cin >> n >> a >> b;
 	int ans = 0;
+	int mv = abs(b) % n;
 	if (b < 0) {
-		b = abs(b) % n;
-		while (b > 0) {
-			a -= 1;
-			if (a == 0) a = n;
-			b--;
+		int dest = a - 0;
+		int wll = min(mv, dest);
+		mv -= wll;
+		a -= wll;
+		// cout << "This is will " << wll << "\n";
+		if (mv > 0) {
+			// cout << a << " " << n <<  " " << mv << "\n";
+			a = n;
+			ans = a - mv;
+		} else {
+			ans = a;
 		}
-		ans = a;
-	} else if (b == 0) {
-		ans = a;
+
 	} else {
-		b = b % n;
-		while (b > 0) {
-			a += 1;
-			cout << a << "\n";
-			if (a > n) {a = 1; }
-			b--;
+		int dist = n - a;
+		int will = min(mv, dist);
+		mv -= will;
+		a += will;
+		if (mv > 0) {
+			ans = mv;
+		} else {
+			ans = a;
 		}
-		ans = a;
 	}
 	cout << ans << "\n";
 	return 0;
