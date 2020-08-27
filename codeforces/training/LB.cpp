@@ -42,15 +42,52 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int a, b; cin >> a >> b;
-	int  ans = 0;
-	while (min(a, b) > 1 || (min(a, b) > 0 && max(a, b) > 1)) {
-		int mn = min(a, b);
-		int mx = max(a, b);
-		a = mn + 1;
-		b = mx - 2;
-		ans++;
+	int n; cin >> n;
+	vector<ii> lef; vector<ii> rig;
+	while (n--) {
+		int x , y;
+		cin >> x >> y;
+		if (x < 0) lef.pb(mp(x, y));
+		else rig.pb(mp(x, y));
 	}
-	cout << ans  << "\n";
+	sort(lef.begin(), lef.end());
+	sort(rig.begin(), rig.end());
+	int i = 0; int j = 0;
+	int sol = 0;
+	int mn = min(lef.size(), rig.size());
+	bool is = 0;
+	if (lef.size() < rig.size()) is = 1;
+	if (is && mn > 0) {
+		forn(i , lef.size()) {
+			sol += lef[i].second;
+		}
+
+		forn(i, rig.size()) {
+			sol += rig[i].second;
+		}
+		sol += rig[mn].second;
+	} else if (!is && mn > 0) {
+		forn(i , rig.size()) {
+			sol += rig[i].second;
+		}
+
+		forn(i, lef.size()) {
+			sol += lef[i].second;
+		}
+		if (mn < rig.size()) {
+			sol += rig[mn].second;
+
+		}
+
+	} else if (mn == 0) {
+		if (is) {
+			if (rig.size() >= 1)
+				sol = rig[0].second;
+		} else {
+			if (lef.size() >= 1)
+				sol = lef[0].second;
+		}
+	}
+	cout << sol << "\n";
 	return 0;
 }
