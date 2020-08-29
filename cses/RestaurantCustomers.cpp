@@ -1,7 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
+int frist() {
+	
 	int n; cin >> n;
 	set<pair<int, int> > st;
 	int i = 0;
@@ -26,4 +27,25 @@ int main() {
 		}
 	}
 	cout << curr << "\n";
+}
+
+int main() {
+	int n; cin >> n;
+	set<pair<int, int> > st;
+	int i = 0;
+	while(i < n) {
+		int x ,y; cin >> x >> y;
+		st.insert(make_pair(x, 1));
+		st.insert(make_pair(y+1, -1));
+		i++;
+	}
+
+	int ans = 0;
+	int ent = 0;
+
+	for(auto curr : st) {
+       ent += curr.second;
+       ans = max(ent, ans);
+	}
+	cout << ans << "\n";
 }

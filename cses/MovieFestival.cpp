@@ -7,8 +7,6 @@ bool comp(pair<int, int> a, pair<int, int> b) {
 	return a.second < b.second;
 }
 
-
-
 int main() {
 	int n;
 	cin >> n;
@@ -20,39 +18,15 @@ int main() {
 	}
 	sort(movies.begin(), movies.end(), comp);
 
-	int curr = 0;
+	int last = 0;
 	int ans = 0;
-	while (!movies.empty()) {
-		auto it = movies.begin();
-		pair<int, int> currMovie = *it;
-		curr = 1;
-		// done[i] = true;
-		// vector<int> rem;
-		// rem.push_back(0);
-		// int j = 1;
-		movies.erase(it);
-		pair<int, int> findMovie = make_pair(currMovie.second, currMovie.second + 1);
-		it = lower_bound(movies.begin(), movies.end(), findMovie, comp);
 
-		// movies.erase(movies.begin());
-		while (it != movies.end()) {
-			pair<int, int> can = *it;
-			// cout << can.first << " " << can.second << "\n";
-
-			if (can.first >= currMovie.second) {
-				curr++;
-				movies.erase(it);
-				currMovie = can;
-				findMovie = make_pair(currMovie.second, currMovie.second + 1);
-				it = lower_bound(movies.begin(), movies.end(), findMovie, comp);
-
-			} else {
-				++it;
-			}
+	for (int i = 0; i < n; i++) {
+		if (movies[i].first >= last) {
+			ans++;
+			last = movies[i].second;
 		}
-
-
-		ans = max(ans, curr);
 	}
+
 	cout << ans << "\n";
 }
