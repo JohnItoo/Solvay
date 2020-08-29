@@ -4,32 +4,30 @@ using namespace std;
 int main() {
 	int n, x;
 	cin >> n >> x;
-	set<pair<long, long> > st;
+	set<pair<long long, int> > st;
 	for (int i = 0; i < n; i++) {
 		long long curr = 0; cin >> curr;
 		st.insert(make_pair(curr, i));
 	}
-	long long ans = 0;
-	long long curr = 0;
-	int mv = 0;
+
+	int ans = 0;
 	while (!st.empty()) {
-		auto it = *st.begin();
-		int cu = it.first;
-		cout << cu << "\n";
-		if (curr + cu <= x && mv < 2) {
-			curr += cu;
-			mv++;
-			st.erase(st.begin());
+		pair<long long , int> c = *st.begin();
+		pair<long long , int> need = make_pair(x - c.first, c.second);
+		auto it = st.upper_bound(need);
+		if (it == st.end()) --it;
+		while (it != st.begin()) {
 
-
-			cout << cu << " ";
-		} else {
-			curr = 0;
-			mv = 0;
-			ans++;
-			cout << "\n";
+			pair<long long , int> d = *it;
+			if (d.first + c.first > x) --it;
+			else break;
 		}
+		if (it != st.begin() && it != st.end()) {
+			st.erase(it);
+		}
+		st.erase(st.begin());
+		ans++;
 	}
-	if(curr != 0) ans += 1;
 	cout << ans << "\n";
+
 }
