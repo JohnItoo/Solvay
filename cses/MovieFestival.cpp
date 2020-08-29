@@ -30,16 +30,22 @@ int main() {
 		// vector<int> rem;
 		// rem.push_back(0);
 		// int j = 1;
-		it = movies.erase(it);
+		movies.erase(it);
+		pair<int, int> findMovie = make_pair(currMovie.second, currMovie.second + 1);
+		it = lower_bound(movies.begin(), movies.end(), findMovie, comp);
 
 		// movies.erase(movies.begin());
 		while (it != movies.end()) {
 			pair<int, int> can = *it;
+			// cout << can.first << " " << can.second << "\n";
 
 			if (can.first >= currMovie.second) {
 				curr++;
-				it = movies.erase(it);
+				movies.erase(it);
 				currMovie = can;
+				findMovie = make_pair(currMovie.second, currMovie.second + 1);
+				it = lower_bound(movies.begin(), movies.end(), findMovie, comp);
+
 			} else {
 				++it;
 			}
