@@ -39,6 +39,13 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
+ll mypow(int n) {
+	ll ans = 1;
+	forn(i,n) {
+		ans *= 10;
+	}
+	return ans;
+}
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
@@ -46,13 +53,14 @@ int main() {
   cin >> n;
   int i = 1;
   ll tm = 0;
-  while(pow(10, i) <= n) {
-  	// cout << i << "\n";
-    tm += ((pow(10, i) - 1) - pow(10, i-1)) * i;
-    // cout << tm << "tm\n";
+  while(mypow(i) <= n) {
+  	ll a = (mypow(i) - 1);
+  	ll b =   (mypow(i-1)) - 1;
+    tm +=  (a - b)* i;
     i++;
   }
-  tm += ((n - pow(10, i-1)) + 1) * i;
+  ll curr = ((n - mypow(i-1)) + 1) * i;
+  tm += curr;
   cout << tm << "\n";
 return 0;
 }
