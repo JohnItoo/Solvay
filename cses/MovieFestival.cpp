@@ -22,21 +22,30 @@ int main() {
 
 	int curr = 0;
 	int ans = 0;
-	for (int i = 0; i < n; i++) {
-		if (done[i]) continue;
-		pair<int, int> currMovie = movies[i];
+	while (!movies.empty()) {
+		auto it = movies.begin();
+		pair<int, int> currMovie = *it;
 		curr = 1;
-		done[i] = true;
-		for (int j = 0; j < n; j++) {
-			if (done[j]) continue;
-			pair<int, int> can = movies[j];
+		// done[i] = true;
+		// vector<int> rem;
+		// rem.push_back(0);
+		// int j = 1;
+		it = movies.erase(it);
+
+		// movies.erase(movies.begin());
+		while (it != movies.end()) {
+			pair<int, int> can = *it;
 
 			if (can.first >= currMovie.second) {
 				curr++;
-				done[j] = true;
-
+				it = movies.erase(it);
+				currMovie = can;
+			} else {
+				++it;
 			}
 		}
+
+
 		ans = max(ans, curr);
 	}
 	cout << ans << "\n";
