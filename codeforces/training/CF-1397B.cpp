@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -47,23 +47,23 @@ ll mypow(ll base, ll expo) {
 }
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-  int n;
-  cin >> n;
-  vector<int> a(n);
-  forn(i,n) cin >> a[i];
-  sort(a.begin(), a.end());
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int n;
+	cin >> n;
+	vector<int> a(n);
+	forn(i, n) cin >> a[i];
+	sort(a.begin(), a.end());
 
-  if(n == 1) {
-  	cout << a[0] - 1 << "\n";
-  	return 0;
-  }
+	if (n == 1) {
+		cout << a[0] - 1 << "\n";
+		return 0;
+	}
 
-  ll ans = 0;
-  forn(i, n) {
-  	ans +=  abs(mypow(a[1], i) - a[i]);
-  }
-  cout << ans << "\n";
-return 0;
+	ll ans = 0;
+	forn(i, n) {
+		ans +=  abs(mypow(a[1], i) - a[i]);
+	}
+	cout << ans << "\n";
+	return 0;
 }

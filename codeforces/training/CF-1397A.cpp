@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -40,29 +40,29 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-  int tc;
-  cin >> tc;
-  while(tc--) {
-  	int n; cin >> n;
-  	vector<int> mp(26,0);
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc;
+	cin >> tc;
+	while (tc--) {
+		int n; cin >> n;
+		vector<int> mp(26, 0);
 
-  	forn(i,n) {
-  		string s;
-  		cin >> s;
-  		forn(j, s.length()) {
-  			int diff = (s[j] - 'a');
-  			mp[diff]++;
-  		}
-  	}
-  	bool can = true;
-  	forn(i, 26) {
-  		if(mp[i] == 0) continue;
-  		if(mp[i] % n != 0) can = false;
-  	}
-  	if(can) cout << "YES\n";
-  	else cout << "NO\n";
-  }
-return 0;
+		forn(i, n) {
+			string s;
+			cin >> s;
+			forn(j, s.length()) {
+				int diff = (s[j] - 'a');
+				mp[diff]++;
+			}
+		}
+		bool can = true;
+		forn(i, 26) {
+			if (mp[i] == 0) continue;
+			if (mp[i] % n != 0) can = false;
+		}
+		if (can) cout << "YES\n";
+		else cout << "NO\n";
+	}
+	return 0;
 }
