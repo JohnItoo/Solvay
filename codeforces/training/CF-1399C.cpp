@@ -46,22 +46,23 @@ int main() {
 	while (t--) {
 		int n; cin >> n;
 		int a[n];
-		forn(i, n) cin >> a[i];
+		vector<int> counts(101, 0);
+
+		forn(i, n) {
+			int q; cin >> q;
+			counts[q]++;
+		}
+
 		int ans = 0;
 
-		REP(weight, 2, 100) {
-			vector<int> counts(101, 0);
+		REP(s, 2, 2 * n) {
 			int pairs = 0;
 
-			for (int x : a) {
-				if (weight > x && counts[weight - x] != 0) {
-					pairs++;
-					counts[weight - x]--;
-				} else {
-					counts[x]++;
-				}
-
+			for (int i = 1; i < (s + 1) / 2; ++i) {
+				if (s - i > n ) continue;
+				pairs += min(counts[i], counts[s - i]);
 			}
+			if (s % 2 == 0) pairs += counts[(s / 2)] / 2;
 			ans = max(ans, pairs);
 		}
 		cout << ans << "\n";
