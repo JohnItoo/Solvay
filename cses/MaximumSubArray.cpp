@@ -11,7 +11,6 @@ int main() {
 		ll curr; cin >> curr;
 		curr_max = max(curr, curr_max + curr);
 		global_max = max(global_max, curr_max);
-		// cout << curr_max << " " << global_max << "\n";
 	}
 
 	cout << global_max << "\n";
