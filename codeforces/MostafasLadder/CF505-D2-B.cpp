@@ -48,26 +48,49 @@ string trUpp(string s) {
 
 int main() {
 	int n, m;
-	vector<set<int> > grp(101, set<int>());
+	vector<vector<ii> > grp(101, vector<ii>());
 	cin >> n >> m;
+	set<int> colors;
 	forn(i, m) {
 		int a, b, c; cin >> a >> b >> c;
-		grp[c].insert(a);
-		grp[c].insert(b);
+		grp[a].pb(mp(b, c));
+		grp[b].pb(mp(a, c));
+		colors.insert(c);
 	}
 	int q; cin >> q;
 	forn(i, q) {
+		int ans = 0;
+
 		int u, v; cin >> u >> v;
-		int colors = 0;
-		REP(j, 1, 100) {
-			set<int> curr = grp[j];
-			auto fu = curr.lower_bound(u);
-			auto fv = curr.lower_bound(v);
-			if (fu != curr.end() && fv != curr.end()) {
-				if (*fu == u && *fv == v) colors++;
+		for (int color : colors) {
+			stack<int> stck;
+			bool isvalid = false;
+			for (ii curr : grp[u]) {
+				if (curr.second == color) {
+					stck.push(curr.first);
+				}
 			}
+			vector<bool> visited(101, false);
+
+			while (!stck.empty()) {
+				int pt = stck.top(); stck.pop();
+				if (visited[pt]) continue;
+				visited[pt] = true;
+				if (pt == v) {
+					isvalid = true;
+					break;
+				}
+				for (auto vertex : grp[pt]) {
+					if (vertex.second == color) {
+						stck.push(vertex.first);
+					}
+				}
+			}
+
+			if (isvalid) ans++;
 		}
-		cout << colors << "\n";
+		cout << ans << "\n";
+
 	}
 
 	return 0;
