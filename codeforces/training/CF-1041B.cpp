@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -38,17 +38,20 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-
+ll gcd(ll a, ll b) {
+	if (b == 0) return a;
+	return gcd(b, a % b);
+}
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-  ll a,b,x,y;
-  cin >> a >> b >> x >> y;
-  if(a < x && b < y) {
-  	swap(a,x);
-  	swap(b,y);
-  }
-  ll ans = min(a/x, b/y);
-  cout << ans << "\n";
-return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	ll a, b, x, y;
+	cin >> a >> b >> x >> y;
+	ll div =  gcd(x, y);
+	x /= div;
+	y /= div;
+
+	ll ans = min(a / x, b / y);
+	cout << ans << "\n";
+	return 0;
 }
