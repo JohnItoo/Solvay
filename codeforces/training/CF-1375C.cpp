@@ -56,17 +56,21 @@ int main() {
 		string ans;
 		if (a[n - 1] == n) {
 			ans = "YES";
+		} else if (a[0] == n) {
+			ans = "NO";
 		} else {
 
 			auto it = st.lower_bound(mp(n, 0));
-			cout << *it << " this is lower bound \n";
-			return 0;
+			ii pr = *it;
+			// cout << pr.first << " this is lower bound \n";
+			// return 0;
 
-			a.erase(a.begin(), a.begin() + *it.second);
+			a.erase(a.begin() + pr.second);
 			bool decreases = true;
 			int sz = a.size();
 			// forn(i, sz) cout << a[i] << " ";
 			// cout << "\n";
+			if (sz == 1) decreases = false;
 			REP(i, 1, sz - 1) {
 				if (a[i] > a[i - 1]) {
 					decreases = false;
