@@ -38,32 +38,55 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
+string fl(string apref) {
+	int len = apref.length();
+	string sub = string(len, 'a');
+	int i = 0; int j = len - 1;
+	while (i <= j) {
+		swap(apref[i], apref[j]);
+		i++;
+		j--;
+	}
 
+	forn(i, len) {
+		apref[i] = (apref[i] == '1') ? '0' : '1';
+	}
+	return apref;
+
+}
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	int tc;
 	cin >> tc;
 	while (tc--) {
-		int n; cin >> n;
-		vector<ll> a(n);
-		forn(i, n) cin >> a[i];
-		int next = 1;
-		int i = 0;
-		while (i < n && a[i] == 1) {
-			next =  (next == 2) ? 1 : 2;
-			i++;
+		int n;
+		cin >> n;
+		string a, b; cin >> a >> b;
+		vector<int> flips;
+		int i = n - 1;
+		while (i >= 0 && a != b) {
+			if (a[i] == b[i]) {
+				i--;
+				continue;
+			}
+			if (b[i] == a[0]) {
+				a[0] = a[0] == '1' ? '0' : '1';
+				flips.push_back(1);
+			}
+			if (a == b) break;
+			string pref = a.substr(0, i + 1);
+			string suff = a.substr(i + 1, n - 1 - i);
+
+			a = fl(pref);
+			a += suff;
+			flips.pb(i + 1);
 		}
-		int ans = 0;
-		if (i == n && a[i - 1] == 1) {
-			if (n & 1) ans = 1;
-			else ans = 2;
-		} else {
-			if (i & 1) ans = 2;
-			else ans = 1;
+		cout << flips.size() << " ";
+		forn(i, flips.size()) {
+			cout << flips[i] << " ";
 		}
-		if (ans == 2) cout << "Second\n";
-		else cout << "First\n";
+		cout << "\n";
 	}
 
 
