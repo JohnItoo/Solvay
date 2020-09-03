@@ -66,17 +66,27 @@ int main() {
 			// return 0;
 
 			a.erase(a.begin() + pr.second);
-			bool decreases = true;
+			bool decreases = false;
 			int sz = a.size();
 			// forn(i, sz) cout << a[i] << " ";
 			// cout << "\n";
 			if (sz == 1) decreases = false;
-			REP(i, 1, sz - 1) {
-				if (a[i] > a[i - 1]) {
-					decreases = false;
+			// REP(i, 1, sz - 1) {
+			// 	if (a[i] > a[i - 1]) {
+			// 		decreases = false;
+			// 		break;
+			// 	}
+			// }
+			for (int i = 0; i + 2 < sz; i++) {
+				if (a[i] > a[i + 1] && a[i + 1] > a[i + 2]) {
+					decreases = true;
 					break;
 				}
 			}
+			if (!decreases && sz >= 2 && a[sz - 2] > a[sz - 1]) {
+				decreases = true;
+			}
+
 			ans = decreases ? "NO" : "YES";
 		}
 
