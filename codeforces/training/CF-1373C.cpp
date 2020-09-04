@@ -46,25 +46,21 @@ int main() {
 	while (tc--) {
 		string s;
 		cin >> s;
-		int minus = 0; int pos = 0;
-		int curr = 0;
-		forn(i, s.length()) {
-			if (s[i] == '-') {
-				curr++;
-				minus = max(curr, minus);
-
-			} else {
-				minus = max(curr, minus);
-				curr = 0;
-			}
-			minus = max(curr, minus);
+		int start = 0;
+		int n = s.length();
+		set<int> st;
+		forn(i, n) {
+			if (s[i] == '+') start++;
+			else start--;
+			st.insert(start);
 		}
-		while (minus > 0 && s[minus] == '+') {
-			if (s[minus - 1] == '+') minus--;
-			else break;
+		int mn = *st.begin();
+		ll ans = 0;
+		if (mn < 0) {
+			mn = -mn;
+			ans = (mn * (mn + 1)) / 2;
 		}
-
-		ll ans = ((minus * (minus + 1)) / 2 ) + s.length();
+		ans += n;
 		cout << ans << "\n";
 
 	}
