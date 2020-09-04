@@ -59,9 +59,13 @@ int main() {
 			}
 			minus = max(curr, minus);
 		}
+		while (minus > 0 && s[minus] == '+') {
+			if (s[minus - 1] == '+') minus--;
+			else break;
+		}
 
 		ll ans = ((minus * (minus + 1)) / 2 ) + s.length();
-		cout << minus << "\n";
+		cout << ans << "\n";
 
 	}
 	return 0;
