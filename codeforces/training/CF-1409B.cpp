@@ -51,6 +51,7 @@ int main() {
 		ll diffb = b - y;
 		ll mv = min(n, diffa);
 		ll newa = 0, newb = 0, newn = 0;
+		ll ansa, ansb;
 		if (mv == n) {
 			newa = a - mv;
 			newb = b;
@@ -60,15 +61,34 @@ int main() {
 
 			ll mv2 = min(diffb, newn);
 			newb = b - mv2;
-
-
 		}
 
+		ansa = newa * newb;
+
+		newa = 0; newb = 0; newn = 0;
+
+		mv = min(n, diffb);
+
+		if (mv == n) {
+			newb = b - mv;
+			newa = a;
+		} else {
+			newb = b - mv;
+			newn = n - mv;
+
+			ll mv3 = min(diffa, newn);
+			newa = a - mv3;
+		}
+
+		ansb = newa * newb;
+
+		cout << min(ansa, ansb) << "\n";
 
 
 
 
-		cout << ans << "\n";
+
+
 	}
 	return 0;
 }
