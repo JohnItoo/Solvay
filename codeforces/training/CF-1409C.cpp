@@ -45,14 +45,59 @@ int main() {
 	int tc;
 	cin >> tc;
 	while (tc--) {
-		ll a, b; cin >> a >> b;
-		ll ans = 0;
-
-		if (a != b) {
-			ll diff = abs(a - b);
-			ans = (diff + 9) / 10;
+		int n, x, y; cin >> n >> x >> y;
+		if (n == 2) {
+			cout << x << " " << y << "\n";
+			continue;
 		}
-		cout << ans << "\n";
+		vector<int> ans;
+		int diff = y - x;
+		for (int i = n - 1; i >= 0; i--) {
+			if (i != 0 && diff % i != 0) continue;
+
+			//mid
+			vector<int> curr;
+			int terv = 0;
+			if (i != 0 ) terv = diff / i;
+			if (terv != 0) {
+				int pres = x;
+				while (pres <= y) {
+					curr.pb(pres);
+					pres += terv;
+				}
+
+			}
+			int dis = x;
+			terv = !terv ? y - x : terv;
+			while (curr.size() <  n &&  dis - terv > 0) {
+				dis -= terv;
+				curr.pb(dis);
+			}
+
+			dis = y;
+
+			while (curr.size() < n) {
+				dis += terv;
+				curr.pb(dis);
+			}
+
+			if (ans.size() == 0) {
+				ans = curr;
+			} else {
+				int xy = *max_element(curr.begin(), curr.end());
+				int xz = *max_element(ans.begin(), ans.end());
+				// cout << xy << " ";
+				// cout << xz << "\n";
+				if (xy < xz) {
+					ans = curr;
+				}
+			}
+		}
+
+		for (int xx : ans) {
+			cout << xx << " ";
+		}
+		cout << "\n";
 	}
 	return 0;
 }
