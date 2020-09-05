@@ -66,6 +66,9 @@ int main() {
 					pres += terv;
 				}
 
+			} else {
+				curr.pb(x);
+				curr.pb(y);
 			}
 			int dis = x;
 			terv = !terv ? y - x : terv;
@@ -93,6 +96,7 @@ int main() {
 				}
 			}
 		}
+		sort(ans.begin(), ans.end());
 
 		for (int xx : ans) {
 			cout << xx << " ";
