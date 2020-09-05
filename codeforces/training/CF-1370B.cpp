@@ -6,13 +6,7 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include <iostream>
-#include <algorithm>
-#include <set>
-#include <map>
-#include <set>
-#include <vector>
-#include <string.h> // for memset in CF judge.
+#include <bits/stdc++.h>
 using namespace std;
 #define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
 // Shortcuts for "common" data types in contests
@@ -46,7 +40,7 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
+  ios::sync_with_stdio(false);
+  cin.tie(0);
 return 0;
 }
