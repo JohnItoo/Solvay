@@ -96,7 +96,7 @@ int main() {
 				}
 			}
 		}
-		sort(ans.begin(), ans.end());
+		// sort(ans.begin(), ans.end());
 
 		for (int xx : ans) {
 			cout << xx << " ";
