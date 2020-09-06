@@ -55,28 +55,34 @@ int main() {
 		cin >> n;
 		vi a(n);
 		forn(i, n) cin >> a[i];
+		ll neg = 0; ll pos = 0;
+
+		forn(i, n) {
+			// cout << a[i] << " ";
+			if (a[i] < 0) neg += abs(a[i]);
+			else if (a[i] > 0) pos += a[i];
+		}
+		// cout << "\n";
+		ll ans = pos;
 
 		int i = 0; int j = 1;
 		while (j < n && i  < j ) {
-			bool ent = false;
-			while (a[i] > 0 && a[j] < 0) {
-				ent = true;
+			while (a[i] > 0 && j < n) {
+				if (a[j] >= 0) {
+					j++;
+					continue;
+				}
 				int diff = min(a[i], -a[j]);
 				a[i] -= diff; a[j] += diff;
-			}
-			if (!ent) {
-				i += 1; j += 1;
-			} else {
-				if (a[j] == 0) {
-					j += 1;
-				} else {
-					i += 1;
+				ans  -= diff;
+				if (a[j] != 0) {
+					break;
 				}
 			}
-
+			i += 1;
+			if (j <= i) j = i + 1;
 		}
-		sort(a.begin(), a.end());
-		cout << a[n-1] << "\n";
+		cout << ans << "\n";
 	}
 	return 0;
 }
