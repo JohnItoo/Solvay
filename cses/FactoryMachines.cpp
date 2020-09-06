@@ -14,7 +14,7 @@ int main() {
 	vector<ll> nw(n + 1, 0);
 
 	for (int i = 1; i <= n; i++) {
-		nw[i] = nw[i - 1] + a[i-1];
+		nw[i] = nw[i - 1] + a[i - 1];
 		cout << nw[i] << " ";
 	}
 	cout << "\n";
