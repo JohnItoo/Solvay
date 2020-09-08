@@ -52,50 +52,56 @@ int main() {
 	while (tc--) {
 		int n; cin >> n;
 		vi a(n + 1);
-		int odds = 0;
-		int evens = 0;
 		REP(i, 1, n) {
-			int c; cin >> c;
-			a[i] = c;
-			if (i & 1) odds += c;
-			else evens += c;
+			cin >> a[i];
 		}
-		bool done = false;
-		multiset<int> skip;
-		if (odds == evens) {
-			cout << n << "\n";
+		if (n == 2) {
+			int ons = 0; int zers = 0;
 			REP(i, 1, n) {
-				cout << a[i] << " ";
+				if (a[i] == 1) ons++;
+				else zers++;
 			}
-			cout << "\n";
-			done = true;
-		} else {
-			int diff = abs(evens - odds);
-			bool evs = evens > odds;
-			int i = 1;
-			while (diff > 0 && i <= n) {
-				if (a[i] == 0) {
-					i++;
-					continue;
-				}
-				if (evs && (i % 2 == 0)) {
-					skip.insert(i);
-					diff--;
-				}
-				if (!evs && i & 1) {
-					skip.insert(i);
-					diff--;
-				}
-				i++;
-			}
-			cout << n - skip.size() << "\n";
-			REP(i, 1, n) {
-				if (skip.lower_bound(i) == skip.end()) {
-					cout << a[i] << " ";
+			if (n == 2 ) {
+				if (zers > 0) {
+					cout << 1 << "\n";
+					cout << 0 << "\n";
+				} else {
+					cout << 2 << "\n";
+					cout << a[1] << " " << a[2] << "\n";
 				}
 			}
-			cout << "\n";
+			continue;
 		}
+		vi res;
+		int i = 1;
+		while (i <= n && i + 2 <= n) {
+			int ones = 0;
+			int zs = 0;
+			for (int j = i; j <= i + 2; j++) {
+				if (a[j] == 1) ones++;
+				else zs++;
+			}
+			int lst = 0;
+			if (ones > zs) {
+				res.pb(1); res.pb(1);
+				lst = 1;
+			} else {
+				res.pb(0); res.pb(0);
+			}
+
+			if (lst == a[i + 2]) {
+				i = i + 3;
+			} else {
+				i = i + 2;
+			}
+		}
+		cout << res.size() << "\n";
+
+		for (int dd : res) {
+			cout << dd << " ";
+		}
+		cout << "\n";
+
 	}
 	return 0;
 }
