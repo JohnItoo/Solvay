@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -46,62 +46,7 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	int tc; cin >> tc;
-	while (tc--) {
-		int n; cin >> n;
-		vi a(n + 1);
-		REP(i, 1, n) {
-			cin >> a[i];
-		}
-		if (n == 2) {
-			int ons = 0; int zers = 0;
-			REP(i, 1, n) {
-				if (a[i] == 1) ons++;
-				else zers++;
-			}
-			if (n == 2 ) {
-				if (zers > 0) {
-					cout << 1 << "\n";
-					cout << 0 << "\n";
-				} else {
-					cout << 2 << "\n";
-					cout << a[1] << " " << a[2] << "\n";
-				}
-			}
-			continue;
-		}
-		vi res;
-		int i = 1;
-		while (i <= n && i + 2 <= n) {
-			int ones = 0;
-			int zs = 0;
-			for (int j = i; j <= i + 2; j++) {
-				if (a[j] == 1) ones++;
-				else zs++;
-			}
-			int lst = 0;
-			if (ones > zs) {
-				res.pb(1); res.pb(1);
-				lst = 1;
-			} else {
-				res.pb(0); res.pb(0);
-			}
-
-			if (lst == a[i + 2]) {
-				i = i + 3;
-			} else {
-				i = i + 2;
-			}
-		}
-		cout << res.size() << "\n";
-
-		for (int dd : res) {
-			cout << dd << " ";
-		}
-		cout << "\n";
-
-	}
-	return 0;
+ ios::sync_with_stdio(false);
+ cin.tie(0);
+return 0;
 }
