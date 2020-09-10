@@ -45,6 +45,11 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
+int gcd(int a, int b) {
+	if (b == 0) return a;
+	return gcd(b, a % b);
+}
+
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
@@ -57,28 +62,43 @@ int main() {
 		// sort(a.rbegin(), a.rend());
 		auto idxst = max_element(a.begin(), a.end());
 		int st = *idxst;
-		vi res;
-		res.pb(st);
-		map<int, int> freq;
-		// cout << idxst - a.begin() << "\n";
-		freq[idxst - a.begin()] = 1;
-		forn(i, n) {
-			if (st % a[i] == 0 && i != idxst - a.begin()) {
-				freq[i]++;
-				res.pb(a[i]);
+		vi b(n);
+		vector<bool> dn(n, false);
+		dn[idxst - a.begin()] = true;
+		b[0] = st;
+		int i = 1;
+
+		while (i < n && st > 1) {
+
+			int currmx = 0;
+			int curridx = 0;
+			forn(j , n) {
+				if (dn[j]) continue;
+
+				if (gcd(st, a[j]) > currmx) {
+					currmx = gcd(st, a[j]);
+					curridx = j;
+				}
+			}
+
+			b[i] = a[curridx];
+			dn[curridx] = true;
+			st = b[i];
+			i++;
+		}
+
+		forn(j, n) {
+			if (!dn[j]) {
+				b[i] = a[j];
+				i++;
 			}
 		}
-		sort(res.rbegin(), res.rend());
 
-		forn(i, n) {
-			if (freq.find(i) == freq.end()) {
-				res.pb(a[i]);
-			}
+
+		for (int val : b) {
+			cout << val << " ";
 		}
 
-		forn(i, n) {
-			cout << res[i]  << " ";
-		}
 		cout << "\n";
 	}
 	return 0;
