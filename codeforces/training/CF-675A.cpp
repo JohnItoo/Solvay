@@ -42,16 +42,16 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int a, l, d;
-	cin >> a >> l >> d;
-	string ans;
-	if (d != 0 && (l - a) > 0 && (l - a) % d  == 0) {
-		ans = "YES";
-	} else if (d == 0 && l - a == 0) {
-		ans = "YES";
-	} else {
-		ans = "NO";
-	}
-	cout << ans << endl;
+
+	int a, b, c;
+	cin >> a >> b >> c;
+
+	string ans = "";
+	if (b == a) ans = "YES\n";
+	else if (b - a < 0 && c  < 0 && (b - a) % c == 0) ans = "YES\n";
+	else if (b - a > 0 && c > 0 && (b - a) % c == 0) ans = "YES\n";
+	else ans = "NO\n";
+
+	cout << ans;
 	return 0;
 }
