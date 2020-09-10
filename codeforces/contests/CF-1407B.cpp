@@ -59,7 +59,6 @@ int main() {
 		int n; cin >> n;
 		vi a(n);
 		forn(i, n) cin >> a[i];
-		// sort(a.rbegin(), a.rend());
 		auto idxst = max_element(a.begin(), a.end());
 		int st = *idxst;
 		vi b(n);
@@ -83,7 +82,7 @@ int main() {
 
 			b[i] = a[curridx];
 			dn[curridx] = true;
-			st = b[i];
+			st = currmx;
 			i++;
 		}
 
