@@ -45,62 +45,12 @@ int main() {
 	int tc;
 	cin >> tc;
 	while (tc--) {
-		int n, m; cin >> n >> m;
-		vector<vector<int> > a(n, vector<int>(m));
-		bool allzeros = true;
-		forn(i, n) {
-			forn(j, m) {
-				cin >> a[i][j];
-				if (a[i][j] != 0) allzeros = false;
-			}
-		}
+		int n; cin >> n;
+		if (n & 1) {
+			cout << 1 << " " << n - 1 << "\n";
 
-		vector<vector<int> > res(n, vector<int>(m));
-		bool can = true;
-
-		if (!allzeros) {
-
-			if (n == 1 || m == 1) {
-				forn(i, n) {
-					forn(j, m) {
-						if (n == 1 && j  != 0 && j != m - 1) res[i][j] = 2;
-						else if (m == 1 && i != 0 && i != n - 1) res[i][j] = 2;
-						else res[i][j] = 1;
-					}
-				}
-
-			} else {
-				forn(i, n) {
-					forn(j, m) {
-						if (j == 0 || j == m - 1) res[i][j] = 2;
-						else if (i == 0 || i == n - 1) res[i][j] = 3;
-						else res[i][j] = 4;
-					}
-				}
-			}
-
-			forn(i, n) {
-				forn(j, m) {
-					if (a[i][j] > res[i][j]) {
-						can = false;
-						break;
-					}
-				}
-				if (!can) break;
-			}
-		}
-
-
-		if (can) {
-			cout << "YES\n";
-			forn(i, n) {
-				forn(j, m) {
-					cout << res[i][j] << " ";
-				}
-				cout << "\n";
-			}
 		} else {
-			cout << "NO\n";
+			cout << 2 << " " << n - 2 << "\n";
 		}
 	}
 	return 0;
