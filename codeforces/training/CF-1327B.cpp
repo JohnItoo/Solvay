@@ -38,7 +38,6 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-int sv[1000000009];
 
 
 int main() {
@@ -46,21 +45,20 @@ int main() {
 	cin.tie(0);
 	int tc;
 	cin >> tc;
-	memset(sv, 0, sizeof sv);
-	REP(i, 2, 1e9) {
-		if (sv[i] != 0) continue;
-		for (int j = i ; j < 1e9; j += i) {
-			sv[j] = i;
-		}
-	}
 
 	while (tc--) {
 		int n; cin >> n;
 		if (n & 1) {
-			if (sv[n] == n) {
+			int great = 0;
+			for (int i = 2; i * i <= n; i++) {
+				if (n % i == 0 && (n - i) % i == 0) {
+					great = i;
+				}
+			}
+			if (!great) {
 				cout << 1 << " " << n - 1 << "\n";
 			} else {
-				cout << sv[n] << " " << n - sv[n] << "\n";
+				cout << great << " " << abs(n - great) << "\n";
 			}
 
 		} else {
