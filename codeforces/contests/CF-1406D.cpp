@@ -49,51 +49,27 @@ int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	int tc; cin >> tc;
-	cout << tc;
 	while (tc--) {
-		multiset<int> st;
+		map<int, int> freq;
 		int n; cin >> n;
 		forn(i, n) {
 			int x;
 			cin >> x;
-			st.insert(x);
+			freq[x]++;
 		}
-		map<int, int> a;
-		map<int, int> b;
 
-		int lf = 0;
-
-		while (st.size() != 0) {
-			cout << "here\n";
-			if (lf) {
-				a[*st.begin()]++;
-				lf = 0;
-			}
-			else {
-				b[*st.begin()]++; lf = 1;
-			}
-			st.erase(st.begin());
+		int need = 0;
+		while (freq.find(need) != freq.end()) {
+			need++;
 		}
-		cout << "here\n";
-		int start = 1;
+		// cout << need << "need \n";
+
 		int left = 0;
-		int right = 0;
-		while (true) {
-			if (a.find(start) == a.end()) {
-				left = start;
-				break;
-			}
-			start++;
-		}
-		start = 1;
 
-		while (true) {
-			if (b.find(start) == b.end()) {
-				right = start;
-				break;
-			}
+		while (freq.find(left)->second >= 2) {
+			left++;
 		}
-		cout << left + right << "\n";
+		cout << left + need << "\n";
 	}
 
 	return 0;
