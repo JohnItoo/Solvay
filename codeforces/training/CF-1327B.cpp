@@ -38,7 +38,9 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-
+ll lcm(ll a, ll b) {
+	return (a * b) / __gcd(a, b);
+}
 
 int main() {
 	ios::sync_with_stdio(false);
@@ -47,23 +49,28 @@ int main() {
 	cin >> tc;
 
 	while (tc--) {
-		int n; cin >> n;
-		if (n & 1) {
-			int great = 0;
-			for (int i = 2; i * i <= n; i++) {
-				if (n % i == 0 && (n - i) % i == 0) {
-					great = i;
-				}
+		ll n; cin >> n;
+		set<ll> factors;
+		for (ll i = 1; i * i <= n; i++) {
+			if (n % i == 0) {
+				factors.insert(n / i);
+				factors.insert(i);
 			}
-			if (!great) {
-				cout << 1 << " " << n - 1 << "\n";
-			} else {
-				cout << great << " " << abs(n - great) << "\n";
+		}
+		ll greatest = 1e9;
+		ll currf = 0;
+		for (ll factor : factors) {
+			if (factor == n) continue;
+			ll lcmans = lcm(factor, n - factor);
+			if (lcmans < greatest) {
+				greatest = lcmans;
+				currf = factor;
 			}
 
-		} else {
-			cout << n / 2 << " " << n / 2 << "\n";
 		}
+
+		cout << currf << " " << n - currf << "\n";
+
 	}
 	return 0;
 }

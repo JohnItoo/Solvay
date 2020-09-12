@@ -44,49 +44,24 @@ int main() {
 	cin.tie(0);
 	int tc;
 	cin >> tc;
+
 	while (tc--) {
 		int n, m; cin >> n >> m;
 		vector<vector<int> > a(n, vector<int>(m));
-		bool allzeros = true;
-		forn(i, n) {
-			forn(j, m) {
-				cin >> a[i][j];
-				if (a[i][j] != 0) allzeros = false;
-			}
-		}
-
 		vector<vector<int> > res(n, vector<int>(m));
 		bool can = true;
 
-		if (!allzeros) {
 
-			if (n == 1 || m == 1) {
-				forn(i, n) {
-					forn(j, m) {
-						if (n == 1 && j  != 0 && j != m - 1) res[i][j] = 2;
-						else if (m == 1 && i != 0 && i != n - 1) res[i][j] = 2;
-						else res[i][j] = 1;
-					}
-				}
-
-			} else {
-				forn(i, n) {
-					forn(j, m) {
-						if (j == 0 || j == m - 1) res[i][j] = 2;
-						else if (i == 0 || i == n - 1) res[i][j] = 3;
-						else res[i][j] = 4;
-					}
-				}
-			}
-
-			forn(i, n) {
-				forn(j, m) {
-					if (a[i][j] > res[i][j]) {
-						can = false;
-						break;
-					}
-				}
-				if (!can) break;
+		forn(i, n) {
+			forn(j, m) {
+				cin >> a[i][j];
+				int neighbors = 0;
+				if (i) neighbors++;
+				if (j) neighbors++;
+				if (i  <  n - 1) neighbors++;
+				if (j < m - 1) neighbors++;
+				if (neighbors < a[i][j]) can = false;
+				res[i][j] = neighbors;
 			}
 		}
 
