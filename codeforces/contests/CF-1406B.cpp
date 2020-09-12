@@ -57,7 +57,7 @@ int main() {
 		sort(a.begin(), a.end());
 
 		ll mx = -1e18;
-		REP(i, 1 , 4) {
+		REP(i, 0 , 5) {
 			ll curr = 1;
 			forn(j, i) {
 				curr *= a[j];
