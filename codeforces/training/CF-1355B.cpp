@@ -51,22 +51,13 @@ int main() {
 		}
 		sort(a.begin(), a.end());
 		int curr = 0;
-		int i = 0;
 		int ans = 0;
-		while (i < n) {
-			int j = i;
-			int mx = a[j];
-			while (j < n && curr < mx) {
-				curr += 1;
-				mx = max(mx, a[j]);
-				j++;
-			}
 
-			if (curr == mx) {
-				ans++;
+		forn(i, n) {
+			if (++curr == a[i]) {
 				curr = 0;
+				ans++;
 			}
-			i = j;
 		}
 		cout << ans << "\n";
 	}

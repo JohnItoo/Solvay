@@ -45,20 +45,15 @@ int main() {
 	int tc; cin  >> tc;
 	while (tc--) {
 		ll st, di; cin >> st >> di;
-		if (di > st) {
-			ll usd = min(di / 2, st);
-			di -= (usd);
-			st -= usd;
+		ll ans = 0;
+		if (di == 0 || st == 0) {
+			ans = 0;
+		} else if (di == st) {
+			ans = (n + 1) / 2;
+		} else if (di >= st * 2 || st >= di * 2) {
+			ans = min(di, st);
+		} else if (abs(di - st) <= 2) {
 
-			ll sec = min(st / 2, di);
-			cout << usd + sec << "\n";
-		} else {
-			ll ust = min(st / 2, di);
-			di -= ust;
-			st -=  ust;
-
-			ll sec = min(di / 2, st);
-			cout << ust + sec << "\n";
 		}
 	}
 	return 0;
