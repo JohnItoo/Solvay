@@ -45,22 +45,28 @@ int main() {
 	int tc; cin >> tc;
 	while (tc--) {
 		int n; cin >> n;
-		set<int> st;
-		map<int, int> mp;
+		vi a(n);
 		forn(i, n) {
-			int x; cin >> x;
-			mp[x]++;
-			st.insert(x);
+			cin >> a[i];
 		}
-
-		int rem = 0;
+		sort(a.begin(), a.end());
+		int curr = 0;
+		int i = 0;
 		int ans = 0;
-		for (auto nt : st) {
-			int count = mp[nt];
-			int use = ((rem + count) / nt) * nt;
-			if (!use) break;
-			rem = (rem + count) - use;
-			ans += use;
+		while (i < n) {
+			int j = i;
+			int mx = a[j];
+			while (j < n && curr < mx) {
+				curr += 1;
+				mx = max(mx, a[j]);
+				j++;
+			}
+
+			if (curr == mx) {
+				ans++;
+				curr = 0;
+			}
+			i = j;
 		}
 		cout << ans << "\n";
 	}
