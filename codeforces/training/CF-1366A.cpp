@@ -42,42 +42,23 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc;
-	cin >> tc;
+	int tc; cin  >> tc;
 	while (tc--) {
-		int n;
-		cin >> n;
-		string s;  cin >> s;
-		bool nondec = true;
-		REP(i, 1, n - 1) {
-			if (s[i] < s[i - 1]) {
-				nondec = false;
-				break;
-			}
-		}
+		ll st, di; cin >> st >> di;
+		if (di > st) {
+			ll usd = min(di / 2, st);
+			di -= (usd);
+			st -= usd;
 
-		if (nondec) {
-			cout << s << "\n";
+			ll sec = min(st / 2, di);
+			cout << usd + sec << "\n";
 		} else {
-			int i = -1;
-			while (i + 1 < n && s[i + 1] == '0') {
-				i++;
-			}
-			int j = n;
+			ll ust = min(st / 2, di);
+			di -= ust;
+			st -=  ust;
 
-			while (j - 1 >= 0 && s[j - 1] == '1') {
-				j--;
-			}
-			string pref = "";
-			// cout << i << "\n";
-			if (i > -1) {
-				i += 1;
-				string curr = string(i, '0');
-				pref = curr;
-			}
-			pref.pb('0');
-			string suff = s.substr(j, n - j);
-			cout << pref + suff << "\n";
+			ll sec = min(di / 2, st);
+			cout << ust + sec << "\n";
 		}
 	}
 	return 0;
