@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -41,6 +41,24 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 int main() {
 	ios::sync_with_stdio(false);
- cin.tie(0);
-return 0;
+	cin.tie(0);
+	int s; cin >> s;
+	int mod = 1e9 + 7;
+
+
+	int dp[s][10];
+	memset(dp, 0, sizeof dp);
+
+	for (int i = 1; i <= s; i++) {
+		for (int j = 3; j <= 9; j++) {
+			int rem = i - j;
+			dp[i][j] = dp[i - 1][j];
+			if (rem >= 0) {
+				(dp[i][j] += dp[rem][j] ) %= mod;
+
+			}
+		}
+	}
+	cout << dp[s][9];
+	return 0;
 }
