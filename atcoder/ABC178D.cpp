@@ -48,6 +48,7 @@ int main() {
 
 	int dp[s][10];
 	memset(dp, 0, sizeof dp);
+	dp[0][0] = 1;
 
 	for (int i = 1; i <= s; i++) {
 		for (int j = 3; j <= 9; j++) {
