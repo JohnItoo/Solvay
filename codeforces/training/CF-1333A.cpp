@@ -51,22 +51,27 @@ int main() {
 			res[i][0] = 'B';
 
 			REP(j, 1, m - 1) {
-				cout << j << " ";
+				// cout << j << " ";
 				if (res[i][j - 1] == 'B' && w > 0) {
 					w--;
 					res[i][j] = 'W';
 				} else {
-					res[i][0] = 'B';
+					res[i][j] = 'B';
 				}
 			}
-			cout << i << "\n";
+			// cout << i << "\n";
 		}
-		if(w == 1) res[n-1][m-1] = 'W';
+		if (w == 1) res[n - 1][m - 1] = 'W';
 
-		// forn(i, n) {
-		// 	string s = res[i];
-  //         cout << s << "\n";
-		// }
+		forn(i, n) {
+			string s = "";
+			forn(j, m) {
+				s.pb(res[i][j]);
+
+			}
+
+			cout << s << "\n";
+		}
 		// cout << "\n";
 	}
 	return 0;
