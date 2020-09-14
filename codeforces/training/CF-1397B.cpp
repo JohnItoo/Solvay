@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -38,32 +38,9 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-ll mypow(ll base, ll expo) {
-	ll ans = 1;
-	forn(i, expo) {
-		ans *= base;
-	}
-	return ans;
-}
 
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	int n;
-	cin >> n;
-	vector<int> a(n);
-	forn(i, n) cin >> a[i];
-	sort(a.begin(), a.end());
-
-	if (n == 1) {
-		cout << a[0] - 1 << "\n";
-		return 0;
-	}
-
-	ll ans = 0;
-	forn(i, n) {
-		ans +=  abs(mypow(a[1], i) - a[i]);
-	}
-	cout << ans << "\n";
-	return 0;
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+return 0;
 }
