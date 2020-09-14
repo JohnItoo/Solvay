@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -22,13 +22,6 @@ typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef set<int> si;
 typedef map<string, int> msi;
-// To simplify repetitions/loops, Note: define your loop style and stick with it!
-#define x first
-#define y second
-#define pb push_back
-#define mp make_pair
-#define REP(i, a, b) \
-for (int i = int(a); i <= int(b); i++) // a to b, and variable i is local!
 #define forn(i,n) \
 for (int i =0; i<(n); i++)
 #define TRvi(c, it) \
@@ -46,7 +39,17 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
-return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc; cin >> tc;
+	while (tc--) {
+		ll x, y, k; cin >> x >> y >> k;
+		ll tot = (k * y) + k;
+		int div = (x - 1);
+		tot -= 1;
+		ll ans = (tot + div - 1) / div;
+		ans += k;
+		cout << ans << "\n";
+	}
+	return 0;
 }
