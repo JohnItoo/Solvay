@@ -6,13 +6,7 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include <iostream>
-#include <algorithm>
-#include <set>
-#include <map>
-#include <set>
-#include <vector>
-#include <string.h> // for memset in CF judge.
+#include <bits/stdc++.h>
 using namespace std;
 #define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
 // Shortcuts for "common" data types in contests
@@ -44,39 +38,27 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-//WA
+
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	int tc; cin >> tc;
 	while (tc--) {
-		int n; cin >> n;
-		ii arr[n];
-		forn(i, n) {
-			int x, y ; cin >> x >> y;
-			arr[i] = mp(x, y);
-		}
-		string ans = "YES";
-		if ( n == 1) {
-			ans = arr[0].first >= arr[0].second ? "YES" : "NO";
-			cout << ans << endl;
-			return 0;
-		}
-		forn(i,  n) {
-			REP(j, i + 1, n - 1) {
-				int currclears = arr[j].second;
-				int prevclears  = arr[i].second;
-				int currplays = arr[j].first;
-				int prevplays = arr[i].first;
+		int n; cin  >> n;
+		ii prev = mp(0, 0);
+		int i = 0;
+		bool can = true;
+		while (i++ < n) {
+			int play, clear; cin >> play >> clear;
+			if (!can) continue;
+			int playdiff = play - prev.first;
+			int cleardiff = clear - prev.second;
 
-				if (currclears < prevclears || currplays < prevplays || (currclears > prevclears && prevplays == currplays) || currclears > currplays || prevclears > prevplays) {
-					ans = "NO";
-					break;
-				}
-			}
-
+			can = cleardiff >= 0 && playdiff >= 0 && cleardiff <= playdiff;
+			prev = mp(play, clear);
 		}
-		cout << ans << endl;
+		if (can) cout << "Yes\n";
+		else cout << "No\n";
 	}
 	return 0;
 }
