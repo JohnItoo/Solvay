@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -46,7 +46,72 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
-return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc;
+	cin >> tc;
+	while (tc--) {
+		int n; cin >> n;
+		vi a(n);
+		vi l(n);
+		vi p(n, -1);
+
+		forn(i, n) cin >> a[i];
+		forn(i, n) cin >> l[i];
+
+		int lef = 0;
+		vi pos; vi neg;
+		forn(i, n) {
+			if (l[i]) {
+				p[i] = a[i];
+				lef = i;
+			} else {
+				if (a[i] >= 0) pos.pb(a[i]);
+				else neg.pb(a[i]);
+			}
+		}
+		sort(pos.rbegin(), pos.rend());
+		sort(neg.begin(), neg.end());
+
+		int ip = 0;
+		int mv = lef;
+
+		while (mv >= 0 && ip < pos.size()) {
+			if (l[mv] || p[mv] != -1) {
+				mv--;
+				continue;
+			}
+
+			p[mv] = pos[ip];
+			mv--; ip++;
+		}
+
+		mv = lef;
+
+
+		while (mv < n && ip < pos.size()) {
+			if (p[mv] != -1  || l[mv]) {
+				mv++;
+				continue;
+			}
+			p[mv++] = pos[ip++];
+		}
+
+		int id = 0;
+		forn(i, n) {
+			if (l[i] || p[i] != -1) {
+				cout << p[i] << " ";
+				continue;
+			}
+			if (id < neg.size()) {
+				p[i] = neg[id++];
+
+			}
+			cout << p[i] << " ";
+		}
+		cout << "\n";
+
+
+	}
+	return 0;
 }
