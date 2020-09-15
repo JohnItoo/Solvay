@@ -1,11 +1,6 @@
 #include <bits/stdc++.h>
-#include <tuple>
 using namespace std;
 
-bool comp(pair<int, int> a , pair<int, int> b) {
-	if (a.second == b.second) return a.first < b.first;
-	return a.second < b.second;
-}
 
 int main() {
 	int n; cin >> n;
@@ -21,7 +16,6 @@ int main() {
 
 	int room = 0;
 	int i = 0;
-	// pair<pair<int, int> , int> last = make_pair(make_pair(0, 0), 0);
 
 
 	while (times.size() != 0) {
@@ -37,11 +31,10 @@ int main() {
 			int beg = last.first.first;
 			int end = last.first.second;
 
-			cout << room << " " << beg << "\n";
 
 			res[idx] = room;
 
-			pair<pair<int, int> , int> f = make_pair(make_pair(end, end), 0);
+			pair<pair<int, int> , int> f = make_pair(make_pair(end + 1, end + 1), 0);
 			it = times.upper_bound(f);
 
 		}
