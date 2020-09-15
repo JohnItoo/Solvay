@@ -59,43 +59,17 @@ int main() {
 		forn(i, n) cin >> a[i];
 		forn(i, n) cin >> l[i];
 
-		int lef = 0;
-		vi pos; vi neg;
+		vi list;
 		forn(i, n) {
 			if (l[i]) {
 				p[i] = a[i];
-				lef = i;
 			} else {
-				if (a[i] >= 0) pos.pb(a[i]);
-				else neg.pb(a[i]);
+				list.pb(a[i]);
 			}
 		}
-		sort(pos.rbegin(), pos.rend());
-		sort(neg.begin(), neg.end());
-
-		int ip = 0;
-		int mv = lef;
-
-		while (mv >= 0 && ip < pos.size()) {
-			if (l[mv] || p[mv] != -1) {
-				mv--;
-				continue;
-			}
-
-			p[mv] = pos[ip];
-			mv--; ip++;
-		}
-
-		mv = lef;
+		sort(list.rbegin(), list.rend());
 
 
-		while (mv < n && ip < pos.size()) {
-			if (p[mv] != -1  || l[mv]) {
-				mv++;
-				continue;
-			}
-			p[mv++] = pos[ip++];
-		}
 
 		int id = 0;
 		forn(i, n) {
@@ -103,10 +77,7 @@ int main() {
 				cout << p[i] << " ";
 				continue;
 			}
-			if (id < neg.size()) {
-				p[i] = neg[id++];
-
-			}
+			p[i] = list[id++];
 			cout << p[i] << " ";
 		}
 		cout << "\n";
