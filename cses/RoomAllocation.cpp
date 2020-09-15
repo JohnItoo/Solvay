@@ -2,51 +2,56 @@
 #include <tuple>
 using namespace std;
 
+bool comp(pair<int, int> a , pair<int, int> b) {
+	if (a.second == b.second) return a.first < b.first;
+	return a.second < b.second;
+}
+
 int main() {
 	int n; cin >> n;
-	set<tuple<int, int, int>>vp;
-	vector<tuple<int, int, int>> tuples(n);
+	set<pair<pair<int, int>, int> > times;
+
 	for (int i = 0; i < n; i++) {
 		int x, y; cin >> x >> y;
-		tuples[i] = make_tuple(x, y, i);
+		times.insert(make_pair(make_pair(x, y), i));
 	}
-	sort(tuples.begin(), tuples.end());
-
-	for(int i = 0; i < n; i++) {
-		vp.insert(tuples[i]);
-	}
-	vector<int> result(n);
-	int arriv = 0; int dep = 0;
-	int room = 1;
-
-	while (vp.size() > 0) {
-		auto it = vp.upper_bound(make_tuple(0, 0, 0));
-		tuple<int, int, int> pr = *it;
-		int come, leave , index;
-		tie(come, leave, index) = pr;
-
-		// cout << index << " index \n";
-		result[index] = room;
-		vp.erase(it);
-		auto jt = vp.upper_bound(make_tuple(leave, 0, 0));
-		if (jt != vp.end()) ++jt;
 
 
-		while (jt != vp.end()) {
-			int c, l, i = 0;
+	vector<int> res(n, -1);
 
-			tie(c, l, i) = *jt;
-			result[i] = room;
-			// cout << i << "index \n";
-			vp.erase(jt);
-			leave =  l;
-			jt = vp.upper_bound(make_tuple(leave, 0, 0));
-		}
+	int room = 0;
+	int i = 0;
+	// pair<pair<int, int> , int> last = make_pair(make_pair(0, 0), 0);
+
+
+	while (times.size() != 0) {
+		auto it = times.begin();
 		room++;
+
+		while (it != times.end()) {
+			pair<pair<int, int> , int> last = *it;
+
+			times.erase(it);
+
+			int idx = last.second;
+			int beg = last.first.first;
+			int end = last.first.second;
+
+			cout << room << " " << beg << "\n";
+
+			res[idx] = room;
+
+			pair<pair<int, int> , int> f = make_pair(make_pair(end, end), 0);
+			it = times.upper_bound(f);
+
+		}
 	}
-	cout << *max_element(result.begin(), result.end()) << "\n";
-	for (int i = 0; i < result.size(); i++) {
-		cout << result[i] << " ";
+
+	cout << room << "\n";
+	for (int i = 0; i < n; i++) {
+		cout << res[i] << " ";
 	}
+	cout << "\n";
+
 
 }
