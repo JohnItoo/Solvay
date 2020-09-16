@@ -49,8 +49,8 @@ int main() {
 		int a[n];
 		forn(i, n) cin >> a[i];
 
-		vector<int> them(n + 1);
-		vector<int> us(n + 1);
+		vector<int> them(n + 1, MEMSET_INF);
+		vector<int> us(n + 1, MEMSET_INF);
 		them[0] = 0;
 		us[0] = 0;
 
