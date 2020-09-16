@@ -42,13 +42,36 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int n;
-	cin >> n;
-	while (n--) {
-		int c, sum; cin >> c >> sum;
-		int div = sum / c;
-		int rem = c * div
-		          ll ans =
+	int tc;
+	cin >> tc;
+	while (tc--) {
+		int n; cin >> n;
+		int a[n];
+		forn(i, n) cin >> a[i];
+
+		vector<int> them(n + 1);
+		vector<int> us(n + 1);
+		them[0] = 0;
+		us[0] = 0;
+
+		for (int i = 1; i <= n; i++) {
+
+			them[i] = us[i - 1] + a[i];
+			cout << i << " " <<  them[i] << "\n";
+
+			if (i - 2 >= 0) {
+				them[i] = min(them[i],  us[i - 2] + a[i] + a[i + 1]);
+			}
+
+			us[i] = them[i - 1];
+
+			if (i - 2 >= 0) {
+				us[i] = min(us[i], them[i - 2]);
+			}
+		}
+
+		cout << them[n] << "\n";
+
 	}
 	return 0;
 }
