@@ -74,13 +74,12 @@ int main() {
 				freq[need]--;
 				ct++;
 			}
-			cout << ct << " " << i << " : ct \n";
 			if (ct > ans) {
 				ans = ct;
 				sm = i;
 			}
 		}
-		cout << ans << " " << sm <<  "\n";
+		cout << ans << "\n";
 	}
 	return 0;
 }
