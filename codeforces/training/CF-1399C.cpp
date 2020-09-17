@@ -42,31 +42,45 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int t; cin >> t;
-	while (t--) {
+	int tc; cin >> tc;
+	while (tc--) {
 		int n; cin >> n;
-		int a[n];
-		vector<int> counts(101, 0);
-
+		vi a(n);
+		map<int, int> mp;
 		forn(i, n) {
-			int q; cin >> q;
-			counts[q]++;
+			cin >> a[i];
+			mp[a[i]]++;
 		}
-
 		int ans = 0;
+		int sm = 0;
+		REP(i, 2, n * 2) {
+			map<int, int> freq = mp;
+			int ct = 0;
+			forn(j, n) {
+				if (a[j] >= i) continue;
+				auto fd = freq.find(a[j]);
+				if (fd == freq.end() || fd->second <= 0) continue;
+				freq[a[j]]--;
 
-		REP(s, 2, 2 * n) {
-			int pairs = 0;
 
-			for (int i = 1; i < (s + 1) / 2; ++i) {
-				if (s - i > n ) continue;
-				pairs += min(counts[i], counts[s - i]);
+				int need = i - a[j];
+
+				auto sd = freq.find(need);
+				if (sd == freq.end() || sd->second <= 0) {
+					freq[a[j]]++;
+					continue;
+				}
+
+				freq[need]--;
+				ct++;
 			}
-			if (s % 2 == 0) pairs += counts[(s / 2)] / 2;
-			ans = max(ans, pairs);
+			cout << ct << " " << i << " : ct \n";
+			if (ct > ans) {
+				ans = ct;
+				sm = i;
+			}
 		}
-		cout << ans << "\n";
+		cout << ans << " " << sm <<  "\n";
 	}
-
 	return 0;
 }
