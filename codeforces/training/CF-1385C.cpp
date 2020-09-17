@@ -42,27 +42,34 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc;
+	int tc; cin >> tc;
 	while (tc--) {
 		int n; cin >> n;
 		vector<int> a(n);
 		forn(i, n) cin >> a[i];
 
-		int prevMax ==
 		int currMax = 0;
 		int lastStart = 0;
 		int i = 0;
 		int j = n - 1;
-		int mn = 0;
 		while (i < j) {
 			if (a[i] < a[j]) {
-				currMax = max(a[i], currMax);
-				i++;
-			} else {
-				currMax = max(a[j], currMax);
-				j--;
+				if (a[i] < currMax) {
+					lastStart = i;
+					currMax = a[i++];
+				} else {
+					currMax = a[i++];
+				}
+			} else if (a[j] <= a[i]) {
+				if (a[j] < currMax) {
+					lastStart = j;
+					break;
+				} else {
+					currMax = a[j--];
+				}
 			}
 		}
+		cout << lastStart << "\n";
 	}
 	return 0;
 }
