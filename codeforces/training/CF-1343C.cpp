@@ -6,13 +6,7 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include <iostream>
-#include <algorithm>
-#include <set>
-#include <map>
-#include <set>
-#include <vector>
-#include <string.h> // for memset in CF judge.
+#include <bits/stdc++.h>
 using namespace std;
 #define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
 // Shortcuts for "common" data types in contests
@@ -48,33 +42,50 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc;
-	cin >> tc;
+	int tc; cin >> tc;
 	while (tc--) {
 		int n; cin >> n;
-		int a[n];
-		forn(i, n) {
-			cin >> a[i];
-		}
-		int dp[n];
-		memset(dp, -1 * MEMSET_INF, sizeof dp);
-		dp[0] = a[0];
+		vi a(n);
+		forn(i, n) cin >> a[i];
 
-		forn(k, n) {
-			forn(i, k) {
-				if (a[k] < 0) {
-					if (a[i] > 0) {
-						dp[k] = max(dp[k], dp[i] + a[k]);
-					}
-				} else {
-					if (a[i] < 0) {
-						dp[k] = max(dp[k], dp[i] + a[k]);
-					}
+		int len = 0;
+		int maxlen = 0;
+		ll sm = -1e9 - 7;
+		ll curr = 0;
+		int i = 0;
+		bool valid = true;
+
+		while (i < n) {
+
+			len = 0;
+			valid = true;
+			curr = 0;
+
+			while (valid && i + 1 < n) {
+				len++;
+				curr += a[i];
+				valid = (a[i] > 0 && a[i + 1] < 0) || (a[i] < 0 && a[i + 1] > 0);
+				i++;
+			}
+
+			if (valid) {
+				if ((a[i - 1] > 0 && a[i] < 0)  || (a[i - 1] < 0 && a[i] > 0)) {
+					len += 1;
+					if (len == maxlen) {}
+
 				}
 			}
-		}
-		cout << dp[n - 1] << endl;
 
+
+			if (!valid && len == maxlen) {
+				sm = max(sm, curr);
+			} else if (!valid && len > maxlen) {
+				maxlen = len;
+				sm = curr;
+			}
+
+		}
+		cout << sm << "\n";
 
 	}
 	return 0;
