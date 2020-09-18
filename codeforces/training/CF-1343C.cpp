@@ -50,7 +50,7 @@ int main() {
 
 		int len = 0;
 		int maxlen = 0;
-		ll sm = -1e9 - 7;
+		ll sm = -1e10 - 7;
 		ll curr = 0;
 		int i = 0;
 		bool valid = true;
@@ -60,6 +60,15 @@ int main() {
 			len = 0;
 			valid = true;
 			curr = 0;
+
+			if (i == n - 1) {
+				len++;
+				curr += a[i];
+				i++;
+				if (len == maxlen) sm = max(sm, curr);
+				else if (len > maxlen) sm = curr;
+				continue;
+			}
 
 			while (valid && i + 1 < n) {
 				len++;
@@ -71,18 +80,18 @@ int main() {
 			if (valid) {
 				if ((a[i - 1] > 0 && a[i] < 0)  || (a[i - 1] < 0 && a[i] > 0)) {
 					len += 1;
-					if (len == maxlen) {}
-
+					curr += a[n - 1];
+					i++;
 				}
 			}
 
-
-			if (!valid && len == maxlen) {
+			if (len == maxlen) {
 				sm = max(sm, curr);
-			} else if (!valid && len > maxlen) {
+			} else if (len > maxlen) {
 				maxlen = len;
 				sm = curr;
 			}
+			cout << sm << " " << len << "\n";
 
 		}
 		cout << sm << "\n";
