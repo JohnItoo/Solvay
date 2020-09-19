@@ -67,6 +67,16 @@ int main() {
 			forn(i, odds.size()) {
 				cout << odds[i] << " ";
 			}
+		} else {
+			vector<int> res(n);
+			int i = 0;
+			int ct = 0;
+			while (i < n && ct < odds.size()) {
+				res[i] = odds[ct++];
+				i += 2;
+			}
+
+			int i = 1;
 		}
 
 
