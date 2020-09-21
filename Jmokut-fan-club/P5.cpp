@@ -14,7 +14,7 @@ int main() {
     }
 
     for (int i = 2; i <= n; i++) { //bricks
-        for (int j = 1; j < n; j++) { // last height
+        for (int j = 1; j <= n - 1; j++) { // last height
             dp[i][j] = dp[i][j - 1];
 
             if (i >= j) {
