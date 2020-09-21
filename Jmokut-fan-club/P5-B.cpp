@@ -13,12 +13,13 @@ int main() {
         dp[0][i] = dp[1][i] = 1;
     }
 
-    for (int bricks = 2; bricks <= n; bricks++) {
-        for (int previous = 1; previous <= n; previous++) {
-            for (int next = previous + 1; next <= n - previous; next++) {
-                dp[bricks][previous] += dp[bricks + next][next];
+    for (int sum = 2; sum <= n; sum++) {
+        for (int endheight = 1; endheight <= n; endheight++) {
+            for (int prevsum = 1;  prevsum + endheight <= n ; prevsum++) {
+                dp[sum][endheight] += dp[prevsum][endheight];
             }
         }
     }
+    cout << dp[n][n-1] << endl;
     return 0;
 }
