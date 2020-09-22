@@ -32,8 +32,8 @@ int main() {
 
 
 			if (!h && !v) {
-				m = dy / dx;
-				c = b.second - (m * b.first);
+				m = (double) dy / dx;
+				c = (double) b.second - (m * b.first);
 			}
 
 			cout << c << " " << h << " " << v <<  " This is intercept \n";
@@ -59,9 +59,11 @@ int main() {
 					if (curr.first == last.first) continue;
 					double currm = (curr.second - last.second) / (curr.first - last.first);
 
+
 					if (curr.second - (currm *  curr.first) == c) {
 						// last = curr;
-						cout << i << " " << j << " " << k << " i j k\n";
+						cout << i << " " << j << " " << " " << " i j k\n";
+						printf("%.2f %.2f %.2f\n", currm, m, c);
 						count++;
 					}
 				}
