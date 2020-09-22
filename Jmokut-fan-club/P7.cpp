@@ -1,12 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//https://acm.timus.ru/problem.aspx?space=1&num=1049
+
 int main() {
 	long long n = 1;
-	for (int i = 0; i < 10; i++) {
-		long long x; cin >> x;
-		n *= x;
-	}
+
 	vector<int> sv(10005, -1);
 	for (int i = 2; i <= 10000; i++) {
 		if (sv[i] != -1) continue;
@@ -17,27 +16,34 @@ int main() {
 		}
 	}
 	vector<int> primes;
-	for (int i = 2; i <= n;  i++) {
+	for (int i = 2; i <= 10000;  i++) {
 		if (sv[i] == i) primes.push_back(i);
 	}
 
 
-	vector<int> times;
-	for ( int i = 0; i < primes.size(); i++) {
-		int prime = primes[i];
-		int ct = 0;
+	map<int, int> mp;
 
-		while (n > 0 && n % prime == 0) {
-			n /= prime;
-			ct++;
+	for (int i = 0; i < 10; i++) {
+		long long x; cin >> x;
+		if (x < 2) continue;
+		for ( int j = 0; j < primes.size(); j++) {
+			int prime = primes[j];
+
+			while (x > 1 && x % prime == 0) {
+				x /= prime;
+				mp[prime]++;
+			}
+
+			if (x <= 1) {
+				break;
+			}
 		}
-		if (ct > 0) times.push_back(ct + 1);
-		if (n == 0) break;
 	}
+
 	long long ans = 1;
 
-	for (int time : times) {
-		ans *= (long long) time;
+	for (auto it : mp) {
+		ans *= (it.second + 1);
 	}
 
 
