@@ -27,8 +27,8 @@ int main() {
 			h = dy == 0;
 			v = dx == 0;
 
-			int m = 0;
-			int c = 0;
+			double m = 0;
+			double c = 0;
 
 
 			if (!h && !v) {
@@ -36,9 +36,10 @@ int main() {
 				c = b.second - (m * b.first);
 			}
 
-			cout << c << " This is intercept \n";
+			cout << c << " " << h << " " << v <<  " This is intercept \n";
 
-			int count = 2;
+
+			int count = 0;
 			ii last = b;
 			for (int k = 0; k < n; k++) {
 				if (k == i || k == j) continue;
@@ -56,15 +57,16 @@ int main() {
 					}
 				} else {
 					if (curr.first == last.first) continue;
-					int currm = (curr.second - last.second) / (curr.first - last.first);
+					double currm = (curr.second - last.second) / (curr.first - last.first);
 
 					if (curr.second - (currm *  curr.first) == c) {
 						// last = curr;
+						cout << i << " " << j << " " << k << " i j k\n";
 						count++;
 					}
 				}
 			}
-			best = max(best, count);
+			best = max(best, count + 2);
 
 		}
 	}
