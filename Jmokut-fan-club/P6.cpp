@@ -21,22 +21,21 @@ int main() {
 			ii a = rh[i];
 			ii b = rh[j];
 
-			int dx = a.first - b.first;
-			int dy = a.second - b.second;
+			int dx = a.first - b.first; //x,y
+			int dy = a.second - b.second;// a,b
 
 			h = dy == 0;
 			v = dx == 0;
 
-			double m = 0;
-			double c = 0;
+			int m = 0;
+			int c = 0;
 
 
 			if (!h && !v) {
-				m = (double) dy / dx;
-				c = (double) b.second - (m * b.first);
+				m =  dy / dx;
+				c =  b.second - (m * b.first);
 			}
 
-			cout << c << " " << h << " " << v <<  " This is intercept \n";
 
 
 			int count = 0;
@@ -47,23 +46,21 @@ int main() {
 
 				if (h) {
 					if (curr.second == last.second) {
-						// last = curr;
 						count++;
 					}
 				} else if (v) {
 					if (curr.first == last.first) {
-						// last = curr;
 						count++;
 					}
 				} else {
 					if (curr.first == last.first) continue;
-					double currm = (curr.second - last.second) / (curr.first - last.first);
+					int currm = (curr.second - last.second) / (curr.first - last.first);
+					int lef = (b.second - a.second) * (curr.first - a.first);
+					int rt = (b.first - a.first) * (curr.second - a.second);
 
 
-					if (curr.second - (currm *  curr.first) == c) {
-						// last = curr;
-						cout << i << " " << j << " " << " " << " i j k\n";
-						printf("%.2f %.2f %.2f\n", currm, m, c);
+
+					if (lef == rt) {
 						count++;
 					}
 				}

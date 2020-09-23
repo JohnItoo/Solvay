@@ -7,12 +7,12 @@ using namespace std;
 int main() {
 	int n; double r;
 	cin >> n >> r;
-	set<pdd > nails;
+	vector<pdd > nails;
 	for (int i = 0; i < n; i++) {
 		double x, y;
 		cin >> x >> y;
 		pdd nail = make_pair(x, y);
-		nails.insert(nail);
+		nails.push_back(nail);
 	}
 
 	double per = 0.0;
