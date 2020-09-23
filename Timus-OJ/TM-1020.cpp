@@ -3,6 +3,11 @@ using namespace std;
 #define pdd pair<double, double>
 # define EM_PI 3.14159265358979323846
 
+double distance(pdd a, pdd b) {
+	double xs = pow(a.first - b.first, 2);
+	double ys = pow(a.second - b.second, 2);
+	return pow(xs + ys, 0.5);
+}
 
 int main() {
 	int n; double r;
@@ -16,22 +21,21 @@ int main() {
 	}
 
 	double per = 0.0;
-	pdd prev = make_pair(-900, 900);
+	pdd prev = nails[0];
 	bool first = true;
+	int i = 1;
 
-	while (nails.size() >= 1) {
-		if (first) {
-			first = false;
-			prev = *nails.begin();
-			nails.erase(nails.begin());
-			continue;
-		}
-		pdd curr = *nails.begin();
-		double diff = abs(prev.first - curr.first) + abs(prev.second - curr.second);
+
+	while (i < n) {
+
+		pdd curr = nails[i];
+		double diff = distance(curr, prev);
 		per += diff;
 		prev = curr;
-		nails.erase(nails.begin());
+		i++;
 	}
+
+	per += distance(nails[0], nails[n - 1]);
 
 	per += (2 * EM_PI * r);
 	printf("%.2f\n", per);

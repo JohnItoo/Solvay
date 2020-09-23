@@ -20,6 +20,6 @@ int main() {
             }
         }
     }
-    cout << dp[n][n-1] << endl;
+    cout << dp[n][n - 1] << endl;
     return 0;
 }

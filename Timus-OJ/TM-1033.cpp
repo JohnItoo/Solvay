@@ -2,6 +2,11 @@
 
 using namespace std;
 
+//BFS, first start from the starting point, and meet ans ++;
+//there is a disconnection, so you have to find it again from the end point,
+//and finally subtract the four sides of the two corners that are entrances.
+
+
 vector<vector<bool > > visited(40, vector<bool> (40, false));
 vector<vector<char > > grid(40, vector<char>(40));
 
