@@ -66,12 +66,13 @@ int main() {
 				continue;
 			}
 			if (start + use <= n) {
-				start += use;
+				
 				idx++;
 				ct++;
 			} else {
 				break;
 			}
+
 		}
 		cout << ct << "\n";
 	}

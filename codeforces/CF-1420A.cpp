@@ -47,19 +47,43 @@ int main() {
 		vi a;
 		vi b;
 		int n; cin >> n;
+		vector<pair<int, int> > vp;
 		forn(i, n) {
 			int x; cin >> x;
 			a.pb(x);
-			b.pb(x);
+			vp.pb(mp(x, i));
 		}
-		sort(b.rbegin(), b.rend());
+		sort(vp.rbegin(),  vp.rend());
+
+		int comp = ((n * (n - 1)) / 2) - 1;
 		int ans = 0;
-		forn(i, n) {
-			if (a[i] != b[i]) {
-				ans++;
+		int i = n - 1;
+		int vpi = 0;
+		map<int, int> dn;
+
+
+		while (i >= 0 && vpi + 1 < n) {
+			ii curr = vp[vpi];
+			while (vpi + 1 < n && curr.first >= a[i]) {
+				// cout << vpi << endl;
+				if (dn.find(i) != dn.end()) {
+					vpi++;
+					curr = vp[vpi];
+					continue;
+				}
+
+				a.pb(curr.first);
+				dn[curr.second] = 1;
+				ans += abs(curr.second - i);
+				vpi++;
+				curr = vp[vpi];
+			}
+			while (i > 0 && dn.find(i) != dn.end()) {
+				// cout << "here\n";
+				i--;
 			}
 		}
-		int comp = ((n * (n - 1)) / 2) - 1;
+
 		if (ans <= comp) cout << "YES\n";
 		else cout << "NO\n";
 	}
