@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Simple priority queue and simulate the process.
+// The assumption that there will always be an answer is correct.
 int main() {
 
 	priority_queue<int> pq;
@@ -19,7 +21,6 @@ int main() {
 		int a = pq.top(); pq.pop();
 
 		int b = pq.top(); pq.pop();
-		cout << a << b << "\n";
 		mp[a]--;
 		mp[b]--;
 

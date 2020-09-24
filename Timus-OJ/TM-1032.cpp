@@ -3,6 +3,8 @@ using namespace std;
 
 #define ll long long
 
+//pigeon hole principle check lemma.
+
 int main () {
 	int n; cin >> n;
 	vector<ll> pref(n + 1, 0);
