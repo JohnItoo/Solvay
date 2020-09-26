@@ -61,7 +61,7 @@ int main() {
 		}
 		mps[x]++;
 	}
-	if(cant) {
+	if(cant || k > n) {
 		cout << "NO";
 		return 0;
 	}
