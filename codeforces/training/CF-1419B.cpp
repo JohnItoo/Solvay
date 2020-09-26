@@ -66,7 +66,7 @@ int main() {
 				continue;
 			}
 			if (start + use <= n) {
-				
+
 				idx++;
 				ct++;
 			} else {
