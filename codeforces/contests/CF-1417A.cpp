@@ -63,12 +63,9 @@ int main() {
 			a[i] = x;
 		}
 		ll ans = 0;
-		// cout << idx << "\n";
 		forn(i, n) {
 			if (i == idx) continue;
 			ans += (k - a[i]) / mn;
-			// cout << k << " " << a[i] << " " << mn << "\n";
-			// cout << (k - a[i]) / mn << "\n";
 		}
 		cout << ans << "\n";
 	}
