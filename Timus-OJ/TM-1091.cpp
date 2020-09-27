@@ -10,6 +10,7 @@ void factorial() {
 
 	for (ll i = 2; i <= 50; i++) {
 		fact[i] = i * fact[i - 1];
+		cout << fact[i] << "\n";
 	}
 }
 
@@ -24,9 +25,11 @@ int main() {
 		for (int j = 1; i * j <= s; j++) {
 			N++;
 		}
+		cout << i << " " << N << "\n";
 		if (N >= k) {
 			ll ans  = 0;
 			if ((fact[k] * (fact[N - k])) != 0) {
+				cout << fact[N] << " facrt N\n";
 				ans = (fact[N]) / (fact[k] * (fact[N - k]));
 			}
 			res += ans;
