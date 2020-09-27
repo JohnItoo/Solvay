@@ -53,46 +53,54 @@ int main() {
 		int n, t;
 		cin >> n >> t;
 		vector<int> a(n);
-		set<ii> st;
 		forn(i, n) {
 			cin >> a[i];
-			st.insert(mp(a[i], i));
 		}
 		vi res(n);
-		set<int> ones;
-		set<int> zeros;
-		while (st.size() > 1) {
-			auto it = st.begin();
-			ii curr = *it;
-			st.erase(it);
-
-			it = st.lower_bound(mp(t - curr.first, 0));
-
-			if (it != st.end() && t - curr.first == (*it).first) {
-				res[curr.second] = 1;
-				res[(*it).second] = 0;
-				ones.insert(curr.first);
-				zeros.insert((*it).first);
-				st.erase(it);
-			} else {
-				res[curr.second] = 1;
-				ones.insert(curr.first);
-			}
-		}
-		if (st.size() != 0) {
-			int nd = (*st.begin()).first;
-
-			if (zeros.lower_bound(abs(t - nd)) != zeros.end()) {
-				int ds = *zeros.lower_bound(abs(t - nd));
-				// cout << ds << " " << t - nd << "\n";
-				if (ds == t - nd) {
-					res[nd] = 1;
+		if (t & 1) {
+			forn(i, n) {
+				if (a[i] & 1) {
+					res[i] = 0;
 				} else {
-					res[nd] = 0;
+					res[i] = 1;
 				}
-			} else {
-				res[nd] = 0;
-
+			}
+		} else {
+			int lastval = 0;
+			int last = 2;
+			int lim = (n / 2) * 2;
+			map<int, int> ones;
+			map<int, int> zeros;
+			forn(i, lim) {
+				if ((a[i] & 1)) {
+					if (last % 2 == 0) {
+						res[i] = lastval;
+					} else {
+						lastval = (lastval == 0) ? 1 : 0;
+						res[i] = lastval;
+					}
+				} else {
+					if (last % 2 == 0) {
+						lastval = (lastval == 0) ? 1 : 0;
+						res[i] = lastval;
+					} else {
+						res[i] = lastval;
+					}
+				}
+				last = a[i];
+				if (lastval == 1) {
+					ones[a[i]]++;
+				} else {
+					zeros[a[i]]++;
+				}
+			}
+			if (n & 1) {
+				int nd = t - a[n - 1];
+				if (ones.find(nd) == ones.end()) {
+					res[n - 1] = 1;
+				} else {
+					res[n - 1] = 0;
+				}
 			}
 		}
 
