@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -46,7 +46,60 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
-return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc; cin >> tc;
+	while (tc--) {
+		int n, t;
+		cin >> n >> t;
+		vector<int> a(n);
+		set<ii> st;
+		forn(i, n) {
+			cin >> a[i];
+			st.insert(mp(a[i], i));
+		}
+		vi res(n);
+		set<int> ones;
+		set<int> zeros;
+		while (st.size() > 1) {
+			auto it = st.begin();
+			ii curr = *it;
+			st.erase(it);
+
+			it = st.lower_bound(mp(t - curr.first, 0));
+
+			if (it != st.end() && t - curr.first == (*it).first) {
+				res[curr.second] = 1;
+				res[(*it).second] = 0;
+				ones.insert(curr.first);
+				zeros.insert((*it).first);
+				st.erase(it);
+			} else {
+				res[curr.second] = 1;
+				ones.insert(curr.first);
+			}
+		}
+		if (st.size() != 0) {
+			int nd = (*st.begin()).first;
+
+			if (zeros.lower_bound(abs(t - nd)) != zeros.end()) {
+				int ds = *zeros.lower_bound(abs(t - nd));
+				// cout << ds << " " << t - nd << "\n";
+				if (ds == t - nd) {
+					res[nd] = 1;
+				} else {
+					res[nd] = 0;
+				}
+			} else {
+				res[nd] = 0;
+
+			}
+		}
+
+		forn(i, n) cout << res[i] << " ";
+		cout << "\n";
+
+
+	}
+	return 0;
 }
