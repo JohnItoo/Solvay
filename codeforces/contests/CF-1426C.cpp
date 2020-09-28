@@ -1,12 +1,18 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include <bits/stdc++.h>
+#include <iostream>
+#include <algorithm>
+#include <set>
+#include <map>
+#include <set>
+#include <vector>
+#include <string.h> // for memset in CF judge.
 using namespace std;
 #define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
 // Shortcuts for "common" data types in contests
@@ -38,25 +44,9 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-// to_string(int)
-
-string trUpp(string s) {
-
-	transform(s.begin(), s.end(), s.begin(), ::toupper);
-	return "";
-}
 
 int main() {
-	int a, b;
-	cin >> a >> b;	if (a == b) {
-		cout << 0 << "\n";
-		return 0;
-	}
-	int arr[3] = {2, 3, 5};
-	int facta = 
-	
-
-
-
-	return 0;
+ ios::sync_with_stdio(false);
+ cin.tie(0);
+return 0;
 }
