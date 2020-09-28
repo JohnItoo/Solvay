@@ -44,23 +44,24 @@ int main() {
 	cin.tie(0);
 	int n; cin >> n;
 	vi a(n);
+	int ones = 0, twos = 0, threes = 0, fours = 0;
 	forn(i, n) {
 		cin >> a[i];
+		if (a[i] == 1) ones++;
+		else if (a[i] == 2) twos++;
+		else if (a[i] == 3) threes++;
+		else fours++;
 	}
-	sort(a.begin(), a.end());
-	int i = 0;
-	int taxis = 0;
-	while (i < n) {
-		int prev = a[i];
-		taxis += 1;
-		cout << i << " " << taxis << "\n";
+	ll taxis = 0;
+	int mn = min(ones, threes);
+	ones -= mn;
+	threes -= mn;
+	int mt = twos / 2;
+	twos = twos - (mt * 2);
+	taxis = mn + ones + threes + twos + mt + fours;
 
-		while (i + 1 < n && a[i + 1] +  prev <= 4) {
-			prev += a[i + 1];
-			i++;
-		}
-		i+=1;
-	}
+
+
 	cout << taxis << "\n";
 	return 0;
 }
