@@ -53,9 +53,9 @@ int main() {
 	while (i < n) {
 		int prev = a[i];
 		taxis += 1;
+		cout << i << " " << taxis << "\n";
 
 		while (i + 1 < n && a[i + 1] +  prev <= 4) {
-			// cout << "dont stop\n";
 			prev += a[i + 1];
 			i++;
 		}
