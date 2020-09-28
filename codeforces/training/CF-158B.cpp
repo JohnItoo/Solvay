@@ -6,13 +6,7 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include <iostream>
-#include <algorithm>
-#include <set>
-#include <map>
-#include <set>
-#include <vector>
-#include <string.h> // for memset in CF judge.
+#include <bits/stdc++.h>
 using namespace std;
 #define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
 // Shortcuts for "common" data types in contests
@@ -48,27 +42,25 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc; cin >> tc;
-	while (tc--) {
-		int n;
-		cin >> n;
-		vi a(n);
-		forn(i, n) cin >> a[i];
-		ll ans = 0;
-		for (int j = 29; j >= 0; j--) {
-			ll ct = 0;
-
-			for (int i = 0; i < n; i++) {
-
-				if (a[i] >= (1 << j) && a[i] < (1 << (j + 1))) {
-					ct++;
-				}
-
-			}
-			ans += (ct * (ct - 1)) / 2;
-		}
-		cout << ans << "\n";
+	int n; cin >> n;
+	vi a(n);
+	forn(i, n) {
+		cin >> a[i];
 	}
+	sort(a.begin(), a.end());
+	int i = 0;
+	int taxis = 0;
+	while (i < n) {
+		int prev = a[i];
+		taxis += 1;
+
+		while (i + 1 < n && a[i + 1] +  prev <= 4) {
+			// cout << "dont stop\n";
+			prev += a[i + 1];
+			i++;
+		}
+		i+=1;
+	}
+	cout << taxis << "\n";
 	return 0;
 }
-
