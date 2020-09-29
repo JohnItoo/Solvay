@@ -42,29 +42,34 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int n; cin >> n;
-	vi a(n);
-	vi b(n);
-	vector<bool> done(n, false);
-	set<ii> st;
-	forn(i,  n) {
-		cin >> a[i];
-		b[i] = a[i];
-		st.insert(mp(a[i], i));
+	int n, k;
+	cin >> n >> k;
+	string s;
+	cin >> s;
+	map<char, int> mp;
+
+	forn(i, k) {
+		char c; cin >> c;
+		mp[c]++;
 	}
-	ll ans = 0;
-	REP(i, 1, n) {
-		auto it = st.lower_bound(mp(i, 0));
-		ii pr = *it;
-		if ((*it).first != i) {
-			it = st.begin();
-			ans += abs(i - (*it).first);
+	int i = 0;
+	ll ct = 0;
+	ll curr = 0;
+	while (i < n) {
+		if (mp.find(s[i]) == mp.end()) {
+			i++;
+			continue;
 		}
-		st.erase(it);
+		curr = 0;
+		while (i  < n && mp.find(s[i]) != mp.end()) {
+			curr++;
+			i++;
+		}
+		ll dz = (curr * ( curr + 1)) / 2;
+		ct += dz;
+
 	}
-	cout << ans << "\n";
-
-
+	cout << ct << "\n";
 
 	return 0;
 }
