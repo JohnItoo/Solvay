@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -40,41 +40,20 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	multiset<int> mt;
-	vi v;
-	int n; cin >> n;
-	forn(i, n) {
-		int x; cin >> x;
-		mt.insert(x);
-	}
-
-	forn(i, n - 1) {
-		int x; cin >> x;
-		v.pb(x);
-		auto it = mt.find(x);
-		if (it != mt.end()) {
-			mt.erase(it);
-		}
-	}
-
-	int f = *mt.begin();
-	cout << f << "\n";
-	mt.erase(mt.begin());
-
-	for (int c : v) {
-		mt.insert(c);
-	}
-
-	forn(i, n - 2) {
-		int y; cin >> y;
-		auto it = mt.find(y);
-		if (it != mt.end()) {
-			mt.erase(it);
-		}
-	}
-	int l = *mt.begin();
-	cout << l << "\n";
-	return 0;
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  int tc; cin >> tc;
+  while(tc--) {
+  	int n; cin >> n;
+  	set<int> st;
+  	forn(i, n) {
+  		int x; cin >> x;
+  		st.insert(x);
+  	}
+  	int sz = st.size();
+  	int ans = min(sz,  n -sz);
+  	int at = min(sz-1, n-sz+1);
+  	cout << max(ans, at) << "\n";
+  }
+return 0;
 }
