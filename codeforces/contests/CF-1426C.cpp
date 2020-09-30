@@ -51,29 +51,11 @@ int main() {
 	int tc; cin >> tc;
 	while (tc--) {
 		int n; cin >> n;
-		int curr = 1;
-		int ct = 0;
-		set<int> st;
-		st.insert(1);
-
-		while (curr < n) {
-			auto it = st.end();
-			--it;
-			st.erase(it);
-
-			int bg = *it;
-			if (ct & 1) {
-				st.insert(bg + 1);
-
-				curr += 1;
-				ct++;
-			} else {
-				st.insert(bg);
-				curr += bg;
-				ct++;
-			}
+		ll x = 1;
+		while ((x - 1) + (x * x) < n) {
+			x++;
 		}
-		cout << ct << "\n";
+		cout << (x - 1) + x << "\n";
 	}
 	return 0;
 }
