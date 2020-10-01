@@ -62,6 +62,7 @@ int main() {
 		double speeda = 1;
 		double speedb = 1;
 		double totaltime = 0;
+		int lastmove = 8;
 		while (i < j) {
 
 			double dista = flags[i] - presa;
@@ -70,6 +71,7 @@ int main() {
 			double distb = presb - flags[j];
 			double timeb = distb / speeda;
 
+
 			// printf("% .2f  %.2f\n" , timea, timeb);
 
 			if (timea == timeb) {
@@ -77,28 +79,50 @@ int main() {
 				speedb += 1;
 				presa = flags[i++];
 				presb = flags[j--];
-
 				totaltime += timea;
+				lastmove = 0;
 			} else {
 				if (timea < timeb) {
 					presa = flags[i++];
-					presb = presb - (timea * speedb);
+					presb -=  (timea * speedb);
 					speeda += 1;
 					totaltime += timea;
+					lastmove = 1;
 				} else {
 					presb = flags[j--];
-					presa = presa + (timeb * speeda);
+					presa += (timeb * speeda);
 					speedb += 1;
 					totaltime += timeb;
+					lastmove = -1;
 				}
 			}
-
 		}
+		double freshtime = 0;
+		if(i == j || lastmove == 0) {
+           lastmove = flags[i] - presa > presb - flags[i] ? 1 : -1;
+		}
+		if (lastmove == 1) {
+			double distflag = presb - flags[j];
+			freshtime = distflag / speedb;
+			presb = flags[j];
+			speedb += 1;
+			presa += (freshtime * speeda);
+		} else if (lastmove == -1) {
+
+			double distflag = flags[i] - presa;
+			freshtime = distflag / speeda;
+			presa = flags[i];
+			speeda += 1;
+			presb -= (freshtime * speedb);
+		}
+		 // printf("% .2f \n", freshtime);
+
+		totaltime += freshtime;
 		double meet = ((speeda * presb) + (speedb * presa)) / (speeda + speedb);
 		double rem = meet - presa;
 		double tmmeet =  rem / speeda;
 
-		printf("% .7f \n" , tmmeet + totaltime);
+		printf("% .16f \n" , tmmeet + totaltime);
 
 	}
 	return 0;
