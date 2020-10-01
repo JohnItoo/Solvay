@@ -70,7 +70,7 @@ int main() {
 			double distb = presb - flags[j];
 			double timeb = distb / speeda;
 
-			printf("% .2f  %.2f\n" , timea, timeb);
+			// printf("% .2f  %.2f\n" , timea, timeb);
 
 			if (timea == timeb) {
 				speeda += 1;
@@ -82,12 +82,12 @@ int main() {
 			} else {
 				if (timea < timeb) {
 					presa = flags[i++];
-					presb = timea * speedb;
+					presb = presb - (timea * speedb);
 					speeda += 1;
 					totaltime += timea;
 				} else {
 					presb = flags[j--];
-					presa = timeb * speeda;
+					presa = presa + (timeb * speeda);
 					speedb += 1;
 					totaltime += timeb;
 				}
