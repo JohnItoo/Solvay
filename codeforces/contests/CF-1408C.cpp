@@ -98,8 +98,8 @@ int main() {
 			}
 		}
 		double freshtime = 0;
-		if(i == j || lastmove == 0) {
-           lastmove = flags[i] - presa > presb - flags[i] ? 1 : -1;
+		if (i == j || lastmove == 0) {
+			lastmove = flags[i] - presa > presb - flags[i] ? 1 : -1;
 		}
 		if (lastmove == 1) {
 			double distflag = presb - flags[j];
@@ -115,7 +115,7 @@ int main() {
 			speeda += 1;
 			presb -= (freshtime * speedb);
 		}
-		 // printf("% .2f \n", freshtime);
+		// printf("% .2f \n", freshtime);
 
 		totaltime += freshtime;
 		double meet = ((speeda * presb) + (speedb * presa)) / (speeda + speedb);
