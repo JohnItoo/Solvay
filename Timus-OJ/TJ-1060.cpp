@@ -26,7 +26,7 @@ string flip(string state, int i) {
 		int nr = row + dir[g][0];
 		int nc = col + dir[g][1];
 		int calc = nc + (nr * 4);
-		if (calc < 0 || calc > 15) continue;
+		if (nr < 0 || nr > 3 || nc  < 0 || nc > 3) continue;
 		state[calc] = (state[calc] == 'w') ? 'b' : 'w';
 	}
 	return state;
@@ -36,7 +36,6 @@ void bfs(string board) {
 
 	queue<string> q;
 	q.push(board);
-	string prev = "";
 	level[board] = 0;
 
 	while (!q.empty()) {
@@ -50,16 +49,16 @@ void bfs(string board) {
 			}
 		}
 
-
 		for (int i = 0; i < 16; i++) {
 
 			string newstate = flip(state, i);
 
-			level[newstate] = it->second + 1;
+			if (level.find(newstate) == level.end()) {
+				level[newstate] = it->second + 1;
+				q.push(newstate);
+			}
 
-			q.push(newstate);
 		}
-
 
 	}
 }
@@ -72,9 +71,10 @@ int main() {
 		board += s;
 	}
 
+
 	bfs(board);
 	if (best == mx) {
-		cout << -1 << "\n";
+		cout << "Impossible" << "\n";
 	} else {
 		cout << best << "\n";
 	}
