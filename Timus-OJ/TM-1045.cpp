@@ -4,6 +4,8 @@ using namespace std;
 vector<int> g[1005];
 pair<int, int> mp;
 vector<bool> visited(1005, false);
+set<int> pots;
+map<int, int> dels;
 
 void dfs(int k, int parent,  int depth) {
 	if (visited[k]) return;
@@ -15,8 +17,27 @@ void dfs(int k, int parent,  int depth) {
 		if (visited[e]) ct--;
 	}
 	if (ct == 0) {
-		if ((depth & 1) && parent < mp.second) {
-			mp = make_pair(depth, parent);
+		if ((depth & 1)) {
+			if (dels.find(parent) == dels.end()) {
+				pots.insert(parent);
+
+			}
+		} else {
+			cout << "here : " << depth << "\n";
+			int p = depth == 0 ? k : parent;
+
+
+			for (auto xx : pots) {
+				cout << xx << " pots\n";
+			}
+			dels[p] = 1;
+
+			auto it = pots.lower_bound(p);
+			cout << *it << " it \n";
+			if (it != pots.end() && *it == p) {
+				cout << "ersase\n";
+				pots.erase(it);
+			}
 		}
 
 	} else {
@@ -39,10 +60,11 @@ int main() {
 		g[y].push_back(x);
 	}
 	dfs(k, k, 0);
-	if (mp.first == 10005) {
+	if (pots.size() == 0) {
 		cout << "First player loses\n";
 	} else {
-		printf("First player wins flying to airport %d\n", mp.second);
+		int gp = *pots.begin();
+		printf("First player wins flying to airport %d\n", gp);
 	}
 
 	return 0;
