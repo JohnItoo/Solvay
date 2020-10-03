@@ -42,5 +42,9 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
  cin.tie(0);
+ ll a,b; cin >> a >> b;
+ ll x = (a+b)/ 2;
+ ll y = a - x;
+ cout << x <<  " " << y <<"\n";
 return 0;
 }
