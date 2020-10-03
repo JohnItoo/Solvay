@@ -23,19 +23,19 @@ void dfs(int k, int parent,  int depth) {
 
 			}
 		} else {
-			cout << "here : " << depth << "\n";
+			// cout << "here : " << depth << "\n";
 			int p = depth == 0 ? k : parent;
 
 
-			for (auto xx : pots) {
-				cout << xx << " pots\n";
-			}
+			// for (auto xx : pots) {
+			// 	cout << xx << " pots\n";
+			// }
 			dels[p] = 1;
 
 			auto it = pots.lower_bound(p);
-			cout << *it << " it \n";
+			// cout << *it << " it \n";
 			if (it != pots.end() && *it == p) {
-				cout << "ersase\n";
+				// cout << "ersase\n";
 				pots.erase(it);
 			}
 		}
