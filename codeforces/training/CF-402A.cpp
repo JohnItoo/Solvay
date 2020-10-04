@@ -63,7 +63,6 @@ int main() {
 	cin.tie(0);
 	cin >> k >> a >> b >> v;
 	cout << makeboxes(b) << "\n";
+	return 0;
 }
 
-return 0;
-}
