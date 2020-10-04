@@ -38,31 +38,24 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization tables
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-int k, a, b, v;
 
-int makeboxes(int rembs) {
-	if (rembs < k) {
-		int sections = b + 1;
-		int currboxes = 1;
-		a -= (sections) * v;
-		if (a > 0) {
-			currboxes += (a + v - 1) / v;
-		}
-		return currboxes;
-	}
-
-	int boxes = rembs / k;
-	int newrembs = rembs - (boxes * (k - 1));
-	int nuts = boxes * k * v;
-	a -= nuts;
-	return boxes + makeboxes(newrembs);
-}
 
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	cin >> k >> a >> b >> v;
-	cout << makeboxes(b) << "\n";
+	string s; cin >> s;
+	string h = "hello";
+	int id = 0;
+	forn(i , s.length()) {
+		if(id < h.length() && s[i] == h[id]) {
+			id++;
+		}
+	}
+	if(id == h.length()) {
+		cout << "YES\n";
+	} else {
+		cout << "NO\n";
+	}
 	return 0;
 }
 
