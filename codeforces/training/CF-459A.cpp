@@ -6,13 +6,7 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include <iostream>
-#include <algorithm>
-#include <set>
-#include <map>
-#include <set>
-#include <vector>
-#include <string.h> // for memset in CF judge.
+#include <bits/stdc++.h>
 using namespace std;
 #define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
 // Shortcuts for "common" data types in contests
@@ -44,42 +38,44 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-//WA>
+
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int x1, y1, x2, y2;
+	int x1, x2, y1, y2;
 	cin >> x1 >> y1 >> x2 >> y2;
-	int x3, y3, x4, y4 = 0;
-	bool can = true;
+	int x3 = 0, y3 = 0, x4 = 0, y4 = 0;
 	if (x1 == x2) {
-		x3 = x1 + (abs(y2 - y1));
-		y3 = y1;
+		if (y1 < y2) {
+			swap(y1, y2);
+		}
+		int diff =  y1 - y2;
+		x3 = x1 + diff;
+		y3 = x1;
+
 		x4 = x3;
 		y4 = y2;
-	} else if ( y1 == y2) {
-		x3 = x1;
-		y3 = y1 + (abs(x2 - x1));
-		x4 = x2;
+	} else if (y1 == y2) {
+		if (x1 < x2) swap(x1, x2);
+
+		int diff = x1 - x2;
+
+		x3 = x2;
+		y3 = y2 + diff;
+
+		x4 = x1;
 		y4 = y3;
 	} else {
-		if (x1 < x2) {
-			x3 = x2;
-			y3 = y1;
-			y4 = y2;
-			x4 = x1;
-		} else {
-			x3 = x1;
-			y3 = y2;
-			y4 = y1;
-			x4 = x2;
-		}
-		if (abs(x1 - x3) != abs(y1 - y3)) can = false;
+		// if(x1 < x2) {
+		// 	swap(x1, x2);
+		// 	swap(y1, y2);
+		// }
 
+		x3 = x1;
+		y3 = y2;
+		x4 = x2;
+		y4 = y1;
 	}
-
-}
-if (!can ) cout << -1 << endl;
-else cout << x3 << " " << y3 <<  " " << x4 << " " << y4 << endl;
-return 0;
+	cout << x3 << " " << y3 << " " << x4 << " " << y4 << "\n";
+	return 0;
 }
