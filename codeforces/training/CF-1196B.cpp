@@ -21,13 +21,13 @@ int main() {
         cout << "YES\n";
 
         for(int i = 0; i < n; i++) {
-            if (k == 1) break;
+            if (mv == k-1) break;
             if(mv < k && (a[i] & 1)) {
                 mv++;
                 cout << i + 1 << " ";
             }
         }
-        cout << "\n";
+        cout <<  n << "\n";
     }
 
 
