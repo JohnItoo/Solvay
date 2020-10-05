@@ -1,48 +1,35 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
 int main() {
-
-    int tc; cin >> tc;
-    while (tc--) {
-        int n;  cin >> n;
-        vector<int> a(n + 1, 0);
-        for (int i = 1; i <= n; i++) {
-            int x;
-            cin >> x;
-            a[i] = x + a[i - 1];
+    int tc;
+    cin >> tc;
+    while(tc--) {
+        int n, k; cin >> n >> k;
+        vector<int> a(n);
+        int cnt  = 0;
+        for(int i = 0; i < n; i++) {
+            cin >> a[i];
+            if(a[i] & 1) cnt++;
         }
-
-        int left = 1;
-
-        while (left <= n && (a[left] % 2) == 0) {
-            left++;
-        }
-        if (left == n + 1) {
+        if( cnt < k || cnt % 2 !=  k % 2) {
             cout << "NO\n";
             continue;
         }
-        int mid = left + 1;
-        int right = n;
+        int mv = 0;
 
-        // while(left < mid && mid < right && !((a[left] - a[0]) & 1 ) && (a[mid] - a[left] & 1) && (a[right] - a[mid] & 1) ) {
-
-        // }
-        cout << a[mid] << " mid\n";
-        cout << a[left] << " left\n";
-        cout << a[mid] - a[left] << " mid left\n";
-        cout << a[n] - a[mid] << " n mid\n";
-        while ( mid < n && (((a[mid] - a[left]) % 2 == 0) || ((a[n] - a[mid]) % 2  == 0) )) {
-            mid++;
-        }
-        if (mid == n) {
-            cout << "NO\n";
-            continue;
-        }
         cout << "YES\n";
-        cout << left << " " << mid << " " << right  << "\n";
 
+        for(int i = 0; i < n; i++) {
+            if (k == 1) break;
+            if(mv < k && (a[i] & 1)) {
+                mv++;
+                cout << i + 1 << " ";
+            }
+        }
+        cout << "\n";
     }
+
+
     return 0;
 }
