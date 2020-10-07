@@ -8,12 +8,23 @@ int main() {
 	cin >> s;
 	int n = s.length();
 	int l = -1, r = -1;
-	for (int i = 0; i < n - 1; i++) {
-		if (s[i] == s[i + 1]) {
-			l = i;
-			r = i + 1;
-			break;
+	for (int i = 0; i < n ; i++) {
+		int val = s[i] - 'a';
+		a[val].push_back(i + 1);
+	}
+	for (int i = 0; i < 26; i++) {
+		if (a[i].size() < 2) continue;
+		bool found = false;
+		for (int j = 0; j < a[i].size() - 1; j++) {
+			if (a[i][j + 1] - a[i][j] <= 2) {
+				l = a[i][j];
+				r = a[i][j + 1];
+				found = true;
+				break;
+			}
+
 		}
+		if (found) break;
 	}
 	cout << l << " " << r << "\n";
 
