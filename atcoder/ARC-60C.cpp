@@ -30,6 +30,7 @@ int main() {
 	ll val = 1;
 
 	ll ans = 0;
+	cout << dp[9][1] << "\n";
 
 	while (val <= n && 8 * val <= sm) {
 		ll curr = 8 * val;
