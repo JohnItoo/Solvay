@@ -31,10 +31,11 @@ int main() {
 
 	ll ans = 0;
 
-	while(val <= n && 8 * val <= sm) {
+	while (val <= n && 8 * val <= sm) {
 		ll curr = 8 * val;
 		ll ct = dp[curr][val];
-		if(val != 1) {
+		cout << ct << " " << val << "\n";
+		if (val != 1) {
 			ct /= 2;
 		}
 		val++;
