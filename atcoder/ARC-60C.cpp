@@ -32,8 +32,8 @@ int main() {
 	ll ans = 0;
 	cout << dp[9][1] << "\n";
 
-	while (val <= n && 8 * val <= sm) {
-		ll curr = 8 * val;
+	while (val <= n && a * val <= sm) {
+		ll curr = a * val;
 		ll ct = dp[curr][val];
 		cout << ct << " " << val << "\n";
 		if (val != 1) {
