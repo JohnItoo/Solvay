@@ -17,33 +17,33 @@ int main() {
 	for (int item : st) {
 		result.push_back(item);
 		auto it = ms.find(item);
-		if(it != ms.end()) {
+		if (it != ms.end()) {
 			ms.erase(it);
 		}
 	}
 
 	sort(result.rbegin(), result.rend());
 
-    set<int> nw;
+	set<int> nw;
 
 
-    for(int item : ms) {
-    	if(item >= result[0]) break;
-    	if(nw.find(item) != nw.end()) {
-    		continue;
-    	}
-    	nw.insert(item);
-    }
-    cout << nw.size() + result.size() << "\n";
+	for (int item : ms) {
+		if (item >= result[0]) break;
+		if (nw.find(item) != nw.end()) {
+			continue;
+		}
+		nw.insert(item);
+	}
+	cout << nw.size() + result.size() << "\n";
 
-    for(int ss : nw) {
-    	cout << ss << " ";
-    }
+	for (int ss : nw) {
+		cout << ss << " ";
+	}
 
-    for (int rs : result) {
-    	cout << rs << " ";
-    }
-   cout << endl;
+	for (int rs : result) {
+		cout << rs << " ";
+	}
+	cout << endl;
 
 
 
