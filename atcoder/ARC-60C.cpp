@@ -13,43 +13,25 @@ int main() {
 		sm += x[i];
 	}
 
-	vector<vector<ll> > dp(2550, vector<ll>(n + 1, 0));
-	dp[0][0] = 1;
+	// vector<vector<ll> > dp(2550, vector<ll>(n + 1, 0));
+	ll dp[2550][n+1][n+1];
+	memset(dp, 0, sizeof dp);
+	dp[0][0][0] = 1;
 
-	
-	for (int k = 1; k <= n; k++) {
-		for (int i = 0; i  < n; i++) {
-			for (int j = 1; j <= 2500; j++) {
-				int card = x[i];
-				if (card > j) continue;
-				dp[j][k] += dp[j - card][k - 1];
-			}
-
-		}
-	}
-	for(int i = 1; i <= sm; i++) {
-		for(int j = 1; j <=n; j++) {
-			cout << dp[i][j] << " ";
-		}
-		cout << "\n";
-	}
-
-
-
-	ll val = 1;
 
 	ll ans = 0;
+	for(int size = 1; size <= n; size++) {
 
-	while (val <= n && a * val <= sm) {
-		ll curr = a * val;
-		ll ct = dp[curr][val];
-		// cout << ct << " " << val << "\n";
-		// if (val != 1) {
-		// 	ct /= 2;
-		// }
-		val++;
-		ans += ct;
+		for(int i = 1; i <= n; i++) {
+			for(int sum = 0; sum <= 2500; sum++) {
+				dp[sum][size][i] += dp[sum][size][i-1];
+				if(x[i-1] > sum) continue;
+				dp[sum][size][i] += dp[sum - x[i-1]][size-1][i-1];
+			}
+			ans += dp[a*size][size][n];
+		}
 	}
+
 	cout << ans << "\n";
 
 
