@@ -45,35 +45,11 @@ int main() {
   vector<int> arr[26];
   int n,m; cin >> n >> m;
   string s; cin >> s;
-  forn(i, s.length()) {
-  	arr[s[i] - 'a'].pb(i);
-  }
-  forn(i, m) {
-  	char x,y; cin >> x >> y;
-  	vi sss = arr[x-'a'];
-  	vi qqq = arr[y-'a'];
-  	vi nw;
-  	forn(j, sss.size()) {
-  		nw.pb(sss[j]);
-  	}
-  	vi mw;
-  	forn(j, qqq.size()) {
-  		mw.pb(qqq[j]);
-  	}
-  	arr[y-'a'] = nw;
-  	arr[x-'a'] = mw;
-  	// erase(arr[x-'a'].begin(), arr[x-'a'].end());
-  	
-  }
-
-  string res = string(s.length(), '.');
-
-  forn(i, 26) {
-  	vi curr = arr[i];
-  	for(auto el : curr) {
-  		res[el] = i + 'a';
+  for(int i = 0; i < m; i++) {
+  	char x, y;
+  	for(int j = 0; j < n; j++) {
+  		if(s[i])
   	}
   }
-  cout << res << "\n";
 return 0;
 }
