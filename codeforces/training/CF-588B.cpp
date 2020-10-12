@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -40,27 +40,32 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-  ll n; cin >> n;
-  map<ll, int> squares;
-  vector<ll> factors;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	ll n; cin >> n;
+	map<ll, int> squares;
+	vector<ll> factors;
 
-  ll x = 1;
-  while(x*x <= n) {
-  	squares[x*x] = 1;
-  	x++;
-  }
+	ll x = 1;
+	while (x * x <= n) {
+		ll y = x * x;
+		ll ct = 1;
+		while (y * ct <= n) {
+			squares[y * ct] = 1;
+			ct++;
+		}
+		x++;
+	}
 
-  ll fact = 1;
+	ll fact = 1;
 
-  while(fact <= n) {
-  	ll res = n/fact;
-  	if(squares.find(res) == squares.end()) {
-  		cout << res << "\n";
-  		return 0;
-  	}
-  	fact++;
-  }
-return 0;
+	while (fact <= n) {
+		ll res = n / fact;
+		if (squares.find(res) == squares.end()) {
+			cout << res << "\n";
+			return 0;
+		}
+		fact++;
+	}
+	return 0;
 }
