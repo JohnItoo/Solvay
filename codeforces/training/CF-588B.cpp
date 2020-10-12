@@ -42,5 +42,25 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
+  ll n; cin >> n;
+  map<ll, int> squares;
+  vector<ll> factors;
+
+  ll x = 1;
+  while(x*x <= n) {
+  	squares[x*x] = 1;
+  	x++;
+  }
+
+  ll fact = 1;
+
+  while(fact <= n) {
+  	ll res = n/fact;
+  	if(squares.find(res) == squares.end()) {
+  		cout << res << "\n";
+  		return 0;
+  	}
+  	fact++;
+  }
 return 0;
 }
