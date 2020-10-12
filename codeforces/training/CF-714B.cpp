@@ -18,8 +18,8 @@ int main() {
 		}
 	}
 
-	if (va.size() == 1) {
-		cout << "NO\n";
+	if (va.size() == 1 || va.size() == 2) {
+		cout << "YES\n";
 	} else if(va.size() == 2) {
 		if(va[0] % 2 == va[1] % 2) {
 			cout << "YES\n";
