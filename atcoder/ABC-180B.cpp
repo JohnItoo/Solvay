@@ -43,20 +43,20 @@ int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	int n; cin >> n;
-	vi x(n);
+	vector<ll> x(n);
 	forn(i, n) cin >> x[i];
 
 	ll sm = 0;
-	double smsq = 0;
-	int mx = 0;
+	long long smsq = 0;
+	ll mx = 0;
 	forn(i, n) {
 		sm += abs(x[i]);
 		mx = max(abs(x[i]), mx);
-		double sq = abs(x[i]) * abs(x[i]);
-		smsq += sq;
+		smsq += x[i] * x[i];
+
 	}
 	cout << sm << "\n";
-	printf("%.14f\n", sqrt(smsq));
+	cout << sqrt(smsq) << "\n";
 	cout << mx << "\n";
 	return 0;
 }
