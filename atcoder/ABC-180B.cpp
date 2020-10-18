@@ -52,11 +52,11 @@ int main() {
 	forn(i, n) {
 		sm += abs(x[i]);
 		mx = max(abs(x[i]), mx);
-		smsq += x[i] * x[i];
+		smsq += (x[i] * x[i]);
 
 	}
 	cout << sm << "\n";
-	cout << sqrt(smsq) << "\n";
+	cout << sqrt((long double )smsq) << "\n";
 	cout << mx << "\n";
 	return 0;
 }
