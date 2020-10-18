@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -41,6 +41,18 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 int main() {
 	ios::sync_with_stdio(false);
- cin.tie(0);
-return 0;
+	cin.tie(0);
+	ll n; cin >> n;
+	set<ll> factors;
+	for (ll i = 1; i * i <= n; i++) {
+		if (n % i != 0) continue;
+		if (i == n / i) factors.insert(i);
+		else {
+			factors.insert(i);
+			factors.insert(n / i);
+		}
+
+	}
+	for (auto factor : factors) cout << factor << "\n";
+	return 0;
 }

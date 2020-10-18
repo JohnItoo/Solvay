@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -41,6 +41,22 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 int main() {
 	ios::sync_with_stdio(false);
- cin.tie(0);
-return 0;
+	cin.tie(0);
+	int n; cin >> n;
+	vi x(n);
+	forn(i, n) cin >> x[i];
+
+	ll sm = 0;
+	double smsq = 0;
+	int mx = 0;
+	forn(i, n) {
+		sm += abs(x[i]);
+		mx = max(abs(x[i]), mx);
+		double sq = abs(x[i]) * abs(x[i]);
+		smsq += sq;
+	}
+	cout << sm << "\n";
+	printf("%.14f\n", sqrt(smsq));
+	cout << mx << "\n";
+	return 0;
 }
