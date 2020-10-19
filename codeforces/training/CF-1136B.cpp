@@ -16,15 +16,18 @@ int main() {
 		int rig = n - k + 1;
 
 		int steps = 0, rem = 0, mv = 0;
+		int ans = 1e9 + 7;
 
-		if (lef < rig) {
-			steps = lef;
-			rem = n - k;
-		} else {
-			steps = rig;
-			rem = k - 1;
-		}
-		long long ans = 6 + (steps * 3 ) + (steps + 1) +  (rem * 3);
+		steps = lef;
+		rem = n - k;
+		int curr = 6 + (steps * 3 ) + (steps + 1) +  (rem * 3);
+		ans = min(curr, ans);
+
+		steps = rig;
+		rem = k - 1;
+		curr = 6 + (steps * 3 ) + (steps + 1) +  (rem * 3);
+		ans = min(curr, ans);
+
 		cout << ans << "\n";
 	}
 
