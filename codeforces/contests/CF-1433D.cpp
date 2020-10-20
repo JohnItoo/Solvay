@@ -48,5 +48,39 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
  ios::sync_with_stdio(false);
  cin.tie(0);
+ int tc; cin >> tc;
+ while(tc--) {
+ 	int n; cin >> n;
+ 	set<int> gangs;
+ 	vector<int> g;
+ 	forn(i, n) {
+ 		int x; cin >> x;
+ 		gangs.insert(x);
+ 		g.pb(x);
+ 	}
+ 	if(gangs.size() == 1) {
+ 		cout << "NO\n";
+ 	} else {
+ 		int gangroot = g[0];
+ 		int secondpiv = -1;
+ 		vi rootmembers;
+ 		vii res;
+ 		REP(i, 1, n-1) {
+         if(g[i] != gangroot) {
+         	if(secondpiv == -1) secondpiv = i+1;
+            res.pb(mp(1, i+1));
+         } else {
+           rootmembers.pb(i+1);
+         }
+ 		}
+ 		for(int el : rootmembers) {
+ 			res.pb(mp(secondpiv, el));
+ 		} 
+ 		cout << "YES\n";
+ 		for(ii mfs : res) {
+ 			cout << mfs.first << " " << mfs.second << "\n";
+ 		}
+ 	}
+ }
 return 0;
 }
