@@ -122,10 +122,10 @@ int main() {
 				}
 
 				if(zero && (arr[n-1][n-2] == '0')) {
-					ff.pb(mp(n-1, n-2));
+					ff.pb(mp(n, n-1));
 				}
 				if(zero && (arr[n-2][n-1] == '0')) {
-					ff.pb(mp(n-2, n-1));
+					ff.pb(mp(n-1, n));
 				}
 				cout << ff.size() << "\n";
 				for(int k = 0; k < ff.size(); k++) {
