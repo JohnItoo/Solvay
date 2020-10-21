@@ -38,7 +38,7 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-int dir[4][2] = { { -1, 0}, {0, -1}, {1, 0}, {0, 1}};
+int dir[6][2] = { { -1, 0}, {0, -1}, {1, 0}, {-1, -1}, {1,1}, {0, 1}};
 map<ii, int> visited;
 int res[2][2];
 
@@ -49,17 +49,17 @@ void dfs(string arr[], bool one, ii pt, int n) {
 	visited[pt] = 1;
 	if ((pt.first == n - 2 && pt.second == n - 1) || (pt.first == n - 1 && pt.second == n - 2)) {
 		if (one) {
-			res[1][0] = pt.first;
-			res[1][1] = pt.second;
+			res[1][0] = pt.first + 1;
+			res[1][1] = pt.second + 1;
 		} else {
-			res[0][0] = pt.first;
-			res[0][0] = pt.second;
+			res[0][0] = pt.first + 1;
+			res[0][0] = pt.second + 1;
 
 		}
 		return;
 	}
 
-	for (int i = 0; i < 4; i++) {
+	for (int i = 0; i < 6; i++) {
 		int nr = pt.first + dir[i][0];
 		int nc = pt.second + dir[i][1];
 		if (nr < 0 || nr >= n || nc < 0 || nc >= n) {
@@ -110,8 +110,8 @@ int main() {
 		} else {
 			if(one && zero) {
 				cout << 2 << "\n";
-				cout << n-1 << " " << n-2 << "\n";
-				cout << n-2 << " "<<  n - 1 << endl;
+				cout << n<< " " << n-1 << "\n";
+				cout << n-1 << " "<<  n << endl;
 			} else {
 				vii ff;
 				if(one && (arr[n-1][n-2] == '1')) {
