@@ -47,9 +47,15 @@ int main() {
 		int n, k; cin >> n >> k;
 		string s; cin >> s;
 		int i = 0;
-		int j = n-1;
+		int j = n - 1;
 		int sc = 0;
 		int tot = 0;
+		REP(i, 1,  n - 2) {
+			if (s[i - 1] == 'W' && s[i] == 'L' && s[i + 1] == 'W' && k) {
+				s[i] = 'W';
+				k--;
+			}
+		}
 
 		while (i < n && s[i] == 'L') i++;
 		while (i < n) {
@@ -72,16 +78,16 @@ int main() {
 			}
 		}
 
-        sc = 0;
-		while(j >=0 && s[j] == 'W') {
+		sc = 0;
+		while (j >= 0 && s[j] == 'W') {
 			sc = 1;
 			j--;
 		}
 
-		while(j >= 0 && k) {
-			if(s[j] == 'W') j--;
-			else if(s[j] == 'L') {
-				tot += 2;
+		while (j >= 0 && k) {
+			if (s[j] == 'W') j--;
+			else if (s[j] == 'L') {
+				tot +=  (j+1 < n && s[j+1] == 'W') ? 2 : 1;
 				s[j] = 'W';
 				j--;
 				k--;
