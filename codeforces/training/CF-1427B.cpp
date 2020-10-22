@@ -47,17 +47,51 @@ int main() {
 		int n, k; cin >> n >> k;
 		string s; cin >> s;
 		int i = 0;
-		int j = 0;
+		int j = n-1;
 		int sc = 0;
 		int tot = 0;
 
 		while (i < n && s[i] == 'L') i++;
 		while (i < n) {
 			if (s[i] == 'W') {
-				if (sc == 0) sc = 1;
-				else sc += 2;
+				if (sc == 0) {
+					tot += 1;
+					sc = 1;
+				}
+				else tot += 2;
+				i++;
+			} else {
+				sc = 0;
+				if (s[i - 1] == 'W' && k) {
+					sc = 1;
+					s[i] = 'W';
+					k--;
+					tot += 2;
+				}
+				i++;
 			}
 		}
+
+        sc = 0;
+		while(j >=0 && s[j] == 'W') {
+			sc = 1;
+			j--;
+		}
+
+		while(j >= 0 && k) {
+			if(s[j] == 'W') j--;
+			else if(s[j] == 'L') {
+				tot += 2;
+				s[j] = 'W';
+				j--;
+				k--;
+
+			}
+		}
+		// cout << s << "\n";
+		cout << tot << "\n";
+
+
 
 	}
 	return 0;
