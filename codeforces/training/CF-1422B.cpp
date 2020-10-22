@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -40,7 +40,50 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc; cin >> tc;
+	while (tc--) {
+		int n, m; cin >> n >> m ;
+		vector<vector<ll> > a(n, vector<ll>(m));
+		forn(i, n) {
+			forn(j, m) {
+				cin >> a[i][j];
+			}
+		}
+		ll ans = 0;
+		forn(i, n / 2) {
+			vector<ll> nums;
+			forn(j, m) {
+				nums.pb(a[i][j]);
+				nums.pb(a[n - i - 1][j]);
+			}
+			sort(nums.begin(), nums.end());
+			int sz = nums.size();
+			ll med = nums[sz / 2];
+
+			forn(s, sz) {
+				ans += abs(med - nums[s]);
+			}
+		}
+		// cout << ans << "\n";
+		if (n & 1) {
+			vi nums;
+			int rw = (n / 2);
+			forn(i, m) {
+				nums.pb(a[rw][i]);
+			}
+
+			sort(nums.begin(), nums.end());
+			int sz = nums.size();
+			ll med = nums[sz / 2];
+
+			forn(s, sz) {
+				ans += abs(med - nums[s]);
+			}
+
+		}
+		cout << ans << "\n";
+	}
+	return 0;
 }
