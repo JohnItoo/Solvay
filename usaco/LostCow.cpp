@@ -10,34 +10,36 @@ int main() {
 	int x, y; cin >> x >> y;
 	int curx = x;
 	bool plus = true;
-	// while ((y < currx && y < currx + i) || (y > currx && y > currx + i) ) {
-	// 	currx += i;
-	// 	ans += abs(i);
+	while ((y < curx && y < curx + i) || (y > curx && y > curx + i) ) {
+		int mv = x + i;
+		ans +=  abs(curx - mv);
+		curx = mv;
 
-	// 	i *= -2;
-	// 	cout << x << "\n";
-	// }
-	// cout << ans + abs(currx - y)<< "\n";
-	while(true) {
-		// Go to the new x.
-		   cout << curx << " " << i << " curx \n";
-			int newx = x + i;
-			int mn = min(curx,newx);
-			int mx = max(curx,newx);
-			int travel = abs(curx-newx);
 
-			// We made it, get out.
-			if (mn <= y &&  y <= mx) {
-				ans += abs(y-curx);
-				break;
-			}
-
-			// Go to next iteration.
-		     i *= (-2);
-			ans += travel;
-			curx = newx;
+		i *= -2;
+		cout << x << "\n";
 	}
-	cout << ans << "\n";
+	cout << ans + abs(curx - y)<< "\n";
+//	while(true) {
+	// 	// Go to the new x.
+	// 	   cout << curx << " " << i << " curx \n";
+	// 		int newx = x + i;
+	// 		int mn = min(curx,newx);
+	// 		int mx = max(curx,newx);
+	// 		int travel = abs(curx-newx);
+
+	// 		// We made it, get out.
+	// 		if (mn <= y &&  y <= mx) {
+	// 			ans += abs(y-curx);
+	// 			break;
+	// 		}
+
+	// 		// Go to next iteration.
+	// 	     i *= (-2);
+	// 		ans += travel;
+	// 		curx = newx;
+	// }
+	//cout << ans << "\n";
 
 
 	return 0;
