@@ -29,12 +29,12 @@ int main() {
 				newp = make_pair(x+1, y);
 			}
 			if(mp.find(newp) != mp.end()) {
-				cout << newp.first << " " << newp.second << endl;
-				ans = newtime - mp[newp];
-				break;
+				if(ans == -1) ans = newtime - mp[newp];
 			}
 			mp[newp] = newtime;
+			pres = newp;
 		}
+
 		time += val;
 	}
 
