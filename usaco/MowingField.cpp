@@ -2,8 +2,8 @@
 using namespace std;
 
 int main() {
-	// freopen("mowing.in", "r", stdin);
-	// freopen("mowing.out", "w", stdout);
+	freopen("mowing.in", "r", stdin);
+	freopen("mowing.out", "w", stdout);
 	int n; cin >> n;
 	pair<int, int> pres = make_pair(0,0);
 	map<pair<int, int>, int> mp;
