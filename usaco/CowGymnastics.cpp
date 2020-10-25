@@ -19,15 +19,19 @@ int main() {
 	set<pair<int, int> > prs;
 
 	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
-			if (i == j) continue;
-			if (cows[0][i] <= cows[0][j]) continue;
+		for (int j = i + 1; j < n; j++) {
 			bool holds = true;
 			for (int row = 1; row < k; row++) {
-				if (cows[row][i] <= cows[row][j]) {
-					holds = false;
-					break;
+				for (int q = 0; q < n; q++) {
+					if (cows[row][q] == cows[0][i]) {
+						break;
+					} else if (cows[row][q] == cows[0][j]) {
+						holds = false;
+						break;
+					}
 				}
+				if (holds) continue;
+				else break;
 			}
 			vector<int> dz;
 			if (holds) {
