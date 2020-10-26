@@ -10,10 +10,10 @@ int main() {
 	cin >> x >> y >> m;
 	int ans = 0;
 
-	for(int i = 0; i < m; i++) {
-		for(int j = 0; j < m; j++) {
-			int curr = (x*i) + (y*j);
-			if( curr>m) break;
+	for (int i = 0; i < m; i++) {
+		for (int j = 0; j < m; j++) {
+			int curr = (x * i) + (y * j);
+			if ( curr > m) break;
 			ans = max(ans, curr);
 		}
 	}
