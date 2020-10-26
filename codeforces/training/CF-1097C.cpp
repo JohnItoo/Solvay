@@ -44,14 +44,19 @@ int main() {
 	cin.tie(0);
 	int n; cin >> n;
 	vector<string> vs;
+	vector<string> lv;
 	forn(i, (2 * n) - 2) {
 		string x; cin >> x;
 		vs.pb(x);
+		lv.pb(x);
 	}
 	sort(vs.rbegin(), vs.rend());
+	map<string, int> sf;
+	map<string, int> pf;
 
 	forn(i, vs.size()) {
 		string pref = vs[i];
+		cout << pref << " pref\n";
 		vector<string> surfs;
 		vector<string> prefs;
 		forn(j, vs.size()) {
@@ -64,21 +69,112 @@ int main() {
 					vld = false;
 					break;
 				}
+				pt++;
 			}
 			if (vld) prefs.pb(s);
 			else surfs.pb(s);
 		}
-		sort(surfs.rbegin(), surfs.rend());
-		string lg = surfs[0];
+		string lg = "";
+		if (surfs.size() > 0) {
+			sort(surfs.rbegin(), surfs.rend());
+			lg = surfs[0];
+		}
+
 		bool svs = true;
 
 		for (int sf = 1; sf < surfs.size(); sf++) {
 			int q = lg.length() - 1;
 			int z = surfs[sf].length() - 1;
 			while (q >= 0 && z >= 0) {
-				if ()
+				if (surfs[sf][z] != lg[q]) {
+					svs = false;
+					break;
 				}
+				q--;
+				z--;
+			}
+			if (!svs) {
+				break;
+			}
+		}
+		string ans = "";
+		if (svs) {
+			int ppt = 0; int spt = 0;
+			int lstrt = -1;
+			while (ppt < pref.length() && spt < lg.length()) {
+				if (pref[ppt] != lg[spt]) {
+					spt = 0;
+					ppt++;
+					lstrt = -1;
+				} else {
+					if (lstrt == -1) lstrt = ppt;
+					spt++;
+					ppt++;
+				}
+			}
+			if (lstrt != -1) {
+				string sb = pref.substr(0, lstrt);
+				ans = sb + lg;
+			} else {
+				ans = pref + lg;
+			}
+			// cout << ans << " ans \n";
 
+			// for (string ss : surfs) {
+			// 	sf[ss] = 1;
+			// }
+			// for (string pp : prefs) {
+			// 	pf[pp] = 1;
+			// }
+
+			// for (string dq : lv) {
+			// 	if (sf.find(dq) == sf.end()) {
+			// 		ans.pb('P');
+			// 	} else {
+			// 		ans.pb('S');
+			// 	}
+			// }
+			REP(ppq, 1, ans.length()) {
+				string cr = ans.substr(0, ppq);
+				pf[cr] = 1;
+			}
+			string last = "";
+			for (int ht = n - 1; ht >= 0; ht --) {
+				last.pb(ans[ht]);
+				sf[last] = 1;
+			}
+			map<string, int> strongpref;
+			map<string, int> strongsf;
+			int spss = 0, spsf = 0, nutz = 0;
+			vector<string> nut;
+			for (string des : lv) {
+				if (pf.find(des) == pf.end() && sf.find(des) != sf.end()) {
+					strongsf[des] = 1;
+					spss++;
+				} else if (pf.find(des) != pf.end() && sf.find(des) == sf.end()) {
+					spsf++;
+					strongpref[des] = 1;
+				} else {
+					nut.push_back(des);
+					nutz++;
+				}
+			}
+			string res = "";
+			int peez = 0, ess = 0;
+			for (string des : lv) {
+				if (strongpref.find(des) != strongpref.end()) {
+					peez++;
+					res.pb('P');
+				} else if (strongsf.find(des) != strongsf.end()) {
+					ess++;
+					res.pb('S');
+				} else {
+					int remp = ((n * 2) - 2) - peez;
+					int rems = ((n * 2) - 2) - ess;
+				}
+			}
+			cout << res << "\n";
+			return 0;
 		}
 
 	}
