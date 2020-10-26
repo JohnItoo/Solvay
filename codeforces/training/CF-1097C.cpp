@@ -134,6 +134,7 @@ int main() {
 			// 		ans.pb('S');
 			// 	}
 			// }
+			cout << ans << " and \n";
 			REP(ppq, 1, ans.length()) {
 				string cr = ans.substr(0, ppq);
 				pf[cr] = 1;
@@ -147,16 +148,36 @@ int main() {
 			map<string, int> strongsf;
 			int spss = 0, spsf = 0, nutz = 0;
 			vector<string> nut;
+			cout << "here nw\n";
 			for (string des : lv) {
 				if (pf.find(des) == pf.end() && sf.find(des) != sf.end()) {
-					strongsf[des] = 1;
-					spss++;
+					if (strongsf.find(des) == strongsf.end()) {
+						strongsf[des] = 1;
+						spss++;
+						cout << des <<  " sf\n";
+					}
+					else {
+						nut.pb(des);
+						nutz++;
+						cout << des << " nuts\n";
+					}
 				} else if (pf.find(des) != pf.end() && sf.find(des) == sf.end()) {
-					spsf++;
-					strongpref[des] = 1;
+
+					if (strongpref.find(des) == strongpref.end()) {
+						strongpref[des] = 1;
+						spsf++;
+						cout << des <<  " pf\n";
+					}
+					else {
+						nut.pb(des);
+						nutz++;
+						cout << des <<  " nuts\n";
+					}
 				} else {
 					nut.push_back(des);
 					nutz++;
+						cout << des <<  " nuts\n";
+
 				}
 			}
 			string res = "";
@@ -169,8 +190,15 @@ int main() {
 					ess++;
 					res.pb('S');
 				} else {
-					int remp = ((n * 2) - 2) - peez;
-					int rems = ((n * 2) - 2) - ess;
+					int remp = (((n * 2) - 2) / 2) - peez;
+					int rems = (((n * 2) - 2) / 2) - ess;
+					if(remp < rems) {
+						res.pb('S');
+						ess++;
+					} else {
+						res.pb('P');
+						peez++;
+					}
 				}
 			}
 			cout << res << "\n";
