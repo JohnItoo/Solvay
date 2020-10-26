@@ -25,7 +25,6 @@ int main() {
 	int mx = 0;
 
 	for (int i = 0; i < n; i++) {
-
 		pair<int, int > last;
 		curr = 0;
 		bool has = false;
@@ -41,7 +40,13 @@ int main() {
 					int diff = currP.second - (last.second + 1);
 					if (diff > 0) curr += diff;
 				} else {
-					curr += currP.second - currP.first;
+					if (currP.first > last.second + 1) {
+						mx = max(mx , curr);
+						curr = last.second - last.first;
+					} else {
+						curr += currP.second - currP.first;
+
+					}
 				}
 				last = currP;
 			}
