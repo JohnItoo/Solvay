@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -40,7 +40,50 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int n; cin >> n;
+	vector<string> vs;
+	forn(i, (2 * n) - 2) {
+		string x; cin >> x;
+		vs.pb(x);
+	}
+	sort(vs.rbegin(), vs.rend());
+
+	forn(i, vs.size()) {
+		string pref = vs[i];
+		vector<string> surfs;
+		vector<string> prefs;
+		forn(j, vs.size()) {
+			if (i == j) continue;
+			string s = vs[j];
+			int pt = 0;
+			bool vld = true;
+			while (pt < pref.length() && pt < s.length()) {
+				if (s[pt] != pref[pt]) {
+					vld = false;
+					break;
+				}
+			}
+			if (vld) prefs.pb(s);
+			else surfs.pb(s);
+		}
+		sort(surfs.rbegin(), surfs.rend());
+		string lg = surfs[0];
+		bool svs = true;
+
+		for (int sf = 1; sf < surfs.size(); sf++) {
+			int q = lg.length() - 1;
+			int z = surfs[sf].length() - 1;
+			while (q >= 0 && z >= 0) {
+				if ()
+				}
+
+		}
+
+	}
+
+
+
+	return 0;
 }
