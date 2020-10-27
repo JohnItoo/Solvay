@@ -58,14 +58,15 @@ int main() {
  	int time = 0; 
  	int ans = 0;
  	forn(k, n) {
- 		cout << a[k] << " " << time << "\n";
- 		if(a[k] <= time) {
- 			ans += time - a[k];
+ 		cout << a[k] << " " << time;
+ 		if(a[k] > time) {
  			 time = a[k]+1;
-
-
+ 			 cout << " a\n";
  		} else {
- 			time = a[k];
+ 			ans += abs(time -a[k]);
+ 			time++;
+ 			cout << " b\n";
+
  		}
 
  	}

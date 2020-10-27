@@ -53,18 +53,21 @@ int main() {
 		int n; cin >> n;
 		string s; cin >> s;
 		int curr = 1;
+		int i = 0;
 		int mx = 0;
-		REP(i, 1, n - 1) {
-			if (s[i] == s[i - 1]) {
-				curr++;
-				mx = max(curr, mx);
-			} else {
-				mx = max(curr, mx);
-				curr = 1;
-			}
+		while(i  < n-1) {
+          if(s[i] == s[i+1]) {
+          	curr++;
+          	mx = max(mx, curr);
+          } else {
+          	mx = max(mx, curr);
+          	curr = 1;
+          }
+          i++;
 		}
-		if (mx == n / 2 && mx > 2) cout << mx - 2 << "\n";
-		else cout << mx - 1 << "\n";
+		cout << mx - 1<< "\n";
+		// if (mx == n / 2 && mx > 2) cout << mx - 2 << "\n";
+		// else cout << mx - 1 << "\n";
 
 	}
 	return 0;
