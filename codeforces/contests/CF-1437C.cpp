@@ -48,5 +48,28 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
  ios::sync_with_stdio(false);
  cin.tie(0);
+ int tc; cin >> tc;
+ while(tc--) {
+ 	int n; cin >> n;
+ 	vi a(n);
+ 	forn(i, n) cin >> a[i];
+ 	sort(a.begin(), a.end());
+
+ 	int time = 0; 
+ 	int ans = 0;
+ 	forn(k, n) {
+ 		cout << a[k] << " " << time << "\n";
+ 		if(a[k] <= time) {
+ 			ans += time - a[k];
+ 			 time = a[k]+1;
+
+
+ 		} else {
+ 			time = a[k];
+ 		}
+
+ 	}
+ 	cout << ans << "\n";
+ }
 return 0;
 }
