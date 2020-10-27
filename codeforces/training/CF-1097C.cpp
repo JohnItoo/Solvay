@@ -194,7 +194,7 @@ int main() {
 					int rems = (((n * 2) - 2) / 2) - ess;
 					int unusedp = spsf - peez;
 					int unuseds = spss - ess;
-					if (remp < rems && unuseds < rems) {
+					if (unuseds < rems && rems > 0) {
 						res.pb('S');
 						ess++;
 					} else {
