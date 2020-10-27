@@ -56,7 +56,6 @@ int main() {
 
 	forn(i, vs.size()) {
 		string pref = vs[i];
-		cout << pref << " pref\n";
 		vector<string> surfs;
 		vector<string> prefs;
 		forn(j, vs.size()) {
@@ -134,49 +133,50 @@ int main() {
 			// 		ans.pb('S');
 			// 	}
 			// }
-			cout << ans << " and \n";
 			REP(ppq, 1, ans.length()) {
 				string cr = ans.substr(0, ppq);
 				pf[cr] = 1;
+				// cout << cr << " pref\n";
 			}
 			string last = "";
 			for (int ht = n - 1; ht >= 0; ht --) {
-				last.pb(ans[ht]);
+				// last.pb(ans[ht]);
+				last = ans.substr(ht, n - ht);
 				sf[last] = 1;
+				// cout << last << " suff\n";
 			}
 			map<string, int> strongpref;
 			map<string, int> strongsf;
 			int spss = 0, spsf = 0, nutz = 0;
 			vector<string> nut;
-			cout << "here nw\n";
 			for (string des : lv) {
 				if (pf.find(des) == pf.end() && sf.find(des) != sf.end()) {
 					if (strongsf.find(des) == strongsf.end()) {
 						strongsf[des] = 1;
 						spss++;
-						cout << des <<  " sf\n";
+						// cout << des <<  " sf\n";
 					}
 					else {
 						nut.pb(des);
 						nutz++;
-						cout << des << " nuts\n";
+						// cout << des << " nuts\n";
 					}
 				} else if (pf.find(des) != pf.end() && sf.find(des) == sf.end()) {
 
 					if (strongpref.find(des) == strongpref.end()) {
 						strongpref[des] = 1;
 						spsf++;
-						cout << des <<  " pf\n";
+						// cout << des <<  " pf\n";
 					}
 					else {
 						nut.pb(des);
 						nutz++;
-						cout << des <<  " nuts\n";
+						// cout << des <<  " nuts\n";
 					}
 				} else {
 					nut.push_back(des);
 					nutz++;
-						cout << des <<  " nuts\n";
+					// cout << des <<  " nuts\n";
 
 				}
 			}
@@ -192,7 +192,9 @@ int main() {
 				} else {
 					int remp = (((n * 2) - 2) / 2) - peez;
 					int rems = (((n * 2) - 2) / 2) - ess;
-					if(remp < rems) {
+					int unusedp = spsf - peez;
+					int unuseds = spss - ess;
+					if (remp < rems && unuseds < rems) {
 						res.pb('S');
 						ess++;
 					} else {
