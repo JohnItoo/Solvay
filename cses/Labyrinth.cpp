@@ -1,38 +1,52 @@
 #include <bits/stdc++.h>
 using namespace std;
-vector<string> room(1005);
-vector<vector<bool > > visited(1005, vector<bool>(1005, false));
+vector<string> room(1500);
+vector<vector<bool > > visited(1500, vector<bool>(1500, false));
+vector<vector<int> > distance(1500, vector<int>(1500, 0));
 int n = 0 , m = 0;
 string ans = "";
 map<char, pair<int, int> > mv;
 
 
-void walk(int row, int col , string path) {
-	// cout << row << " " << col << " " << path << "\n";
-	if (room[row][col] == 'B') {
-		if (ans == "") {
-			ans = path;
+void walk(int row, int col) {
+
+	queue<pair<pair<int, int>, int> > q;
+	q.push(make_pair(make_pair(row, col), 0));
+	visited[row][col] = true;
+	distance[row][col] = 0;
+
+	while (!q.empty()) {
+		pair<pair<int, int>, int> tp = q.front(); q.pop();
+		int row = tp.first.first;
+		int col = tp.first.second;
+
+
+		if (room[row][col] == 'B') {
+			//backtrack
+			while (room[row][col] != 'A') {
+				if (row > 0 && distance[row - 1][col] == distance[row][col] - 1) {
+
+				}
+			}
+
+
+			break;
 		} else {
-			if (path.length() < ans.length()) ans = path;
+			for (auto ii : mv) {
+				int nr = mv[ii.first].first + row;
+				int nc = mv[ii.first].second + col;
+				if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
+				if (visited[nr][nc]) continue;
+
+				visited[nr][nc] = true;
+				pair<pair<int, int> > np = make_pair(make_pair(nr, nc), tp.second + 1);
+				distance[nr][nc] = np.second;
+				q.push(np);
+			}
 		}
 
-		return;
 	}
 
-	for (auto dir : mv) {
-		char key = dir.first;
-		int nr = mv[key].first + row;
-		int nc = mv[key].second + col;
-		if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
-		if (visited[nr][nc] || room[nr][nc] == '#') continue;
-
-		string npath = path;
-		npath.push_back(key);
-		visited[nr][nc] = true;
-
-		walk(nr, nc, npath);
-		visited[nr][nc] = false;
-	}
 
 }
 
