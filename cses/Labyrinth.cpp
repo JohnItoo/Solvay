@@ -8,9 +8,7 @@ map<char, pair<int, int> > mv;
 
 
 void walk(int row, int col , string path) {
-	if (row < 0 || row >= n || col < 0 || col >= m) return;
-	if (room[row][col] == '#' || visited[row][col]) return;
-	visited[row][col] = true;
+	// cout << row << " " << col << " " << path << "\n";
 	if (room[row][col] == 'B') {
 		if (ans == "") {
 			ans = path;
@@ -20,15 +18,22 @@ void walk(int row, int col , string path) {
 
 		return;
 	}
+
 	for (auto dir : mv) {
 		char key = dir.first;
 		int nr = mv[key].first + row;
 		int nc = mv[key].second + col;
+		if (nr < 0 || nr >= n || nc < 0 || nc >= m) continue;
+		if (visited[nr][nc] || room[nr][nc] == '#') continue;
+
 		string npath = path;
 		npath.push_back(key);
+		visited[nr][nc] = true;
+
 		walk(nr, nc, npath);
+		visited[nr][nc] = false;
 	}
-	visited[row][col] = false;
+
 }
 
 int main() {
