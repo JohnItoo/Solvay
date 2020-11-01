@@ -13,7 +13,14 @@ int main() {
 
 		int st = (rig - lef ) + 1;
 		int rem = st & 1;
-		cout << rem + (s.length() - 1 - rig) + lef << "\n";
+		int stub = rem + (s.length() - 1 - rig) + lef;
+		if ((lef + rem) % 2 == 0) stub -= lef + rem;
+		else {
+			int df = lef / 2;
+
+			stub -= (df * 2);
+		}
+		cout << stub << "\n";
 	}
 
 	return 0;
