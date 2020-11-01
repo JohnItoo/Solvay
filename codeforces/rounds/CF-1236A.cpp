@@ -52,21 +52,23 @@ int main() {
  while(tc--) {
  	int a,b, c; cin >>a >> b >> c;
  	int ans = 0;
- 	if(min(a, b/2) > min(b, c/2)) {
- 		ans = min(a, b/2);
- 		ans += 2* ans;
- 		a -= ans;
- 		b -= ans;
- 		ans += min(b, c/2);
- 		ans += 2*ans;
-
- 	} else {
- 		 ans = min(b, c/2);
- 		 ans += 2* ans;
- 		b -= ans;
- 		c-= ans;
- 		ans += min(a, b/2);
-
+ 	int picked = true;
+ 	while(picked) {
+ 		if(min(a, b/2) > min(b, c/2) && a >=1 && b >= 2) {
+ 			ans += 3;
+ 			a -= 1;
+ 			b -= 2;
+ 			picked = true; 
+ 			continue;
+ 		} else if(b >= 1 && c >= 2) {
+ 			ans += 3;
+ 		    b -= 1;
+ 		    c -= 2;
+ 		    picked = true;
+ 		    continue;
+ 		}
+ 		picked = false;
+ 		
  	}
  	cout << ans << "\n";
  }
