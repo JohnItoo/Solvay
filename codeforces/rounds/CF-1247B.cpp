@@ -45,27 +45,28 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
-// int b1() {
-// 	vi a(n);
-// 	forn(i, n) {
-// 		cin >> a[i];
-// 	}
+int b1() {
+	vi a(n);
+	forn(i, n) {
+		cin >> a[i];
+	}
 
-// 	int mn = d;
-// 	for (int i = 0; i + d <= n; i++) {
-// 		int ct = 0;
-// 		map<int, int> has;
-// 		for (int j = i; j < i + d && ct < mn ; j++) {
-// 			if (has.find(a[j]) == has.end()) {
-// 				ct++;
-// 			}
-// 			has[a[j]]++;
+	int mn = d;
+	for (int i = 0; i + d <= n; i++) {
+		int ct = 0;
+		map<int, int> has;
+		for (int j = i; j < i + d && ct < mn ; j++) {
+			if (has.find(a[j]) == has.end()) {
+				ct++;
+			}
+			has[a[j]]++;
 
-// 		}
-// 		mn = min(ct, mn);
-// 	}
-// 	cout << mn << "\n";
-// }
+		}
+		mn = min(ct, mn);
+	}
+	cout << mn << "\n";
+	return 0;
+}
 
 
 int main() {
@@ -92,27 +93,22 @@ int main() {
 			}
 			has[a[i]]++;
 
-
 		}
-		// cout << mn << " first\n";
-		int i = 1; int j = d;
-		int ans = k;
-		while (j < n) {
-			cout << ct << " ct \n";
-			if (has.find(a[j]) != has.end() && has[a[j]] > 0) {
-				if(a[j] != a[i-1]) {
-					ct--;
-				}
+		int ans = ct;
 
-			} else if (has.find(a[j]) == has.end()) {
-				has[a[i-1]]--;
-				has[a[j]]++;
+		for (int i = d; i < n; i++) {
+			if (has[a[i - d]] == 1) {
+				ct--;
+				has.erase(a[i - d]);
+			} else {
+				has[a[i - d]]--;
+			}
+
+			if (has.find(a[i]) == has.end()) {
 				ct++;
 			}
-			i++;
-			j++;
-			ans = min(ans, ct);
-			// cout << mn << " mn\n";
+			has[a[i]]++;
+			ans = min(ct, ans);
 		}
 		cout << ans << "\n";
 
