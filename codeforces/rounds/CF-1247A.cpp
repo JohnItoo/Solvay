@@ -48,5 +48,10 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
  ios::sync_with_stdio(false);
  cin.tie(0);
+ int a,b; cin >> a >> b;
+ if( a == 9 && b == 1) { cout << 99 << " " << 100 << "\n";}
+ else if(a > b || (b > a+1)) cout << -1 << "\n";
+ else if( b == a+1) cout << (a * 10) + 9 << " " << b * 10 << "\n";
+ else  if(b == a) { cout << a * 10 << " " <<  (a*10) + 1 << "\n";} 
 return 0;
 }
