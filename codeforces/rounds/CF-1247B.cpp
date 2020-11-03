@@ -45,39 +45,76 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
+// int b1() {
+// 	vi a(n);
+// 	forn(i, n) {
+// 		cin >> a[i];
+// 	}
+
+// 	int mn = d;
+// 	for (int i = 0; i + d <= n; i++) {
+// 		int ct = 0;
+// 		map<int, int> has;
+// 		for (int j = i; j < i + d && ct < mn ; j++) {
+// 			if (has.find(a[j]) == has.end()) {
+// 				ct++;
+// 			}
+// 			has[a[j]]++;
+
+// 		}
+// 		mn = min(ct, mn);
+// 	}
+// 	cout << mn << "\n";
+// }
+
+
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	int tc; cin >> tc;
 	while (tc--) {
 		int n, k, d; cin >> n >> k >> d;
-		map<int, set<int> > mps;
-		int freq = 0;
-		int greatest = 0;
+		vi a(n);
+
 		forn(i, n) {
-			int c; cin >> c;
-			if (mps.find(c) != mps.end()) {
-				mps[c].insert(i);
-			} else {
-				set<int> st;
-				st.insert(i);
-				mps[c] = st;
-			}
-			if (mps[c].size() > freq) {
-				freq = mps[c].size();
-				greatest = c;
-			}
-		}
-
-		set<int> stt = mps[greates];
-
-		int min = d;
-
-		for (auto ii : stt) {
-
+			cin >> a[i];
 		}
 
 
+		int mn = d;
+		map<int, int> has;
+		int ct = 0;
+
+
+		for (int i = 0; i  < d; i++) {
+			if (has.find(a[i]) == has.end()) {
+				ct++;
+			}
+			has[a[i]]++;
+
+
+		}
+		// cout << mn << " first\n";
+		int i = 1; int j = d;
+		int ans = k;
+		while (j < n) {
+			cout << ct << " ct \n";
+			if (has.find(a[j]) != has.end() && has[a[j]] > 0) {
+				if(a[j] != a[i-1]) {
+					ct--;
+				}
+
+			} else if (has.find(a[j]) == has.end()) {
+				has[a[i-1]]--;
+				has[a[j]]++;
+				ct++;
+			}
+			i++;
+			j++;
+			ans = min(ans, ct);
+			// cout << mn << " mn\n";
+		}
+		cout << ans << "\n";
 
 
 
