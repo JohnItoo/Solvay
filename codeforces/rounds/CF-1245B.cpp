@@ -78,12 +78,9 @@ int main() {
 					ss++;
 				}
 			}
-			cout <<  rs << " " << ps << " " << ss << endl;
 			forn(i, n) {
 				if (ans[i] != '-') continue;
-				cout << "here\n";
 				if (rs < a) {
-					cout <<"here\n";
 					ans[i] = 'R';
 					rs++;
 				} else if ( ps < b) {
