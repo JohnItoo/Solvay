@@ -53,39 +53,45 @@ int main() {
 		int n; cin >> n;
 		int a, b, c; cin >> a >> b >> c;
 		string s; cin >> s;
-		int x = 0, y = 0, z = 0;
+		int A = 0, B = 0, C = 0;
 		forn(i, s.length()) {
-			if (s[i] == 'R') y++;
-			else if (s[i] == 'P') z++;
-			else x++;
+			if (s[i] == 'R') A++;
+			else if (s[i] == 'P') B++;
+			else C++;
 		}
-		int tot = min(a, x) + min(b, y) + min(c, z);
-		if (tot < (n + 1) / 2) {
+		int tot = min(a, C) + min(b, A) + min(c, B);
+		int rs = 0, ss = 0, ps = 0;
+		if (2 * tot < n) {
 			cout << "NO\n";
 		} else {
 			cout << "YES\n";
-			string ans;
+			string ans(n, '-');
 			forn(i, n) {
-				if (s[i] == 'S' && a > 0) {
-					ans.pb('R');
-					a--;
-				} else if (s[i] == 'R' && b > 0) {
-					ans.pb('P');
-					b--;
-				} else if (s[i] == 'P' && c > 0) {
-					ans.pb('S');
-					c--;
-				} else {
-					if (a > 0) {
-						ans.pb('R');
-						a--;
-					} else if (b > 0) {
-						ans.pb('P');
-						b--;
-					} else {
-						ans.pb('S');
-						c--;
-					}
+				if (s[i] == 'S' && rs < a) {
+					ans[i] = 'R';
+					rs++;
+				} else if (s[i] == 'R' && ps < b) {
+					ans[i] = 'P';
+					ps++;
+				} else if (s[i] == 'P' && ss < c) {
+					ans[i] = 'S';
+					ss++;
+				}
+			}
+			cout <<  rs << " " << ps << " " << ss << endl;
+			forn(i, n) {
+				if (ans[i] != '-') continue;
+				cout << "here\n";
+				if (rs < a) {
+					cout <<"here\n";
+					ans[i] = 'R';
+					rs++;
+				} else if ( ps < b) {
+					ans[i] = 'P';
+					ps++;
+				} else if (ss < c) {
+					ans[i] = 'S';
+					ss++;
 				}
 			}
 			cout << ans << "\n";
