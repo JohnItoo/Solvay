@@ -76,7 +76,6 @@ int main() {
 				}
 				aone = true;
 				amark = i;
-				// cout << amark << " amark \n";
 				continue;
 
 			}
@@ -96,13 +95,12 @@ int main() {
 
 		if (ans && bone && aone) {
 			forn(i, n) {
-				if(s1[i] != s2[i] && (s1[i]-'a' != bmark && s2[i] - 'a' != amark)) {
-					// cout << amark << " " << bmark <<" " <<  s1[i] - 'a' << " fails\n";
+				if (s1[i] != s2[i] && (s1[i] - 'a' != bmark && s2[i] - 'a' != amark)) {
 					ans = false;
 					break;
 				}
 			}
-			if(ans) cout << "Yes\n";
+			if (ans) cout << "Yes\n";
 			else cout << "No\n";
 		}
 		else cout << "No\n";
