@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -46,7 +46,68 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
-return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc; cin >> tc;
+	while (tc--) {
+		int n; cin >> n;
+		string s1, s2; cin >> s1 >> s2;
+		int a[26], b[26];
+		memset(a, 0, sizeof a);
+		memset(b, 0, sizeof b);
+		forn(i, n) {
+			a[s1[i] - 'a']++;
+		}
+		forn(i, n) {
+			b[s2[i] - 'a']++;
+		}
+		bool bone = false;
+		bool aone = false;
+		bool ans = true;
+		int bmark = 0;
+		int amark = 0;
+
+		forn(i, 26) {
+			if (a[i] == b[i]) continue;
+			if (a[i] + 2 == b[i]) {
+				if (aone) {
+					ans = false;
+					break;
+				}
+				aone = true;
+				amark = i;
+				// cout << amark << " amark \n";
+				continue;
+
+			}
+
+			if (b[i] + 2 == a[i]) {
+				if (bone) {
+					ans = false;
+					break;
+				}
+				bone = true;
+				bmark = i;
+				continue;
+			}
+			ans = false;
+			break;
+		}
+
+		if (ans && bone && aone) {
+			forn(i, n) {
+				if(s1[i] != s2[i] && (s1[i]-'a' != bmark && s2[i] - 'a' != amark)) {
+					// cout << amark << " " << bmark <<" " <<  s1[i] - 'a' << " fails\n";
+					ans = false;
+					break;
+				}
+			}
+			if(ans) cout << "Yes\n";
+			else cout << "No\n";
+		}
+		else cout << "No\n";
+
+
+	}
+	return 0;
 }

@@ -48,19 +48,18 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
  ios::sync_with_stdio(false);
  cin.tie(0);
- ll n; cin >> n;
- vector<ll> factors(n+2);
- if(n <= 2) cout << n << "\n";
- else {
- 	ll ans = n;
- 	 for(int i = 2; i*i <= n; i++) {
- 	 	if(n % i == 0) {
- 	 		ans = i;
- 	 		break;
- 	 	}
- 	 }
- 	 cout << ans << "\n";
- }
+ int tc; cin >> tc;
+ while(tc--) {
+ 	int n; cin >> n;
+ 	vi a(n);
+ 	forn(i, n) cin >> a[i];
 
+ 	sort(a.rbegin(), a.rend());
+ 	int i = 0;
+ 	while(i < n && i+1 <= a[i]) {
+ 		i++;
+ 	}
+ 	cout << i << "\n";
+ }
 return 0;
 }
