@@ -51,23 +51,43 @@ int main() {
 	int n; cin >> n;
 	string s; cin >> s;
 	int all = 0, rt = 0;
+	map<string, int> mp;
+	bool is = (s[0] == '?' || s[n - 1] == '?'); //
+	if (n == 1) {
+		if (s == "?") cout << "Yes\n";
+		else cout << "No\n";
+		return 0;
+	}
 
-	for (int i = 1; i + 1 < n; ++i) {
+
+	for (int i = 1; i + 1 < n; i++) {
 		if (s[i] != '?') continue;
 		all++;
 		if (s[i - 1] != s[i + 1] && s[i + 1] != '?' && s[i - 1] != '?' ) {
 			rt++;
 		}
+		if (s[i] == s[i + 1]) {
+			is = true;
+		}
+		if (s[i - 1] != '?' && s[i - 1] == s[i + 1]) {
+			is = true;
+		}
+
 	}
 
-	if (all != rt || (all == rt && rt == 0) || s[0] == '?' || s[n-1] == '?') {
-		for(int i = 0; i + 1 < n; i++) {
-			if(s[i] != '?' && s[i] == s[i+1]) {
+	if (is || all != rt || (all == 0 && all == rt)) {
+		int ques = 0;
+		for (int i = 0; i + 1 < n; i++) {
+			if (s[i] == '?') ques++;
+			if (s[i] != '?' && s[i] == s[i + 1]) {
 				cout << "No\n";
 				return 0;
 			}
 		}
-		cout << "Yes\n";
+		if (s[n - 1] == '?') ques++;
+		if (ques == 0) cout << "No\n";
+		else
+			cout << "Yes\n";
 	}
 	else cout << "No\n";
 	return 0;

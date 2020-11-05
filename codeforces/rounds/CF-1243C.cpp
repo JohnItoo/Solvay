@@ -62,7 +62,7 @@ int main() {
 			}
 			if (ent)
 				factors.push_back(i);
-			if(n <= 1) break;
+			if (n <= 1) break;
 		}
 		if (factors.size() == 1) {
 			cout << mx / factors[0] << "\n";
