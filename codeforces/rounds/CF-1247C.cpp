@@ -55,7 +55,7 @@ int main() {
 	} else {
 		bool fd = false;
 		int x = 1;
-		while (x <= 32 && !fd) {
+		while (x <= 31 && !fd) {
 			int curr = n - (x * p);
 			int ct = 0;
 			for (int i = 1; i <= 32; i++) {
@@ -64,8 +64,8 @@ int main() {
 					ct++;
 				}
 			}
-			cout << curr << " " << ct << " " << x << "\n";
-			fd = ct == x;
+			// cout << curr << " " << ct << " " << x << "\n";
+			fd = ct <= x && curr >= 1;
 			if (!fd) x++;
 		}
 		if (fd) {
