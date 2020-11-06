@@ -53,6 +53,10 @@ int main() {
 	if (n - p < 1) {
 		cout << -1 << "\n";
 	} else {
+		if (n < (31 * p) + 31) {
+			cout << -1 << "\n";
+			return 0;
+		}
 		bool fd = false;
 		int x = 1;
 		while (x <= 31 && !fd) {
