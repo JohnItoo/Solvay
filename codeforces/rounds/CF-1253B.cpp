@@ -80,7 +80,7 @@ int main() {
 					last = i;
 					mp.clear();
 					day.clear();
-					sz = 0;
+					sz = 1;
 					mp[x] = 1;
 					day[x] = 1;
 				}
@@ -92,6 +92,7 @@ int main() {
 		}
 	}
 	if (sz != 0) {
+		// cout << sz << "\n";
 		cout << -1 << "\n";
 		return 0;
 
