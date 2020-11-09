@@ -48,36 +48,9 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
  ios::sync_with_stdio(false);
  cin.tie(0);
- int tc; cin >> tc;
- while(tc--) {
- 	int n; cin >> n;
- 	vi a(n), b(n);
- 	forn(i , n) cin >> a[i];
- 	forn(i, n) cin >> b[i];
-
- 	forn(i, n) {
- 		if(a[i] == b[i]) continue;
- 		int j = i;
- 		int diff = 0;
- 		while(a[j] != b[j] && a[j] < b[j]) {
-            if(diff == 0) {
-            	diff = b[j] - a[j];
-            	a[j] += diff;
-            } else {
-            	a[j] += diff;
-            }
-            j++;
- 		}
- 		break;
- 	}
-    string ans = "Yes\n";
- 	forn(i, n) {
- 		if(a[i] != b[i]) {
- 			ans = "No\n";
- 			break;
- 		}
- 	}
- 	cout << ans;
- }
+ int n,m; cin >> n >> m;
+ vi a(n);
+ forn(i, n) cin >> a[i];
+ 
 return 0;
 }
