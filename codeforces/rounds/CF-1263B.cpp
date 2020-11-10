@@ -51,22 +51,6 @@ int main() {
 	int tc; cin >> tc;
 	while (tc--) {
 		int n; cin >> n;
-		// map<string, int> mp;
-		// set<string> keys;
-		// vi a;
-		// vector<string> vals(n);
-		// int change = 0;
-		// forn(i, n) {
-		// 	string s; cin >> s;
-		// 	keys.insert(s);
-		// 	if(mp.find(s) == mp.end()) {
-		// 		if(a.size() != 0) {
-		// 			change += i - a[a.size() - 1] - 1;
-		// 		}
-		// 		a.pb(i);
-		// 	}
-		// 	mp[s]++;
-		// }
 		map<string, int> sn;
 		vector<string> res;
 		int change = 0;
@@ -79,12 +63,21 @@ int main() {
 			sn[s]++;
 			if (!fresh) {
 				int freq = sn[s] - 1;
-				int val =  s[0] - '0' ;
-				int nw = (freq + val) % 10;
-				char c =  nw + '0';
-				// cout << c << " c\n";
-				s[0] = c;
-				change++;
+				forn(j, 4) {
+					int val =  s[j] - '0' ;
+					int nw = (freq + val) % 10;
+					char c =  nw + '0';
+					// cout << c << " c\n";
+					string dz = s;
+					dz[j] = c;
+					if (sn.find(dz ) == sn.end()) {
+						change++;
+						sn[dz]++;
+						s = dz;
+						break;
+					}
+				}
+
 			}
 
 			res.pb(s);
