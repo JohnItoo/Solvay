@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -46,7 +46,54 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
-return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc; cin >> tc;
+	while (tc--) {
+		int n; cin >> n;
+		// map<string, int> mp;
+		// set<string> keys;
+		// vi a;
+		// vector<string> vals(n);
+		// int change = 0;
+		// forn(i, n) {
+		// 	string s; cin >> s;
+		// 	keys.insert(s);
+		// 	if(mp.find(s) == mp.end()) {
+		// 		if(a.size() != 0) {
+		// 			change += i - a[a.size() - 1] - 1;
+		// 		}
+		// 		a.pb(i);
+		// 	}
+		// 	mp[s]++;
+		// }
+		map<string, int> sn;
+		vector<string> res;
+		int change = 0;
+		forn(i, n) {
+			string s; cin >> s;
+			bool fresh = false;
+			if (sn.find(s) == sn.end()) {
+				fresh = true;
+			}
+			sn[s]++;
+			if (!fresh) {
+				int freq = sn[s] - 1;
+				int val =  s[0] - '0' ;
+				int nw = (freq + val) % 10;
+				char c =  nw + '0';
+				// cout << c << " c\n";
+				s[0] = c;
+				change++;
+			}
+
+			res.pb(s);
+		}
+		cout << change << "\n";
+		forn(i, n) {
+			cout << res[i] << "\n";
+		}
+
+	}
+	return 0;
 }
