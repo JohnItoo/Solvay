@@ -53,59 +53,42 @@ int main() {
 		int n, t;
 		cin >> n >> t;
 		vector<int> a(n);
+		map<int, vector<int> > mp;
 		forn(i, n) {
 			cin >> a[i];
+			mp[a[i]].pb(i);
 		}
-		vi res(n);
-		if (t & 1) {
-			forn(i, n) {
-				if (a[i] & 1) {
-					res[i] = 0;
-				} else {
-					res[i] = 1;
+
+		vector<int> res(n, -1);
+
+		forn(i, n) {
+			if (res[i] != -1) continue;
+			res[i] = 0;
+			int fd = t - a[i];
+			if (fd == a[i]) {
+				int next = 1;
+				vector<int> curr = mp[fd];
+
+				for (int val : curr) {
+					if (val == i) continue;
+					res[val] = next;
+					next = next == 1 ? 0 : 1;
 				}
-			}
-		} else {
-			int lastval = 0;
-			int last = 2;
-			int lim = (n / 2) * 2;
-			map<int, int> ones;
-			map<int, int> zeros;
-			forn(i, lim) {
-				if ((a[i] & 1)) {
-					if (last % 2 == 0) {
-						res[i] = lastval;
-					} else {
-						lastval = (lastval == 0) ? 1 : 0;
-						res[i] = lastval;
+
+			} else {
+				if (mp.find(fd) != mp.end()) {
+					vector<int> curr = mp[fd];
+					for (int val : curr) {
+						res[val] = 1;
 					}
-				} else {
-					if (last % 2 == 0) {
-						lastval = (lastval == 0) ? 1 : 0;
-						res[i] = lastval;
-					} else {
-						res[i] = lastval;
-					}
-				}
-				last = a[i];
-				if (lastval == 1) {
-					ones[a[i]]++;
-				} else {
-					zeros[a[i]]++;
-				}
-			}
-			if (n & 1) {
-				int nd = t - a[n - 1];
-				if (ones.find(nd) == ones.end()) {
-					res[n - 1] = 1;
-				} else {
-					res[n - 1] = 0;
 				}
 			}
 		}
 
 		forn(i, n) cout << res[i] << " ";
-		cout << "\n";
+		cout << endl;
+
+
 
 
 	}
