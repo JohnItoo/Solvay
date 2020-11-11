@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -45,43 +45,36 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
-bool pref(vector<int> a) {
-	int pref = a[0];
-	if(pref==0) return false;
-	for(int i = 1; i < a.size(); i++) {
-		pref += a[i];
-		if(pref == 0) return false;
-	}
-	return true;
-}
 
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
- int tc; cin >> tc;
- while(tc--) {
- 	int n; cin >> n;
- 	int sum = 0;
- 	vi a(n);
- 	vi pos;
- 	vi neg;
- 	int sumpos = 0;
- 	int sumneg = 0;
- 	forn(i, n) cin >> a[i];
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc; cin >> tc;
+	while (tc--) {
+		int n; cin >> n;
+		int sum = 0;
+		vi a(n);
 
- 	
-    bool fd = false;
- 	do {
-      if(pref(a)) {
-      	fd = true;
-      	cout << "YES\n";
- 		forn(i,n) cout << a[i] << " ";
- 		cout << "\n";
+		forn(i, n) {
+			cin >> a[i];
+			sum += a[i];
+		}
+		if (sum == 0) {
+			cout << "NO\n";
+		} else if (sum < 0) {
+			sort(a.begin(), a.end());
+			cout << "YES\n";
+			forn(i, n) cout << a[i] << " ";
+			cout << endl;
+		} else {
+			sort(a.rbegin(), a.rend());
+			cout << "YES\n";
+			forn(i, n) cout << a[i] << " ";
+			cout << endl;
+		}
 
-      	break;
-      }
- 	} while(next_permutation(a.begin(), a.end()));
- 	if(!fd) cout << "NO" << "\n"; 
- }
-return 0;
+
+
+	}
+	return 0;
 }

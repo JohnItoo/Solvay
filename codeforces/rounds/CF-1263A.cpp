@@ -59,10 +59,14 @@ int main() {
 				cout << r << "\n";
 			} else {
 				if (r == b) {
-					cout << r + 1 << "\n";
+					cout << min(r+b, g) << "\n";
 
 				} else {
-					cout << g + 1 << "\n";
+					if(r == 1) {
+						cout << g << "\n";
+					} else {
+						cout << g + 1 << "\n";
+					}
 				}
 			}
 		} else {

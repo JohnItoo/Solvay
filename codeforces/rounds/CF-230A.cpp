@@ -19,7 +19,7 @@ int main() {
 	sort(vd.begin(), vd.end(), compare);
 
 	for (int i = 0; i < n; i++) {
-		if (s < vd[i].first) {
+		if (s <= vd[i].first) {
 			cout << "NO\n";
 			return 0;
 		}
