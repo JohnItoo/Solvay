@@ -50,12 +50,12 @@ int main() {
 	cin.tie(0);
 	int tc; cin >> tc;
 	while (tc--) {
-		int a, b; cin >> a >> b;
+		ll a, b; cin >> a >> b;
 		if (b < 9) {
 			cout << 0 << endl;
 			continue;
 		}
-		int ct = 0;
+		ll ct = 0;
 		bool alls = true;
 		while (b > 0) {
 			if (b % 10 != 9) alls = false;
