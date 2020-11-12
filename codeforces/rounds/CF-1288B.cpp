@@ -45,57 +45,26 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
-// int main() {
-// 	ios::sync_with_stdio(false);
-// 	cin.tie(0);
-// 	int tc; cin >> tc;
-// 	while (tc--) {
-// 		int n, k; cin >> n >> k;
-
-// 		if(n == k) {
-// 			cout << "YES\n";
-// 			forn(i, k) cout << 1 << " ";
-// 			cout << endl;
-// 			continue;
-// 		}
-// 		int div = (n & 1) ? 1 : 2;
-// 		if ( k > n / div) {
-// 			cout << "NO\n";
-// 		} else {
-// 			if (div % 2 == (n - ((k - 1) * div)) % 2) {
-// 				cout << "YES\n";
-// 				forn(i, k - 1) {
-// 					cout << div << " ";
-// 				}
-// 				cout << n - ((k - 1) * div) << endl;
-// 			} else {
-// 				cout << "NO here\n";
-// 			}
-// 		}
-// 	}
-// 	return 0;
-// }
-
 int main() {
-	int t;
-	cin >> t;
-	while (t--) {
-		int n, k;
-		cin >> n >> k;
-		int n1 = n - (k - 1);
-		if (n1 > 0 && n1 % 2 == 1) {
-			cout << "YES" << endl;
-			for (int i = 0; i < k - 1; ++i) cout << "1 ";
-			cout << n1 << endl;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc; cin >> tc;
+	while (tc--) {
+		int a, b; cin >> a >> b;
+		if (b < 9) {
+			cout << 0 << endl;
 			continue;
 		}
-		int n2 = n - 2 * (k - 1);
-		if (n2 > 0 && n2 % 2 == 0) {
-			cout << "YES" << endl;
-			for (int i = 0; i < k - 1; ++i) cout << "2 ";
-			cout << n2 << endl;
-			continue;
+		int ct = 0;
+		bool alls = true;
+		while (b > 0) {
+			if (b % 10 != 9) alls = false;
+			ct++;
+			b /= 10;
 		}
-		cout << "NO" << endl;
+		if (!alls) ct -= 1;
+		ll ans = a * ct;
+		cout << ans << "\n";
 	}
+	return 0;
 }
