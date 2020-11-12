@@ -50,10 +50,21 @@ int main() {
 	cin.tie(0);
 	int tc; cin >> tc;
 	while (tc--) {
-		int a, b; cin >> a >> b;
-		int ans = min(a, min(b, (a + b) / 3));
-		cout << ans << "\n";
-
+		int n, k; cin >> n >> k;
+		int div = (n & 1) ? 1 : 2;
+		if ( k > n / div) {
+			cout << "NO\n";
+		} else {
+			if (div % 2 == (n - ((k - 1) * div)) % 2) {
+				cout << "YES\n";
+				forn(i, k - 1) {
+					cout << div << " ";
+				}
+				cout << n - ((k - 1) * div) << endl;
+			} else {
+				cout << "NO here\n";
+			}
+		}
 	}
 	return 0;
 }
