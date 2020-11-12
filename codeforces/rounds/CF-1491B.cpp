@@ -55,6 +55,7 @@ int main() {
 		ll curr = (i * (i + 1)) / 2;
 		pref += curr;
 		cout << i << " " << curr << " " << pref << "\n";
+		i++;
 	}
 	return 0;
 }
