@@ -51,6 +51,13 @@ int main() {
 	int tc; cin >> tc;
 	while (tc--) {
 		int n, k; cin >> n >> k;
+
+		if(n == k) {
+			cout << "YES\n";
+			forn(i, k) cout << 1 << " ";
+			cout << endl;
+			continue;
+		}
 		int div = (n & 1) ? 1 : 2;
 		if ( k > n / div) {
 			cout << "NO\n";
@@ -62,7 +69,7 @@ int main() {
 				}
 				cout << n - ((k - 1) * div) << endl;
 			} else {
-				cout << "NO here\n";
+				cout << "NO\n";
 			}
 		}
 	}
