@@ -44,34 +44,25 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	int a1, a2, k1, k2, n; cin >> a1 >> a2 >> k1 >> k2 >> n;
 	int amax = 0, amin = 0, kmax = 0, kmin = 0;
-	if (k1 * a1 > k2 * a2) {
+	if (k1 > k2) {
 		kmax = k1; kmin = k2; amax = a1; amin = a2;
-	} else if (k1 * a1 == k2 * a2) {
-		if (k1 > k2) {
-			kmax = k1;
-			kmin = k2;
-			amax = a1;
-			amin = a2;
-		} else {
-			kmax = k2;
-			kmin = k1;
-			amax = a2;
-			amin = a1;
-		}
-
+	} else if (k1 == k2) {
+		kmax = k1;
+		kmin = k2;
+		amax = max(a1, a2);
+		amin = min(a1, a2);
 	} else {
 		kmax = k2; kmin = k1; amax = a2; amin = a1;
 	}
-
+ 
 	int nymin = amax * (kmax - 1);
 	int mx = 0, mn = 0;
-
+ 
 	if (nymin <  n) {
 		int rem = n - nymin;
 		int use = amin * (kmin - 1);
@@ -79,17 +70,17 @@ int main() {
 			mn = rem - use;
 		}
 	}
-
+ 
 	int nymax = amin * kmin;
 	if (nymax == n) {
 		mx = amin;
 	} else if (nymax < n) {
 		mx = amin + ((n - nymax) / kmax);
 	} else {
-		mx = n / (amin * kmin);
+		mx = n / (kmin);
 	}
-
+ 
 	cout << mn << " " << mx << endl;
-
+ 
 	return 0;
 }
