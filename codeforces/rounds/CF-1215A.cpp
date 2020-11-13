@@ -50,13 +50,21 @@ int main() {
 	cin.tie(0);
 	int a1, a2, k1, k2, n; cin >> a1 >> a2 >> k1 >> k2 >> n;
 	int amax = 0, amin = 0, kmax = 0, kmin = 0;
-	if (k1 > k2) {
+	if (k1 * a1 > k2 * a2) {
 		kmax = k1; kmin = k2; amax = a1; amin = a2;
-	} else if (k1 == k2) {
-		kmax = k1;
-		kmin = k2;
-		amax = max(a1, a2);
-		amin = min(a1, a2);
+	} else if (k1 * a1 == k2 * a2) {
+		if (k1 > k2) {
+			kmax = k1;
+			kmin = k2;
+			amax = a1;
+			amin = a2;
+		} else {
+			kmax = k2;
+			kmin = k1;
+			amax = a2;
+			amin = a1;
+		}
+
 	} else {
 		kmax = k2; kmin = k1; amax = a2; amin = a1;
 	}
