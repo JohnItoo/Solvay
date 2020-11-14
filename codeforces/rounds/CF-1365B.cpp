@@ -63,14 +63,22 @@ int main() {
 				continue;
 			}
 			int idx = i + 1;
+			bool check = true;
 			while (idx >= 1 && a[idx] < a[idx - 1]) {
-				if (b[idx] == b[idx - 1]) {
-					fd = false;
+				if (check && b[idx] == b[idx - 1]) {
+					check = false;
 					break;
 				}
 				swap(b[idx], b[idx - 1]);
 				swap(a[idx], a[idx - 1]);
 				idx--;
+			}
+			int curr = idx -1;
+
+			while(curr >= 0 && a[curr] >= a[idx]) {
+				if(a[idx] == a[curr] && b[idx] != b[curr]) {
+					fd = true
+				}
 			}
 
 			if(!fd)break;
