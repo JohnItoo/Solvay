@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -46,37 +46,38 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
- int tc; cin >> tc;
- while(tc--) {
- 	int n; cin >> n;
- 	vi a(n); vi b(n);
- 	forn(i, n) cin >> a[i];
- 	forn(i, n) cin >> b[i];
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc; cin >> tc;
+	while (tc--) {
+		int n; cin >> n;
+		vi a(n); vi b(n);
+		forn(i, n) cin >> a[i];
+		forn(i, n) cin >> b[i];
 
- 	int left = 0; 
- 	int right  = 1;
- 	bool can = true;
- 	while(left < n && right < n) {
- 		if(a[left] <= a[right]) {
- 			right++;
- 			continue;
- 		} else {
- 			if(b[left] == b[right]) {
- 				can = false;
- 				break;
- 			} else {
- 				swap(a[left], a[right]);
- 				swap(b[left], b[right]);
- 				left = right;
- 				right = left+1;
- 			}
- 		}
- 	}
- 	if(can) cout << "Yes\n";
- 	else cout << "No\n";
+		int i = 0;
+		bool fd = true;
+		while (i + 1 < n) {
+			if (a[i] <= a[i + 1]) {
+				i++;
+				continue;
+			}
+			int idx = i + 1;
+			while (idx >= 1 && a[idx] < a[idx - 1]) {
+				if (b[idx] == b[idx - 1]) {
+					fd = false;
+					break;
+				}
+				swap(b[idx], b[idx - 1]);
+				swap(a[idx], a[idx - 1]);
+				idx--;
+			}
 
- }
-return 0;
+			if(!fd)break;
+		}
+		if(fd) cout << "YES\n";
+		else cout << "NO\n";
+
+	}
+	return 0;
 }
