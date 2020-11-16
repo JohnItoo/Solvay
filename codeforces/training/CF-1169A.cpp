@@ -11,10 +11,10 @@ int main() {
 			a++;
 		}
 
-		if(y == 1) {
-			y = n;
+		if(b == 1) {
+			b = n;
 		} else {
-			y--;
+			b--;
 		}
 	}
 	if(a == b) {
