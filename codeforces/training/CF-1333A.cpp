@@ -45,29 +45,11 @@ int main() {
 	int tc; cin >> tc;
 	while (tc--) {
 		int n, m; cin >> n >> m;
-		int w = ((n * m) - 1) / 2;
-		char res[n][m];
-
-		forn(i, m - 2) {
-			forn(j, n) {
-				res[j][i] = 'B';
-			}
-		}
-
-		forn(i, n) res[i][m - 2] = 'W';
-
-		res[0][m - 1] = res[1][m - 1] = 'B';
-
-		REP(i, 2, n - 1) res[i][m - 1] = 'W';
-
-
+		vector<vector<char> > res(n, vector<char>(m, 'B'));
+		res[0][0] = 'A';
+	
 		forn(i, n) {
-			string s = "";
-			forn(j, m) {
-				s.pb(res[i][j]);
-
-			}
-
+			string s(res[i].begin(), res[i].end());
 			cout << s << "\n";
 		}
 		// cout << "\n";
