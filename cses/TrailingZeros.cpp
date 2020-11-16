@@ -7,11 +7,12 @@ int main() {
 	int curr = 1;
 	int power = 1;
 	cin >> n;
+	curr = n;
 
-	while ((1 << power) <= n ) {
-		int curr = (1 << power) / 5;
-		ans = (long long) (ans +  curr);
-		power++;
+	while (curr >= 5) {
+		int dz = curr/5;
+		curr = dz;
+		ans += (long long) curr;
 	}
 
 	cout << ans << endl;
