@@ -42,17 +42,36 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc; cin >> tc;
-	while (tc--) {
-		int n, m; cin >> n >> m;
-		vector<vector<char> > res(n, vector<char>(m, 'B'));
-		res[0][0] = 'W';
-
-		forn(i, n) {
-			string s(res[i].begin(), res[i].end());
-			cout << s << "\n";
+	int n; cin >> n;
+	string s; cin >> s;
+	int res = 0;
+	forn(i, n + 1) {
+		int stones = i;
+		int j = 0;
+		bool fd = true;
+		while (j < n) {
+			if (s[j] == '-') {
+				if (stones == 0) {
+					fd = false;
+					break;
+				}
+				stones--;
+			} else {
+				stones++;
+			}
+			j++;
 		}
-		// cout << "\n";
+		if (fd) {
+			res = i;
+			break;
+		}
 	}
+	int i = 0;
+	while (i < n) {
+		if (s[i] == '+') res++;
+		else res--;
+		i++;
+	}
+	cout << res << endl;
 	return 0;
 }
