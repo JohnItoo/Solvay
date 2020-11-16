@@ -47,21 +47,19 @@ int main() {
 		int n, m; cin >> n >> m;
 		int w = ((n * m) - 1) / 2;
 		char res[n][m];
-		forn(i, n) {
-			res[i][0] = 'B';
 
-			REP(j, 1, m - 1) {
-				// cout << j << " ";
-				if (res[i][j - 1] == 'B' && w > 0) {
-					w--;
-					res[i][j] = 'W';
-				} else {
-					res[i][j] = 'B';
-				}
+		forn(i, m - 2) {
+			forn(j, n) {
+				res[j][i] = 'B';
 			}
-			// cout << i << "\n";
 		}
-		if (w == 1) res[n - 1][m - 1] = 'W';
+
+		forn(i, n) res[i][m - 2] = 'W';
+
+		res[0][m - 1] = res[1][m - 1] = 'B';
+
+		REP(i, 2, n - 1) res[i][m - 1] = 'W';
+
 
 		forn(i, n) {
 			string s = "";
