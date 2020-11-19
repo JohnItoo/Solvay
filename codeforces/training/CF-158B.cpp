@@ -56,9 +56,16 @@ int main() {
 	int mn = min(ones, threes);
 	ones -= mn;
 	threes -= mn;
-	int mt = twos / 2;
-	twos = twos - (mt * 2);
-	taxis = mn + ones + threes + twos + mt + fours;
+	int twoshare = (twos * 2)/ 4;
+	twos = ((2 * twos) - (4 * twoshare))/2;
+	int nextshare = min(ones, twos);
+	ones -= nextshare;
+	twos -= nextshare;
+
+	int onesonly = ones / 4;
+	ones -= (onesonly * 4);
+	cout << mn << " " << ones << " " << threes << " " << twos << " " << twoshare << " " << fours << " " << nextshare << " " << onesonly<< endl;
+	taxis = mn + ones + threes + twos + twoshare + fours + nextshare + onesonly;
 
 
 
