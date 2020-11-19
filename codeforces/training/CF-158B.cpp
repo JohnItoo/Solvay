@@ -45,27 +45,27 @@ int main() {
 	int n; cin >> n;
 	vi a(n);
 	int ones = 0, twos = 0, threes = 0, fours = 0;
+	set<int> pips;
 	forn(i, n) {
 		cin >> a[i];
 		if (a[i] == 1) ones++;
 		else if (a[i] == 2) twos++;
 		else if (a[i] == 3) threes++;
 		else fours++;
+		pips.insert(a[i]);
 	}
-	ll taxis = 0;
-	int mn = min(ones, threes);
-	ones -= mn;
-	threes -= mn;
-	int twoshare = (twos * 2)/ 4;
-	twos = ((2 * twos) - (4 * twoshare))/2;
-	int nextshare = min(ones, twos);
-	ones -= nextshare;
-	twos -= nextshare;
+	ll taxis = 1;
+	ll curr = 0;
+	for (int x : pips) {
+		cout << x  << " ex \n";
+		if (curr + x > 4) {
+			curr = x;
+			taxis++;
+		} else {
+			curr += x;
+		}
+	}
 
-	int onesonly = ones / 4;
-	ones -= (onesonly * 4);
-	cout << mn << " " << ones << " " << threes << " " << twos << " " << twoshare << " " << fours << " " << nextshare << " " << onesonly<< endl;
-	taxis = mn + ones + threes + twos + twoshare + fours + nextshare + onesonly;
 
 
 
