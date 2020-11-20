@@ -67,32 +67,22 @@ int main() {
 		Use use = Use(s, t , p);
 		uses.pb(use);
 	}
-	sort(uses.begin(), uses.end(), comp);
-	int i = 0;
-	int j = 1;
-	ll curr = uses[i].z;
+	vector<ll> a(2e5+4, 0);
 
-	while (i < n && j < n && curr <= w) {
-		Use a = uses[i];
-		Use b = uses[j];
-		if (overlaps(a, b)) {
-			curr += b.z;
-			j++;
-		} else {
-			while ( i < j && !overlaps(uses[i], uses[j])) {
-				curr -= uses[i].z;
-				i++;
-			}
-			if (i == j) j++;
+	forn(i, n) {
+		a[uses[i].x] += uses[i].z;
+		a[uses[i].y] -= uses[i].z;
+	}
+	forn(i, 2e5+3) {
+		a[i+1] += a[i];
+		if((a[i+1] > numeric_limits<long long int>::max() - a[i]) || a[i+1] > w) {
+			cout << "No\n";
+			return 0;
 		}
+
 	}
-	if (curr <= w) {
-		if (i + 1 != j || uses[i].z <= w ) cout << "Yes\n";
-		else cout << "No\n";
-	}
-	else {
-       cout << "No\n";
-	}
+	cout << "Yes\n";
+
 
 	return 0;
 }
