@@ -1,18 +1,12 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include <iostream>
-#include <algorithm>
-#include <set>
-#include <map>
-#include <set>
-#include <vector>
-#include <string.h> // for memset in CF judge.
+#include <bits/stdc++.h>
 using namespace std;
 #define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
 // Shortcuts for "common" data types in contests
@@ -46,7 +40,25 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
-return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc; cin >> tc;
+	while (tc--) {
+		ll l, r; cin >> l >> r;
+		set<ll> ans;
+		for (ll i = 2; i <= 10; i++) {
+			ll j = 2;
+			while (pow(i, j) < r) {
+				ll curr = pow(i, j);
+				cout << curr << " " << i << " " << j << endl;
+				if (curr >= l && curr <= r) {
+					ans.insert(curr);
+				}
+				j++;
+			}
+		}
+		for(auto an : ans) cout << an << " he\n";
+		cout << ans.size() << endl;
+	}
+	return 0;
 }
