@@ -60,7 +60,7 @@ bool overlaps(Use a, Use b) {
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int n, w; cin >> n >> w;
+	ll n, w; cin >> n >> w;
 	vector<Use> uses;
 	forn(i, n) {
 		ll s, t, p; cin >> s >> t >> p;
@@ -87,7 +87,7 @@ int main() {
 		}
 	}
 	if (curr <= w) {
-		if ((i < n && uses[i].z <= w)) cout << "Yes\n";
+		if (i + 1 != j || uses[i].z <= w ) cout << "Yes\n";
 		else cout << "No\n";
 	}
 	else {
