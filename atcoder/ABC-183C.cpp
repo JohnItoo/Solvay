@@ -43,7 +43,7 @@ int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	int n, k; cin >> n >> k;
-	vector<vector<ll> > t(n+1, vector<ll>(n+1));
+	vector<vector<ll> > t(n + 1, vector<ll>(n + 1));
 
 	REP(i, 1, n) {
 		REP(j, 1, n) {
@@ -56,20 +56,20 @@ int main() {
 	vector<int> perm;
 
 	REP(i, 2, n) {
-      perm.pb(i);
+		perm.pb(i);
 	}
 
 
 	do {
 		ll dist = t[1][perm[0]];
-		int sz = n-1;
-		REP(i, 1,  sz-1) {
-			 dist += t[perm[i]][perm[i-1]];
+		int sz = n - 1;
+		REP(i, 1,  sz - 1) {
+			dist += t[perm[i]][perm[i - 1]];
 		}
-		dist += t[1][perm[sz-1]];
-		if(dist == k) mx++;
+		dist += t[1][perm[sz - 1]];
+		if (dist == k) mx++;
 
-	} while(next_permutation(perm.begin(), perm.end()));
+	} while (next_permutation(perm.begin(), perm.end()));
 
 	cout << mx << endl;
 

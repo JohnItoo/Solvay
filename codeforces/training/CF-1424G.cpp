@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -40,26 +40,26 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-  int n; cin >> n;
-  vector<ii> pairs;
-  forn(i, n) {
-  	int x,y; cin >> x >> y;
-  	pairs.pb(mp(x, 1));
-  	pairs.pb(mp(y, -1));
-  }
- sort(pairs.begin(), pairs.end());
- ll mx = 0;
- ll curr = 0;
- ll ans = 0;
- for(auto pr : pairs ) {
-    curr += pr.second;
-    if(curr > mx) {
-    	mx = curr;
-    	ans = pr.first;
-    }
- }
- cout << ans << " " << mx << endl;
-return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int n; cin >> n;
+	vector<ii> pairs;
+	forn(i, n) {
+		int x, y; cin >> x >> y;
+		pairs.pb(mp(x, 1));
+		pairs.pb(mp(y, -1));
+	}
+	sort(pairs.begin(), pairs.end());
+	ll mx = 0;
+	ll curr = 0;
+	ll ans = 0;
+	for (auto pr : pairs ) {
+		curr += pr.second;
+		if (curr > mx) {
+			mx = curr;
+			ans = pr.first;
+		}
+	}
+	cout << ans << " " << mx << endl;
+	return 0;
 }

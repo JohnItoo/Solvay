@@ -57,7 +57,7 @@ int main() {
 				j++;
 			}
 		}
-		for(auto an : ans) cout << an << " he\n";
+		for (auto an : ans) cout << an << " he\n";
 		cout << ans.size() << endl;
 	}
 	return 0;

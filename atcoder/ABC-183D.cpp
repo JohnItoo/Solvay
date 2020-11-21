@@ -39,23 +39,6 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
-struct Use {
-	ll x, y, z;
-	Use(ll x, ll y, ll z) {
-		this->x = x;
-		this->y = y;
-		this->z = z;
-	}
-};
-
-bool comp(Use a, Use b) {
-	if (a.y == b.y) return a.x < b.x;
-	return a.y < b.y;
-}
-
-bool overlaps(Use a, Use b) {
-	return (b.x < a.y);
-}
 
 int main() {
 	ios::sync_with_stdio(false);
@@ -67,15 +50,15 @@ int main() {
 		Use use = Use(s, t , p);
 		uses.pb(use);
 	}
-	vector<ll> a(2e5+4, 0);
+	vector<ll> a(2e5 + 4, 0);
 
 	forn(i, n) {
 		a[uses[i].x] += uses[i].z;
 		a[uses[i].y] -= uses[i].z;
 	}
-	forn(i, 2e5+3) {
-		a[i+1] += a[i];
-		if((a[i+1] > numeric_limits<long long int>::max() - a[i]) || a[i+1] > w) {
+	forn(i, 2e5 + 3) {
+		a[i + 1] += a[i];
+		if (a[i] > w) {
 			cout << "No\n";
 			return 0;
 		}
