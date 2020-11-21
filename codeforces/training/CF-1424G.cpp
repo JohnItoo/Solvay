@@ -43,19 +43,23 @@ int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
   int n; cin >> n;
-  vector<int> a(1e9+1, 0);
+  vector<ii> pairs;
   forn(i, n) {
   	int x,y; cin >> x >> y;
-  	a[x] += 1;
-  	a[y] -= 1;
+  	pairs.pb(mp(x, 1));
+  	pairs.pb(mp(y, -1));
   }
-  ll mx = 0;
-  forn(i, 1e9) {
-  	a[i+1] += a[i];
-  	if(a[i] > a[mx]) {
-  		mx = i;
-  	}
-  }
-  cout << mx << " " << a[mx] << endl;
+ sort(pairs.begin(), pairs.end());
+ ll mx = 0;
+ ll curr = 0;
+ ll ans = 0;
+ for(auto pr : pairs ) {
+    curr += pr.second;
+    if(curr > mx) {
+    	mx = curr;
+    	ans = pr.first;
+    }
+ }
+ cout << ans << " " << mx << endl;
 return 0;
 }
