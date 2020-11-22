@@ -42,43 +42,32 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
+	int t, sx, sy, ex, ey; cin >> t >> sx >> sy >> ex >> ey;
 	string s; cin >> s;
 	int n = s.length();
-	map<char, int> freq;
-	set<char> st;
-	int mx = 0;
-	forn(i, n) {
-		freq[s[i]]++;
-		st.insert(s[i]);
-		mx = max(mx, freq[s[i]]);
-	}
-	bool is = false;
-	if (n & 1) {
-		bool sec = false;
-		for (auto it : freq) {
+	t -= 1;
+	int i = 0;
+	while (i < t && i < n) {
+		int mvx = sx, mvy = sy;
+		int prev = abs(ex - sx) + abs(ey - sy);
+		if (s[i] == 'S') mvy -= 1;
+		if (s[i] == 'N') mvy += 1;
+		if (s[i] == 'W') mvx -= 1;
+		if (s[i] == 'E') mvx += 1;
 
-			if ((it.second & 1 )) {
-				if (sec) sec = false;
-				else sec = true;
-			}
+		int man = abs(ex - mvx) + abs(ey - mvy);
+
+		if (man < prev) {
+			sx = mvx;
+			sy = mvy;
 		}
-		is = sec;
 
-	} else {
-		bool gee = true;
-		for (auto it : freq) {
-			if (it.second & 1) {
-				gee = false;
-				break;
-			}
+		if (man == 0) {
+			cout << i + 1 << endl;
+			return 0;
 		}
-		is = gee;
+		i++;
 	}
-
-	if (is) {
-		cout << "First\n";
-	} else if (st.size() == 2 && mx + 1 == n) cout << "Second\n";
-	else if (n & 1) cout << "First\n";
-	else cout << "Second\n";
+	cout << -1 << endl;
 	return 0;
 }
