@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -40,26 +40,46 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-  int n, m; cin >> n >> m;
-  vector<vector<char> > board(n, vector<char>(m));
-  board[0][0] = 'B';
-  REP(i, 1, n-1) {
-    board[i][0] = board[i-1][0] == 'B' ? 'W' : 'B';
-  }
-  forn(i, n) {
-  	REP(j, 1, m-1) {
-      board[i][j] = board[i][j-1] == 'B' ? 'W' : 'B';
-  	}
-  }
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	string s; cin >> s;
+	int n = s.length();
+	map<char, int> freq;
+	set<char> st;
+	int mx = 0;
+	forn(i, n) {
+		freq[s[i]]++;
+		st.insert(s[i]);
+		mx = max(mx, freq[s[i]]);
+	}
+	bool is = false;
+	if (n & 1) {
+		bool sec = false;
+		for (auto it : freq) {
+			cout << it.second << endl;
 
-  forn(i, n) {
-  	string s; cin >> s;
-  	forn(j, m) {
-  		s[j] = s[j] == '.' ? board[i][j] : s[j];
-  	}
-  	cout << s << endl;
-  }
-return 0;
+			if ((it.second & 1 )) {
+				if (sec) sec = false;
+				else sec = true;
+			}
+		}
+		is = sec;
+
+	} else {
+		bool gee = true;
+		for (auto it : freq) {
+			if (it.second & 1) {
+				gee = false;
+				break;
+			}
+		}
+		is = gee;
+	}
+
+	if (is) {
+       cout << "First\n";
+	} else if(st.size() == 2 && mx + 1 == n) cout << "Second\n"; 
+	else if(n&1) cout << "First\n";
+	else cout << "Second\n";
+	return 0;
 }
