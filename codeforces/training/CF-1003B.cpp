@@ -42,13 +42,30 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc; cin >> tc;
-	while(tc--) {
-		ll a,b,k; cin >> a >> b >> k;
-		ll even = k / 2;
-		ll odd = k - even;
-		ll ans = (a*odd) - (b * even);
-		cout << ans << endl;
+	int a, b, x; cin >> a >> b >> x;
+	string s = (x > 1) ?  (a > b ? "0" : "1") : "";
+	if (s == "0" && x > 1) a--;
+	else if (s == "1" && x > 1)b--;
+	while (x > 1) {
+		int len = s.length();
+		char xx = s[len - 1] == '0' ? '1' : '0';
+		s.pb(xx);
+		x--;
+		if (xx == '0') a--;
+		else b--;
 	}
+	int slen = s.length();
+	if (slen == 0 || s[slen - 1] == '0') {
+		forn(i, a) s.pb('0');
+		forn(i, b) s.pb('1');
+
+	} else {
+		forn(i, b) s.pb('1');
+		forn(i, a) s.pb('0');
+
+	}
+
+	cout << s << endl;
+
 	return 0;
 }

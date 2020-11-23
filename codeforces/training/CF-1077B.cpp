@@ -42,13 +42,17 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc; cin >> tc;
-	while(tc--) {
-		ll a,b,k; cin >> a >> b >> k;
-		ll even = k / 2;
-		ll odd = k - even;
-		ll ans = (a*odd) - (b * even);
-		cout << ans << endl;
+	int n; cin >> n;
+	vi a(n);
+	forn(i, n) cin >> a[i];
+	int ans = 0;
+
+	REP(i, 1, n-2) {
+		if(a[i-1] == 1 && a[i] == 0 && a[i+1] == 1) {
+			a[i+1] = 0;
+			ans++;
+		}
 	}
+	cout << ans << endl;
 	return 0;
 }

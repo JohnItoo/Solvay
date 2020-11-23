@@ -42,13 +42,28 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc; cin >> tc;
-	while(tc--) {
-		ll a,b,k; cin >> a >> b >> k;
-		ll even = k / 2;
-		ll odd = k - even;
-		ll ans = (a*odd) - (b * even);
-		cout << ans << endl;
+	int k, n; cin >> n >> k;
+	vector<double> a(n);
+	forn(i, n) {
+		cin >> a[i];
 	}
+	double glob = 0;
+	for (int i = 0; i + k <= n; i++) {
+		double mxhere = 0;
+		double pres = 0;
+		for (int j = i; j < i + k; j++) {
+			pres += a[j];
+		}
+
+		double dz = pres / k;
+		mxhere = dz;
+		for (int j = i + k; j < n; j++) {
+			pres += a[j];
+			dz = pres / (j - i+1);
+			mxhere = max(dz, mxhere);
+		}
+		glob = max(mxhere, glob);
+	}
+	printf("%.9f\n", glob);
 	return 0;
 }

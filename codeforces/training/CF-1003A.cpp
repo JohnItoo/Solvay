@@ -42,13 +42,15 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int tc; cin >> tc;
-	while(tc--) {
-		ll a,b,k; cin >> a >> b >> k;
-		ll even = k / 2;
-		ll odd = k - even;
-		ll ans = (a*odd) - (b * even);
-		cout << ans << endl;
-	}
+	int n; cin >> n; map<int, int> freq; 
+	 forn(i, n) {
+	 	int x ; cin >> x;
+	 	freq[x]++;
+	 }
+	 int mn = 1;
+	 for(auto xx : freq) {
+	 	mn = max(mn, xx.second);
+	 }
+	 cout << mn << endl;
 	return 0;
 }
