@@ -55,21 +55,29 @@ int main() {
 	int fours = freq.find(4) != freq.end() ?  freq[4] : 0;
 	int sixes = freq.find(6) != freq.end() ? freq[6] : 0;
 
-	if (freq.find(1) != freq.end()) {
-		if (freq[1] != n / 3) {
-			cout << -1 << endl;
-			return 0;
-		} else {
-			ones = n / 3;
-		}
-
-	} else {
+	if (ones + twos + threes + fours + sixes < n || ones != n / 3 || twos < fours || twos - fours + threes != sixes) {
 		cout << -1 << endl;
 		return 0;
+	} else {
+		forn(i, fours) {
+			cout << 1 << " " << 2 << " " << 4 << endl;
+			ones--;
+			twos--;
+		}
+
+		forn(i, min(twos, sixes)) {
+			cout << 1 << " " << 2 << " " << 6 << endl;
+			ones--;
+		}
+		int mn = min(twos, sixes);
+		twos -= mn;
+		sixes -= mn;
+
+		forn(i, sixes) {
+			cout << 1 << " " << 3 << " " << 6 << endl;
+		}
 	}
 
-	if (freq.find())
-
-		return 0;
+	return 0;
 
 }
