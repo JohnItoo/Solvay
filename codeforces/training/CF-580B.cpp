@@ -5,7 +5,7 @@
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
 //============================================================================
- 
+
 #include <bits/stdc++.h>
 using namespace std;
 #define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
@@ -38,7 +38,12 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
- 
+
+bool comp(ii a, ii b) {
+	if (a.first == b.first) return a.second > b.second;
+
+	return a.first > b.first;
+}
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
@@ -48,26 +53,29 @@ int main() {
 		int x, y; cin >> x >> y;
 		a[i] = mp(y, x);
 	}
-	sort(a.begin(), a.end());
+	sort(a.begin(), a.end(), comp);
 	int i = 0;
 	int j = 1;
 	ll ans = 0;
 	ll curr = a[i].first;
 	//first is friendship
 	// second is money
+	forn(i,n) cout << a[i].second << endl;
 	while (i < n && j < n) {
-		if (a[j].second - d >= a[i].second) {
-			while (i <= j && a[j].second - d >= a[i].second) {
+		if (abs(a[j].second - a[i].second) >= d) {
+			ans = max(ans, curr);
+
+			while (i <= j && abs(a[j].second - a[i].second) >= d) {
 				i++;
 				curr -= a[j].first;
- 
+
 			}
 			if (i == j) j++;
 		} else {
 			curr += a[j].first;
 			j++;
 		}
-		curr = max(ans, curr);
+		ans = max(ans, curr);
 	}
 	cout << max(ans, curr) << endl;
 	return 0;
