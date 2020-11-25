@@ -5,7 +5,7 @@
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
 //============================================================================
-
+ 
 #include <bits/stdc++.h>
 using namespace std;
 #define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
@@ -38,43 +38,37 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-
+ 
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int n, m; cin >> n >> m;
-	vi a(n + 1);
-	REP(i, 1, n) cin >> a[i];
-	vector<vector<int> > tree(n + 1, vector<int>());
-	forn(i, n - 1) {
-		int x , y;
-		cin >> x >> y;
-		tree[x].pb(y);
-		tree[y].pb(x);
+	int n, d; cin >> n >> d;
+	vii a(n);
+	forn(i, n) {
+		int x, y; cin >> x >> y;
+		a[i] = mp(y, x);
 	}
-
-	//dfs;
-
-	stack<ii> st;
-	st.push(mp(1, a[1]));
-	map<int, int> visited;
-	int ans = 0;
-
-	while (!st.empty()) {
-		ii tp = st.top(); st.pop();
-		if (visited.find(tp.first) != visited.end()) continue;
-		visited[tp.first] = 1;
-		if (tree[tp.first].size() == 1 && visited.find(tree[tp.first][0]) != visited.end() &&  tp.second <= m) {
-			ans++;
-			continue;
+	sort(a.begin(), a.end());
+	int i = 0;
+	int j = 1;
+	ll ans = 0;
+	ll curr = a[i].first;
+	//first is friendship
+	// second is money
+	while (i < n && j < n) {
+		if (a[j].second - d >= a[i].second) {
+			while (i <= j && a[j].second - d >= a[i].second) {
+				i++;
+				curr -= a[j].first;
+ 
+			}
+			if (i == j) j++;
+		} else {
+			curr += a[j].first;
+			j++;
 		}
-		for (int child : tree[tp.first]) {
-			int second = a[child] == 1 ?  tp.second + 1 : 0;
-			if (second <= m) st.push(mp(child, second));
-		}
+		curr = max(ans, curr);
 	}
-	cout << ans << endl;
-
-
+	cout << max(ans, curr) << endl;
 	return 0;
 }
