@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -41,13 +41,35 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 int main() {
 	ios::sync_with_stdio(false);
- cin.tie(0);
- int n; cin >> n;
- set<int> st;
- forn(i, n) {
- 	int x; cin >> x;
- 	st.insert(x);
- }
- cout << st.size() << "\n";
-return 0;
+	cin.tie(0);
+	int n; cin >> n;
+	vi x(n); vi y(n); vi t(n);
+
+	forn(i, n) {
+		cin >> t[i] >> x[i] >> y[i];
+	}
+
+	int currx = 0;
+	int curry = 0;
+	int currtime = 0;
+
+	forn(i, n) {
+		ll manhattan =  (ll) (abs(x[i] - currx) + abs(y[i] - curry));
+		ll timeToTake = t[i]- currtime;
+		if (manhattan > t[i] - currtime || (currx == x[i] && curry == y[i])) {
+			cout << "No\n";
+			return 0;
+		}
+		if(manhattan < timeToTake &&  (timeToTake - manhattan) % 2 != 0) {
+			cout << "No\n";
+			return 0;
+		}
+		currx = x[i];
+		curry = y[i];
+		currtime = t[i];
+	}
+	cout << "Yes\n";
+
+
+	return 0;
 }

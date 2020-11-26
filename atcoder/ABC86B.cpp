@@ -42,12 +42,15 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
  cin.tie(0);
- int n; cin >> n;
- set<int> st;
- forn(i, n) {
- 	int x; cin >> x;
- 	st.insert(x);
+ string a, b; cin >> a >> b;
+ string s = a+b;
+ int n = stoi(s);
+ for(int i = 1; i*i <= n; i++) {
+ 	if(i*i == n) {
+ 		cout << "Yes\n";
+ 		return 0;
+ 	}
  }
- cout << st.size() << "\n";
+ cout << "No\n";
 return 0;
 }
