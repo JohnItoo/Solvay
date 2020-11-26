@@ -38,24 +38,35 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
+int lm = 2e4 + 5;
+
+bool dp[20005][2000][4];
 
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int a, b; cin >> a >> b;
-	string s; cin >> s;
+	int use[3] = {1, 5, 10};
+	// memset(dp, -1, sizeof dp);
 
-	forn(i, s.length()) {
-		if (i == a && s[i] != '-') {
-			cout << "No\n";
-			return 0;
-		}
+	dp[0][0][0] = true;
+	int n, y; cin >> n >> y;
+	y /= 1000;
 
-		if (i != a && !(s[i] >= '0' && s[i] <= '9')) {
-			cout << "No\n";
-			return 0;
+	for (int amt = 1; amt <= y; amt++) {
+		for (int times = 1; times <= n; times++) {
+			for (int coins = 1; coins <= 3; coins++) {
+				int value = use[coins - 1];
+				if (amt < value) break;
+
+				dp[amt][times][coins] = (dp[amt - value][times - 1][1]
+				                         || dp[amt - value][times - 1][2] || dp[amt - value][times - 1][3]) ?  1 : -1;
+			}
 		}
 	}
-	cout << "Yes\n";
+	if (!dp[y][n][1] || !dp[y][n][2] || !dp[y][n][3]) {
+		cout << -1 << " " << -1 << " " << -1 << endl;
+	} else {
+
+	}
 	return 0;
 }
