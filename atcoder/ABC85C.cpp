@@ -49,11 +49,13 @@ int main() {
 	// memset(dp, -1, sizeof dp);
 
 	dp[0][0][0] = true;
+
 	int n, y; cin >> n >> y;
 	y /= 1000;
 
 	for (int amt = 1; amt <= y; amt++) {
 		for (int times = 1; times <= n; times++) {
+			if (times > amt) continue;
 			for (int coins = 1; coins <= 3; coins++) {
 				int value = use[coins - 1];
 				if (amt < value) break;
@@ -61,6 +63,13 @@ int main() {
 				dp[amt][times][coins] = (dp[amt - value][times - 1][1]
 				                         || dp[amt - value][times - 1][2] || dp[amt - value][times - 1][3]) ?  1 : -1;
 			}
+		}
+
+	}
+
+	for (int amt = 1; amt <= y; amt++) {
+		for (int times = 1; times <= n; times++) {
+			cout << amt << " " << (dp[amt][times][0] || dp[amt][times][1] || dp[amt][times][2] || dp[amt][times][3]) << endl;
 		}
 	}
 	if (!dp[y][n][1] || !dp[y][n][2] || !dp[y][n][3]) {
