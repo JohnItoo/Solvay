@@ -39,25 +39,71 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
-
+bool dp[20005][2005][3];
 
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int n, sm; cin >> n >> sm;
-	bool fd = false;
-	int X = 0, Y = 0, Z = 0; 
-	for(int x = 0; x <=n; x++) {
-		for(int y = 0; y + x <= n; y++) {
-			int z = n - x - y;
-			if(z < 0) continue;
-			if((10000* x) + (5000 * y) + (1000 * z) == sm) {
-                 cout << x << " " << y  <<  " " << z << endl;
-                 return 0;
+	int use[3] = {1, 5, 10};
+	// memset(dp, -1, sizeof dp);
+
+
+
+	dp[0][0][0] = dp[0][0][1] = dp[0][0][2] = true;
+	forn(i, 3) {
+		dp[use[i]][1][0] = dp[use[i]][1][1] = dp[use[i]][1][2] = true;
+	}
+
+	int n, y; cin >> n >> y;
+	y /= 1000;
+
+	for (int amt = 1; amt <= y; amt++) {
+		for (int times = 1; times <= n; times++) {
+			// if (times > amt) continue;
+			for (int coins = 1; coins <= 3; coins++) {
+				int value = use[coins - 1];
+				if (amt < value) break;
+
+				dp[amt][times][coins - 1] = (dp[amt - value][times - 1][0] || dp[amt - value][times - 1][1] || dp[amt - value][times - 1][2]);
+
 			}
 		}
+
 	}
-	cout << -1 << " " << -1 << " " << -1 << endl;
+	// forn(i, 3) cout << dp[10][1][i] << endl;
+	// return 0;
+
+	map<int, int> hw;
+	int amt = y;
+	int times = n;
+
+	if (!dp[y][n][0] &&  !dp[y][n][1] && !dp[y][n][1]) {
+		cout << -1 << " " << -1 << " " << -1 << endl;
+	} else {
+		while (times > 0) {
+			if (dp[amt][times][0]) {
+				amt -= use[0];
+				hw[use[0]]++;
+				times--;
+			} else if (dp[amt][times][1]) {
+				amt -= use[1];
+				hw[use[1]]++;
+				times--;
+			} else {
+				amt -= use[2];
+				times--;
+				hw[use[2]]++;
+			}
+		}
+		for (int i = 2; i >= 0; i--) {
+			if (hw.find(use[i]) == hw.end()) cout << 0 << " ";
+			else cout << hw[use[i]] << " ";
+		}
+		cout << endl;
+	}
+
+
+
 
 
 
