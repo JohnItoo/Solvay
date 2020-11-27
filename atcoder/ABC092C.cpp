@@ -43,15 +43,31 @@ int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	int n; cin >> n;
-	vi a(n);
+	vector<ll> a(n);
 	forn(i, n) cin >> a[i];
-	vi res(n);
+	vector<ll> res(n);
 	forn(i, n) {
 		if (i == 0) {
 			res[i] = abs(a[i]);
 		} else {
-			res[i] = abs(a[i] - a[i - 1]);
+			res[i] = res[i - 1] + abs(a[i] - a[i - 1]);
 		}
 	}
+
+	forn(i, n) {
+		if (i == 0) {
+			ll ans = abs(a[1]) + (res[n - 1] - res[1]) + abs(a[n - 1]);
+			cout << ans << endl;
+		} else if (i == n - 1) {
+			ll  ans = res[n - 2] + abs(a[n - 2]);
+			cout << ans << endl;
+		} else {
+			ll ans = res[i - 1] + abs(a[i + 1] - a[i - 1])  + abs(a[n - 1]);
+
+			if (i != n - 2) ans +=  (res[n - 1] - res[i + 1]);
+			cout << ans << endl;
+		}
+	}
+
 	return 0;
 }
