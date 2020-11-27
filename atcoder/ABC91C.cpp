@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -41,29 +41,29 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 int main() {
 	ios::sync_with_stdio(false);
- cin.tie(0);
- int n; cin >> n;
- vii red(n);
- forn(i , n) {
- 	int a, b; cin >> a >> b;
- 	red[i] = mp(a, b);
- }
- set<ii> blue;
- forn(i, n) {
- 	int c, d; cin >> c >> d;
- 	blue.insert(mp(c,d));
- }
-  int ans = 0;
- forn(i, n) {
- 	ii curr = red[i];
- 	ii fd = mp(curr.first+1, curr.second+1);
-    auto it = blue.lower_bound(fd);
-    if(it != blue.end()) {
-    	ans++;
-    	blue.erase(it);
-    }
- }
- cout << ans << endl;
+	cin.tie(0);
+	int n; cin >> n;
+	vii red(n);
+	forn(i , n) {
+		int a, b; cin >> a >> b;
+		red[i] = mp(a, b);
+	}
+	set<ii> blue;
+	forn(i, n) {
+		int c, d; cin >> c >> d;
+		blue.insert(mp(c, d));
+	}
+	int ans = 0;
+	forn(i, n) {
+		ii curr = red[i];
+		ii fd = mp(curr.first + 1, curr.second + 1);
+		auto it = blue.lower_bound(fd);
+		if (it != blue.end()) {
+			ans++;
+			blue.erase(it);
+		}
+	}
+	cout << ans << endl;
 
-return 0;
+	return 0;
 }
