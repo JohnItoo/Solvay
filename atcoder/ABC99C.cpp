@@ -42,10 +42,37 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	ll a, b, c, x, y; cin >> a >> b >> c >> x >> y;
-	ll way1 = (x * a) + (y * b);
-	ll way2 =  (2 * max(x, y)) * c;
-	ll way3 = (2 * min(x, y) * c) + ((x - min(x, y)) *  a) + ((y - min(x, y)) * b);
-	cout << min(way1, min(way2, way3)) << endl;
+	int n; cin >> n;
+	int ans = 0;
+
+	while (n > 0) {
+		bool ndn = false;
+		bool sdn = false;
+		int nine = 1;
+		while (n >= nine * 9) {
+			if(nine == 1) nine = 9;
+			else nine *= 9;
+			ndn = true;
+
+		}
+		if(ndn) {
+			n -= nine;
+			 ans++;
+			 cout << n << endl;
+		}
+
+		int six = 1;
+		while (n >= six * 6) {
+			if(six == 1) six = 6;
+			else six *= 6;
+			sdn = true;
+		}
+		if(sdn) {n -= six;  ans++;}
+		if(!ndn && !sdn) break;
+	}
+	cout << ans << " ans \n";
+	cout << ans + n << endl;
+
+
 	return 0;
 }
