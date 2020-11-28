@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -41,21 +41,26 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 int main() {
 	ios::sync_with_stdio(false);
- cin.tie(0);
- string s; cin >> s;
- int n; cin >> n;
- vector<string> ms;
+	cin.tie(0);
+	string s; cin >> s;
+	int n; cin >> n;
+	map<string, int> mp;
+	vector<string> res;
+	forn(i, s.length()) {
+		int j = i;
+		while (j < s.length()) {
+			string sub = s.substr(i, (j - i + 1));
+			if (mp.find(sub) == mp.end()) {
+				res.pb(sub);
 
- forn(i, n) {
- 	int j = i;
- 	while(j < n) {
- 		string sub = s.substr(i, (j-i+1));
- 		ms.pb(sub);
- 		j++;
- 		cout << ms << endl;
- 	}
- }
- sort(ms.begin(), ms.end());
- cout << ms[n-1] << endl;
-return 0;
+			}
+			mp[sub]++;
+			j++;
+		}
+	}
+	sort(res.begin(), res.end());
+	cout << res[n - 1] << endl;
+
+
+	return 0;
 }
