@@ -43,36 +43,29 @@ int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	int n; cin >> n;
+	vi a(n+2, 0);
+	REP(i,1, n) cin >> a[i];
+	int i = 0;
+	int j = n+1;
 	int ans = 0;
-
-	while (n > 0) {
-		bool ndn = false;
-		bool sdn = false;
-		int nine = 1;
-		while (n >= nine * 9) {
-			if (nine == 1) nine = 9;
-			else nine *= 9;
-			ndn = true;
-
-		}
-		if (ndn) {
-			n -= nine;
+	while(i  + 1< j) {
+		bool can = false;
+		if(a[i] <= a[i+1]) {
+			i++;
 			ans++;
-			cout << n << endl;
+			can = true;
+		} else if(a[j] <= a[j-1]) {
+			j--;
+			ans++;
+			can = true;
 		}
-
-		int six = 1;
-		while (n >= six * 6) {
-			if (six == 1) six = 6;
-			else six *= 6;
-			sdn = true;
-		}
-		if (sdn) {n -= six;  ans++;}
-		if (!ndn && !sdn) break;
+		if(!can) break;
 	}
-	cout << ans << " ans \n";
-	cout << ans + n << endl;
+	if(i == j) {
+		ans = a[j+1] <= a[j] || a[i] >= a[i-1] ? ans : ans + 1;
+	}
+	cout << ans << endl;
 
-
+	
 	return 0;
 }
