@@ -48,7 +48,6 @@ int main() {
   	int l,r,k; cin >> l >> r >> k;
   	int tm = k%(r-l+1);
   	string sb = s.substr(l-1, r-l+1);
-  	// cout << sb << " :sb\n";
   	char arr[r-l+1];
   	int j = 0;
   	while(j < r-l+1) {
@@ -58,7 +57,6 @@ int main() {
   	for(int i =l-1; i < r; i++) {
   		s[i] = arr[i-l+1];
   	}
-  	// cout << s << endl;
   }
   cout << s << endl;
 return 0;
