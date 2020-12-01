@@ -45,13 +45,13 @@ int main() {
 	vector<int> nm;
 	int x; cin >> x;
 	int i = 1;
-	while (i < x) {
+	while (i <= x) {
 		i *= 9;
 		nm.pb(i);
 	}
 
 	i = 1;
-	while (i < x) {
+	while (i <= x) {
 		i *= 6;
 		nm.pb(i);
 	}
@@ -59,17 +59,24 @@ int main() {
 
 	int j = 0;
 	int ans = 0;
-
-	while (j < nm.size()) {
+ 	while (j < nm.size()) {
 		if (x < nm[j]) {
 			j++;
 		} else {
+
 			int ct = x / nm[j];
-			x -= ct * nm[j];
+			cout << nm[j] << " stat\n";
+			while(j+1 < nm.size() && x/nm[j+1] == ct) j++;
+			x -= ct * nm[j+1];
+			cout << ct << " ct\n";
+			cout << nm[j+1] << " " << x << endl;
+			ans += ct;
 			j++;
 		}
-
 	}
+
+	if(x > 0) ans += x;
+	cout << ans << endl;
 
 
 
