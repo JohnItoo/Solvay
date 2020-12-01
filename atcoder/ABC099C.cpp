@@ -65,11 +65,16 @@ int main() {
 		} else {
 
 			int ct = x / nm[j];
-			cout << nm[j] << " stat\n";
-			while(j+1 < nm.size() && x/nm[j+1] == ct) j++;
-			x -= ct * nm[j+1];
-			cout << ct << " ct\n";
-			cout << nm[j+1] << " " << x << endl;
+			int nx = x - nm[j] * ct;
+			cout << nx << "nx\n";
+			while(j + 1 < nm.size() && x > nm[j+1]  && x - (nm[j+1] * (x/nm[j+1]) <= nx)) {
+				j++;
+				cout << nm[j] << " "<< x - (nm[j] * (x/nm[j])) << " nmj\n";
+			}
+			cout << "stop\n";
+			if(j == nm.size()) j--;
+			x -= ct * nm[j];
+			cout << x << " nwx\n";
 			ans += ct;
 			j++;
 		}
