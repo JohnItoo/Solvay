@@ -40,21 +40,17 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 // to_string(int)
 
-string trUpp(string s) {
-
-	transform(s.begin(), s.end(), s.begin(), ::toupper);
-	return "";
-}
 
 int main() {
 	int a, b;
-	cin >> a >> b;	if (a == b) {
+	cin >> a >> b;
+	if (a == b) {
 		cout << 0 << "\n";
 		return 0;
 	}
 	int arr[3] = {2, 3, 5};
-	int facta = 
-	
+	int factori
+
 
 
 
