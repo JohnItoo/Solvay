@@ -40,6 +40,10 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 // to_string(int)
 
+int gcd(int a, int b) {
+	if (b == 0) return a;
+	return gcd(b, a % b);
+}
 
 int main() {
 	int a, b;
@@ -48,8 +52,42 @@ int main() {
 		cout << 0 << "\n";
 		return 0;
 	}
-	int arr[3] = {2, 3, 5};
-	int factori
+	int div = gcd(a, b);
+	a /= div; b /= div;
+	int orga = a;
+	int orgb = b;
+	int ans = 0;
+
+	for (int x = 2; x <= 5 && a > 1; x++) {
+		if (x > 5) {
+			cout << -1 << endl;
+			return 0;
+		}
+		while (a % x == 0) {
+			ans++;
+			a /= x;
+		}
+	}
+	if (a > 1) {
+		cout << -1 << endl;
+		return 0;
+	}
+
+	for (int x = 2; x <= 5 && b > 1; x++) {
+		if (x > 5) {
+			cout << -1 << endl;
+			return 0;
+		}
+		while (b % x == 0) {
+			ans++;
+			b /= x;
+		}
+	}
+	if (b > 1) {
+		cout << -1 << endl;
+		return 0;
+	}
+	cout << ans << endl;
 
 
 
