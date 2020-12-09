@@ -47,22 +47,25 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 // to_string(int)
 
 
-string trUpp(string s) {
-
-	transform(s.begin(), s.end(), s.begin(), ::toupper);
-	return "";
+int gcd(int a, int b) {
+	return (b == 0) ? a : gcd(b, a % b);
 }
-/**
-WA
-**/
 
 int main() {
 	int a = 0; int b  = 0;
 	while ( cin >> a >> b) {
 		if (a > b) swap(a, b);
+		bool all  = true;
+		int i = 1;
+		while (a * i <= b) {
+			int ans = gcd(a, b - (a * i));
+			int res = (b - (a * i)) - ans;
+			all = all && min(a, res) % max(a, res) == 0;
+			i++;
+		}
 
-		if ( n % 2 != 0 ) cout << "Stan wins" << endl;
-		else cout << "Ollie wins" << endl;
+		if (all && b % a != 0 ) cout << "Ollie wins" << endl;
+		else cout << "Stan wins" << endl;
 	}
 
 	return 0;
