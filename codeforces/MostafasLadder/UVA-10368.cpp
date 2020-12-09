@@ -59,15 +59,8 @@ WA
 int main() {
 	int a = 0; int b  = 0;
 	while ( cin >> a >> b) {
-		int n = 0;
-		while ( a  > 0 && b > 0) {
-			if (a > b) {
-				a -=  (b * (a / b ));
-			} else {
-				b -= (a * (b / a));
-			}
-			n++;
-		}
+		if (a > b) swap(a, b);
+
 		if ( n % 2 != 0 ) cout << "Stan wins" << endl;
 		else cout << "Ollie wins" << endl;
 	}
