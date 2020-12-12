@@ -43,9 +43,20 @@ int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	int n; cin >> n;
-	vi a(n);
-	forn(i, n) cin >> a[i];
-	sort(a.begin(), a.end());
+	vi a(n); vi b(n);
+	forn(i, n) {
+		cin >> a[i];
+		b[i] = a[i] - (i + 1);
+	}
+	sort(b.begin(), b.end());
+	int med = b[n / 2];
+
+	ll sum = 0;
+
+	forn(i, n) {
+		sum += abs(a[i] - med - i - 1);
+	}
+	cout << sum << endl;
 
 
 	return 0;
