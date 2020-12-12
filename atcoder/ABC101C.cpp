@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -41,18 +41,16 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 int main() {
 	ios::sync_with_stdio(false);
- cin.tie(0);
- int n, k; 
- cin >> n >> k;
- vi a(n); forn(i, n) cin >> a[i];
- int i = 0;
- while(a[i] != 1) i++;
-
- ll ans = 0;
- ll left = (i + (k -2) )/ (k-1);
- ll right = ((n-i- 1) + (k-2)) / (k-1);
- ans = left + right;
- cout << ans << endl;
- 
-return 0;
+	cin.tie(0);
+	int n, k;
+	cin >> n >> k;
+	vi a(n);
+	ll sm = 0;
+	forn(i, n) {
+		cin >> a[i];
+		sm += a[i];
+	}
+	int ans  =  ((n - k ) + (k - 2)) / (k - 1);
+	cout << ans + 1 << endl;
+	return 0;
 }
