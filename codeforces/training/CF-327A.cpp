@@ -51,26 +51,19 @@ int main() {
 	int n; cin >> n;
 	int a[n];
 	forn(i, n) cin >> a[i];
-
-	int longestConcZs = 0;
-	int curr = 0;
-	int ones = 0;
-	forn(i, n) {
-		if (a[i] == 1) ones++;
-	}
+	int mx = 0;
 
 	forn(i, n) {
-		if (a[i] == 1) {
-			if (curr != 0) {
-				longestConcZs = max(curr, longestConcZs);
-				curr = 0;
+		REP(j, i, n - 1) {
+			int ans = 0;
+			REP(k, i, j) {
+				ans += !a[i];
 			}
-			continue;
+			mx = max(ans, mx);
 		}
-		curr++;
-		longestConcZs = max(curr, longestConcZs);
 	}
-	if (ones == n) cout << 0 << endl;
-	else  cout << ones + longestConcZs << endl;
+	cout << mx << endl;
+
+
 	return 0;
 }
