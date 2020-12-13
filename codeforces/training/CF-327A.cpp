@@ -50,14 +50,22 @@ int main() {
 	cin.tie(0);
 	int n; cin >> n;
 	int a[n];
-	forn(i, n) cin >> a[i];
+	int tot = 0;
+	forn(i, n) {
+		cin >> a[i];
+		tot += a[i];
+	}
 	int mx = 0;
 
 	forn(i, n) {
 		REP(j, i, n - 1) {
-			int ans = 0;
+			int ans = tot;
 			REP(k, i, j) {
-				ans += !a[i];
+				if (a[k]) {
+					ans--;
+				} else {
+					ans++;
+				}
 			}
 			mx = max(ans, mx);
 		}
