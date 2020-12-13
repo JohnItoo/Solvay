@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -44,42 +44,34 @@ int main() {
   cin.tie(0);
   int tc;
   cin >> tc;
-  while(tc--) {
-  	int n; cin >> n;
-  	vi a(n);
-  	set<int> evens;
-  	map<int, int> every;
-  	forn(i,n) {
-  		cin >> a[i];
-  		if(a[i] % 2 == 0) {
-  			evens.insert(a[i]);
-  		}
-  		every[a[i]]++;
-  	}
-    int evsplus = 0, evsminus = 0;
-  	for(int x: evens) {
-  		if(every.find(x-1) != every.end() && every[x-1] > 0) {
-  			evsminus++;
-  			every[x]--;
-  			every[x-1]--;
-  		} else if(every.find(x+1) != every.end()) {
-  			evsplus++;
-  			every[x+1]--;
-  			every[x]--;
-  		}
-  	}
-  	int odds = n - evens.size();
-  	odds -= evsplus; odds -= evsminus;
-  	int evsleft = evens.size() - evsplus - evsminus;
-
-  	if(odds >= 0 && (odds % 2 ) == 0 && evsleft >= 0 && (evsleft % 2 == 0)) {
-  		cout << "Yes\n";
-  	} else {
-  		cout << "No\n";
-  	}
-
-
+  while (tc--) {
+    int n; cin >> n;
+    vi a(n);
+    int evens = 0, odds = 0;
+    map<int, int> evmap, oddmap;
+    forn(i, n) {
+      cin >> a[i];
+      if (a[i] & 1) {
+        odds++;
+        oddmap[a[i]]++;
+      } else {
+        evens++;
+        evmap[a[i]]++;
+      }
+    }
+    string ans = "No\n";
+    if (evens % 2 == 0 && odds % 2 == 0) {
+      cout << "Yes\n";
+    } else {
+      for (auto pp : oddmap) {
+        if (evmap.find(pp.first + 1) != evmap.end() || evmap.find(pp.first - 1) != evmap.end()) {
+          ans = "Yes\n";
+          break;
+        }
+      }
+      cout << ans;
+    }
 
   }
-return 0;
+  return 0;
 }
