@@ -52,28 +52,39 @@ int main() {
 		graph[x].pb(y);
 		graph[y].pb(x);
 	}
-	map<int, set<int>> occ;
-	for (int i = 1; i <= n; i++) {
-		int col = c[i - 1];
-		for (int edges : graph[i]) {
-			if (c[edges - 1] == col) continue;
-			occ[col].insert(c[edges - 1]);
-		}
-	}
 	int ans = -1;
 	int sz = -1;
-	for (auto ij : occ) {
-		int curr = (ij.second).size();
-		if(ans == -1) {
-			ans = ij.first;
-			sz = curr;
-			continue;
+	map<int, int> res;
+
+	for (int i = 1; i <= n; i++) {
+		int col = c[i - 1];
+		int ct = 0;
+		set<int> dz;
+		for (int edges : graph[i]) {
+			if (c[edges - 1] == col) continue;
+			dz.insert(c[edges - 1]);
 		}
-		if (curr > sz) {
-			ans = ij.first;
-			sz = curr;
+		ct = dz.size();
+		if (ct > sz || ans == -1 || (ct == sz && col < ans)) {
+			ans = col;
+			sz = ct;
+		}
+		if (res.find(col) == res.end()) res[col] = ct;
+		else {
+			res[col] = max(ct, res[col]);
 		}
 	}
-	cout << ans << endl;
+	int my = -1;
+	for (auto ij : res) {
+		if (my ==  -1) {
+			my = ij.first;
+		} else {
+			if (res[my] < ij.second) {
+				my = ij.first;
+			}
+		}
+	}
+	cout << my << endl;
+
 	return 0;
 }
