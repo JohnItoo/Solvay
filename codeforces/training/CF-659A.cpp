@@ -52,31 +52,20 @@ int main() {
 	cin >> n >> a >> b;
 	int ans = 0;
 	int mv = abs(b) % n;
-	if (b < 0) {
-		int dest = a - 0;
-		int wll = min(mv, dest);
-		mv -= wll;
-		a -= wll;
-		// cout << "This is will " << wll << "\n";
-		if (mv > 0) {
-			// cout << a << " " << n <<  " " << mv << "\n";
-			a = n;
-			ans = a - mv;
+	int steps = 0;
+	while(steps < mv) {
+		if(b < 0) {
+			if(a == 1) a = n;
+			else a -= 1;
 		} else {
-			ans = a;
+			if(a == n) a = 1;
+			else a += 1;
 		}
-
-	} else {
-		int dist = n - a;
-		int will = min(mv, dist);
-		mv -= will;
-		a += will;
-		if (mv > 0) {
-			ans = mv;
-		} else {
-			ans = a;
-		}
+		steps++;
 	}
-	cout << ans << "\n";
+
+
+
+	cout << a << "\n";
 	return 0;
 }

@@ -1,3 +1,4 @@
+
 //============================================================================
 // Name        : template.cpp
 // Author      :
@@ -61,34 +62,21 @@ int main() {
 		else zs++;
 		a[i] = x;
 	}
-	ll ans = 0;
-	ll bs = 555555555;
-	ll ml = 9;
+	int lef = fvs / 9;
 
-
-	string val = "";
-	forn(i, fvs) {
-		val.pb('5');
+	if (zs < 1) {
+		cout << -1 << endl;
+		return 0;
 	}
-	forn(i, zs) {
-		val.pb('0');
+	if (fvs < 9) {
+		cout << 0 << endl;
+		return 0;
 	}
-	ll nums = stoll(val);
-	if (nums > 10) {
-		while (nums % 90 != 0) {
-			val = val.substr(1);
-			// cout << val << "\n";
-
-			nums = stoll(val);
-			if (val.length() == 1 && val.length() != 0) break;
-
-		}
-	}
-
-	if (nums % 90 != 0) ans = -1;
-	else ans = nums;
+	string pref = string(lef * 9, '5');
+	string suff = string(zs, '0');
 
 
-	cout << ans << "\n";
+
+	cout << pref + suff << "\n";
 	return 0;
 }
