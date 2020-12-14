@@ -67,7 +67,7 @@ int main() {
 		if (a[curr.second] > 0) {
 			ans[curr.second] = -(curr.first) - 1;
 		} else {
-			ans[curr.second] = -curr.first;
+			ans[curr.second] = curr.first;
 		}
 		i++;
 
