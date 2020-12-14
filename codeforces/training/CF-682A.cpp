@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      :
+// Author      : 
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -39,30 +39,19 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
-ll gcd(ll a, ll b) {
-	return (b == 0) ? a : gcd(b, a % b);
-}
-
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	ll l, r; cin >> l >> r;
-
-	for (ll i = l; i <= r; i++) {
-		for (ll j = i + 1; j <= r; j++) {
-			for (ll k = j + 1; k <= r; k++) {
-				if (i == j || j == k || i == k) continue;
-				ll first = gcd(i, j);
-				ll sec = gcd(j, k);
-				ll third = gcd(i, k);
-
-				if (first == 1 && sec == 1 && third != 1) {
-					cout << i << " " << j << " " << k << endl;
-					return 0;
-				}
-			}
-		}
-	}
-	cout << - 1 << endl;
-	return 0;
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  int n, m; cin >> n >> m;
+  if(n > m) swap(n, m);
+  ll ans = 0;
+  REP(i, 1, n) {
+  	int fact = (i + 4) / 5;
+  	int target = (5 * fact) - i;
+  	int ct = (target <= m && target > 0) ? 1 : 0;
+  	int add = (m - target) /5;
+  	if(add >=0) ans += (ll) ct +  add;
+  }
+  cout << ans << endl;
+return 0;
 }
