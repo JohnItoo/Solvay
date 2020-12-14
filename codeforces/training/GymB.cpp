@@ -6,13 +6,7 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include <iostream>
-#include <algorithm>
-#include <set>
-#include <map>
-#include <set>
-#include <vector>
-#include <string.h> // for memset in CF judge.
+#include <bits/stdc++.h>
 using namespace std;
 #define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
 // Shortcuts for "common" data types in contests
@@ -50,40 +44,25 @@ int main() {
 	cin.tie(0);
 	int n; cin >> n;
 	vi a(n);
-	vii prs(n);
-	int negs = 0;
+	map<int, int> fq;
 	forn(i, n) {
 		cin >> a[i];
-
-		prs[i] = mp(abs(a[i]), i);
+		fq[a[i]]++;
 	}
-	sort(prs.rbegin(), prs.rend());
-	int exp = (n / 2 ) * 2;
-	int i = 0;
-	vi ans(n);
-	while (negs < exp && i < n) {
-		ii curr = prs[i];
-		negs++;
-		if (a[curr.second] > 0) {
-			ans[curr.second] = -(curr.first) - 1;
-		} else {
-			ans[curr.second] = curr.first;
+	sort(a.rbegin(), a.rend());
+	int ans = 0;
+	REP(i, 1, n - 1) {
+		if (a[0] % a[i]  != 0 )  {
+			ans  = a[i];
+			break;
 		}
-		i++;
-
 	}
-	while (i < n) {
-		ii curr = prs[i];
-		if (a[curr.second] >= 0) {
-			ans[curr.second] = curr.first;
-		} else {
-			ans[curr.second] = curr.first - 1;
-
+	if (ans == 0) {
+		forn(i, n) if (fq[a[i]] > 1) {
+			ans = a[i];
+			break;
 		}
-		i++;
 	}
-
-	forn(i, n) cout << ans[i] << " ";
-
+	cout << a[0] << " " << ans << endl;
 	return 0;
 }
