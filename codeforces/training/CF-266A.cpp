@@ -42,26 +42,16 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int n, k; cin >> n >> k;
+	int n; cin >> n;
 	string s; cin >> s;
-	int ct = 1;
-	int mv = 1;
-	string ans = s;
-	while (ct < k) {
-		while (mv < ans.length()) {
-			if (ans.substr(mv, ans.length() - mv) == s.substr(0, ans.length() - mv)) break;
-			mv++;
-		}
-		if (mv < ans.length()) {
-			int diff = ans.length() - mv;
-			string sect = s.substr(diff, s.length() - diff);
-			ans += sect;
-			ct++;
-		} else {
-			ans += s;
-			ct++;
-		}
-		mv++;
+	int ans  = 0;
+	int i = 0;
+	while (i < n) {
+		int last = i;
+		int j = i + 1;
+		while (j < n &&  s[j] == s[last]) j++;
+		if (j - last >= 2) ans += j - last - 1;
+		i = j;
 	}
 	cout << ans << endl;
 	return 0;
