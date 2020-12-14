@@ -42,40 +42,38 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int n; cin >> n;
-	vi a(n);
-	forn(i, n) cin >> a[i];
-	int i = 0; int j = n - 1;
-	int last = 0;
-	int pck = 0;
-	string ans = "";
-	while (pck < n && (a[i] > last || a[j] > last)) {
-		if (a[i] > last && a[j] > last) {
-			if (a[i] < a[j]) {
-				ans.pb('L');
-				last = a[i];
-				i++;
-			} else {
-				ans.pb('R');
-				last = a[j];
-				j--;
-			}
-
-		} else {
-			if (a[i] > last) {
-				ans.pb('L');
-				last = a[i];
-				i++;
-			} else {
-				ans.pb('R');
-				last = a[j--];
-			}
-
-		}
-
-		pck++;
+	int n, m;
+	cin >> n >> m;
+	vector<vector<int>> graph(n + 1, vector<int>());
+	vector<int> c(n);
+	forn(i, n) cin >> c[i];
+	forn(i, m) {
+		int x, y; cin >> x >> y;
+		graph[x].pb(y);
+		graph[y].pb(x);
 	}
-	cout << ans.length() << endl;
+	map<int, set<int>> occ;
+	for (int i = 1; i <= n; i++) {
+		int col = c[i - 1];
+		for (int edges : graph[i]) {
+			if (c[edges - 1] == col) continue;
+			occ[col].insert(c[edges - 1]);
+		}
+	}
+	int ans = -1;
+	int sz = -1;
+	for (auto ij : occ) {
+		int curr = (ij.second).size();
+		if(ans == -1) {
+			ans = ij.first;
+			sz = curr;
+			continue;
+		}
+		if (curr > sz) {
+			ans = ij.first;
+			sz = curr;
+		}
+	}
 	cout << ans << endl;
 	return 0;
 }
