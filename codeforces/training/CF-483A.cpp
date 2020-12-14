@@ -39,21 +39,34 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    int up = 0, low = 0;
-    string s; cin >> s;
-    forn(i, s.length()) {
-        if (s[i] >= 'A' && s[i] <= 'Z') up++;
-        else low++;
-    }
-    if (up > low) {
-        transform(s.begin(), s.end(), s.begin(), ::toupper);
-    } else {
-        transform(s.begin(), s.end(), s.begin(), ::tolower);
+ll gcd(ll a, ll b) {
+	return (b == 0) ? a : gcd(b, a % b);
+}
 
-    }
-    cout << s << endl;
-    return 0;
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	ll l, r; cin >> l >> r;
+
+	for (ll i = l; i + 2 <= r; i++) {
+		for (ll j = i + 1; j + 1 <= r; j++) {
+			for (ll k = j + 1; k <= r; k++) {
+				if (i == j || j == k || i == k) continue;
+				ll first = gcd(i, j);
+				ll sec = gcd(j, k);
+				ll third = gcd(i, k);
+				ll arr[3] = {first, sec, third};
+				sort(arr, arr + 3);
+				ll ans[3] = {i , j , k};
+				sort(ans, ans+3);
+				if (arr[0] == 1 && arr[1] == 1 && arr[2] != 1) {
+					cout << ans[0] << " " << ans[1] << " " << ans[2] << endl;
+					cout << first << " " << sec << " " << third << endl;
+					return 0;
+				}
+			}
+		}
+	}
+	cout << - 1 << endl;
+	return 0;
 }

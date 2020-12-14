@@ -1,3 +1,4 @@
+
 //============================================================================
 // Name        : template.cpp
 // Author      :
@@ -49,22 +50,14 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	ll n, t;
-	cin >> n >> t;
-	ll l = (ll) pow(10, n - 1);
-	ll r = (ll) pow(10, n);
-
-	ll ans = -1;
-	if (n == t) ans = 1;
-	else if (n > t) {
-		for (ll i = l; i < r; i++) {
-			if (i % t == 0) {
-				ans = i;
-				break;
-			}
-		}
+	int n, t; cin >> n >> t;
+	if ((n == 1 && t == 10)) {
+		cout << -1 << endl;
+		return 0;
 	}
-
-	cout << ans << endl;
+	if (t == 10) t /= 10;
+	cout << t;
+	forn(i, n - 1) cout << 0;
+	cout << endl;
 	return 0;
 }
