@@ -6,13 +6,7 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include <iostream>
-#include <algorithm>
-#include <set>
-#include <map>
-#include <set>
-#include <vector>
-#include <string.h> // for memset in CF judge.
+#include <bits/stdc++.h>
 using namespace std;
 #define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
 // Shortcuts for "common" data types in contests
@@ -48,15 +42,20 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int n, m; cin >> n >> m;
-	int a[n];
-	forn(i, n) cin >> a[i];
-
-	int idx = 0;
+	int n; cin >> n;
+	map<int, int> ct;
 	forn(i, n) {
-		if ((a[i] + m - 1) / m >= (a[idx] + m - 1) / m) idx = i;
+		int x; cin >> x;
+		ct[x]++;
 	}
-	cout << idx + 1 << endl;
+	int mx = (n + 1) / 2;
+	for (auto cont : ct) {
+		if (cont.second > mx) {
+			cout << "NO\n";
+			return 0;
+		}
+	}
+	cout << "YES\n";
 
 	return 0;
 }

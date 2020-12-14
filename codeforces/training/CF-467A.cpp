@@ -51,26 +51,15 @@ int main() {
 	cin.tie(0);
 	ll n, m;
 	cin >> n >> m;
-	if (n < m) {
-		cout << -1 << "\n";
-		return 0;
-	}
-	int ans = 0;
-	int idx = 1;
-	while (m * idx < n / 2) {
-		idx++;
-	}
-	m *= idx;
+	for (int x = 0; x <= n; x++) {
+		for (int y = 0; y <= n; y++) {
+			 if(x + 2*y == n && (x+y) % m == 0) {
+			 	cout << x+y << endl;
+			 	return 0;
+			 }
 
-	// cout << m << " " << idx << "\n";
-
-	// if (n % 2 == m) {
-	// 	ans = m;
-	// } else {
-	// 	if (n - 1 >= (m - 1)) ans = m;
-	// 	else ans = -1;
-	// }
-	ans = m;
-	cout << ans << "\n";
+		}
+	}
+	cout << - 1 << endl;
 	return 0;
 }
