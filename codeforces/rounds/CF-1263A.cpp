@@ -51,27 +51,14 @@ int main() {
 	int tc; cin >> tc;
 	while (tc--) {
 		int r, b, g; cin >> r >> b >> g;
-		int arr[3] = {r, b, g};
-		sort(arr, arr + 3);
-		r = arr[0]; b = arr[1]; g = arr[2];
-		if (r == b || b == g) {
-			if (r == b && b == g) {
-				cout << r << "\n";
-			} else {
-				if (r == b) {
-					cout << min(r+b, g) << "\n";
+		int y = (r - g + b) / 2;
+		y = max(min(y, min(r, b)), 0);
+		int z = b - y;
+		z = max(min(z, min(g, b)), 0);
 
-				} else {
-					if(r == 1) {
-						cout << g << "\n";
-					} else {
-						cout << g + 1 << "\n";
-					}
-				}
-			}
-		} else {
-			cout << b + min((g - b), r) << "\n";
-		}
+		int x = g - z;
+		x = max(min(x, min(r, g)), 0);
+		cout << x + y + z << endl;
 	}
 	return 0;
 }
