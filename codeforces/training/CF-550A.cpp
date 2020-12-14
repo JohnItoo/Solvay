@@ -43,48 +43,40 @@ int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	string s;
-	bool ab = false, ba = false;
-
-	int i = 0;
+	//ba ab or ab ba
 	cin >> s;
-	int n = s.length();
-	while (i < n - 1) {
-		if (s[i] != 'A' && s[i] != 'B') {
-			i++; continue;
+
+	bool ba = false;
+	bool ab = false;
+	bool first = false, sec = false;
+	forn(i, s.length() - 1) {
+		if (!ba && s[i] == 'B' && s[i + 1] == 'A') {
+			ba = true;
+			i += 2;
 		}
-		if (s[i] == 'A') {
-			if (ab) {
-				if (s[i + 1] == 'B' && ab && ba) {
-					ab = false;
-					break;
-				}
-				i++;
-			} else {
-				if (s[i + 1] == 'B') {
-					ab = true;
-					i += 2;
-				} else {
-					i++;
-				}
-			}
-		} else {
-			if (ba) {
-				if (s[i + 1] == 'A' && ab && ba) {
-					ba = false;
-					break;
-				}
-				i++;
-			} else {
-				if (s[i + 1] == 'A' ) {
-					ba = true;
-					i += 2;
-				} else {
-					i++;
-				}
-			}
+		if (ba && !ab && s[i] == 'A' && s[i + 1] == 'B') {
+			ab = true;
+
 		}
 	}
-	if (ab && ba) cout << "YES\n";
-	else cout << "NO\n";
+	first = ab && ba;
+	ab = false;
+	ba = false;
+	forn(i, s.length() - 1) {
+		if (!ab && s[i] == 'A' && s[i + 1] == 'B') {
+			ab = true;
+			i += 2;
+		}
+		if (ab && !ba && s[i] == 'B' && s[i + 1] == 'A') {
+			ba = true;
+		}
+	}
+	sec = ab && ba;
+	if (first || sec) {
+		cout << "YES\n";
+	} else {
+		cout << "NO\n";
+	}
+
 	return 0;
 }

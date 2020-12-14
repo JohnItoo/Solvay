@@ -6,13 +6,7 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include <iostream>
-#include <algorithm>
-#include <set>
-#include <map>
-#include <set>
-#include <vector>
-#include <string.h> // for memset in CF judge.
+#include <bits/stdc++.h>
 using namespace std;
 #define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
 // Shortcuts for "common" data types in contests
@@ -48,22 +42,32 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	int n, a, b;
-	cin >> n >> a >> b;
-	int ans = 0;
-	int mv = abs(b) % n;
-	int steps = 0;
-	while (steps < mv) {
-		if (b < 0) {
-			if (a == 1) a = n;
-			else a -= 1;
-		} else {
-			if (a == n) a = 1;
-			else a += 1;
+	int tc; cin >> tc;
+	while (tc--) {
+		string s; cin >> s;
+		bool fd = true;
+		forn(i, s.length() - 1) {
+			if (s[i] != '?' && s[i] == s[i + 1]) {
+				fd = false;
+				break;
+			}
 		}
-		steps++;
+		char arr[3] = {'a', 'b', 'c'};
+		if (!fd) {
+			cout << -1 << endl;
+			continue;
+		} else {
+			forn(i, s.length()) {
+				if (s[i] != '?') continue;
+				forn(j, 3) {
+					if (((i - 1 >= 0) ? (s[i - 1] != arr[j]) : true) && ((i + 1 < s.length()) ? (s[i + 1] != arr[j]) : true)) {
+						s[i] = arr[j];
+						break;
+					}
+				}
+			}
+		}
+		cout << s << endl;
 	}
-
-	cout << a << "\n";
 	return 0;
 }
