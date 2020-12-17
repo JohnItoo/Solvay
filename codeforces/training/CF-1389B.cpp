@@ -50,21 +50,19 @@ int main() {
 		forn(i, n) cin >> a[i];
 		int val = 0;
 		ll sm = 0;
-		vector<ll> pref(k + 1);
+		vector<ll> pref(k + 2);
 
 		forn(i, k) {
 			if (a[i] + a[i + 1] > a[val] + a[val + 1]) {
 				val = i;
 			}
 			pref[i + 1] = (ll) pref[i] + a[i];
-			cout << i << endl;
 		}
-		pref[k+1] = (ll) pref[k] + a[k];
-
-		cout << pref[k+1] << " " <<  val <<  " sm\n";
+		pref[k + 1] = (ll) pref[k] + a[k];
 
 		if (z == 0) {
-			cout << pref[k] << endl;
+			cout << pref[k + 1] << endl;
+
 		} else {
 			if (val + 1 + (z * 2) < k) {
 				ll ans = pref[val + 2] + (a[val] * z) + (a[val + 1] * z);
@@ -77,11 +75,11 @@ int main() {
 				cout << ans << endl;
 			} else {
 				int rem = k - (val + 1);
-				int moves = min(rem, z);
-				cout << moves << " mv \n";
+				int moves = min(rem, z * 2);
+				// cout << moves << " mv \n";
 				int act = moves / 2;
-				cout << pref[val+2] << " pre\n";
-				ll ans = pref[val + 2] + (a[val] * (moves - act)) + (a[val + 1] * moves);
+				// cout << pref[val+2] << " pre\n";
+				ll ans = pref[val + 2] + (a[val] * (moves - act)) + (a[val + 1] * act);
 				cout << ans << endl;
 
 			}

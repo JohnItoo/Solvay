@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -46,34 +46,37 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
- int tc; cin >> tc;
- while(tc--) {
- 	int n; cin >> n;
- 	vector<ll> pref(n+1);
- 	set<ll> num;
- 	REP(i, 1, n) {
- 		ll x; cin >> x;
- 		pref[i] += x + pref[i-1];
- 		num.insert(x);
- 	}
- 	if(num.size() == 1) {
- 		cout << 0 << endl;
- 		continue;
- 	}
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	int tc; cin >> tc;
+	while (tc--) {
+		int n; cin >> n;
+		vector<ll> pref(n + 1);
+		set<ll> num;
+		REP(i, 1, n) {
+			ll x; cin >> x;
+			pref[i] += x + pref[i - 1];
+			num.insert(x);
+		}
+		if (num.size() == 1) {
+			cout << 0 << endl;
+			continue;
+		}
+		int ans = n - 1;
+		for (int i = 1; i <= n; i++) {
+			for (int j = i; j <= n; j++) {
+				int x = pref[i - 1];
+				int y = i == j ? pref[i] : pref[j] - pref[i];
+				int z = pref[n] - pref[j];
+				if (x == 0 && z == 0) continue;
+				if (x == 0) {
+					if (y % (j - i) == 0 &&  y / (j - i) == z) {
+						ans = n - j - 1
+					}
+				}
+			}
+		}
 
- 	int i = 1;
-
- 	while(i < n && pref[i] != (pref[n] + 1)/2) i++;
-
- 	if(i == n) {
- 		cout << n - 1<< endl;
- 	} else {
- 		int lef = (i/2) + ((n - i) + 1)/ 2;
- 		cout << lef << endl;
- 	}
-
- }
-return 0;
+	}
+	return 0;
 }
