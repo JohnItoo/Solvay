@@ -34,6 +34,8 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 int main() {
 	ios::sync_with_stdio(false);
  cin.tie(0);
+ int n, w;cin>>n >> w;
+ cout << n/w << endl;
  
 return 0;
 }

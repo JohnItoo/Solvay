@@ -1,7 +1,7 @@
 
 #include <bits/stdc++.h>
 using namespace std;
-#define _CRT_SECURE_NO_DEPRECATE 
+#define _CRT_SECURE_NO_DEPRECATE
 typedef long long ll;
 typedef vector<int> vi;
 typedef pair<int, int> ii;
@@ -33,7 +33,25 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 int main() {
 	ios::sync_with_stdio(false);
- cin.tie(0);
- 
-return 0;
+	cin.tie(0);
+	int n; cin >> n;
+	int ans = 0;
+
+	for (int i = 1; i <= n; i++) {
+		bool valid = true;
+		for (int j = i; j > 1; j /= 10) {
+
+			valid &= (j % 10 != 7);
+		}
+
+		for (int j = i; j > 1; j /= 8) {
+			valid &= (j % 8 != 7);
+		}
+
+		if (valid) ans++;
+
+	}
+	cout << ans << endl;
+
+	return 0;
 }
