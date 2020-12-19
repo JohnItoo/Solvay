@@ -35,10 +35,25 @@ int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
 	int n; cin >> n;
-	vi a(n);
+	vector<ll> a(n);
 	forn(i, n) {
 		cin >> a[i];
 	}
+	sort(a.begin(), a.end());
+	vector<ll> pref(n);
+	pref[0] = a[0];
+	REP(i, 1,  n - 1) {
+		pref[i] = pref[i - 1] + a[i];
+	}
+
+	ll ans = 0;
+
+	forn(i, n) {
+		ans += ((pref[n-1] - pref[i]) - ((n - i - 1 ) * a[i]));
+	}
+
+	cout << ans << endl;
+
 
 	return 0;
 }
