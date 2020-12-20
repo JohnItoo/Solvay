@@ -32,7 +32,19 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	ll arr[6] = {20, 19, 18, 17, 16, 15};
+	int tc; cin >> tc;
+	while (tc--) {
+		ll x; cin >> x;
+		bool fd = false;
+		forn(i, 6) {
+			ll md = (x-arr[i]) % 14;
+			fd |= (x >= arr[i] && md == 0);
+		}
+		if (fd) cout << "YES\n";
+		else cout << "NO\n";
+	}
+	return 0;
 }
