@@ -32,10 +32,10 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-  double h,l; cin >> h >> l;
-  double ans = ((l*l) - (h*h)) / (2 * h);
-  printf("%.14f\n", ans);
-return 0;
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	double h, l; cin >> h >> l;
+	double ans = ((l * l) - (h * h)) / (2 * h);
+	printf("%.14f\n", ans);
+	return 0;
 }
