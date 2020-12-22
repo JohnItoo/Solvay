@@ -39,6 +39,7 @@ int main() {
 		string n; int s; cin >> n >> s;
 		int q = 0;
 		int last = -1;
+
 		forn(i, n.length()) {
 			q += (n[i] - '0');
 			if (last == i - 1 && q + 1 <= s) last++;
@@ -46,24 +47,19 @@ int main() {
 		if (q <= s) {
 			cout << 0 << endl;
 		} else {
-			string res = "";
-			int trail = n[n.length() - 1] == '0' ? 0 : 10 - (n[n.length() - 1] - '0');
-			res = to_string(trail) + res;
+			int len = n.length();
+			ll have = stoll(n);
 
-			for (int i = n.length() - 2; i > last; i--) {
-
-				if (n[i] == '0') {
-					if (n[n.length() - 1] == '0') res = "0" + res;
-					else res = "9" + res;
-					continue;
-				}
-				int curr = 10 - (n[i] - '0');
-				curr -= 1;
-				char c = curr;
-				res = to_string(c) + res;
-
+			if (last == -1) {
+				ll need = pow(10, len);
+				cout << need - have << endl;
+			} else {
+				ll pref = stoll(n.substr(0, last + 1));
+				ll suff = pow(10, (len - last - 1));
+				pref +=1;
+				pref *= suff;
+				cout << pref - have << endl;
 			}
-			cout << res << endl;
 		}
 	}
 	return 0;
