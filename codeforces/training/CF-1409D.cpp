@@ -40,26 +40,36 @@ int main() {
 		int q = 0;
 		int last = -1;
 
-		forn(i, n.length()) {
-			q += (n[i] - '0');
-			if (last == i - 1 && q + 1 <= s) last++;
+		ll tmp = stoll(n);
+		while (tmp) {
+			q += tmp % 10;
+			tmp /= 10;
 		}
+
 		if (q <= s) {
 			cout << 0 << endl;
 		} else {
-			int len = n.length()-1;
+			int len = n.length() - 1;
+			ll pw = 1;
 			ll ans = 0;
-			while(len >= 0 && q > s) {
-				ll pw = pow(10, (n.length()-1-len));
-				int t = n[len] - 'a';
-
-				ll curr =  ((10 -t) % 10) * pw;
-				ans += curr;
+			tmp = stoll(n);
+			while (q > s) {
+				int  ch =  (tmp / pw) % 10;
+				ll change = ((10 - ch) % 10) * pw;
+				pw *= 10;
+				tmp += change;
+				ans += change;
+				q = 0;
+				ll nw = tmp;
+				while (nw) {
+					q += nw % 10;
+					nw /= 10;
+				}
 				len--;
-				q -= t;
 			}
+
 			cout << ans << endl;
-			
+
 		}
 	}
 	return 0;
