@@ -36,23 +36,34 @@ int main() {
 	cin.tie(0);
 	int tc; cin >> tc;
 	while (tc--) {
-		string n, int s; cin >> n >> s;
+		string n; int s; cin >> n >> s;
 		int q = 0;
+		int last = -1;
 		forn(i, n.length()) {
-			q += (s[i] - '0');
+			q += (n[i] - '0');
+			if (last == i - 1 && q + 1 <= s) last++;
 		}
 		if (q <= s) {
 			cout << 0 << endl;
 		} else {
-			string res(n.length(), '0');
-			int trail = 10 - (s[n.length() - 1] - '0');
-			res[n.length() - 1] = (char) (trail + '0');
-			for (int i = n.length() - 2, i >= 0; i--) {
-				int curr = 10 - (s[n.length() - 1] - '0');
+			string res = "";
+			int trail = n[n.length() - 1] == '0' ? 0 : 10 - (n[n.length() - 1] - '0');
+			res = to_string(trail) + res;
 
+			for (int i = n.length() - 2; i > last; i--) {
 
+				if (n[i] == '0') {
+					if (n[n.length() - 1] == '0') res = "0" + res;
+					else res = "9" + res;
+					continue;
+				}
+				int curr = 10 - (n[i] - '0');
+				curr -= 1;
+				char c = curr;
+				res = to_string(c) + res;
 
 			}
+			cout << res << endl;
 		}
 	}
 	return 0;
