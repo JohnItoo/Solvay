@@ -47,19 +47,19 @@ int main() {
 		if (q <= s) {
 			cout << 0 << endl;
 		} else {
-			int len = n.length();
-			ll have = stoll(n);
+			int len = n.length()-1;
+			ll ans = 0;
+			while(len >= 0 && q > s) {
+				ll pw = pow(10, (n.length()-1-len));
+				int t = n[len] - 'a';
 
-			if (last == -1) {
-				ll need = pow(10, len);
-				cout << need - have << endl;
-			} else {
-				ll pref = stoll(n.substr(0, last + 1));
-				ll suff = pow(10, (len - last - 1));
-				pref +=1;
-				pref *= suff;
-				cout << pref - have << endl;
+				ll curr =  ((10 -t) % 10) * pw;
+				ans += curr;
+				len--;
+				q -= t;
 			}
+			cout << ans << endl;
+			
 		}
 	}
 	return 0;
