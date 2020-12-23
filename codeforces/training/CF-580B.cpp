@@ -58,13 +58,12 @@ int main() {
 	int j = 0;
 	ll ans = 0;
 	ll curr = 0;
-	//first is money
-	// second is friendship
+
 	while (i < n && j < n) {
-		if (a[i].first + d < a[j].first) {
+		if (a[j].first - a[i].first >= d) {
 			ans = max(curr, ans);
 
-			while (a[i].first + d < a[j].first) {
+			while (i < j && a[j].first - a[i].first >= d) {
 				curr -= a[i].second;
 				i++;
 			}
