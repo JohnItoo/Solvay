@@ -1,22 +1,13 @@
-//============================================================================
-// Name        : template.cpp
-// Author      :
-// Version     :
-// Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
-//============================================================================
-
 #include <bits/stdc++.h>
 using namespace std;
-#define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
-// Shortcuts for "common" data types in contests
+#define _CRT_SECURE_NO_DEPRECATE
+
 typedef long long ll;
 typedef vector<int> vi;
 typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef set<int> si;
 typedef map<string, int> msi;
-// To simplify repetitions/loops, Note: define your loop style and stick with it!
 #define x first
 #define y second
 #define pb push_back
@@ -39,40 +30,52 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
-bool comp(ii a, ii b) {
-	if (a.first == b.first) return a.second < b.second;
-
-	return a.first < b.first;
-}
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	ll n, d; cin >> n >> d;
-	vector<pair<ll, ll> >  a(n);
-	forn(i, n) {
-		ll x, y; cin >> x >> y;
-		a[i] = mp(x, y);
-	}
-	sort(a.begin(), a.end(), comp);
-	int i = 0;
-	int j = 0;
-	ll ans = 0;
-	ll curr = 0;
-	//first is money
-	// second is friendship
-	while (i < n && j < n) {
-		if (a[i].first + d < a[j].first) {
-			ans = max(curr, ans);
 
-			while (a[i].first + d < a[j].first) {
-				curr -= a[i].second;
-				i++;
+	vector<ll> arr(7);
+	map<ll, int> freq;
+	forn(i, 7) {
+		cin >> arr[i];
+		freq[arr[i]]++;
+	}
+	forn(i, 7) {
+		REP(j, i + 1, 6) {
+			REP(k, j + 1, 6) {
+				if (i == j || i == k || j == k) continue;
+				map<ll, int> dz = freq;
+				dz[arr[i]]--;
+				dz[arr[j]]--;
+				dz[arr[k]]--;
+
+				ll a = arr[i]; ll b = arr[j]; ll c = arr[k];
+				if (dz.find(a + b + c) == dz.end()) {
+					continue;
+				}
+				dz[a + b + c]--;
+				if (dz.find(a + b) == dz.end()) {
+					continue;
+				}
+				dz[a + b]--;
+
+				if (dz.find(b + c) == dz.end()) {
+					continue;
+				}
+				dz[b + c]--;
+
+				if (dz.find(a + c) == dz.end()) {
+					continue;
+				}
+				ll res[3] = {a, b, c};
+				sort(res, res + 3);
+
+				cout << res[0] << " " << res[1] << " " << res[2] << endl;
+				return 0;
 			}
-		} else {
-			curr += a[j].second;
-			j++;
+
 		}
 	}
-	cout << max(ans, curr) << endl;
+
 	return 0;
 }

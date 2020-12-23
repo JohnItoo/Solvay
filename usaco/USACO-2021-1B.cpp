@@ -1,15 +1,6 @@
-//============================================================================
-// Name        : template.cpp
-// Author      :
-// Version     :
-// Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
-//============================================================================
-
 #include <bits/stdc++.h>
 using namespace std;
-#define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
-// Shortcuts for "common" data types in contests
+#define _CRT_SECURE_NO_DEPRECATE
 typedef long long ll;
 typedef vector<int> vi;
 typedef pair<int, int> ii;
@@ -39,40 +30,29 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
-bool comp(ii a, ii b) {
-	if (a.first == b.first) return a.second < b.second;
-
-	return a.first < b.first;
-}
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	ll n, d; cin >> n >> d;
-	vector<pair<ll, ll> >  a(n);
+	int n; cin >> n;
+	vi a(n);
 	forn(i, n) {
-		ll x, y; cin >> x >> y;
-		a[i] = mp(x, y);
+		cin >> a[i];
 	}
-	sort(a.begin(), a.end(), comp);
-	int i = 0;
-	int j = 0;
-	ll ans = 0;
-	ll curr = 0;
-	//first is money
-	// second is friendship
-	while (i < n && j < n) {
-		if (a[i].first + d < a[j].first) {
-			ans = max(curr, ans);
+	int ans = 0;
 
-			while (a[i].first + d < a[j].first) {
-				curr -= a[i].second;
-				i++;
+	for (int i = 0; i < n; i++) {
+		for (int j = i; j < n; j++) {
+			map<int, int> app;
+			int sum = 0;
+			REP(k, i, j) {
+				app[a[k]]++;
+				sum += a[k];
 			}
-		} else {
-			curr += a[j].second;
-			j++;
+			int avg = (sum % (j - i + 1)) ? 0 : sum / (j - i + 1);
+			if (app.find(avg) != app.end()) ans++;
 		}
 	}
-	cout << max(ans, curr) << endl;
+	cout << ans << endl;
+
 	return 0;
 }

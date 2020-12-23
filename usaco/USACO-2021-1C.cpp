@@ -39,40 +39,63 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
-bool comp(ii a, ii b) {
-	if (a.first == b.first) return a.second < b.second;
+//returns the minimum stoptime
 
-	return a.first < b.first;
-}
+
 int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(0);
-	ll n, d; cin >> n >> d;
-	vector<pair<ll, ll> >  a(n);
+	int n; cin >> n;
+	vector<pair<int, ii> > a(n);
 	forn(i, n) {
-		ll x, y; cin >> x >> y;
-		a[i] = mp(x, y);
+		char c; cin >> c;
+		int x, y;	cin >> x >> y;
+		a[i] = mp( c == 'N' ? 1 : 0 , mp(x, y));
 	}
-	sort(a.begin(), a.end(), comp);
-	int i = 0;
-	int j = 0;
-	ll ans = 0;
-	ll curr = 0;
-	//first is money
-	// second is friendship
-	while (i < n && j < n) {
-		if (a[i].first + d < a[j].first) {
-			ans = max(curr, ans);
+	vector<vector<int> > res(n, vector<int>());
+	vi mins(n);
 
-			while (a[i].first + d < a[j].first) {
-				curr -= a[i].second;
-				i++;
-			}
+	vector<vector<int> > act(n, vector<int>(2));
+	vector<vector<int> > post(n, vector<int>(2));
+	vii mps(n);
+	map<ii, int> places;
+
+	forn(i, n) {
+		if (a[i].first) {
+			act[i][0] = 0;
+			act[i][1] = 1;
 		} else {
-			curr += a[j].second;
-			j++;
+			act[i][0] = 1;
+			act[i][1] = 0;
+		}
+		post[i][0] = (a[i].second).first;
+		post[i][1] = (a[i].second).second;
+		places[mp(post[i][0], post[i][1])] = 1;
+	}
+	int sim = 10000;
+
+	vector<int> result(n, INF);
+	for (int i = 1; i <= sim ; i++) {
+		for (int id = 0; id < n;  id++) {
+			if (result[id] != INF) continue;
+			post[id][0] += act[id][0];
+			post[id][1] += act[id][1];
+			ii currpair = mp(post[id][0], post[id][1]);
+			if (places.find(currpair) == places.end()) {
+				places[currpair] = i;
+			} else if (places[currpair] != i) {
+				result[id] = i;
+			}
 		}
 	}
-	cout << max(ans, curr) << endl;
+	forn(i, n) {
+		if (result[i] == INF) {
+			cout << "Infinity\n";
+		} else {
+			cout << result[i] << endl;
+		}
+	}
+
+
 	return 0;
 }
