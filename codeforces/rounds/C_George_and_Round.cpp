@@ -49,58 +49,35 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    int tc;
-    cin >> tc;
-    while (tc--)
-    {
-        int n;
-        cin >> n;
-        vi a(n);
-        map<int, int> mp;
-        forn(i, n)
-        {
-            cin >> a[i];
-            mp[a[i]]++;
-        }
-        map<int, int> second;
-        int k = 1;
-        bool dn = true;
+    int n, m;
+    cin >> n >> m;
+    vi a(n);
+    vi b(m);
 
-        while (k <= 1024)
+    forn(i, n) cin >> a[i];
+
+    forn(i, m) cin >> b[i];
+
+    int i = n - 1;
+    int j = m - 1;
+    int num = 0;
+
+    while (i >= 0 && j >= 0)
+    {
+        if (b[j] >= a[i])
         {
-            int ct = 0;
-            second = mp;
-            dn = true;
-            forn(j, n)
-            {
-                int curr = (a[j] ^ k);
-                if (second.find(curr) == second.end())
-                {
-                    dn = false;
-                    break;
-                }
-                else
-                {
-                    if (second[curr] == 1)
-                    {
-                        second.erase(curr);
-                    }
-                    else
-                    {
-                        second[curr]--;
-                    }
-                    ct++;
-                }
-            }
-            if (dn && ct == n)
-            {
-                cout << k << endl;
-                break;
-            }
-            k++;
+            j--;
+            i--;
         }
-        if (!dn)
-            cout << -1 << endl;
+        else
+        {
+            num += 1;
+            i--;
+        }
     }
+
+    num += (i + 1);
+    cout << num << endl;
+
     return 0;
 }
