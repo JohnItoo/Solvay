@@ -53,16 +53,66 @@ int main()
     cin >> h >> w;
     vector<string> grid(h);
     int col = -1;
+    int row = -1;
     bool fd = false;
     forn(i, h)
     {
         string s;
         cin >> s;
+        grid[i] = s;
         if (!fd)
         {
-            forn(j, w)
+            REP(j, 1, w - 2)
             {
+                if (s[j - 1] == s[j] && s[j] == s[j + 1] && s[j + 1] == '*')
+                {
+                    row = i;
+                    fd = true;
+                    break;
+                }
             }
         }
     }
+    if (row <= 0 || row == h - 1)
+    {
+        cout << "NO\n";
+        return 0;
+    }
+
+    REP(j, 1, w-2) {
+        if(grid[row][j] == '.' && grid[row][j-1] == '*' && grid[row][j+1] == '*') {
+            cout << "NO\n";
+            return 0;
+        }
+    }
+    fd = false;
+    forn(j, w)
+    {
+        if (grid[row][j] == '.')
+            continue;
+
+        if (col == -1 && grid[row - 1][j] == grid[row][j] && grid[row][j] == grid[row + 1][j])
+        {
+            col = j;
+        }
+    }
+    if (col == -1)
+    {
+        cout << "NO\n";
+        return 0;
+    }
+    // cout << row << col << endl;
+    forn(i, h)
+    {
+        forn(j, w)
+        {
+            if (grid[i][j] == '*' && (i != row && j != col))
+            {
+                // cout << i << " " << j << endl;
+                cout << "NO\n";
+                return 0;
+            }
+        }
+    }
+    cout << "YES\n";
 }
