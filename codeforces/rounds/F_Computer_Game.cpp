@@ -50,20 +50,13 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
 
-    int tc; cin >> tc;
-    while(tc--) {
-        int k, n, a, b; cin >> k >> n >> a >> b;
-
-        int l = (k/a) - (k%a == 0);
-        int y = k - (a*l);
-        int m = (y/b) - (y%b == 0);
-        if(l + m == n) {
-            cout << l << endl;
-        } else {
-            cout << -1 << endl;
-        }
+    int tc;
+    cin >> tc;
+    while (tc--)
+    {
+        int k, n, a, b;
+        cin >> k >> n >> a >> b;
     }
-
 
     return 0;
 }
