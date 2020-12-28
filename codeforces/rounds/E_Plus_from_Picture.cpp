@@ -85,6 +85,13 @@ int main()
             return 0;
         }
     }
+
+      REP(j, 1, h-2) {
+        if(grid[j][col] == '.' && grid[j-1][col] == '*' && grid[j+1][col] == '*') {
+            cout << "NO\n";
+            return 0;
+        }
+    }
     fd = false;
     forn(j, w)
     {
