@@ -51,12 +51,15 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 
 int solve(vi a, vi b, int i, int j) {
 
+   if(dp[i][j] != -1) return dp[i][j];
+
    if(i >= n && j < m) {
        int suff = 0;
       while(j < m) {
           suff += b[j++];
       }
-      return suff;
+      dp[i][j] = max(res, res+suff);
+      return dp[i][j];
    }
 
    if(j >= m && i < n) {
@@ -64,14 +67,15 @@ int solve(vi a, vi b, int i, int j) {
        while(i < n) {
            suff += a[i++];
        }
-       return suff;
+    dp[i][j] = max(res, res+ suff);
+     return dp[i][j];
+
    }
-   if(dp[i][j] != -1) return dp[i][j];
 
   int curr = max(a[i] + solve(a, b, i+1, j),  b[j] + solve(a, b, i, j+1));
 //   cout << curr << " " << i << " " << j << endl;
   dp[i][j] = curr;
-  return max(res, res+curr);
+  return max(max(res, res+curr), curr);
 
 }
 
@@ -87,8 +91,20 @@ int main() {
      vi b(m); forn(i, m) cin >> b[i];
      memset(dp, -1, sizeof dp);
      res = 0;
+     int red = 0;
+     int pref = 0;
+     forn(i, n) {
+         pref = pref + a[i];
+         red = max(pref, red);
+     }
+     pref = 0;
+     int blue = 0;
+     forn(i, m) {
+         pref = pref + b[i];
+         blue = max(pref, blue);
+     }
+     cout << red + blue << endl;
 
-    cout <<  solve(a, b, 0, 0) << endl;;
  }
 return 0;
 }
