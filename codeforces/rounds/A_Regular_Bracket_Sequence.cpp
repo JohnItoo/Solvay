@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -28,38 +28,44 @@ typedef map<string, int> msi;
 #define pb push_back
 #define mp make_pair
 #define REP(i, a, b) \
-for (int i = int(a); i <= int(b); i++) // a to b, and variable i is local!
-#define forn(i,n) \
-for (int i =0; i<(n); i++)
+    for (int i = int(a); i <= int(b); i++) // a to b, and variable i is local!
+#define forn(i, n) \
+    for (int i = 0; i < (n); i++)
 #define TRvi(c, it) \
-for (vi::iterator it = (c).begin(); it != (c).end(); it++)
+    for (vi::iterator it = (c).begin(); it != (c).end(); it++)
 #define TRvii(c, it) \
-for (vii::iterator it = (c).begin(); it != (c).end(); it++)
+    for (vii::iterator it = (c).begin(); it != (c).end(); it++)
 #define TRmsi(c, it) \
-for (msi::iterator it = (c).begin(); it != (c).end(); it++)
+    for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 #define INF 2000000000 // 2 billion
 // If you need to recall how to use memset:
-#define MEMSET_INF 127 // about 2B
+#define MEMSET_INF 127     // about 2B
 #define MEMSET_HALF_INF 63 // about 1B
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 
-int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
- int tc; cin >> tc;
- while(tc--) {
-     string s; cin >> s;
-     if(s.length() % 2) {
-         cout << "NO\n";
-         continue;
-     }
-     if(s[0]== ')' || s[s.length()-1] == '(') {
-         cout << "NO\n";
-         continue;
-     }
-     cout <<"YES\n";
- }
-return 0;
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int tc;
+    cin >> tc;
+    while (tc--)
+    {
+        string s;
+        cin >> s;
+        if (s.length() % 2)
+        {
+            cout << "NO\n";
+            continue;
+        }
+        if (s[0] == ')' || s[s.length() - 1] == '(')
+        {
+            cout << "NO\n";
+            continue;
+        }
+        cout << "YES\n";
+    }
+    return 0;
 }

@@ -1,6 +1,6 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -28,74 +28,81 @@ typedef map<string, int> msi;
 #define pb push_back
 #define mp make_pair
 #define REP(i, a, b) \
-for (int i = int(a); i <= int(b); i++) // a to b, and variable i is local!
-#define forn(i,n) \
-for (int i =0; i<(n); i++)
+    for (int i = int(a); i <= int(b); i++) // a to b, and variable i is local!
+#define forn(i, n) \
+    for (int i = 0; i < (n); i++)
 #define TRvi(c, it) \
-for (vi::iterator it = (c).begin(); it != (c).end(); it++)
+    for (vi::iterator it = (c).begin(); it != (c).end(); it++)
 #define TRvii(c, it) \
-for (vii::iterator it = (c).begin(); it != (c).end(); it++)
+    for (vii::iterator it = (c).begin(); it != (c).end(); it++)
 #define TRmsi(c, it) \
-for (msi::iterator it = (c).begin(); it != (c).end(); it++)
+    for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 #define INF 2000000000 // 2 billion
 // If you need to recall how to use memset:
-#define MEMSET_INF 127 // about 2B
+#define MEMSET_INF 127     // about 2B
 #define MEMSET_HALF_INF 63 // about 1B
-//memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
-//memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
-//memset(arr, 0, sizeof arr); // useful to clear array of integers
- int dp[105][105];
- int res = 0;
- int n = 0;
- int m = 0;
- vi A;
- vi B;
+                           //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
+                           //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
+                           //memset(arr, 0, sizeof arr); // useful to clear array of integers
+int dp[105][105];
+int res = 0;
+int n = 0;
+int m = 0;
+vi A;
+vi B;
 
-int solve(int i, int j, int best, int curr) {
+int solve(int i, int j, int best, int curr)
+{
 
-  if(i == n && j == m) return best;
-  if(dp[i][j] != -1) return dp[i][j] = max(best, dp[i][j]);
-  int res = -1;
-   if(i < n) {
-       res = max(res, solve(i+1, j, max(best, curr + A[i]), curr + A[i]));
-   }
-   if( j < m) {
-       res = max(res, solve(i, j+1, max(best, curr + B[j]), curr + B[j]));
-   }
-   return dp[i][j] = res;
-
+    if (i == n && j == m)
+        return best;
+    if (dp[i][j] != -1)
+        return dp[i][j] = max(best, dp[i][j]);
+    int res = -1;
+    if (i < n)
+    {
+        res = max(res, solve(i + 1, j, max(best, curr + A[i]), curr + A[i]));
+    }
+    if (j < m)
+    {
+        res = max(res, solve(i, j + 1, max(best, curr + B[j]), curr + B[j]));
+    }
+    return dp[i][j] = res;
 }
 
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int tc;
+    cin >> tc;
+    while (tc--)
+    {
+        cin >> n;
+        vi a(n);
+        forn(i, n) cin >> a[i];
+        cin >> m;
+        vi b(m);
+        forn(i, m) cin >> b[i];
+        memset(dp, -1, sizeof dp);
+        A = a;
+        B = b;
 
-int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
- int tc; cin >> tc;
- while(tc--) {
-      cin >> n;
-     vi a(n); forn(i, n) cin >> a[i];
-      cin >> m;
-     vi b(m); forn(i, m) cin >> b[i];
-     memset(dp, -1, sizeof dp);
-     A = a;
-     B = b;
-
-    //  res = 0;
-    //  int red = 0;
-    //  int pref = 0;
-    //  forn(i, n) {
-    //      pref = pref + a[i];
-    //      red = max(pref, red);
-    //  }
-    //  pref = 0;
-    //  int blue = 0;
-    //  forn(i, m) {
-    //      pref = pref + b[i];
-    //      blue = max(pref, blue);
-    //  }
-    //  cout << red + blue << endl;
-    cout << solve(0, 0, 0, 0) << endl;
-
- }
-return 0;
+        //  res = 0;
+        //  int red = 0;
+        //  int pref = 0;
+        //  forn(i, n) {
+        //      pref = pref + a[i];
+        //      red = max(pref, red);
+        //  }
+        //  pref = 0;
+        //  int blue = 0;
+        //  forn(i, m) {
+        //      pref = pref + b[i];
+        //      blue = max(pref, blue);
+        //  }
+        //  cout << red + blue << endl;
+        cout << solve(0, 0, 0, 0) << endl;
+    }
+    return 0;
 }
