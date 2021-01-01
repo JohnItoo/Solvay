@@ -58,7 +58,7 @@ int main()
     ll prev = 0;
     for (auto kk : fq)
     {
-        
+
         prev += kk.second;
         int i = kk.first;
         if (prev == 0)
