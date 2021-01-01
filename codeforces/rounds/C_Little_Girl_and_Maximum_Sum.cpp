@@ -38,7 +38,6 @@ int main()
     cin >> n >> q;
     vector<ll> a(n);
     forn(i, n) cin >> a[i];
-    vii pr(q);
 
     map<int, ll> fq;
     forn(i, q)
@@ -59,6 +58,7 @@ int main()
     ll prev = 0;
     for (auto kk : fq)
     {
+        
         prev += kk.second;
         int i = kk.first;
         if (prev == 0)
@@ -75,7 +75,7 @@ int main()
     sort(a.rbegin(), a.rend());
 
     ll ans = 0;
-    forn(i, n)
+    forn(i, vll.size())
     {
         ans += (a[i] * vll[i]);
     }
