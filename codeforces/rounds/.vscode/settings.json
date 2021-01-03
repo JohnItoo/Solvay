@@ -23,6 +23,7 @@
         "unordered_set": "cpp",
         "valarray": "cpp",
         "vector": "cpp",
-        "utility": "cpp"
+        "utility": "cpp",
+        "ios": "cpp"
     }
 }
