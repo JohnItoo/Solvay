@@ -6,13 +6,7 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include <string.h>  // for memset in CF judge.
-
-#include <algorithm>
-#include <iostream>
-#include <map>
-#include <set>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 #define _CRT_SECURE_NO_DEPRECATE  // suppress some compilation warning messages
                                   // (for VC++ users)
@@ -43,64 +37,57 @@ typedef map<string, int> msi;
 // distances memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP
 // memoization table memset(arr, 0, sizeof arr); // useful to clear array of
 // integers
-const int MOD = 1e9 + 7;
 
-int A() {
-    int a, b;
-    string c;
-    cin >> a >> c >> b;
-    if (c == "+")
-        cout << a + b;
-    else
-        cout << a - b;
-    return 0;
-}
-int B() {
-    int N;
-    cin >> N;
-    int t[N];
-    forn(i, N) cin >> t[i];
-    int m;
-    cin >> m;
-    while (m--) {
-        int p, x;
-        cin >> p >> x;
-        int sum = 0;
-        for (int i = 1; i <= N; i++) {
-            if (i == p)
-                sum += x;
-            else
-                sum += t[i - 1];
-        }
-        cout << sum << "\n";
-    }
-    return 0;
-}
-// C
 int main() {
-    int n;
-    cin >> n;
-    int a[n + 2];
-    forn(i, n) {
-        int p = 0;
-        cin >> p;
-        a[p]++;
-    }
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int tc;
+    cin >> tc;
+    while (tc--) {
+        int n;
+        cin >> n;
+        vector<ll> evs;
+        vector<ll> odds;
+        forn(i, n) {
+            ll curr;
+            cin >> curr;
+            if (curr & 1) {
+                odds.pb(curr);
+            } else {
+                evs.pb(curr);
+            }
+        }
+        sort(odds.rbegin(), odds.rend());
+        sort(evs.rbegin(), evs.rend());
 
-    int ans = 1;
-    if (n % 2 == 1) {
-        if (a[0] != 0) cout << 0 << endl;
-        return 0;
-        for (int t = 1; t < n; t++)
-            if (a[t] != 2) cout << 0 << endl;
-        return 0;
-        (ans *= 2) %= MOD;
-        cout << ans << endl;
-    } else {
-        for (int t = 1; t < n; t++)
-            if (a[t] != 2) cout << 0 << endl;
-        return 0;
-        (ans += ans * 2) %= MOD;
-        cout << ans << endl;
+        bool al = true;
+        int a = 0, b = 0;
+        ll alice = 0, bob = 0;
+        while (a < evs.size() || b < odds.size()) {
+            if (al) {
+                if (a < evs.size() &&
+                    (b >= odds.size() || (evs[a] > odds[b]))) {
+                    alice += evs[a++];
+                } else {
+                    b++;
+                }
+            } else {
+                if (b < odds.size() &&
+                    (a >= evs.size() || (evs[a] < odds[b]))) {
+                    bob += odds[b++];
+                } else {
+                    a++;
+                }
+            }
+            al = !al;
+        }
+        if (alice == bob) {
+            cout << "Tie\n";
+        } else if (alice < bob) {
+            cout << "Bob\n";
+        } else {
+            cout << "Alice\n";
+        }
     }
+    return 0;
 }
