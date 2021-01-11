@@ -32,20 +32,21 @@ typedef map<string, int> msi;
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
-	int n; cin >> n;
-	int k; cin >> k;
-	vi h(n);
-	forn(i, n) cin >> h[i];
-	vi dp(n+5, INF);
-	dp[1] = 0;
+    int n;
+    cin >> n;
+    int k;
+    cin >> k;
+    vi h(n);
+    forn(i, n) cin >> h[i];
+    vi dp(n + 5, INF);
+    dp[1] = 0;
 
-	for(int i = 2; i <= n; i++) {
-
-		for(int j = 1; i-j >= 1 && j <= k; j++) {
-			dp[i] = min(dp[i], abs(h[i-1] - h[i-j-1])) + dp[i-j];
-		}
-	}
-	cout << dp[n] << endl;
+    for (int i = 2; i <= n; i++) {
+        for (int j = 1; i - j >= 1 && j <= k; j++) {
+            dp[i] = min(dp[i], abs(h[i - 1] - h[i - j - 1]) + dp[i - j]);
+        }
+    }
+    cout << dp[n] << endl;
 
     return 0;
 }
