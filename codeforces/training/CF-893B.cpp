@@ -36,7 +36,7 @@ int main() {
     vi divs;
     map<int, int> mp;
     for (int i = 1; i * i <= n; i++) {
-      if(n%i) continue;
+        if (n % i) continue;
         int pr = n / i;
         if (pr != i) {
             divs.pb(pr);
@@ -52,8 +52,8 @@ int main() {
         ll val = (1 << k) - 1;
         ll rt = (1 << (k - 1));
         ll lim = (1 << 30) - 1;
-        if(mp.find(val * rt) != mp.end()) {
-          mx = val * rt;
+        if (mp.find(val * rt) != mp.end()) {
+            mx = val * rt;
         }
     }
     cout << mx << endl;

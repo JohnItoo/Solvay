@@ -59,7 +59,8 @@ int main() {
                 int needtwo = fr + x;
                 if (pref.find(needone) != pref.end() ||
                     pref.find(needtwo) != pref.end()) {
-                    cout << x << " " << needone << " " << needtwo << " " << fr << endl;
+                    cout << x << " " << needone << " " << needtwo << " " << fr
+                         << endl;
                     special = true;
                     ans += y;
                     break;
