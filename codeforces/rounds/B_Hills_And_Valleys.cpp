@@ -1,20 +1,21 @@
 //============================================================================
 // Name        : template.cpp
-// Author      : 
+// Author      :
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include <iostream>
+#include <string.h>  // for memset in CF judge.
+
 #include <algorithm>
-#include <set>
+#include <iostream>
 #include <map>
 #include <set>
 #include <vector>
-#include <string.h> // for memset in CF judge.
 using namespace std;
-#define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
+#define _CRT_SECURE_NO_DEPRECATE  // suppress some compilation warning messages
+                                  // (for VC++ users)
 // Shortcuts for "common" data types in contests
 typedef long long ll;
 typedef vector<int> vi;
@@ -22,50 +23,67 @@ typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef set<int> si;
 typedef map<string, int> msi;
-// To simplify repetitions/loops, Note: define your loop style and stick with it!
+// To simplify repetitions/loops, Note: define your loop style and stick with
+// it!
 #define x first
 #define y second
 #define pb push_back
 #define mp make_pair
 #define REP(i, a, b) \
-for (int i = int(a); i <= int(b); i++) // a to b, and variable i is local!
-#define forn(i,n) \
-for (int i =0; i<(n); i++)
-#define TRvi(c, it) \
-for (vi::iterator it = (c).begin(); it != (c).end(); it++)
-#define TRvii(c, it) \
-for (vii::iterator it = (c).begin(); it != (c).end(); it++)
-#define TRmsi(c, it) \
-for (msi::iterator it = (c).begin(); it != (c).end(); it++)
-#define INF 2000000000 // 2 billion
+    for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
+#define forn(i, n) for (int i = 0; i < (n); i++)
+#define TRvi(c, it) for (vi::iterator it = (c).begin(); it != (c).end(); it++)
+#define TRvii(c, it) for (vii::iterator it = (c).begin(); it != (c).end(); it++)
+#define TRmsi(c, it) for (msi::iterator it = (c).begin(); it != (c).end(); it++)
+#define INF 2000000000  // 2 billion
 // If you need to recall how to use memset:
-#define MEMSET_INF 127 // about 2B
-#define MEMSET_HALF_INF 63 // about 1B
-//memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
-//memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
-//memset(arr, 0, sizeof arr); // useful to clear array of integers
+#define MEMSET_INF 127      // about 2B
+#define MEMSET_HALF_INF 63  // about 1B
+// memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path
+// distances memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP
+// memoization table memset(arr, 0, sizeof arr); // useful to clear array of
+// integers
 
 int main() {
- ios::sync_with_stdio(false);
- cin.tie(0);
- int tc; cin >> tc;
- while(tc--) {
-     int n; cin >> n;
-     vi a(n);
-     forn(i, n) cin >> a[i];
-     int h = 0, v = 0, hv = 0;
-     REP(i, 1, n-2) {
-         if(a[i-1] < a[i] && a[i+1] < a[i]) h++;
-         if(a[i-1] > a[i] && a[i+1] > a[i]) v++;
-
-         if(i + 2 < n && a[i-1] < a[i] && a[i+1] < a[i] && a[i+1] < a[i+2]) hv++;
-     }
-     if(hv > 0) {
-         cout << (h + v) -2 << endl;
-     } else {
-         cout << max(0, h+v-1) << endl;
-     }
-
- }
-return 0;
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int tc;
+    cin >> tc;
+    while (tc--) {
+        int n;
+        cin >> n;
+        vi a(n);
+        forn(i, n) cin >> a[i];
+        int h = 0, v = 0, hv = 0;
+        string rep(n, 'a');
+        REP(i, 1, n - 2) {
+            if (a[i - 1] < a[i] && a[i + 1] < a[i]) {
+                h++;
+                rep[i] = 'h';
+            }
+            if (a[i - 1] > a[i] && a[i + 1] > a[i]) {
+                v++;
+                rep[i] = 'v';
+            }
+        }
+        int ans = h + v;
+        int mn = ans;
+        int i = 0;
+        while (i < n) {
+            if (i + 2 < n && (rep.substr(i, 3) == "hvh")) {
+                mn = min(mn, ans - 3);
+            }
+            string tw = rep.substr(i, 2);
+            if (i + 1 < n && (tw == "vh" || tw == "hv")) {
+                mn = min(mn, ans - 2);
+            }
+            char c = rep[i];
+            if (c == 'h' || c == 'v') {
+                mn = min(mn, ans - 1);
+            }
+            i++;
+        }
+        cout << mn << endl;
+    }
+    return 0;
 }
