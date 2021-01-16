@@ -24,6 +24,8 @@
         "valarray": "cpp",
         "vector": "cpp",
         "utility": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "queue": "cpp",
+        "stack": "cpp"
     }
 }
