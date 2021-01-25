@@ -10,24 +10,25 @@ int main() {
     for (int i = 0; i < n; i++) {
         cin >> weights[i] >> values[i];
     }
-    vector<vector<int> > dp(W + 5, vector<int>(n + 5, 0));
+    vector<vector<int> > dp(n + 5, vector<int>(W + 5, 0));
 
     for (int i = 1; i <= n; i++) {
         for (int weight = 1; weight <= W; weight++) {
+            dp[i][weight] = dp[i-1][weight];
             if (weights[i - 1] > weight) continue;
-            cout << "here ";
-            dp[weight][i] =
-                max((dp[weight - weights[i - 1]][i - 1]) + values[i - 1],
-                    dp[weight][i - 1]);
+            dp[i][weight] =
+                max((dp[i - 1][weight - weights[i - 1]]) + values[i - 1],
+                    dp[i - 1][weight]);
         }
     }
-    for(int weight = 1; weight <= W; weight++) {
-        for(int i = 1; i <= n; i++) {
-            cout << dp[weight][i] << " ";
+    for(int i = 1; i <= n; i++) {
+        for(int weight = 1; weight <= W; weight++) {
+            cout << dp[i][weight]<<" ";
         }
         cout << endl;
     }
-    cout << dp[W][n] << endl;
+    
+    cout << dp[n][W] << endl;
 
     return 0;
 }
