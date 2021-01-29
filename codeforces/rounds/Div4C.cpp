@@ -7,40 +7,25 @@ int main() {
         int n, k;
         cin >> n >> k;
         vector<int> a;
-        multiset<int> msi;
         map<int, int> freq;
         int ct = 0;
         for (int i = 0; i < n; i++) {
             int x;
             cin >> x;
-            if (x < k) {
-                freq[x]++;
-                a.push_back(x);
-                msi.insert(x);
-            } else {
-                ct++;
-            }
+            a.push_back(x);
         }
+
         sort(a.begin(), a.end());
-       for(int i = 0; i < a.size(); i++) {
-           int curr = a[i];
-           if(freq.find(curr) == freq.end()) continue;
-           if(freq[curr] == 1) freq.erase(curr);
-           else freq[curr]--;
-           int needs = k- curr;
-          multiset<int>::iterator it = msi.lower_bound(needs);
-          if(it == msi.end()) continue;
-          int found = *it;
+        int i = 0;
+        int j = a.size() - 1;
+        while (i < j) {
+            if (a[i] + a[j] < k)
+                i++;
+            else
+                break;
+        }
+        int rem = (j - i + 1) / 2;
 
-          if(freq[found] == 1) freq.erase(found);
-          else freq[found]--;
-          cout << curr << " " << found << endl;
-          ct++;
-          msi.erase(it);
-          auto jt =  msi.find(curr);
-          msi.erase(jt);
-       }
-       cout << ct << endl;
-
+        cout << ct + rem << endl;
     }
 }
