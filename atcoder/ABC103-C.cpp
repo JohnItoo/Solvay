@@ -38,7 +38,7 @@ int main() {
     forn(i, n) {
         ll x;
         cin >> x;
-        ans += (x - 1);
+        ans = ans + (x - 1);
     }
     cout << ans << endl;
 
