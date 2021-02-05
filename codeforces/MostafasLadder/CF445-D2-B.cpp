@@ -54,23 +54,24 @@ int main() {
         adj[x].pb(y);
         adj[y].pb(x);
     }
-	map<int, int> vis;
-	ll ans = 1;
-	REP(i, 1, n) {
-		if(!adj[i].size() || vis.count(i)) continue;
-		stack<int> mv;
-		mv.push(i);
-		while(!mv.empty()) {
-			int tp =mv.top();mv.pop();
-			if(vis.count(tp)) continue;
-			vis[tp] = 1;
-			if(tp != i) ans*=2;
-			for(int edg: adj[tp]) {
-               mv.push(edg);
-			}
-		}
-	}
-	cout << ans << endl;
+    map<int, int> vis;
+    ll ans = 1;
+    REP(i, 1, n) {
+        if (!adj[i].size() || vis.count(i)) continue;
+        stack<int> mv;
+        mv.push(i);
+        while (!mv.empty()) {
+            int tp = mv.top();
+            mv.pop();
+            if (vis.count(tp)) continue;
+            vis[tp] = 1;
+            if (tp != i) ans *= 2;
+            for (int edg : adj[tp]) {
+                mv.push(edg);
+            }
+        }
+    }
+    cout << ans << endl;
 
     return 0;
 }
