@@ -41,13 +41,13 @@ int main() {
         forn(i, n) cin >> a[i];
         forn(i, n) cin >> b[i];
         forn(i, m) cin >> c[i];
-        map<int, set<int>> desnot;
-        map<int, set<int>> dessame;
+        map<int, set<int> > desnot;
+        map<int, set<int> > dessame;
         forn(i, n) {
             if (a[i] == b[i])
-                dessame[a[i]].insert(i);
+                dessame[a[i]].insert(i + 1);
             else
-                desnot[a[i]].insert(i);
+                desnot[b[i]].insert(i + 1);
         }
         vi result(m, -1);  // if -1
         map<int, vi> paints;
@@ -62,7 +62,6 @@ int main() {
                 auto it = stt.begin();
                 int val = *it;
                 result[i] = val;
-                a[val - 1] = pt;
                 stt.erase(it);
                 if (stt.size() == 0)
                     desnot.erase(pt);
@@ -72,12 +71,20 @@ int main() {
                 set<int> ste = dessame[pt];
                 auto it = ste.begin();
                 int val = *it;
+                result[i] = val;
             }
         }
-        if (result[m - 1] == -1) {
+        if (result[m - 1] == -1 || desnot.size() != 0) {
             cout << "NO\n";
         } else {
-            forn(i, n) { if }
+            cout << "YES\n";
+            forn(i, m) {
+                if (result[i] == -1)
+                    cout << result[m - 1] << " ";
+                else
+                    cout << result[i] << " ";
+            }
+            cout << endl;
         }
     }
     return 0;
