@@ -50,12 +50,12 @@ int main() {
                 desnot[b[i]].insert(i + 1);
         }
         vi result(m, -1);  // if -1
-        map<int, vi> paints;
+        map<int, int> donepaints;
 
         forn(i, m) {
             int pt = c[i];
             if (!desnot.count(pt) && !dessame.count(pt)) {
-                continue;  // leave as =-1;
+                continue;  // leave as -1;
             }
             if (desnot.count(pt)) {
                 set<int> stt = desnot[pt];
@@ -63,9 +63,10 @@ int main() {
                 int val = *it;
                 result[i] = val;
                 stt.erase(it);
-                if (stt.size() == 0)
+                if (stt.size() == 0) {
+                    dessame[pt].insert(val);
                     desnot.erase(pt);
-                else
+                } else
                     desnot[pt] = stt;
             } else {
                 set<int> ste = dessame[pt];
