@@ -1,4 +1,6 @@
 #include <bits/stdc++.h>
+
+#include <unordered_map>
 using namespace std;
 #define _CRT_SECURE_NO_DEPRECATE
 
@@ -41,38 +43,38 @@ int main() {
         forn(i, n) cin >> a[i];
         forn(i, n) cin >> b[i];
         forn(i, m) cin >> c[i];
-        map<int, set<int> > desnot;
-        map<int, set<int> > dessame;
+        unordered_map<int, vi> desnot;
+        unordered_map<int, int> dessame;
         forn(i, n) {
-            if (a[i] == b[i])
-                dessame[a[i]].insert(i + 1);
-            else
-                desnot[b[i]].insert(i + 1);
+            if (a[i] == b[i]) {
+                if (!dessame.count(b[i])) dessame[a[i]] = i + 1;
+            } else {
+                if (!desnot.count(b[i])) desnot[b[i]].pb(1);
+                desnot[b[i]].pb(i + 1);
+            }
         }
-        vi result(m, -1);  // if -1
-        map<int, int> donepaints;
+        vi result;  // if -1
 
         forn(i, m) {
             int pt = c[i];
-            if (!desnot.count(pt) && !dessame.count(pt)) {
-                continue;  // leave as -1;
-            }
             if (desnot.count(pt)) {
-                set<int> stt = desnot[pt];
-                auto it = stt.begin();
-                int val = *it;
-                result[i] = val;
-                stt.erase(it);
-                if (stt.size() == 0) {
-                    dessame[pt].insert(val);
+                vi stt = desnot[pt];
+
+                int val = stt[stt[0]];
+                result.pb(val);
+                stt[0]++;
+                if (stt[0] == stt.size()) {
+                    if (!dessame.count(pt)) {
+                        dessame[pt] = val;
+                    }
                     desnot.erase(pt);
                 } else
                     desnot[pt] = stt;
+            } else if (dessame.count(pt)) {
+                int opt = dessame[pt];
+                result.pb(opt);
             } else {
-                set<int> ste = dessame[pt];
-                auto it = ste.begin();
-                int val = *it;
-                result[i] = val;
+                result.pb(-1);
             }
         }
         if (result[m - 1] == -1 || desnot.size() != 0) {
@@ -85,7 +87,7 @@ int main() {
                 else
                     cout << result[i] << " ";
             }
-            cout << endl;
+            cout << "\n";
         }
     }
     return 0;
