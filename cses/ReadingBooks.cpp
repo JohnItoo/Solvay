@@ -21,10 +21,8 @@ int main() {
 		else right += a[--j];
 	}
 
-	cout << left << " " << right << endl;
 
-
-   ll ans = max(left, right) * 2;
+   ll ans = min(max(left, right) * 2, accumulate(a.begin(), a.end(), 0LL));
    cout << ans << endl;
 
 
