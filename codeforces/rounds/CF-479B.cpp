@@ -3,12 +3,12 @@
 // URL: https://codeforces.com/problemset/problem/478/B
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
-// 
+//
 // Powered by CP Editor (https://cpeditor.org)
 
 //============================================================================
 // Name        : template.cpp
-// Author      :   $%U%$   
+// Author      :   $%U%$
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -49,24 +49,21 @@ typedef map<string, int> msi;
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    
-    
-    ll n, m; cin >> n >> m;
-    ll mdmx = n -m;
-    ll kmx = (mdmx* (mdmx+1))/2;
-    
-   
-    ll r2 = (n + m-1) /m; // full
-    ll r1fq = n%m;
+
+    ll n, m;
+    cin >> n >> m;
+    ll mdmx = n - m;
+    ll kmx = (mdmx * (mdmx + 1)) / 2;
+
+    ll r2 = (n + m - 1) / m;  // full
+    ll r1fq = n % m;
     ll r2fq = m - r1fq;
-    ll r1 = n/m;
-    ll lef =( r1 * (r1-1)) / 2;
-    ll rt = (r2 * (r2-1))/2;
+    ll r1 = n / m;
+    ll lef = (r1 * (r1 - 1)) / 2;
+    ll rt = (r2 * (r2 - 1)) / 2;
     lef *= r1fq;
     rt *= r2fq;
-    
- 
-    
-    ll kmn =lef + rt;
+
+    ll kmn = lef + rt;
     cout << kmn << " " << kmx << "\n";
 }

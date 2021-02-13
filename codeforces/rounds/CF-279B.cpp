@@ -3,12 +3,12 @@
 // URL: https://codeforces.com/problemset/problem/279/B
 // Memory Limit: 256 MB
 // Time Limit: 2000 ms
-// 
+//
 // Powered by CP Editor (https://cpeditor.org)
 
 //============================================================================
 // Name        : template.cpp
-// Author      :   $%U%$   
+// Author      :   $%U%$
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -49,24 +49,26 @@ typedef map<string, int> msi;
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(0);
-    int n, t; cin >> n >> t;
-    vi a(n+1, 0);
+    int n, t;
+    cin >> n >> t;
+    vi a(n + 1, 0);
     REP(i, 1, n) {
-    	int x; cin >> x;
-    	a[i] = a[i-1] + x;
+        int x;
+        cin >> x;
+        a[i] = a[i - 1] + x;
     }
-    
+
     int i = 0;
     int j = 1;
     int ans = 0;
-   
-    while(i <= n && j <= n) {
-    	
-    	while(j <= n && a[j] - a[i] <= t) j++;
-    	ans = max(ans, j-i);
-    	j++; i++;
+
+    while (i <= n && j <= n) {
+        while (j <= n && a[j] - a[i] <= t) j++;
+        ans = max(ans, j - i);
+        j++;
+        i++;
     }
     cout << ans - 1 << endl;
-    
+
     return 0;
 }
