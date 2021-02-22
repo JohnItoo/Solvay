@@ -72,17 +72,19 @@ int main() {
         	cout << 0 << "\n";
         } else {
         	sort(pr.rbegin(), pr.rend());
-        	
-        	ii start = pr[0];
-        	// cout << start.x << " " << start.y << endl;
-        	int ans = 0;
-        	REP(i, 1, pr.size()-1) {
-        		ii curr = pr[i];
-        		int rmv = (curr.y - start.y);
-        		
-        		ans += (abs(rmv) * curr.x);
-        	}
-        	cout << min(abs(ans), n-(start.x* start.y)) << "\n";
+        int best = 1e9+8;
+           forn(i, pr.size()) {
+           	int curr = 0;
+           	 forn(j, pr.size()) {
+           	 	if(pr[j].x >= pr[i].x) {
+           	 		curr += ((pr[j].x - pr[i].x) * pr[j].y);
+           	 	} else {
+           	 		curr += (pr[j].x * pr[j].y)
+           	 	}
+           	 }
+           	 best = min(best, curr);
+           }
+           cout << best << endl;
         }
     }
     return 0;
