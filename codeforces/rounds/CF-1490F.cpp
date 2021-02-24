@@ -66,7 +66,7 @@ int main() {
     	}
         vii pr;
         for(auto it: mpb) {
-        	pr.pb(mp(it.second, it.first));
+        	pr.pb(mp(it.first, it.second));
         }
         if(pr.size() == 1) {
         	cout << 0 << "\n";
@@ -79,7 +79,7 @@ int main() {
            	 	if(pr[j].x >= pr[i].x) {
            	 		curr += ((pr[j].x - pr[i].x) * pr[j].y);
            	 	} else {
-           	 		curr += (pr[j].x * pr[j].y)
+           	 		curr += (pr[j].x * pr[j].y);
            	 	}
            	 }
            	 best = min(best, curr);
