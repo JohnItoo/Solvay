@@ -44,19 +44,16 @@ typedef map<string, int> msi;
 // distances memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP
 // memoization table memset(arr, 0, sizeof arr); // useful to clear array of
 // integers
-map<int, ll> factorial;
-ll choose(int n) {
-	if(n < 3) return 0;
-	if(n == 3) return 1;
-	ll curr = 1;
-  if (factorial.count(n) == 0 || factorial.count(n-3) == 0) {
-    for (int i = 1; i <= n; i++) {
-      curr *= i;
-      factorial[i] = curr;
-    }
-  }
-  return factorial[n]/(6*factorial[n-3]);
+ll C(int n, int k) {
+    ll res = 1;
+    for (int i = n - k + 1; i <= n; ++i)
+        res *= (ll) i;
+    for (int i = 2; i <= k; ++i)
+        res /= i;
+    return res;
 }
+ 
+
 
 int main() {
   ios::sync_with_stdio(false);
@@ -67,29 +64,22 @@ int main() {
     while (tc--) {
       int n;
       cin >> n;
+      vi a(n);
       map<int, int> freq;
       forn(i, n) {
         int x;
         cin >> x;
         freq[x]++;
+        a[i] = x;
       }
+      sort(a.begin(), a.end());
       ll ans = 0;
-      for (auto el : freq) {
-        int curr = el.x;
-        int fq0 = el.y;
-        int fq1 = freq.count(curr+1) != 0 ? freq[curr+1] : 0;
-        int fq2 = freq.count(curr+2) !=  0 ? freq[curr+2] : 0;
-        // cout << fq0 << " " << fq1 << " " << fq2 << endl;
-        ans += choose(fq0);
-        if(fq0 >= 1 && fq1 >= 1 && fq0 + fq1 >= 3){
-        	ans += (fq0 + fq1 > 3) ? (fq0 * fq1) : 1;
-        }
-        if(fq2 >= 1 && fq0 >= 1 && fq0 + fq2 >= 3) {
-        	ans +=  (fq0 + fq2 > 3) ? (fq0 * fq2) : 1;
-        }
-        if(fq1 >= 1 && fq0 >=1 && fq2 >= 1 && fq0 + fq1 + fq2 >= 3){
-        	ans += (fq0 + fq1+ fq2 > 3) ? (fq0 *fq1 * fq2) : 1;
-        }
+      for(int i = 0, j = 0; i < n; i++){
+      	while(j < n && a[j] - a[i] <= 2) {
+      		j++;
+      	}
+      	int len = j-i-1;
+      	ans+= C(len, 2);
       }
      cout << ans << "\n";
     }
