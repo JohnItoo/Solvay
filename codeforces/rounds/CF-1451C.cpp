@@ -65,12 +65,11 @@ int main() {
     forn(i, n) { amap[a[i]]++; }
     forn(i, n) { bmap[b[i]]++; }
 
-      sort(a.begin(), a.end());
-      sort(b.begin(), b.end());
+    sort(a.begin(), a.end());
+    sort(b.begin(), b.end());
     if (a == b) {
       cout << "Yes\n";
     } else {
-    
       int i = 0;
       bool fd = true;
       while (i < n) {
