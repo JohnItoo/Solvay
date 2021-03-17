@@ -1,14 +1,14 @@
-// Problem: B. Find The Array
-// Contest: Codeforces - Educational Codeforces Round 100 (Rated for Div. 2)
-// URL: https://codeforces.com/problemset/problem/1463/B
-// Memory Limit: 256 MB
+// Problem: C - To Infinity
+// Contest: AtCoder - AtCoder Beginner Contest 106
+// URL: https://atcoder.jp/contests/abc106/tasks/abc106_c
+// Memory Limit: 976 MB
 // Time Limit: 2000 ms
-//
+// 
 // Powered by CP Editor (https://cpeditor.org)
 
 //============================================================================
 // Name        : template.cpp
-// Author      :   $%U%$
+// Author      :   $%U%$   
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -32,7 +32,7 @@ typedef map<string, int> msi;
 #define pb push_back
 #define mp make_pair
 #define REP(i, a, b) \
-  for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
+    for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
 #define forn(i, n) for (int i = 0; i < (n); i++)
 #define TRvi(c, it) for (vi::iterator it = (c).begin(); it != (c).end(); it++)
 #define TRvii(c, it) for (vii::iterator it = (c).begin(); it != (c).end(); it++)
@@ -47,42 +47,16 @@ typedef map<string, int> msi;
 // integers
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-  int tc;
-  cin >> tc;
-  while (tc--) {
-    int n;
-    cin >> n;
-    vi a(n);
-    set<int> st;
-    forn(i, n) {
-      cin >> a[i];
-      st.insert(a[i]);
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    string s;
+    ll k; cin >> s >> k;
+    int i = 0;
+    while(i < s.length() && s[i] == '1') i++;
+    if(k - 1 < i) {
+    	cout << s[k-1] << "\n";
+    }  else {
+    	cout << s[i] << "\n";
     }
-    map<int, int> res;
-    auto it = st.begin();
-    while (it != st.end()) {
-      ll curr = (*it) * 1LL;
-      int i = 0;
-      while ((1 << i) < curr) {
-        i++;
-      }
-      ll nw = 1 << i;
-      if (nw == curr) {
-        res[curr] = nw;
-      } else {
-        ll lst = 1 << (i - 1);
-        if (abs(nw - curr) <= abs(lst - curr) && nw <= 1e9) {
-          res[curr] = nw;
-        } else {
-          res[curr] = lst;
-        }
-      }
-      ++it;
-    }
-    forn(i, n) { cout << res[a[i]] << " "; }
-    cout << "\n";
-  }
-  return 0;
+    return 0;
 }
