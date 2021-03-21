@@ -45,7 +45,64 @@ typedef map<string, int> msi;
 // distances memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP
 // memoization table memset(arr, 0, sizeof arr); // useful to clear array of
 // integers
+void fxn(vector<string>& grid, vii& res, int i, int j) {
+  map<ii, int> zeros;
+  map<ii, int> ones;
+  for (int k = i; k <= i + 1; k++) {
+    for (int l = j; l <= j + 1; l++) {
+      if (grid[k][l] == '0') {
+        zeros[mp(k, l)] = 1;
+      } else {
+        ones[mp(k, l)] = 1;
+      }
+    }
+  }
+  while (ones.size() > 0) {
+    int sz = ones.size();
+    // cout << sz << endl;
+    int one = 0;
+    if (sz == 4) {
+      one = 3;
+    } else if (sz == 3) {
+      one = 3;
+    } else if (sz == 2) {
+      one = 1;
+    } else {
+      one = 1;
+    }
+    set<ii> remz;
+    set<ii> remo;
+    int zero = 3 - one;
+    for (auto idx : ones) {
+      if (one == 0) break;
+      ii val = idx.x;
+      remo.insert(val);
+      one--;
+    }
+    for (auto idx : zeros) {
+      if (zero == 0) break;
+      ii val = idx.x;
+      remz.insert(val);
+      zero--;
+    }
 
+    for (auto it = remz.begin(); it != remz.end(); ++it) {
+      ii pr = *it;
+      zeros.erase(pr);
+      ones[pr] = 1;
+      res.pb(pr);
+      grid[pr.x][pr.y] = '1';
+    }
+
+    for (auto it = remo.begin(); it != remo.end(); ++it) {
+      ii pr = *it;
+      ones.erase(pr);
+      res.pb(pr);
+      grid[pr.x][pr.y] = '0';
+      zeros[pr] = 1;
+    }
+  }
+}
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
@@ -57,64 +114,20 @@ int main() {
     vector<string> grid(n);
     forn(i, n) { cin >> grid[i]; }
     vii res;
-    for(int i = 0; i + 1 <= n - 1; i+=2) {
-      for (int j = 0; j + 1 <= m - 1; j+=2) {
-        map<ii, int> zeros;
-        map<ii, int> ones;
-        for (int k = i; k <= i + 1; k++) {
-          for (int l = j; l <= j + 1; l++) {
-            if (grid[k][l] == '0') {
-              zeros[mp(k, l)] = 1;
-            } else {
-              ones[mp(k, l)] = 1;
-            }
-          }
-        }
-        while (ones.size() > 0) {
-          int sz = ones.size();
-           cout << sz << endl;
-          int one = 0;
-          if (sz == 4) {
-            one = 3;
-          } else if (sz == 3) {
-            one = 3;
-          } else if (sz == 2) {
-            one = 1;
-          } else {
-            one = 1;
-          }
-          set<ii> remz;
-          set<ii> remo;
-          int zero = 3 - one;
-          for (auto idx : ones) {
-            if (one == 0) break;
-            ii val = idx.x;
-            remo.insert(val);
-            one--;
-          }
-          for (auto idx : zeros) {
-            if (zero == 0) break;
-            ii val = idx.x;
-            remz.insert(val);
-            zero--;
-          }
-
-          for (auto it = remz.begin(); it != remz.end(); ++it) {
-            ii pr = *it;
-            zeros.erase(pr);
-            ones[pr] = 1;
-            res.pb(pr);
-            grid[pr.x][pr.y] = '1';
-          }
-
-          for (auto it = remo.begin(); it != remo.end(); ++it) {
-            ii pr = *it;
-            ones.erase(pr);
-            res.pb(pr);
-            grid[pr.x][pr.y] = '0';
-            zeros[pr] = 1;
-          }
-        }
+    for (int i = 0; i + 1 < (n / 2) * 2; i += 2) {
+      for (int j = 0; j + 1 < (m / 2) * 2; j += 2) {
+        fxn(grid, res, i, j);
+      }
+      if (m & 1) {
+        fxn(grid, res, i, m - 2);
+      }
+    }
+    if (n & 1) {
+      for (int j = 0; j + 1 < (m / 2) * 2; j += 2) {
+        fxn(grid, res, n - 2, j);
+      }
+      if (m & 1) {
+        fxn(grid, res, n - 2, m - 2);
       }
     }
     int ans = res.size() / 3;
