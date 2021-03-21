@@ -3,12 +3,12 @@
 // URL: https://atcoder.jp/contests/abc196/tasks/abc196_c
 // Memory Limit: 1024 MB
 // Time Limit: 2000 ms
-// 
+//
 // Powered by CP Editor (https://cpeditor.org)
 
 //============================================================================
 // Name        : template.cpp
-// Author      :   $%U%$   
+// Author      :   $%U%$
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -32,7 +32,7 @@ typedef map<string, int> msi;
 #define pb push_back
 #define mp make_pair
 #define REP(i, a, b) \
-    for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
+  for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
 #define forn(i, n) for (int i = 0; i < (n); i++)
 #define TRvi(c, it) for (vi::iterator it = (c).begin(); it != (c).end(); it++)
 #define TRvii(c, it) for (vii::iterator it = (c).begin(); it != (c).end(); it++)
@@ -47,31 +47,31 @@ typedef map<string, int> msi;
 // integers
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    string s; cin >> s;
-    int len = s.length();
-    if(len == 1) {
-    	cout << 0 << endl;
-    	return 0;
-    }
-   
-    if(len & 1) {
-    	
-    	len -= 1;
-    	s = string(len, '9');
-    }
-  
-   int hf = len/2;
-    string lef = s.substr(0, hf);
-    string rig = s.substr(hf, len -hf);
-    // cout << lef << " " << rig << "\n";
-    ll lefl = stoll(lef);
-    ll rigl = stoll(rig);
-    if(lefl <= rigl) {
-    	cout << lefl << "\n";
-    } else {
-    	cout << lefl - 1 << "\n";
-    }
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  string s;
+  cin >> s;
+  int len = s.length();
+  if (len == 1) {
+    cout << 0 << endl;
     return 0;
+  }
+
+  if (len & 1) {
+    len -= 1;
+    s = string(len, '9');
+  }
+
+  int hf = len / 2;
+  string lef = s.substr(0, hf);
+  string rig = s.substr(hf, len - hf);
+  // cout << lef << " " << rig << "\n";
+  ll lefl = stoll(lef);
+  ll rigl = stoll(rig);
+  if (lefl <= rigl) {
+    cout << lefl << "\n";
+  } else {
+    cout << lefl - 1 << "\n";
+  }
+  return 0;
 }

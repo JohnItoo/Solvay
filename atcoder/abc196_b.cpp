@@ -59,11 +59,11 @@ int main() {
       break;
     }
   }
-  if(j != -1) {
-  	string q = s.substr(0, j);
-  	cout << q << endl;
+  if (j != -1) {
+    string q = s.substr(0, j);
+    cout << q << endl;
   } else {
-  	cout << s << endl;
+    cout << s << endl;
   }
   return 0;
 }

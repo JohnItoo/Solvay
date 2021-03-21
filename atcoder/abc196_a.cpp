@@ -3,12 +3,12 @@
 // URL: https://atcoder.jp/contests/abc196/tasks/abc196_a
 // Memory Limit: 1024 MB
 // Time Limit: 2000 ms
-// 
+//
 // Powered by CP Editor (https://cpeditor.org)
 
 //============================================================================
 // Name        : template.cpp
-// Author      :   $%U%$   
+// Author      :   $%U%$
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -32,7 +32,7 @@ typedef map<string, int> msi;
 #define pb push_back
 #define mp make_pair
 #define REP(i, a, b) \
-    for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
+  for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
 #define forn(i, n) for (int i = 0; i < (n); i++)
 #define TRvi(c, it) for (vi::iterator it = (c).begin(); it != (c).end(); it++)
 #define TRvii(c, it) for (vii::iterator it = (c).begin(); it != (c).end(); it++)
@@ -47,15 +47,14 @@ typedef map<string, int> msi;
 // integers
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    int a,b, c, d; cin >> a >> b >> c >> d;
-    int ans = -1e9+1;
-    REP(i, a, b) {
-    	REP(j, c, d) {
-    	ans = max(i-j, ans);
-    	}
-    }
-    cout << ans << endl;
-    return 0;
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  int a, b, c, d;
+  cin >> a >> b >> c >> d;
+  int ans = -1e9 + 1;
+  REP(i, a, b) {
+    REP(j, c, d) { ans = max(i - j, ans); }
+  }
+  cout << ans << endl;
+  return 0;
 }
