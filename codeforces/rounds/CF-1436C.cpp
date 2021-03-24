@@ -3,12 +3,12 @@
 // URL: https://codeforces.com/problemset/problem/1436/C
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
-// 
+//
 // Powered by CP Editor (https://cpeditor.org)
 
 //============================================================================
 // Name        : template.cpp
-// Author      :   $%U%$   
+// Author      :   $%U%$
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -32,7 +32,7 @@ typedef map<string, int> msi;
 #define pb push_back
 #define mp make_pair
 #define REP(i, a, b) \
-    for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
+  for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
 #define forn(i, n) for (int i = 0; i < (n); i++)
 #define TRvi(c, it) for (vi::iterator it = (c).begin(); it != (c).end(); it++)
 #define TRvii(c, it) for (vii::iterator it = (c).begin(); it != (c).end(); it++)
@@ -48,38 +48,37 @@ typedef map<string, int> msi;
 ll mod = 1e9 + 7;
 
 ll C(ll n, ll k) {
-    ll res = 1;
-    for (int i = n - k + 1; i <= n; ++i)
-        res *= i;
-    for (int i = 2; i <= k; ++i)
-        res /= i;
-    return res;
+  ll res = 1;
+  for (int i = n - k + 1; i <= n; ++i) res *= i;
+  for (int i = 2; i <= k; ++i) res /= i;
+  return res;
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    ll n, x, pos; cin >> n >> x >> pos;
-    ll spaceleft = pos-1;
-    ll spacert = n-pos;
-    ll greater = n - x;
-    ll less = x-1;
-    cout << spaceleft << " " << spacert << " " << greater << " " << less << "\n";
-    ll greatrt = C(greater, spacert);
-    cout << greatrt << " ";
-   // greatrt %= mod;
-    ll lessrt = C(less, spacert);
-    cout << lessrt << " ";
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  ll n, x, pos;
+  cin >> n >> x >> pos;
+  ll spaceleft = pos - 1;
+  ll spacert = n - pos;
+  ll greater = n - x;
+  ll less = x - 1;
+  cout << spaceleft << " " << spacert << " " << greater << " " << less << "\n";
+  ll greatrt = C(greater, spacert);
+  cout << greatrt << " ";
+  // greatrt %= mod;
+  ll lessrt = C(less, spacert);
+  cout << lessrt << " ";
   //  lessrt %= mod;
-    
-    ll greatlft = C(less, spaceleft);
-    cout << greatlft << " ";
+
+  ll greatlft = C(less, spaceleft);
+  cout << greatlft << " ";
   //  greatlft %= mod;
-    ll lesslft = C(greater, spacert);
-    cout << lesslft << " \n";
+  ll lesslft = C(greater, spacert);
+  cout << lesslft << " \n";
   //  lesslft %= mod;
-    ll ans = greatrt + lessrt + greatlft + lesslft;
-    cout << ans << endl;
-    
-    return 0;
+  ll ans = greatrt + lessrt + greatlft + lesslft;
+  cout << ans << endl;
+
+  return 0;
 }
