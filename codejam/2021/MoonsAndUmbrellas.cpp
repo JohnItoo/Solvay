@@ -33,7 +33,7 @@ typedef map<string, int> msi;
 #define pb push_back
 #define mp make_pair
 #define REP(i, a, b) \
-  for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
+    for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
 #define forn(i, n) for (int i = 0; i < (n); i++)
 #define TRvi(c, it) for (vi::iterator it = (c).begin(); it != (c).end(); it++)
 #define TRvii(c, it) for (vii::iterator it = (c).begin(); it != (c).end(); it++)
@@ -47,92 +47,92 @@ typedef map<string, int> msi;
 // memoization table memset(arr, 0, sizeof arr); // useful to clear array of
 // integers
 int greedy() {  // For partial points
-  int tc;
-  cin >> tc;
-  int count = 1;
-  while (tc--) {
-    cout << "Case #" << count << ": ";
-    count++;
-    int x, y;
-    cin >> x >> y;
-    string s;
-    cin >> s;
-    int n = s.length();
-    int onground = 0;
-    REP(i, 1, n - 1) {
-      if (s[i] == 'C' && s[i - 1] == 'J') {
-        onground += y;
-      } else if (s[i] == 'J' && s[i - 1] == 'C') {
-        onground += x;
-      }
+    int tc;
+    cin >> tc;
+    int count = 1;
+    while (tc--) {
+        cout << "Case #" << count << ": ";
+        count++;
+        int x, y;
+        cin >> x >> y;
+        string s;
+        cin >> s;
+        int n = s.length();
+        int onground = 0;
+        REP(i, 1, n - 1) {
+            if (s[i] == 'C' && s[i - 1] == 'J') {
+                onground += y;
+            } else if (s[i] == 'J' && s[i - 1] == 'C') {
+                onground += x;
+            }
+        }
+        int cjs = 0, jcs = 0;
+        char last = '.';
+        bool in = false;
+        REP(i, 0, n - 2) {
+            if (s[i] != '?' && s[i + 1] == '?') {
+                in = true;
+                last = s[i];
+            } else if (in && s[i] == '?' && s[i + 1] != '?') {
+                in = false;
+                string dz = "";
+                dz.pb(last);
+                dz.pb(s[i + 1]);
+                if (dz == "CJ")
+                    cjs++;
+                else if (dz == "JC")
+                    jcs++;
+            }
+        }
+        int ans = cjs * x + jcs * y + onground;
+        cout << ans << endl;
     }
-    int cjs = 0, jcs = 0;
-    char last = '.';
-    bool in = false;
-    REP(i, 0, n - 2) {
-      if (s[i] != '?' && s[i + 1] == '?') {
-        in = true;
-        last = s[i];
-      } else if (in && s[i] == '?' && s[i + 1] != '?') {
-        in = false;
-        string dz = "";
-        dz.pb(last);
-        dz.pb(s[i + 1]);
-        if (dz == "CJ")
-          cjs++;
-        else if (dz == "JC")
-          jcs++;
-      }
-    }
-    int ans = cjs * x + jcs * y + onground;
-    cout << ans << endl;
-  }
-  return 0;
+    return 0;
 }
 
 int main() {  // For full points
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-  int tc;
-  cin >> tc;
-  int count = 1;
-  while (tc--) {
-    cout << "Case #" << count << ": ";
-    count++;
-    int x, y;
-    cin >> x >> y;
-    string s;
-    cin >> s;
-    int n = s.length();
-    vector<vector<int> > dp(n + 1, vector<int>(2, 1e9 + 8));
-    dp[0][0] = 0;
-    dp[0][1] = 0;
-    if (s[0] == '?') {
-      dp[1][0] = 0;
-      dp[1][1] = 0;
-    } else if (s[0] == 'C') {
-      dp[1][0] = 0;
-    } else {
-      dp[1][1] = 0;
-    }
-    REP(i, 2, n) {
-      char ch = s[i - 1];
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int tc;
+    cin >> tc;
+    int count = 1;
+    while (tc--) {
+        cout << "Case #" << count << ": ";
+        count++;
+        int x, y;
+        cin >> x >> y;
+        string s;
+        cin >> s;
+        int n = s.length();
+        vector<vector<int> > dp(n + 1, vector<int>(2, 1e9 + 8));
+        dp[0][0] = 0;
+        dp[0][1] = 0;
+        if (s[0] == '?') {
+            dp[1][0] = 0;
+            dp[1][1] = 0;
+        } else if (s[0] == 'C') {
+            dp[1][0] = 0;
+        } else {
+            dp[1][1] = 0;
+        }
+        REP(i, 2, n) {
+            char ch = s[i - 1];
 
-      if (ch == '?') {
-        dp[i][0] = min(dp[i][0], dp[i - 1][0]);      // CC
-        dp[i][0] = min(dp[i][0], dp[i - 1][1] + y);  // JC
-        dp[i][1] = min(dp[i][1], dp[i - 1][0] + x);  // CJ
-        dp[i][1] = min(dp[i][1], dp[i - 1][1]);      // JJ
-      } else if (ch == 'C') {                        // options //JC // CC
-        dp[i][0] = min(dp[i][0], dp[i - 1][1] + y);  // JC
-        dp[i][0] = min(dp[i][0], dp[i - 1][0]);      // CC
-      } else {                                       // CJ JJ
-        dp[i][1] = min(dp[i][1], dp[i - 1][0] + x);  // CJ
-        dp[i][1] = min(dp[i][1], dp[i - 1][1]);      // JJ
-      }
+            if (ch == '?') {
+                dp[i][0] = min(dp[i][0], dp[i - 1][0]);      // CC
+                dp[i][0] = min(dp[i][0], dp[i - 1][1] + y);  // JC
+                dp[i][1] = min(dp[i][1], dp[i - 1][0] + x);  // CJ
+                dp[i][1] = min(dp[i][1], dp[i - 1][1]);      // JJ
+            } else if (ch == 'C') {  // options //JC // CC
+                dp[i][0] = min(dp[i][0], dp[i - 1][1] + y);  // JC
+                dp[i][0] = min(dp[i][0], dp[i - 1][0]);      // CC
+            } else {                                         // CJ JJ
+                dp[i][1] = min(dp[i][1], dp[i - 1][0] + x);  // CJ
+                dp[i][1] = min(dp[i][1], dp[i - 1][1]);      // JJ
+            }
+        }
+        cout << min(dp[n][1], dp[n][0]) << endl;
     }
-    cout << min(dp[n][1], dp[n][0]) << endl;
-  }
 
-  return 0;
+    return 0;
 }

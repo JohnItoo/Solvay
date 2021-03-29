@@ -33,7 +33,7 @@ typedef map<string, int> msi;
 #define pb push_back
 #define mp make_pair
 #define REP(i, a, b) \
-  for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
+    for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
 #define forn(i, n) for (int i = 0; i < (n); i++)
 #define TRvi(c, it) for (vi::iterator it = (c).begin(); it != (c).end(); it++)
 #define TRvii(c, it) for (vii::iterator it = (c).begin(); it != (c).end(); it++)
@@ -48,41 +48,41 @@ typedef map<string, int> msi;
 // integers
 
 int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(0);
-  int tc;
-  cin >> tc;
-  int count = 1;
-  while (tc--) {
-    cout << "Case #" << count << ": ";
-    count++;
-    int n;
-    cin >> n;
-    vi a(n);
-    vi sor(n);
-    forn(i, n) {
-      cin >> a[i];
-      sor[i] = a[i];
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int tc;
+    cin >> tc;
+    int count = 1;
+    while (tc--) {
+        cout << "Case #" << count << ": ";
+        count++;
+        int n;
+        cin >> n;
+        vi a(n);
+        vi sor(n);
+        forn(i, n) {
+            cin >> a[i];
+            sor[i] = a[i];
+        }
+        sort(sor.begin(), sor.end());
+        int cost = 0;
+        REP(i, 0, n - 2) {
+            if (a[i] == sor[i]) {
+                // cout << "here\n";
+                cost++;
+            } else {
+                int j = 0;
+                while (j < n && a[j] != sor[i]) j++;
+                //  cout << i << " " << j << " this is j\n";
+                int curr = ((max(j, i) - min(j, i)) + 1);
+                cost += curr;
+                // cout << j << " " << i << " " << curr << endl;
+                reverse(a.begin() + min(i, j), a.begin() + max(i, j) + 1);
+                // forn(i,n) cout << a[i] << " ";
+                // cout << endl;
+            }
+        }
+        cout << cost << "\n";
     }
-    sort(sor.begin(), sor.end());
-    int cost = 0;
-    REP(i, 0, n - 2) {
-      if (a[i] == sor[i]) {
-        // cout << "here\n";
-        cost++;
-      } else {
-        int j = 0;
-        while (j < n && a[j] != sor[i]) j++;
-        //  cout << i << " " << j << " this is j\n";
-        int curr = ((max(j, i) - min(j, i)) + 1);
-        cost += curr;
-        // cout << j << " " << i << " " << curr << endl;
-        reverse(a.begin() + min(i, j), a.begin() + max(i, j) + 1);
-        // forn(i,n) cout << a[i] << " ";
-        // cout << endl;
-      }
-    }
-    cout << cost << "\n";
-  }
-  return 0;
+    return 0;
 }
