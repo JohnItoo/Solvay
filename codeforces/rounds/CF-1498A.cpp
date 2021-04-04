@@ -3,12 +3,12 @@
 // URL: https://codeforces.com/contest/1498/problem/A
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
-// 
+//
 // Powered by CP Editor (https://cpeditor.org)
 
 //============================================================================
 // Name        : template.cpp
-// Author      :   $%U%$   
+// Author      :   $%U%$
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -32,7 +32,7 @@ typedef map<string, int> msi;
 #define pb push_back
 #define mp make_pair
 #define REP(i, a, b) \
-    for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
+  for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
 #define forn(i, n) for (int i = 0; i < (n); i++)
 #define TRvi(c, it) for (vi::iterator it = (c).begin(); it != (c).end(); it++)
 #define TRvii(c, it) for (vii::iterator it = (c).begin(); it != (c).end(); it++)
@@ -46,33 +46,35 @@ typedef map<string, int> msi;
 // memoization table memset(arr, 0, sizeof arr); // useful to clear array of
 // integers
 // ll gcd(ll a, ll b) {
-	// if(b == 0) return a;
-	// return gcd(b, a/b);
+// if(b == 0) return a;
+// return gcd(b, a/b);
 // }
-ll sm (ll div) {;
-    	ll sum = 0;
-    	while(div) {
-    	  sum += div % 10;
-    	  div /= 10;
-    	}
-    	return sum;
+ll sm(ll div) {
+  ;
+  ll sum = 0;
+  while (div) {
+    sum += div % 10;
+    div /= 10;
+  }
+  return sum;
 }
-ll gcd (ll a, ll b) {
-	if(a==0) return b;
-	return gcd(b%a, a);
+ll gcd(ll a, ll b) {
+  if (a == 0) return b;
+  return gcd(b % a, a);
 }
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    int tc; cin >> tc;
-    while(tc--) {
-    	ll n; cin >> n;
-    	
-    	while(gcd(n, sm(n)) <= 1) {
-    		n++;
-    	}
-    	cout << n << endl;
-    	
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  int tc;
+  cin >> tc;
+  while (tc--) {
+    ll n;
+    cin >> n;
+
+    while (gcd(n, sm(n)) <= 1) {
+      n++;
     }
-    return 0;
+    cout << n << endl;
+  }
+  return 0;
 }
