@@ -3,12 +3,12 @@
 // URL: https://codeforces.com/contest/1498/problem/B
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
-// 
+//
 // Powered by CP Editor (https://cpeditor.org)
 
 //============================================================================
 // Name        : template.cpp
-// Author      :   $%U%$   
+// Author      :   $%U%$
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -32,7 +32,7 @@ typedef map<string, int> msi;
 #define pb push_back
 #define mp make_pair
 #define REP(i, a, b) \
-    for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
+  for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
 #define forn(i, n) for (int i = 0; i < (n); i++)
 #define TRvi(c, it) for (vi::iterator it = (c).begin(); it != (c).end(); it++)
 #define TRvii(c, it) for (vii::iterator it = (c).begin(); it != (c).end(); it++)
@@ -47,48 +47,46 @@ typedef map<string, int> msi;
 // integers
 ll W;
 void fill(vector<ll>& here, ll curr) {
-	if(here[0] > curr) {
-		here.pb(W-curr);
-	} else {
-		
-	}
+  if (here[0] > curr) {
+    here.pb(W - curr);
+  } else {
+  }
 }
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    int tc; cin >> tc;
-    while(tc--) {
-    	int n; ll w; cin >> n >> w;
-    	ll sm = 0;
-    	map<ll, int> fq;
-    	vector<ll> rev;
-    	ll mx = -1;
-    	forn(i, n) {
-    		ll x; cin >> x;
-    		sm += x;
-    		if(!fq.count(x)) {
-    			rev.pb(x);
-    		}
-    		fq[x]++;
-    		mx = max(mx, x);
-    		
-    	}
-    	sort(rev.rbegin(), rev.rend());
-    	vector<ll> here;
-    	here.pb(w);
-    	
-    	int i = 0;
-    	pair<ll, int> bg = {W, 0};
-    	while(i < n) {
-    		
-    	}
-    	
-    	ll y = W / mx;
-    	ll minh = fq[mx] /y;
-    	if(rev.size() > 1 && rev[1] > )
-    
-    	
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  int tc;
+  cin >> tc;
+  while (tc--) {
+    int n;
+    ll w;
+    cin >> n >> w;
+    ll sm = 0;
+    map<ll, int> fq;
+    vector<ll> rev;
+    ll mx = -1;
+    forn(i, n) {
+      ll x;
+      cin >> x;
+      sm += x;
+      if (!fq.count(x)) {
+        rev.pb(x);
+      }
+      fq[x]++;
+      mx = max(mx, x);
     }
-    return 0;
+    sort(rev.rbegin(), rev.rend());
+    vector<ll> here;
+    here.pb(w);
+
+    int i = 0;
+    pair<ll, int> bg = {W, 0};
+    while (i < n) {
+    }
+
+    ll y = W / mx;
+    ll minh = fq[mx] / y;
+    if (rev.size() > 1 && rev[1] >) }
+  return 0;
 }
