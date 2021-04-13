@@ -60,6 +60,7 @@ int main() {
     int b = 0;
     int i = 0;
     string u = "", d = "";
+    int small = 0;
     while (a > -1 && b > -1 && i < n) {
       if (s[i] == '1') {
         if (b > 0 && a > 0) {
@@ -85,11 +86,12 @@ int main() {
           u.pb('(');
           d.pb(')');
         }
+        small = min(small, min(a, b));
       }
       i++;
     }
 
-    if (i == n && a == 0 && b == 0) {
+    if (i == n && a == 0 && b == 0 && small >= 0) {
       cout << "YES\n";
       cout << u << "\n" << d << "\n";
     } else {
