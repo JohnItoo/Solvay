@@ -1,6 +1,6 @@
-// Problem: B. Almost Rectangle
+// Problem: D. Corrupted Array
 // Contest: Codeforces - Codeforces Round #713 (Div. 3)
-// URL: https://codeforces.com/contest/1512/problem/B
+// URL: https://codeforces.com/contest/1512/problem/D
 // Memory Limit: 256 MB
 // Time Limit: 2000 ms
 //
@@ -54,40 +54,40 @@ int main() {
   while (tc--) {
     int n;
     cin >> n;
-    vector<string> vs(n);
-    ii a, b;
-    bool hasa = false;
-    forn(i, n) {
-      cin >> vs[i];
-      forn(j, n) {
-        if (vs[i][j] == '*') {
-          if (!hasa) {
-            a = mp(i, j);
-            hasa = true;
-          } else {
-            b = mp(i, j);
-          }
+
+    vector<ll> a(n + 2);
+    forn(i, n + 2) cin >> a[i];
+    sort(a.begin(), a.end());
+    ll sm = 0;
+    forn(i, n) { sm += a[i]; }
+    int exa = -1, exb = -1;
+
+    if (sm == a[n + 1] || sm == a[n]) {
+      exa = n;
+      exb = n + 1;
+    } else {
+      forn(i, n) {
+        if (sm - a[i] + a[n] == a[n + 1]) {
+          exa = i;
+          exb = n + 1;
+          break;
+        }
+        if (sm - a[i] + a[n + 1] == a[n]) {
+          exa = i;
+          exb = n;
+          break;
         }
       }
     }
-    if (a.x == b.x) {
-      int r = a.x + 1;
-      if (r >= n) {
-        r = a.x - 1;
-      }
-      vs[r][a.y] = '*';
-      vs[r][b.y] = '*';
-    } else if (a.y == b.y) {
-      int c = a.y + 1;
-      if (c >= n) c = a.y - 1;
-      vs[a.x][c] = '*';
-      vs[b.x][c] = '*';
+    if (exa == -1) {
+      cout << exa;
     } else {
-      vs[a.x][b.y] = '*';
-      vs[b.x][a.y] = '*';
+      forn(i, n + 2) {
+        if (i == exa || i == exb) continue;
+        cout << a[i] << " ";
+      }
     }
-
-    forn(i, n) { cout << vs[i] << endl; }
+    cout << endl;
   }
   return 0;
 }
