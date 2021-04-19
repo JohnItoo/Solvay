@@ -58,7 +58,7 @@ int main() {
    }
     forn(i, k) {
     	char st = 'a' + i;
-    	
+    	list.pb(st);
     	REP(j, i+1, k-1) {
     		char ft = 'a' + j;
     		list.pb(st);
