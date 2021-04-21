@@ -55,8 +55,8 @@ int main() {
     	int mx = n/2;
     	vi mults;
     	mults.pb(1);
-    	int curr = mx;
-    	REP(i, 2, mx) {
+    	int curr = n;
+    	for(int i = 2; i*i <= n; i++) {
     		if(curr % i == 0) {
     			mults.pb(i);
     		}
@@ -65,7 +65,7 @@ int main() {
     		}
     	}
        sort(mults.rbegin(), mults.rend());
-       map<int, int> res;
+       unordered_map<int, int> res;
        
        forn(i, mults.size()) {
        	if(mults[i] == 1) {
