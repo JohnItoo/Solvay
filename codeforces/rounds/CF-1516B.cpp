@@ -54,22 +54,63 @@ int main() {
     	int n; cin >> n;
     	vector<ll> a(n);
     	forn(i, n) cin >> a[i];
-    	vector<ll> he(n);
-    	he[n-1] = a[n-1];
-    	for(int i = n-2; i>=0; i--) {
-    		he[i] = a[i] ^ he[i+1];
-    	}
-    	vector<ll> be(n);
-    	be[0] = a[0];
-    	REP(i, 1, n-1) {
-    		be[i] = a[i] ^ be[i-1];
+    	
+    	vector<vector<ll>> hw(n, vector<ll>(n, -1));
+    	map<ll, int> lc;
+    	forn(i, n) {
+    		hw[i][i] =  a[i];
+    		ll prev = a[i];
+    	//	cout << prev << " ";
+    		for(int j = i+1; j < n; j++) {
+    			
+    			ll curr = prev ^ a[j];
+    			hw[i][j] = curr;
+    			prev = curr;
+    			if(j == n-1) lc[curr] =1;
+    			// cout << curr << " ";
+    		}
+    		// cout << endl;
     	}
     	bool fd = false;
-    	REP(i, 1, n-1) {
-    		if(be[i-1] == he[i]) fd = true;
+    	map<ll, int> found;
+    	forn(i, n-1) {
+    		if(lc.count(hw[0][i]) > 0) {
+    			fd = true;
+    			found[hw[0][i]] = 1;
+    		}
+    		
     	}
-    	if(fd) cout << "YES\n";
-    	else cout << "NO\n";
+    	if(found.size() == 0) {
+    		cout << "NO\n";
+    	} else {
+    		bool vld = false;
+    		forn(i, n-1) {
+    			ll vl = hw[0][i];
+    			if(!found.count(vl)) continue;
+    			bool hr = true;
+    			int idx = i+1;
+    			while(hr && idx < n) {
+    				vector<ll> nw = hw[idx];
+    				bool pres = false;
+    				int id = idx;
+    				for(int k = nw.size() -1 ; k >= id; k--) {
+    					if(nw[k] == vl)  {
+    						pres = true;
+    						idx = k +1;
+    						break;
+    					}
+    				}
+    				hr = pres;
+    			}
+    			if(idx >= n) {
+    				vld = true;
+    				break;
+    			}
+    		}
+    		if(vld) cout << "YES\n";
+    		else cout << "NO\n";; 
+    	}
+
     }
     return 0;
 }
