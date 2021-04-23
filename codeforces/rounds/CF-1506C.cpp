@@ -46,6 +46,9 @@ typedef map<string, int> msi;
 // memoization table memset(arr, 0, sizeof arr); // useful to clear array of
 // integers
 
+/**
+Add this to the classis problem list.. LCS.
+**/
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
@@ -64,7 +67,6 @@ int main() {
     // `lookup[i][j]` stores the length of LCS of substring
     // `X[0…i-1]`, `Y[0…j-1]`
 
-    // initialize all cells of the lookup table to 0
     memset(lookup, 0, sizeof(lookup));
 
     // fill the lookup table in a bottom-up manner
