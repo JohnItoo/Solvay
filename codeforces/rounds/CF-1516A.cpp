@@ -3,12 +3,12 @@
 // URL: https://codeforces.com/contest/1516/problem/A
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
-// 
+//
 // Powered by CP Editor (https://cpeditor.org)
 
 //============================================================================
 // Name        : template.cpp
-// Author      :   $%U%$   
+// Author      :   $%U%$
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -32,7 +32,7 @@ typedef map<string, int> msi;
 #define pb push_back
 #define mp make_pair
 #define REP(i, a, b) \
-    for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
+  for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
 #define forn(i, n) for (int i = 0; i < (n); i++)
 #define TRvi(c, it) for (vi::iterator it = (c).begin(); it != (c).end(); it++)
 #define TRvii(c, it) for (vii::iterator it = (c).begin(); it != (c).end(); it++)
@@ -47,26 +47,28 @@ typedef map<string, int> msi;
 // integers
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    int tc; cin >> tc;
-    while(tc--) {
-    	int n , k; cin >> n >> k;
-    	vi a(n);
-    	forn(i, n) cin >> a[i];
-    	forn(i, n-1) {
-    		if(a[i] == 0 || k == 0) {
-    			cout << a[i] << " ";
-    			continue;
-    		}
-    		int tk = min(k, a[i]);
-    		k -= tk;
-    		a[i] -= tk;
-    		cout << a[i] << " ";
-    		a[n-1] += tk;
-    	}
-         
-         cout << a[n-1] << endl;
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  int tc;
+  cin >> tc;
+  while (tc--) {
+    int n, k;
+    cin >> n >> k;
+    vi a(n);
+    forn(i, n) cin >> a[i];
+    forn(i, n - 1) {
+      if (a[i] == 0 || k == 0) {
+        cout << a[i] << " ";
+        continue;
+      }
+      int tk = min(k, a[i]);
+      k -= tk;
+      a[i] -= tk;
+      cout << a[i] << " ";
+      a[n - 1] += tk;
     }
-    return 0;
+
+    cout << a[n - 1] << endl;
+  }
+  return 0;
 }

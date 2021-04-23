@@ -3,12 +3,12 @@
 // URL: https://codeforces.com/problemset/problem/1497/C2
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
-// 
+//
 // Powered by CP Editor (https://cpeditor.org)
 
 //============================================================================
 // Name        : template.cpp
-// Author      :   $%U%$   
+// Author      :   $%U%$
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -32,7 +32,7 @@ typedef map<string, int> msi;
 #define pb push_back
 #define mp make_pair
 #define REP(i, a, b) \
-    for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
+  for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
 #define forn(i, n) for (int i = 0; i < (n); i++)
 #define TRvi(c, it) for (vi::iterator it = (c).begin(); it != (c).end(); it++)
 #define TRvii(c, it) for (vii::iterator it = (c).begin(); it != (c).end(); it++)
@@ -47,47 +47,47 @@ typedef map<string, int> msi;
 // integers
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    int tc; cin >> tc;
-    while(tc--) {
-    	int n, k; cin >> n >> k;
-    	int mx = n/2;
-    	vi mults;
-    	mults.pb(1);
-    	int curr = n;
-    	for(int i = 2; i*i <= n; i++) {
-    		if(curr % i == 0) {
-    			mults.pb(i);
-    		}
-    		while(curr % i == 0) {
-    			curr /= i;
-    		}
-    	}
-       sort(mults.rbegin(), mults.rend());
-       unordered_map<int, int> res;
-       
-       forn(i, mults.size()) {
-       	if(mults[i] == 1) {
-       		res[1] = k;
-       		continue;
-       	}
-       	  if(n - mults[i] >= k-1 && n > 0) {
-       	  	int ct = (n-k)/(mults[i] - 1);
- 
-       	  	n-= (mults[i] * ct);
-       	  	k-=ct;
-       	  	res[mults[i]] = ct;
-       	  }
-       }
-       for(auto xx : res) {
-       	int fq =xx.second;
-       	int val = xx.first;
-       	forn(k, fq) {
-       		cout << val << " ";
-       	}
-       }
-       cout << endl;
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  int tc;
+  cin >> tc;
+  while (tc--) {
+    int n, k;
+    cin >> n >> k;
+    int mx = n / 2;
+    vi mults;
+    mults.pb(1);
+    int curr = n;
+    for (int i = 2; i * i <= n; i++) {
+      if (curr % i == 0) {
+        mults.pb(i);
+      }
+      while (curr % i == 0) {
+        curr /= i;
+      }
     }
-    return 0;
+    sort(mults.rbegin(), mults.rend());
+    unordered_map<int, int> res;
+
+    forn(i, mults.size()) {
+      if (mults[i] == 1) {
+        res[1] = k;
+        continue;
+      }
+      if (n - mults[i] >= k - 1 && n > 0) {
+        int ct = (n - k) / (mults[i] - 1);
+
+        n -= (mults[i] * ct);
+        k -= ct;
+        res[mults[i]] = ct;
+      }
+    }
+    for (auto xx : res) {
+      int fq = xx.second;
+      int val = xx.first;
+      forn(k, fq) { cout << val << " "; }
+    }
+    cout << endl;
+  }
+  return 0;
 }

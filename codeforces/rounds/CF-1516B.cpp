@@ -3,12 +3,12 @@
 // URL: https://codeforces.com/contest/1516/problem/B
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
-// 
+//
 // Powered by CP Editor (https://cpeditor.org)
 
 //============================================================================
 // Name        : template.cpp
-// Author      :   $%U%$   
+// Author      :   $%U%$
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -32,7 +32,7 @@ typedef map<string, int> msi;
 #define pb push_back
 #define mp make_pair
 #define REP(i, a, b) \
-    for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
+  for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
 #define forn(i, n) for (int i = 0; i < (n); i++)
 #define TRvi(c, it) for (vi::iterator it = (c).begin(); it != (c).end(); it++)
 #define TRvii(c, it) for (vii::iterator it = (c).begin(); it != (c).end(); it++)
@@ -47,70 +47,72 @@ typedef map<string, int> msi;
 // integers
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    int tc; cin >> tc;
-    while(tc--) {
-    	int n; cin >> n;
-    	vector<ll> a(n);
-    	forn(i, n) cin >> a[i];
-    	
-    	vector<vector<ll>> hw(n, vector<ll>(n, -1));
-    	map<ll, int> lc;
-    	forn(i, n) {
-    		hw[i][i] =  a[i];
-    		ll prev = a[i];
-    	//	cout << prev << " ";
-    		for(int j = i+1; j < n; j++) {
-    			
-    			ll curr = prev ^ a[j];
-    			hw[i][j] = curr;
-    			prev = curr;
-    			if(j == n-1) lc[curr] =1;
-    			// cout << curr << " ";
-    		}
-    		// cout << endl;
-    	}
-    	bool fd = false;
-    	map<ll, int> found;
-    	forn(i, n-1) {
-    		if(lc.count(hw[0][i]) > 0) {
-    			fd = true;
-    			found[hw[0][i]] = 1;
-    		}
-    		
-    	}
-    	if(found.size() == 0) {
-    		cout << "NO\n";
-    	} else {
-    		bool vld = false;
-    		forn(i, n-1) {
-    			ll vl = hw[0][i];
-    			if(!found.count(vl)) continue;
-    			bool hr = true;
-    			int idx = i+1;
-    			while(hr && idx < n) {
-    				vector<ll> nw = hw[idx];
-    				bool pres = false;
-    				int id = idx;
-    				for(int k = nw.size() -1 ; k >= id; k--) {
-    					if(nw[k] == vl)  {
-    						pres = true;
-    						idx = k +1;
-    						break;
-    					}
-    				}
-    				hr = pres;
-    			}
-    			if(idx >= n) {
-    				vld = true;
-    				break;
-    			}
-    		}
-    		if(vld) cout << "YES\n";
-    		else cout << "NO\n";; 
-    	}
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  int tc;
+  cin >> tc;
+  while (tc--) {
+    int n;
+    cin >> n;
+    vector<ll> a(n);
+    forn(i, n) cin >> a[i];
 
+    vector<vector<ll>> hw(n, vector<ll>(n, -1));
+    map<ll, int> lc;
+    forn(i, n) {
+      hw[i][i] = a[i];
+      ll prev = a[i];
+      //	cout << prev << " ";
+      for (int j = i + 1; j < n; j++) {
+        ll curr = prev ^ a[j];
+        hw[i][j] = curr;
+        prev = curr;
+        if (j == n - 1) lc[curr] = 1;
+        // cout << curr << " ";
+      }
+      // cout << endl;
     }
-    return 0;
+    bool fd = false;
+    map<ll, int> found;
+    forn(i, n - 1) {
+      if (lc.count(hw[0][i]) > 0) {
+        fd = true;
+        found[hw[0][i]] = 1;
+      }
+    }
+    if (found.size() == 0) {
+      cout << "NO\n";
+    } else {
+      bool vld = false;
+      forn(i, n - 1) {
+        ll vl = hw[0][i];
+        if (!found.count(vl)) continue;
+        bool hr = true;
+        int idx = i + 1;
+        while (hr && idx < n) {
+          vector<ll> nw = hw[idx];
+          bool pres = false;
+          int id = idx;
+          for (int k = nw.size() - 1; k >= id; k--) {
+            if (nw[k] == vl) {
+              pres = true;
+              idx = k + 1;
+              break;
+            }
+          }
+          hr = pres;
+        }
+        if (idx >= n) {
+          vld = true;
+          break;
+        }
+      }
+      if (vld)
+        cout << "YES\n";
+      else
+        cout << "NO\n";
+      ;
+    }
+  }
+  return 0;
 }
