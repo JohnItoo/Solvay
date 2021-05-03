@@ -71,10 +71,9 @@ int main() {
         has[a[i]] = i;
       }
     }
-    
-    
+
     int lastcol = pt[m - 1];
-    
+
     vector<int> res(m);
     if (need[lastcol].size() == 0 && has.count(lastcol) == 0) {
       cout << "NO\n";  // last col is impossible.
@@ -82,28 +81,26 @@ int main() {
       // not enough .. i.e tots != 0 : NO
       forn(i, m) {
         int col = pt[i];  // 1th index
-   
-        if(offset[col] < need[col].size()) {
-        	res[i] = need[col][offset[col]] + 1;
-        	a[res[i] -1] = col;
-        	offset[col]++;
-        } else if(offset[col] >= need[col].size()) {
-         int idx = need[lastcol].size() -1;
+
+        if (offset[col] < need[col].size()) {
+          res[i] = need[col][offset[col]] + 1;
+          a[res[i] - 1] = col;
+          offset[col]++;
+        } else if (offset[col] >= need[col].size()) {
+          int idx = need[lastcol].size() - 1;
           int x = need[lastcol][idx];
-        	a[x] = lastcol;
-        	res[i] = x + 1;
+          a[x] = lastcol;
+          res[i] = x + 1;
         }
       }
       bool vld = true;
-      forn(i, n) {
-      	vld &= (a[i] == b[i]);
-      }
-      if(vld) {
-      	cout << "YES\n";
-      	forn(i, m) cout << res[i] << " ";
-      	cout << endl;
+      forn(i, n) { vld &= (a[i] == b[i]); }
+      if (vld) {
+        cout << "YES\n";
+        forn(i, m) cout << res[i] << " ";
+        cout << endl;
       } else {
-      	cout << "NO\n";
+        cout << "NO\n";
       }
     }
     return 0;
