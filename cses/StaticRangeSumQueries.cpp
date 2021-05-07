@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> tree;
+vector<long long> tree;
 
-int f(int node, int low, int high, int queryLow, int queryHigh) {
+long long f(int node, int low, int high, int queryLow, int queryHigh) {
     if(queryLow <= low && high <= queryHigh) return tree[node]; // if lwo && high is completely within query range
-    if(high <= queryLow || queryHigh <= low) return 0;
+    if(high < queryLow || queryHigh < low) return 0;
     int RightOfLeftMostChild = (low + high) / 2;
     return f(2*node, low, RightOfLeftMostChild, queryLow, queryHigh) + f(2*node+1, RightOfLeftMostChild+1, high, queryLow, queryHigh);
 }
@@ -24,7 +24,7 @@ int main() {
     
 
     for(int i = (2*n)-1,  j = n-1; i >=n; i--, j--) {
-        tree[i] = a[j];
+        tree[i] = a[j] * 1LL;
     }
     for(int i = n-1; i >= 1; i--) {
         tree[i] = tree[2*i] + tree[2*i+1];
