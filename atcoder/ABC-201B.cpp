@@ -1,14 +1,13 @@
 // Problem: B - Do you know the second highest mountain?
-// Contest: AtCoder - Mynavi Programming Contest 2021（AtCoder Beginner Contest 201）
-// URL: https://atcoder.jp/contests/abc201/tasks/abc201_b
-// Memory Limit: 1024 MB
-// Time Limit: 2000 ms
-// 
+// Contest: AtCoder - Mynavi Programming Contest 2021（AtCoder Beginner Contest
+// 201） URL: https://atcoder.jp/contests/abc201/tasks/abc201_b Memory Limit:
+// 1024 MB Time Limit: 2000 ms
+//
 // Powered by CP Editor (https://cpeditor.org)
 
 //============================================================================
 // Name        : template.cpp
-// Author      :   $%U%$   
+// Author      :   $%U%$
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -32,7 +31,7 @@ typedef map<string, int> msi;
 #define pb push_back
 #define mp make_pair
 #define REP(i, a, b) \
-    for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
+  for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
 #define forn(i, n) for (int i = 0; i < (n); i++)
 #define TRvi(c, it) for (vi::iterator it = (c).begin(); it != (c).end(); it++)
 #define TRvii(c, it) for (vii::iterator it = (c).begin(); it != (c).end(); it++)
@@ -47,17 +46,19 @@ typedef map<string, int> msi;
 // integers
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    vector<pair<int, string> > vps;
-    
-    int n; cin >> n;
-    forn(i, n) {
-    	string s; int t;
-    	cin >> s >> t;
-    	vps.push_back(mp(t, s));
-    }
-    sort(vps.rbegin(), vps.rend());
-    cout << vps[1].y << "\n";
-    return 0;
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  vector<pair<int, string> > vps;
+
+  int n;
+  cin >> n;
+  forn(i, n) {
+    string s;
+    int t;
+    cin >> s >> t;
+    vps.push_back(mp(t, s));
+  }
+  sort(vps.rbegin(), vps.rend());
+  cout << vps[1].y << "\n";
+  return 0;
 }
