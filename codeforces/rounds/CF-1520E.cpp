@@ -1,6 +1,6 @@
-// Problem: D. Same Differences
+// Problem: E. Arranging The Sheep
 // Contest: Codeforces - Codeforces Round #719 (Div. 3)
-// URL: https://codeforces.com/contest/1520/problem/D
+// URL: https://codeforces.com/contest/1520/problem/E
 // Memory Limit: 256 MB
 // Time Limit: 2000 ms
 //
@@ -54,17 +54,27 @@ int main() {
   while (tc--) {
     int n;
     cin >> n;
-    ll ans = 0;
-    map<int, int> sz;
-    REP(i, 1, n) {
-      int x;
-      cin >> x;
-      int diff = x - i;
-      ans += sz[diff];
-
-      sz[diff]++;
+    string s;
+    cin >> s;
+    vi ps(n + 1);
+    int j = 1;
+    forn(i, n) {
+      if (s[i] == '*') {
+        ps[j++] = i;
+      }
     }
+    int mid = j / 2;
+    int px = ps[mid];
+    ll ans = 0;
 
+    for (int i = 1; i < j; i++) {
+      int val =
+          px - (mid - i);  // its 0th index position in the optimal solution
+      // i is its current 0th index position.
+      int idx = ps[i];
+      ll curr = abs(idx - val) * 1LL;  // distance it has to move.
+      ans += curr;
+    }
     cout << ans << endl;
   }
   return 0;
