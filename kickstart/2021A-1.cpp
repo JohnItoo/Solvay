@@ -1,14 +1,15 @@
 // Problem: K-Goodness String
 // Contest: Google Coding Competitions - Round A 2021 - Kick Start 2021
-// URL: https://codingcompetitions.withgoogle.com/kickstart/round/0000000000436140/000000000068cca3
+// URL:
+// https://codingcompetitions.withgoogle.com/kickstart/round/0000000000436140/000000000068cca3
 // Memory Limit: 1024 MB
 // Time Limit: 20000 ms
-// 
+//
 // Powered by CP Editor (https://cpeditor.org)
 
 //============================================================================
 // Name        : template.cpp
-// Author      :   $%U%$   
+// Author      :   $%U%$
 // Version     :
 // Copyright   : Your copyright notice
 // Description : Hello World in C++, Ansi-style
@@ -32,7 +33,7 @@ typedef map<string, int> msi;
 #define pb push_back
 #define mp make_pair
 #define REP(i, a, b) \
-    for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
+  for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
 #define forn(i, n) for (int i = 0; i < (n); i++)
 #define TRvi(c, it) for (vi::iterator it = (c).begin(); it != (c).end(); it++)
 #define TRvii(c, it) for (vii::iterator it = (c).begin(); it != (c).end(); it++)
@@ -47,25 +48,27 @@ typedef map<string, int> msi;
 // integers
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    int tc; cin >> tc;
-    int count = 1;
-    while(tc--) {
-    	cout << "Case #" << count << ": ";
-    	count++;
-    	int n, k; cin >> n >> k;
-    	int sc = 0;
-    	int i =0;
-    	int j = n-1;
-    	string s; cin >> s;
-    	while(i < j) {
-    		if(s[i] != s[j]) sc++;
-    		i++;
-    		j--;
-    	}
-    	cout << abs(sc - k) << endl;
-      
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  int tc;
+  cin >> tc;
+  int count = 1;
+  while (tc--) {
+    cout << "Case #" << count << ": ";
+    count++;
+    int n, k;
+    cin >> n >> k;
+    int sc = 0;
+    int i = 0;
+    int j = n - 1;
+    string s;
+    cin >> s;
+    while (i < j) {
+      if (s[i] != s[j]) sc++;
+      i++;
+      j--;
     }
-    return 0;
+    cout << abs(sc - k) << endl;
+  }
+  return 0;
 }

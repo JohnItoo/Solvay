@@ -47,7 +47,7 @@ typedef map<string, int> msi;
 // integers
 
 /**
-Add this to the classis problem list.. LOngest Common Subsequence
+Add this to the classis problem list.. Longest Common Subsequence
 **/
 int main() {
   ios::sync_with_stdio(false);
