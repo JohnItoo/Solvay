@@ -1,6 +1,6 @@
 // Problem: B. AGAGA XOOORRR
 // Contest: Codeforces - Codeforces Round #717 (Div. 2)
-// URL: https://codeforces.com/contest/1516/problem/B
+// URL: https://codeforces.com/problemset/problem/1516/B
 // Memory Limit: 256 MB
 // Time Limit: 1000 ms
 //
@@ -54,65 +54,20 @@ int main() {
   while (tc--) {
     int n;
     cin >> n;
-    vector<ll> a(n);
-    forn(i, n) cin >> a[i];
-
-    vector<vector<ll>> hw(n, vector<ll>(n, -1));
-    map<ll, int> lc;
-    forn(i, n) {
-      hw[i][i] = a[i];
-      ll prev = a[i];
-      //	cout << prev << " ";
-      for (int j = i + 1; j < n; j++) {
-        ll curr = prev ^ a[j];
-        hw[i][j] = curr;
-        prev = curr;
-        if (j == n - 1) lc[curr] = 1;
-        // cout << curr << " ";
-      }
-      // cout << endl;
-    }
-    bool fd = false;
-    map<ll, int> found;
-    forn(i, n - 1) {
-      if (lc.count(hw[0][i]) > 0) {
-        fd = true;
-        found[hw[0][i]] = 1;
-      }
-    }
-    if (found.size() == 0) {
-      cout << "NO\n";
-    } else {
-      bool vld = false;
-      forn(i, n - 1) {
-        ll vl = hw[0][i];
-        if (!found.count(vl)) continue;
-        bool hr = true;
-        int idx = i + 1;
-        while (hr && idx < n) {
-          vector<ll> nw = hw[idx];
-          bool pres = false;
-          int id = idx;
-          for (int k = nw.size() - 1; k >= id; k--) {
-            if (nw[k] == vl) {
-              pres = true;
-              idx = k + 1;
-              break;
-            }
-          }
-          hr = pres;
-        }
-        if (idx >= n) {
-          vld = true;
-          break;
-        }
-      }
-      if (vld)
-        cout << "YES\n";
-      else
-        cout << "NO\n";
-      ;
-    }
+    vi a(n);
+    forn(i, n) { cin >> a[i]; }
+    vi ft(n);
+    ft[0] = a[0];
+    REP(i, 1, n - 1) { ft[i] = ft[i - 1] ^ a[i]; }
+   bool fd = (ft[n-1] == 0);
+   
+   forn(i, n) {
+   	REP(j, i+1, n-2) {
+   		fd |= ((ft[i] == (ft[j] ^ ft[i])) && (ft[i] == (ft[n-1] ^ ft[j])));
+   	}
+   }
+   puts(fd? "YES": "NO");
   }
   return 0;
 }
+                   
