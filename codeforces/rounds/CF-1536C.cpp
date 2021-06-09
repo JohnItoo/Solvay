@@ -61,29 +61,15 @@ int main() {
     	forn(i, n) {
     		if(s[i] == 'D') d++;
     		else k++;
-    		if(d == 0 || k == 0) {
-    			cout << d + k << " ";
-    		} else if(d == k) {
-    			ct[{1, 1}]++;
-    			cout <<ct[{1,1}] << " ";
-    			
-    		} else {
-    			int gg = gcd(d, k);
-    			// cout << endl;//
-    			// cout << d << " d :  k : gg " << k << " " << gg << endl;
-    			d/=gg; k/=gg;
-    			char cd = d + '0';
-    			char ck = k + '0';
-    			
-    			ct[{d, k}]++;
-    			// if(d % k != 0) {
-    				// cout << ct[s] 
-    			// } else {
-    				// ct[d/k]++;
-    				// cout << ct[d/k] << " ";
-    			// }
-    			cout << ct[{d, k}] << " ";
-    		}		
+    		int gg = gcd(d, k);
+    		cout << endl << gg << " : " << d << " : " << k << endl; 
+    	
+    		 int ad= d/gg;
+    		 int ak = k/gg;
+    		
+    		ct[{ad, ak}]++;
+    			cout << ct[{ad, ak}] << " ";
+    				
     	}
     	cout << endl;
     	
