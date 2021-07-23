@@ -67,7 +67,7 @@ int main() {
     		}
     	///	cout << dp[i][j] << " ";
     	}
-    	//cout << endl;
+    	//cot << endl;
     }
     int nxt = dp[s.length()][t.length()];
   
