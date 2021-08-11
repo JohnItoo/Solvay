@@ -51,26 +51,52 @@ int dir[4][2] = { {0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 vector<ii> mv = { {2, -1}, {2, 0}, {2, 1}, {1, -2}, {1, -1}, {1, 0}, {1,1},
  {1, 2}, {0, -2}, {0, -1}, {0, 0}, {0,1}, {0,2}, {-1, -2}, {-1, -1}, {-1, 0}, {-1, 1}, {-1, 2},
  {-2, -1}, {-2, 0}, {-2, 1} };
+ vector<vector<int> >dp(505, vector<int>(505, 1e9));
 int h, w;
 set<int> tg;
 
-
-int main() {
-    ios::sync_with_stdio(false);
+//0-1 BFS using deque
+void usedq() {
+	deque<ii> dq;
+	dq.push_front({1,1});
+    set<ii> visited;
     
-    cin.tie(0);
-    
-    cin >> h >> w;
-    REP(i, 1, h) {
-    	string s; cin >> s;
-    	REP(j, 1, w) {
-    		grid[i][j] = s[j-1];
+    while(!dq.empty()) {
+    	
+    	ii top = dq.front(); dq.pop_front();
+    	
+    	if(visited.find(top) != visited.end()) continue;
+    	visited.insert(top);
+    	
+    	for(int l = 0; l < mv.size(); l++) {
+    		int nr = top.x+ mv[l].x;
+    		int nc = top.y + mv[l].y;
+    		
+    		if(nr < 1 || nr > h || nc < 1 || nc > w) continue;
+    	
+    		int cost =( grid[nr][nc] == '.' && abs(top.x - nr) + abs(top.y - nc) <= 1) ? 0 : 1;
+    		
+   
+    		
+    		if(dp[top.x][top.y] + cost < dp[nr][nc]) {
+    			
+    			dp[nr][nc] = dp[top.x][top.y] + cost;
+    		    if(cost) {
+    		    	dq.push_back({nr, nc});
+    		    } else {
+    		    	dq.push_front({nr, nc});
+    		    }
+    		} 
     	}
     }
-    vector<vector<int> >dp(505, vector<int>(505, 1e9));
-    dp[1][1] = 0;
-    
-    priority_queue<vi> q;
+    cout << dp[h][w];
+}
+
+//0-1 BFS using priority_queue - Djikstras
+void dijk() {
+	
+  priority_queue<vi> q;
+   
     q.push({0, 1,1});
     set<ii> visited;
     
@@ -99,6 +125,26 @@ int main() {
     	}
     }
     cout << dp[h][w];
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    
+    cin.tie(0);
+    
+    cin >> h >> w;
+    REP(i, 1, h) {
+    	string s; cin >> s;
+    	REP(j, 1, w) {
+    		grid[i][j] = s[j-1];
+    	}
+    }
+    
+    dp[1][1] = 0;
+    
+    usedq();
+    
+   
     
     return 0;
 }
