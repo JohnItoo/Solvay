@@ -46,6 +46,7 @@ typedef map<string, int> msi;
 // memoization table memset(arr, 0, sizeof arr); // useful to clear array of
 // integers
 
+ll sm(ll a, ll d, ll n) { return (n * (2 * a + ((n - 1) * d))) / 2; }
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
@@ -58,18 +59,26 @@ int main() {
     cin >> x;
     vcs.pb(x);
   }
-  sort(vcs.rbegin(), vcs.rend());
+  sort(vcs.begin(), vcs.end(), greater<>());
+  vcs.pb(0);
   ll sum = 0;
-  ll currmin = 1LL << 61;
+
   forn(i, n) {
-    ll val = (vcs[i] * (vcs[i] + 1)) / 2;
-    if (k >= vcs[i]) {
-      k -= vcs[i];
-      sum += val;
-    } else if (k < vcs[i] && k > 0) {
+    ll diff = vcs[i] - vcs[i + 1];
+    ll ct = 1LL * diff * (i + 1);
+
+    if (ct <= k) {
+      k -= ct;
+      sum += sm(vcs[i], -1LL, diff) * (i + 1);
     } else {
+      ll d = k / (i + 1);
+      ll md = k % (i + 1);
+      sum += sm(vcs[i], -1LL, d) * (i + 1);
+      sum += (vcs[i] - d) * md;
+      k = 0;
     }
   }
+  cout << sum << endl;
 
   return 0;
 }
