@@ -140,22 +140,25 @@ int main() {
       if (i == j) continue;
 
       if (cta[i][j] == 0 && ctb[i][j] == 0) {
-        int compidai = nodecompa[i] - 1;
-        int compidaj = nodecompa[j] - 1;
+        int compidai =
+            nodecompa[i] - 1;  // id of the component node i is in for forest a
+        int compidaj = nodecompa[j] - 1;  // id         "" j is in for forest a
         int compidbj = nodecompb[j] - 1;
         int compidbi = nodecompb[i] - 1;
         bool can = true;
 
-        for (int k = 0; k < compa[compidai].size(); k++) {
+        for (int k = 0; k < compa[compidai].size();
+             k++) {  // all the nodes in this component
           forn(l, compa[compidaj].size()) {
-            if (k == l && compidai == compidaj) continue;
-            cout << " " << compidai << " " << compidaj << " " << l << endl;
+            // if (k == l && compidai == compidaj) continue;
+            if (compa[compidai][k] == compa[compidaj][l]) continue;
+            // cout << " " << compidai << " " << compidaj << " " << l << endl;
+            cout << compa[compidai][k] << " " << compa[compidaj][l] << endl;
             if (cta[compa[compidai][k]][compa[compidaj][l]] == 0 &&
                 cta[compa[compidaj][l]][compa[compidai][k]] == 0) {
               cta[compa[compidai][k]][compa[compidaj][l]] = 1;
               cta[compa[compidaj][l]][compa[compidai][k]] = 1;
               cout << "ent\n";
-
             } else {
               can = false;
               cout << "brk\n";
@@ -165,15 +168,18 @@ int main() {
           }
           if (!can) break;
         }
+        cout << "ode\n";
 
-        for (int k = 0; k < compb[i].size(); k++) {
-          forn(l, compb[j].size()) {
+        for (int k = 0; k < compb[compidbi].size(); k++) {
+          forn(l, compb[compidbj].size()) {
             if (!can) break;
-            if (k == l && compidbi == compidbj) continue;
-            if (ctb[compb[i][k]][compb[j][l]] == 0 &&
-                ctb[compb[j][l]][compb[i][k]] == 0) {
-              ctb[compb[i][k]][compb[j][l]] = 1;
-              ctb[compb[j][l]][compb[i][k]] = 1;
+            // if (k == l && compidbi == compidbj) continue;
+            if (compb[compidbi][k] == compb[compidbj][l]) continue;
+
+            if (ctb[compb[compidbi][k]][compb[compidbj][l]] == 0 &&
+                ctb[compb[compidbj][l]][compb[compidbi][k]] == 0) {
+              ctb[compb[compidbi][k]][compb[compidbj][l]] = 1;
+              ctb[compb[compidbj][l]][compb[compidbi][k]] = 1;
 
             } else {
               can = false;
