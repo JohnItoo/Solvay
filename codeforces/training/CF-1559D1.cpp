@@ -37,34 +37,26 @@ typedef map<string, int> msi;
 // distances memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP
 // memoization table memset(arr, 0, sizeof arr); // useful to clear array of
 // integers
-vector<int> dsu, dsub;
-int flag = 1;
 
-int root(int x) {
-  if (flag == 1) {
-    while (dsu[x] != x) {
-      x = dsu[x];
-    }
-    return x;
-  } else {
-    while (dsub[x] != x) {
-      x = dsub[x];
+struct DSU {
+  vi a;
+
+  DSU(int n) {
+    a.resize(n + 1);
+    REP(i, 1, n) a[i] = i;
+  }
+
+  int root(int x) {
+    while (a[x] != x) {
+      x = a[x];
     }
     return x;
   }
-}
 
-void connect(int x, int y) {
-  int froot = root(x);
-  int sroot = root(y);
-  if (flag == 1) {
-    dsu[froot] = sroot;
-  } else {
-    dsub[froot] = sroot;
-  }
-}
+  bool find(int x, int y) { return root(x) == root(y); }
 
-bool find(int x, int y) { return root(x) == root(y); }
+  void connect(int x, int y) { a[root(x)] = root(y); }
+};
 
 int main() {
   ios::sync_with_stdio(false);
@@ -72,42 +64,34 @@ int main() {
   int n, a, b;
   cin >> n >> a >> b;
 
-  dsu.resize(n + 3);
-  dsub.resize(n + 3);
-
-  REP(i, 1, n) {
-    dsu[i] = i;
-    dsub[i] = i;
-  }
+  DSU dsua(n);
+  DSU dsub(n);
 
   forn(i, a) {
     int u, v;
     cin >> u >> v;
-    connect(u, v);
+    dsua.connect(u, v);
   }
 
-  flag = 2;
   forn(i, b) {
     int u, v;
     cin >> u >> v;
-    connect(u, v);
+    dsub.connect(u, v);
   }
 
   vii prs;
 
   REP(i, 1, n) {
     REP(j, i + 1, n) {  // pairs of nodes
-      flag = 1;
-      bool finda = find(i, j);
 
-      flag = 2;
-      bool findb = find(i, j);
+      bool finda = dsua.find(i, j);
+
+      bool findb = dsub.find(i, j);
 
       if (!finda && !findb) {
-        flag = 1;
-        connect(i, j);
-        flag = 2;
-        connect(i, j);
+        dsua.connect(i, j);
+
+        dsub.connect(i, j);
         prs.pb({i, j});
       }
     }
