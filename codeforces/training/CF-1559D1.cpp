@@ -37,168 +37,84 @@ typedef map<string, int> msi;
 // distances memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP
 // memoization table memset(arr, 0, sizeof arr); // useful to clear array of
 // integers
+vector<int> dsu, dsub;
+int flag = 1;
+
+int root(int x) {
+  if (flag == 1) {
+    while (dsu[x] != x) {
+      x = dsu[x];
+    }
+    return x;
+  } else {
+    while (dsub[x] != x) {
+      x = dsub[x];
+    }
+    return x;
+  }
+}
+
+void connect(int x, int y) {
+  int froot = root(x);
+  int sroot = root(y);
+  if (flag == 1) {
+    dsu[froot] = sroot;
+  } else {
+    dsub[froot] = sroot;
+  }
+}
+
+bool find(int x, int y) { return root(x) == root(y); }
 
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
   int n, a, b;
   cin >> n >> a >> b;
-  vector<vector<int> > gpa(n + 5);
-  vector<vi> gpb(n + 5);
+
+  dsu.resize(n + 3);
+  dsub.resize(n + 3);
+
+  REP(i, 1, n) {
+    dsu[i] = i;
+    dsub[i] = i;
+  }
 
   forn(i, a) {
     int u, v;
     cin >> u >> v;
-    gpa[u].pb(v);
-    gpa[v].pb(u);
+    connect(u, v);
   }
 
+  flag = 2;
   forn(i, b) {
     int u, v;
     cin >> u >> v;
-    gpb[u].pb(v);
-    gpb[v].pb(u);
+    connect(u, v);
   }
 
-  vector<vi> cta(10005, vector<int>(10005, 0));
-  vector<vi> ctb(10005, vector<int>(10005, 0));
-
-  set<int> vsa;
-  vector<vi> compa;
-  vector<vi> compb;
-  int currcomp = 1;
-  vi nodecompa(1005), nodecompb(1005);
-
-  REP(i, 1, n) {
-    if (vsa.find(i) != vsa.end()) continue;
-    stack<int> dfs;
-    dfs.push(i);
-    vi mk;
-    while (!dfs.empty()) {
-      int tp = dfs.top();
-
-      dfs.pop();
-      if (vsa.find(tp) != vsa.end()) continue;
-      // cout << tp << " tp\n";
-      mk.pb(tp);
-      nodecompa[tp] = currcomp;
-      vsa.insert(tp);
-      for (int ch : gpa[tp]) {
-        if (vsa.find(ch) != vsa.end()) continue;
-        // cout << ch << " " << vsa.size() << " not visited\n";
-        dfs.push(ch);
-      }
-    }
-    int sz = mk.size();
-
-    forn(k, sz) {
-      forn(j, sz) {
-        if (j == k) continue;
-        cta[mk[k]][mk[j]] = 1;
-        cta[mk[j]][mk[k]] = 1;
-      }
-    }
-    compa.pb(mk);
-    currcomp++;
-  }
-  vsa.clear();
-  currcomp = 1;
-
-  REP(i, 1, n) {
-    if (vsa.find(i) != vsa.end()) continue;
-    stack<int> dfs;
-    dfs.push(i);
-
-    vi mk;
-    while (!dfs.empty()) {
-      int tp = dfs.top();
-      dfs.pop();
-      if (vsa.find(tp) != vsa.end()) continue;
-      mk.pb(tp);
-      nodecompb[tp] = currcomp;
-      vsa.insert(tp);
-      for (int ch : gpb[tp]) {
-        dfs.push(ch);
-      }
-    }
-    int sz = mk.size();
-
-    forn(k, sz) {
-      forn(j, sz) {
-        if (j == k) continue;
-        ctb[mk[k]][mk[j]] = 1;
-        ctb[mk[j]][mk[k]] = 1;
-      }
-    }
-    compb.pb(mk);
-    currcomp++;
-  }
   vii prs;
 
   REP(i, 1, n) {
     REP(j, i + 1, n) {  // pairs of nodes
-      if (i == j) continue;
+      flag = 1;
+      bool finda = find(i, j);
 
-      if (cta[i][j] == 0 && ctb[i][j] == 0) {
-        int compidai =
-            nodecompa[i] - 1;  // id of the component node i is in for forest a
-        int compidaj = nodecompa[j] - 1;  // id         "" j is in for forest a
-        int compidbj = nodecompb[j] - 1;
-        int compidbi = nodecompb[i] - 1;
-        bool can = true;
+      flag = 2;
+      bool findb = find(i, j);
 
-        for (int k = 0; k < compa[compidai].size();
-             k++) {  // all the nodes in this component
-          forn(l, compa[compidaj].size()) {
-            // if (k == l && compidai == compidaj) continue;
-            if (compa[compidai][k] == compa[compidaj][l]) continue;
-            // cout << " " << compidai << " " << compidaj << " " << l << endl;
-            cout << compa[compidai][k] << " " << compa[compidaj][l] << endl;
-            if (cta[compa[compidai][k]][compa[compidaj][l]] == 0 &&
-                cta[compa[compidaj][l]][compa[compidai][k]] == 0) {
-              cta[compa[compidai][k]][compa[compidaj][l]] = 1;
-              cta[compa[compidaj][l]][compa[compidai][k]] = 1;
-              cout << "ent\n";
-            } else {
-              can = false;
-              cout << "brk\n";
-
-              break;
-            }
-          }
-          if (!can) break;
-        }
-        cout << "ode\n";
-
-        for (int k = 0; k < compb[compidbi].size(); k++) {
-          forn(l, compb[compidbj].size()) {
-            if (!can) break;
-            // if (k == l && compidbi == compidbj) continue;
-            if (compb[compidbi][k] == compb[compidbj][l]) continue;
-
-            if (ctb[compb[compidbi][k]][compb[compidbj][l]] == 0 &&
-                ctb[compb[compidbj][l]][compb[compidbi][k]] == 0) {
-              ctb[compb[compidbi][k]][compb[compidbj][l]] = 1;
-              ctb[compb[compidbj][l]][compb[compidbi][k]] = 1;
-
-            } else {
-              can = false;
-              break;
-            }
-          }
-          if (!can) break;
-        }
-
-        if (can) {
-          prs.pb({i, j});
-        }
+      if (!finda && !findb) {
+        flag = 1;
+        connect(i, j);
+        flag = 2;
+        connect(i, j);
+        prs.pb({i, j});
       }
     }
   }
-
   cout << prs.size() << endl;
-  for (auto pr : prs) {
-    cout << pr.x << " " << pr.y << endl;
+  for (auto pp : prs) {
+    cout << pp.x << " " << pp.y << endl;
   }
 
   return 0;
