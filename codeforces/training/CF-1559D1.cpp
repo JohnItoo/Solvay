@@ -42,38 +42,34 @@ struct DSU {
   vi a;
 
   DSU(int n) {
-    a.resize(n + 1);
-    REP(i, 1, n) a[i] = i;
+    a.assign(n + 1, -1);
+    REP(i, 0, n) a[i] = i;
   }
 
-  int root(int x) {
-    while (a[x] != x) {
-      x = a[x];
-    }
-    return x;
+  int find(int x) {
+    if (a[x] == x) return x;
+    return x = find(a[x]);
   }
 
-  bool find(int x, int y) { return root(x) == root(y); }
-
-  void connect(int x, int y) { a[root(x)] = root(y); }
+  void connect(int x, int y) { a[find(x)] = find(y); }
 };
 
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(0);
-  int n, a, b;
-  cin >> n >> a >> b;
+  int n, m1, m2;
+  cin >> n >> m1 >> m2;
 
   DSU dsua(n);
   DSU dsub(n);
 
-  forn(i, a) {
+  forn(i, m1) {
     int u, v;
     cin >> u >> v;
     dsua.connect(u, v);
   }
 
-  forn(i, b) {
+  forn(i, m2) {
     int u, v;
     cin >> u >> v;
     dsub.connect(u, v);
@@ -84,11 +80,7 @@ int main() {
   REP(i, 1, n) {
     REP(j, i + 1, n) {  // pairs of nodes
 
-      bool finda = dsua.find(i, j);
-
-      bool findb = dsub.find(i, j);
-
-      if (!finda && !findb) {
+      if ((dsua.find(i) != dsua.find(j)) && (dsub.find(i) != dsub.find(j))) {
         dsua.connect(i, j);
 
         dsub.connect(i, j);
