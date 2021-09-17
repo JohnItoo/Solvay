@@ -69,7 +69,7 @@ int main() {
   while (tc--) {
     int caves;
     cin >> caves;
-    vi gd(mx + 7, -1);
+    vi gd(mx, -1);
     vector<int> cavesfreq(caves);
     vector<ii> wts(caves);
 
@@ -78,7 +78,7 @@ int main() {
 
     forn(i, caves) {
       cin >> cavesfreq[i];
-      int mx = -1;
+
       int st = id;
 
       int valmx = -1;
