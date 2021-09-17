@@ -46,6 +46,7 @@ typedef map<string, int> msi;
 // integers
 
 bool comp(ii a, ii b) {
+  if (a.x == b.x) return a.y < b.y;
   return a.x < b.x;
   // if (a.valmx != b.valmx) {
   // return a.valmx < b.valmx;
