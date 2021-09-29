@@ -1,127 +1,84 @@
+// Problem: Number Spiral
+// Contest: CSES - CSES Problem Set
+// URL: https://cses.fi/problemset/task/1071
+// Memory Limit: 512 MB
+// Time Limit: 1000 ms
+//
+// Powered by CP Editor (https://cpeditor.org)
+
+//============================================================================
+// Name        : template.cpp
+// Author      :   $%U%$
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
 #include <bits/stdc++.h>
 using namespace std;
+#define _CRT_SECURE_NO_DEPRECATE  // suppress some compilation warning messages
+                                  // (for VC++ users)
+// Shortcuts for "common" data types in contests
+typedef long long ll;
+typedef vector<int> vi;
+typedef pair<int, int> ii;
+typedef vector<ii> vii;
+typedef set<int> si;
+typedef map<string, int> msi;
+// To simplify repetitions/loops, Note: define your loop style and stick with
+// it!
+#define x first
+#define y second
+#define pb push_back
+#define mp make_pair
+#define REP(i, a, b) \
+  for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
+#define forn(i, n) for (int i = 0; i < (n); i++)
+#define TRvi(c, it) for (vi::iterator it = (c).begin(); it != (c).end(); it++)
+#define TRvii(c, it) for (vii::iterator it = (c).begin(); it != (c).end(); it++)
+#define TRmsi(c, it) for (msi::iterator it = (c).begin(); it != (c).end(); it++)
+#define INF 2000000000  // 2 billion
+// If you need to recall how to use memset:
+#define MEMSET_INF 127      // about 2B
+#define MEMSET_HALF_INF 63  // about 1B
+// memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path
+// distances memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP
+// memoization table memset(arr, 0, sizeof arr); // useful to clear array of
+// integers
 
+ll calc(ll n, ll d) {
+  ll res = n * ((2) + ((n - 1) * d)) / 2;
+  return res;
+}
 int main() {
-	int t; cin >> t;
-	while (t--) {
-		long long x, y;
-		cin >> x >> y;
-		long long sq = max(x, y);
-		if((sq & 1) == 0) sq += 1;
-		vector<vector<long long>> grid(sq + 1, vector<long long>(sq + 1, 0));
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  int tc;
+  cin >> tc;
+  while (tc--) {
+    ll x, y;
+    cin >> x >> y;
+    ll n = max(x, y);
+    ll tprev = calc(n - 1, 2);
+    ll tcurrend = calc(n, 2);
 
-		grid[0][0] = 1;
-		grid[1][1] = 1;
-		int a[4][2] = { {1, 0}, {0, 1}, { -1, 0}, {0, -1}}; //down, right, up, left
-		long long done = 1;
-		long long count = 1;
-		long long i = 1; long long j = 2;
-		long long last = 1;
-		while (last < sq * sq) {
-			// while (grid[i - 1][j] != 0 && j <= sq) {
-			// 	last += 1;
-			// 	grid[i][j] = last;
-			// 	j += 1;
-			// }
+    ll tcurrbeg = tprev + 1;
 
-			if (i > sq  || i < 1 || j > sq || j < 1) break;
-			last += 1;
-			grid[i][j] = last;
-
-			// cout << "last " << last << "\n";
-             
-             while(i+1 <= sq && grid[i+1][j-1] != 0) {
-             	last += 1;
-             	i += 1;
-             	grid[i][j] = last;
-             }
-
-//
-			last += 1;
-			i += 1;
-			if (i > sq  || i < 1 || j > sq || j < 1) break;
-
-			grid[i][j] = last;
-			j -= 1;
-
-
-
-			// if (i > sq  || i < 1 || j > sq || j < 1) break;
-
-			// last += 1;
-			// grid[i][j] = last;
-
-
-			while (j  > 1 && last < (sq * sq)) {
-				last += 1;
-				grid[i][j] = last;
-				j -= 1;
-			}
-
-			last += 1;
-			grid[i][j] = last;
-
-			last += 1;
-			i += 1;
-			grid[i][j] = last;
-
-			// cout << "here " << last << "\n";
-			while (last < (sq * sq ) && j <= sq && grid[i - 1][j] != 0) {
-				last += 1;
-				j += 1;
-				grid[i][j] = last;
-			}
-
-			last += 1;
-			i -= 1;
-			grid[i][j] = last;
-
-            // cout <<" New last " << last << "\n";
-			while (last < (sq * sq) && i > 1) {
-				last += 1;
-				i -= 1;
-				grid[i][j] = last;
-			}
-
-		
-			if(last + 1 > sq * sq) break;
-			j+=1;
-			grid[i][j] = last;
-
-			// j += 1;
-			// last += 1;
-
-			// if (i > sq  || i < 1 || j > sq || j < 1) break;
-
-
-			// grid[i][j] = last;
-
-			// while (last < (sq * sq) && i <= sq && grid[i][j - 1] != 0 ) {
-			// 	last += 1;
-			// 	i += 1;
-			// 	grid[i][j] = last;
-			// }
-
-			// last += 1;
-			// grid[i][j] = last;
-
-
-
-			// if (i > sq  || i < 1 || j > sq || j < 1) break;
-
-
-			// last += 1;
-			// i += 1;
-			// grid[i][j] = last;
-
-		}
-		// for (int i = 0; i <= sq; i++) {
-		// 	for (int j = 1; j <= sq; j++) {
-		// 		cout << grid[i][j] << " ";
-		// 	}
-		// 	cout << "\n";
-		// }
-		cout << grid[x][y] << "\n";
-
-	}
+    ll ans = (tcurrbeg + tcurrend) / 2;
+    if (n & 1) {
+      if (x < y) {
+        ans = (y - x) + ans;
+      } else {
+        ans = ans - (x - y);
+      }
+    } else {
+      if (x < y) {
+        ans = ans - (y - x);
+      } else {
+        ans = ans + (x - y);
+      }
+    }
+    cout << ans << endl;
+  }
+  return 0;
 }
