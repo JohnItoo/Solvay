@@ -33,8 +33,9 @@ int main() {
         right += currR;
         i = j;
     }
+    ll ans = accumulate(a.begin(), a.end(), 0LL);
     if (tm == 1) {
-        cout << max(left, right) * 2 << endl;
+        cout << min(max(left, right) * 2, ans) << endl;
     } else {
         cout << left + right << endl;
     }
