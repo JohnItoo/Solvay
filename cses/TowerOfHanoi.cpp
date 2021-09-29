@@ -49,7 +49,6 @@ vi srcvc, destvc, sparevc;
 
 void move(int n, int a, int b, int c) {
   if (n == 0) {
-    //  cout << src << " " << dest << endl;
     return;
   }
   move(n - 1, a, c, b);
