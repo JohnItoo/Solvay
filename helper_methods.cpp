@@ -20,6 +20,7 @@ int n, d[100000], e[100000], sol[1000000];
 float f;
 vector<int> via;
 vector<string> vib;
+//Helper Methods
 
 void ReadIntLine(vector<int>& numbers) {// used to read entire line of ints into vector
 	string line;
