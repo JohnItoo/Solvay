@@ -60,7 +60,5 @@ while(tc--) {
  count++;
  solve();
 }
-
-
 return 0;
 }
