@@ -1,8 +1,8 @@
 //============================================================================
-// Name        : template.cpp
-// Author      : 
+// Name        : BXK
+// Author      : Template
 // Version     :
-// Copyright   : Your copyright notice
+// Copyright   : Who was here
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
