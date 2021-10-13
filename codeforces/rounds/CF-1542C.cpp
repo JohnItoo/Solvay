@@ -1,3 +1,11 @@
+// Problem: C. Strange Function
+// Contest: Codeforces - Codeforces Round #729 (Div. 2)
+// URL: https://codeforces.com/contest/1542/problem/C
+// Memory Limit: 256 MB
+// Time Limit: 1000 ms
+// 
+// Powered by CP Editor (https://cpeditor.org)
+
 //============================================================================
 // Name        : BXK
 // Author      : Template
@@ -45,7 +53,22 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 void solve() {
+ vi a {2, 3, 2, 3, 2, 4, 2, 3, 2 , 3, 2, 5};
+ ll md = 1000000007;
+ ll n; cin >> n;
+ ll val = n / 12;
+ ll rem = n % 12;
+ val %= md;
+ 
 
+ ll curr = (33 * val);
+ cout << curr << " ";
+ forn(i, rem) {
+ 	curr += a[i];
+ 	curr %= md;
+ }
+ 
+ cout << curr << endl;
 }
 
 int main() {
