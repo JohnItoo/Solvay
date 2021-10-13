@@ -1,8 +1,8 @@
-// Problem: C. Save More Mice
+// Problem: D1. All are Same
 // Contest: Codeforces - Codeforces Round #748 (Div. 3)
-// URL: https://codeforces.com/contest/1593/problem/C
+// URL: https://codeforces.com/contest/1593/problem/D1
 // Memory Limit: 256 MB
-// Time Limit: 4000 ms
+// Time Limit: 1000 ms
 // 
 // Powered by CP Editor (https://cpeditor.org)
 
@@ -52,23 +52,37 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
-void solve() {
- ll n; int k; cin >> n >> k;
- vector<ll> a(k);
- forn(i, k) cin >> a[i];
- sort(a.rbegin(), a.rend());
- 
-ll ct = 0;
-ll mc = 0;
-int i = 0;
 
-while(i < k && ct < a[i]) {
-	ll diff = n - a[i];
-	ct += diff;
-	i++;
-	mc++;
+int gcd(int a, int b)
+{
+    if (a == 0)
+        return b;
+    return gcd(b % a, a);
 }
-cout << mc <<endl;
+void solve() {
+ int n; cin >> n;
+ set<int> st;
+ forn(i, n) {
+ 	int x; cin >> x;
+ 	st.insert(x);
+ }
+ vi a;
+ for(auto el : st) {
+ 	a.pb(el);
+ }
+ 
+ int sz = a.size();
+ if(sz == 1) {
+ 	cout << -1 << endl;
+ 	return;
+ }
+ int ans = a[1] - a[0];
+ set<int> diff;
+ REP(i, 2, sz-1) {
+ 	ans = gcd(a[i] - a[0], ans);
+ 	
+ } 
+cout << ans <<endl;
 }
 
 int main() {
