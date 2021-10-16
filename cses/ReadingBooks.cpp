@@ -14,14 +14,7 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 //TODO Bits/stdc++.h on diff machine
-#include <iostream>
-#include <algorithm>
-#include <set>
-#include <map>
-#include <set>
-#include <vector>
-#include <string.h> // for memset in CF judge.
-#include <numeric>
+#include <bits/stdc++.h>
 using namespace std;
 #define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
 // Shortcuts for "common" data types in contests
@@ -53,6 +46,12 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
 //memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
+int gcd(int a, int b)
+{
+    if (a == 0)
+        return b;
+    return gcd(b % a, a);
+}
 void solve() {
  int n;
     cin >> n;
@@ -85,16 +84,14 @@ void solve() {
         i = j;
     }
     ll ans = 0;
-  //  cout << tm << " tm ";
+ 
     if (tm == 1 && n > 3) {
       ans = max(left,right) * 2;
     } else {
        ans = left + right;
        
     }
-    // if(ans > sm * 2) {
-       	// ans = sm*2;
-    // }
+
     cout << ans <<endl;
  
     return;
