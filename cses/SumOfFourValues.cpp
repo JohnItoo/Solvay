@@ -6,75 +6,27 @@ int main() {
   int n;
   cin >> n;
   ll x;
-  cin >> x;
-
-  map<ll, int> fq;
-
-  vector<pair<ll, int> > a(n);
-  for (int i = 0; i < n; i++) {
-    ll curr;
-    cin >> curr;
-    a[i] = make_pair(curr, i + 1);
-    fq[curr]++;
-  }
-  sort(a.begin(), a.end());
-  int i = 0;
-  int b = -1, y = -1, z = -1;
-  int look = -1;
-  set<int> picked;
-  while (i + 1 < n && b == -1) {
-    ll fd = a[i].first;
-    ll need = x - fd;
-    int p = i + 1;
-    int r = n - 1;
-    while (p < r) {
-      ll got = a[p].first + a[r].first;
-      if (got < need) {
-        int rem = need - got;
-
-        map<ll, int> mp;
-        mp[fd]++;
-        mp[a[p].first]++;
-        mp[a[r].first]++;
-        mp[rem]++;
-
-        bool vld = true;
-
-        for (auto hr : mp) {
-          if (fq.find(hr.first) != fq.end() && hr.second <= fq[hr.first])
-            continue;
-          vld = false;
-          break;
-        }
-        if (vld) {
-          b = a[i].second;
-          y = a[p].second;
-          z = a[r].second;
-          picked.insert(b);
-          picked.insert(y);
-          picked.insert(z);
-          look = rem;
-          break;
-        } else {
-          p++;
-        }
-      } else if (got >= need)
-        r--;
-    }
-    i++;
-  }
-  int q = -1;
-  for (int i = 0; i < n; i++) {
-    if (a[i].first == look && picked.find(a[i].second) == picked.end()) {
-      q = a[i].second;
-      break;
-    }
-  }
-  if (b != -1) {
-    cout << b << " " << y << " " << z << " " << q << endl;
-  } else {
-    cout << "IMPOSSIBLE\n";
-  }
+ cin >> x;
+ vector<ll> a(n);
+ for(int i = 0; i < n; i++) {
+ 	cin >> a[i];
+ }
+ map<ll, pair<int, int> > mp;
+ for(int i = n-1; i >= 0; i--) {
+ 	for(int j = i-1; j >= 0; j--) {
+ 		ll rem = x - a[i] - a[j];
+ 		if(mp.find(rem) != mp.end()) {
+ 			pair<int, int> idxs = mp[rem];
+ 			cout << i+1 << " " << j+1 << " " << idxs.first +1 << " " << idxs.second +1 << endl;
+ 			return 0;
+ 		}
+ 	}
+ 	
+ 	for(int j = i+1; j < n; j++) {
+ 		mp[a[i] + a[j]] = {i, j};
+ 	}
+ }
+ cout << "IMPOSSIBLE\n";
 
   return 0;
 }
