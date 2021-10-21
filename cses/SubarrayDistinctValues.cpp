@@ -50,23 +50,24 @@ void solve() {
   vector<ll> s(n);
   forn(i, n) { cin >> s[i]; }
 
-  set<ll> dist;
+  map<ll, int> dist;
   multiset<ll> actual;
   ll res = 0;
 
   int i = 0;
   int it = 0;
   while (i < n) {
-    dist.insert(s[i]);
-    actual.insert(s[i++]);
-    int sz = dist.size();
-    if (sz > k) {
-      dist.erase(s[it]);
-      actual.erase(s[it++]);
+    dist[s[i++]]++;
+    while (dist.size() > k) {
+      if (dist[s[it]] == 1) {
+        dist.erase(s[it]);
+      } else {
+        dist[s[it]]--;
+      }
+      it++;
     }
-    int ct = actual.size();
+    int ct = i - it;
     res += (ct * 1LL);
-    // cout << res << " ";
   }
   cout << res << endl;
 }
