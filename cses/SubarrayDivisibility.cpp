@@ -47,9 +47,9 @@ typedef map<string, int> msi;
 void solve() {
   ll n;
   cin >> n;
-  vector<ll> a(n + 1,0);
+  vector<ll> a(n + 1, 0);
   ll cons = 1e9 * 1LL;
-  a[0]= cons;
+  a[0] = cons;
   map<ll, ll> mds;
   mds[cons % n]++;
   ll ans = 0;
@@ -59,7 +59,6 @@ void solve() {
     a[i] += a[i - 1];
     ans += mds[a[i] % n];
     mds[(a[i] % n)]++;
-   
   }
   cout << ans << endl;
 }
