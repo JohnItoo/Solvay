@@ -44,6 +44,8 @@ typedef map<string, int> msi;
 // distances memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP
 // memoization table memset(arr, 0, sizeof arr); // useful to clear array of
 // integers
+multiset<int> leftMax;
+multiset<int> rightMin;
 void solve() {
   int n, k;
   cin >> n >> k;
@@ -52,7 +54,6 @@ void solve() {
 
   int i = 0;
   int ct = 0;
-  multiset<int> leftMax; multiset<int> rightMin;
 
   auto balance = [&] {
     while (rightMin.size() > leftMax.size() ||
@@ -61,14 +62,14 @@ void solve() {
         int tp = *rightMin.begin();
         auto it = rightMin.find(tp);
         rightMin.erase(it);
-        leftMax.insert(tp);
+        leftMax.emplace(tp);
       } else {
         auto it = leftMax.rbegin();
         int tp = *it;
         auto jt = leftMax.find(tp);
-        
+
         leftMax.erase(jt);
-        rightMin.insert(tp);
+        rightMin.emplace(tp);
       }
     }
   };
@@ -77,9 +78,9 @@ void solve() {
     auto it = leftMax.rbegin();
 
     if (leftMax.size() > 0 && a[i] > *it) {
-      rightMin.insert(a[i]);
+      rightMin.emplace(a[i]);
     } else {
-      leftMax.insert(a[i]);
+      leftMax.emplace(a[i]);
     }
     i++;
     ct++;
@@ -88,44 +89,34 @@ void solve() {
 
   int j = 0;
   auto it = leftMax.rbegin();
-  
- auto speak = [&] {
- 	
- 	for(auto val : leftMax) {
- 		cout << val << " ";
- 	}
- 	cout << " - ";
- 	for(auto val : rightMin) {
- 		cout << val << " ";
- 	}
- 	cout << endl;
- };
- cout << *it << " ";
- //speak();
+
+  cout << *it << " ";
+
   while (i < n) {
-  //	cout << a[i] << " i " << i << endl;
     if (rightMin.find(a[j]) != rightMin.end()) {
-      rightMin.erase(a[j]);
+      auto rt = rightMin.find(a[j]);
+      rightMin.erase(rt);
     } else {
-      leftMax.erase(a[j]);
+      auto lt = leftMax.find(a[j]);
+
+      leftMax.erase(lt);
     }
-    
+
     j++;
     balance();
-   // speak();
+    ;
     auto it = leftMax.rbegin();
 
     if (leftMax.size() > 0 && a[i] > *it) {
-      rightMin.insert(a[i]);
+      rightMin.emplace(a[i]);
     } else {
-      leftMax.insert(a[i]);
+      leftMax.emplace(a[i]);
     }
     i++;
     balance();
     it = leftMax.rbegin();
 
-   cout << *it << " ";
- // speak();
+    cout << *it << " ";
   }
   cout << endl;
 }
