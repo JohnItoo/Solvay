@@ -135,24 +135,25 @@ void solve() {
 
   cout << sum << " ";
   while (i < n) {
-    int diff = (a[j] - medians[mv]);
+    int diff = sum - (medians[mv] - a[j]);
     ll curr = 0LL;
     if (diff < 0) {
       curr = diff * -1LL;
     } else {
       curr = diff * 1LL;
     }
-    sum -= curr;
+   
     mv++;
     j++;
-    int mddiff = medians[mv] - medians[mv-1];
-    ll appd = mddiff * (k -1) * 1LL;
-
-    int ddiff = (a[i] - medians[mv]);
-    ll add = ddiff < 0 ? ddiff * -1LL : ddiff * 1LL;
-    sum += add;
-    sum += appd;
-    i++;
+    if(mv >= medians.size()) {
+    	break;
+    }
+    if(medians[mv] == medians[mv-1]) {
+    	ll newdiff = abs(a[i] - medians[mv]) * 1LL;
+    	sum = curr + newdiff;
+    } else {
+    	sum += abs(medians[mv] - medians[mv-1]);
+    }
     cout << sum << " ";
   }
   cout << endl;
