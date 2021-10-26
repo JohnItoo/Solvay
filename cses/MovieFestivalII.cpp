@@ -47,13 +47,34 @@ for (msi::iterator it = (c).begin(); it != (c).end(); it++)
 //memset(arr, 0, sizeof arr); // useful to clear array of integers
 void solve() {
   int n, k; cin >> n >> k;
-  set<ii> st;
+ 
+  
+  auto comp = [&] (ii a, ii b) {
+  	// if(a.y == b.y) {
+  		// return a.x < b.x;
+  	// }
+  	// return a.y < b.y ;
+  	if(a.x <= b.x && a.y >= b.x || b.x <= a.x && b.x <= a.y && a.x   != a.y && b.x != b.y ) {
+  		return a.y < b.y;
+  	}
+  	return a.y < b.y && a.y < b.x;
+  };
+   set<ii, decltype(comp)> st(comp);
+//   
+ // vector<ii> tms(n);
   forn(i, n) {
   	int a, b; cin >> a >> b;
   	st.insert({a, b});
+  	// tms[i] = {a, b};
   }
-  
+  // sort(tms.begin(), tms.en(), comp);
+//   
+  // for(auto ij : st) {
+  	// cout  << ij.x << " " << ij.y <<endl;
+  // }
+  // return;
   int ct = 0;
+  int mx = 1e9+3;
   while(k > 0 && !st.empty()) {
   	ii start = {0, 0};
   	auto it = st.lower_bound(start);
@@ -63,7 +84,7 @@ void solve() {
   		cout << curr.x << " " << curr.y <<endl;
   		st.erase(it);
   		ct++;
-  		it = st.lower_bound({curr.y+1, curr.y+1});
+  		it = st.upper_bound({curr.y+1, curr.y+1});
   	}
   	cout << ct <<endl;
   	k--;
