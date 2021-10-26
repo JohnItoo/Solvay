@@ -3,7 +3,7 @@
 // URL: https://cses.fi/problemset/task/1632
 // Memory Limit: 512 MB
 // Time Limit: 1000 ms
-// 
+//
 // Powered by CP Editor (https://cpeditor.org)
 
 //============================================================================
@@ -15,7 +15,8 @@
 //============================================================================
 #include <bits/stdc++.h>
 using namespace std;
-#define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
+#define _CRT_SECURE_NO_DEPRECATE  // suppress some compilation warning messages
+                                  // (for VC++ users)
 // Shortcuts for "common" data types in contests
 typedef long long ll;
 typedef vector<int> vi;
@@ -23,86 +24,57 @@ typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef set<int> si;
 typedef map<string, int> msi;
-// To simplify repetitions/loops, Note: define your loop style and stick with it!
+// To simplify repetitions/loops, Note: define your loop style and stick with
+// it!
 #define x first
 #define y second
 #define pb push_back
 #define mp make_pair
 #define REP(i, a, b) \
-for (int i = int(a); i <= int(b); i++) // a to b, and variable i is local!
-#define forn(i,n) \
-for (int i =0; i<(n); i++)
-#define TRvi(c, it) \
-for (vi::iterator it = (c).begin(); it != (c).end(); it++)
-#define TRvii(c, it) \
-for (vii::iterator it = (c).begin(); it != (c).end(); it++)
-#define TRmsi(c, it) \
-for (msi::iterator it = (c).begin(); it != (c).end(); it++)
-#define INF 2000000000 // 2 billion
+  for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
+#define forn(i, n) for (int i = 0; i < (n); i++)
+#define TRvi(c, it) for (vi::iterator it = (c).begin(); it != (c).end(); it++)
+#define TRvii(c, it) for (vii::iterator it = (c).begin(); it != (c).end(); it++)
+#define TRmsi(c, it) for (msi::iterator it = (c).begin(); it != (c).end(); it++)
+#define INF 2000000000  // 2 billion
 // If you need to recall how to use memset:
-#define MEMSET_INF 127 // about 2B
-#define MEMSET_HALF_INF 63 // about 1B
-//memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
-//memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
-//memset(arr, 0, sizeof arr); // useful to clear array of integers
+#define MEMSET_INF 127      // about 2B
+#define MEMSET_HALF_INF 63  // about 1B
+// memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path
+// distances memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP
+// memoization table memset(arr, 0, sizeof arr); // useful to clear array of
+// integers
 void solve() {
-  int n, k; cin >> n >> k;
- 
-  
-  auto comp = [&] (ii a, ii b) {
-  	// if(a.y == b.y) {
-  		// return a.x < b.x;
-  	// }
-  	// return a.y < b.y ;
-  	if(a.x <= b.x && a.y >= b.x || b.x <= a.x && b.x <= a.y && a.x   != a.y && b.x != b.y ) {
-  		return a.y < b.y;
-  	}
-  	return a.y < b.y && a.y < b.x;
-  };
-   set<ii, decltype(comp)> st(comp);
-//   
- // vector<ii> tms(n);
-  forn(i, n) {
-  	int a, b; cin >> a >> b;
-  	st.insert({a, b});
-  	// tms[i] = {a, b};
-  }
-  // sort(tms.begin(), tms.en(), comp);
-//   
-  // for(auto ij : st) {
-  	// cout  << ij.x << " " << ij.y <<endl;
-  // }
-  // return;
+  int n, k;
+  cin >> n >> k;
+
+  vector<ii> tms(n);
+  forn(i, n) { cin >> tms[i].y >> tms[i].x; }
+  sort(tms.begin(), tms.end());
+
   int ct = 0;
-  int mx = 1e9+3;
-  while(k > 0 && !st.empty()) {
-  	ii start = {0, 0};
-  	auto it = st.lower_bound(start);
-  	
-  	while(it != st.end()) {
-  		ii curr = *it;
-  		cout << curr.x << " " << curr.y <<endl;
-  		st.erase(it);
-  		ct++;
-  		it = st.upper_bound({curr.y+1, curr.y+1});
-  	}
-  	cout << ct <<endl;
-  	k--;
+  multiset<int> timeFinished;
+  forn(i, k) timeFinished.insert(0);
+  forn(i, n) {
+    auto it = timeFinished.upper_bound(tms[i].y);
+    if (it == begin(timeFinished)) continue;
+    timeFinished.erase(--it);
+    timeFinished.insert(tms[i].x);
+    ct++;
   }
-  cout << ct <<endl;
+  cout << ct << endl;
 }
 
 int main() {
-ios::sync_with_stdio(false);
-cin.tie(0);
-int tc = 1;
-//cin >> tc;
-int count = 1;
-while(tc--) {
-
- //cout << "Case #" << count << ": "; //CODEJAM/KICKSTART
- count++;
- solve();
-}
-return 0;
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  int tc = 1;
+  // cin >> tc;
+  int count = 1;
+  while (tc--) {
+    // cout << "Case #" << count << ": "; //CODEJAM/KICKSTART
+    count++;
+    solve();
+  }
+  return 0;
 }
