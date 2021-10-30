@@ -142,18 +142,18 @@ void solve() {
     } else {
       curr = diff * 1LL;
     }
-   
+
     mv++;
     j++;
-    if(mv >= medians.size()) {
-    	break;
+    if (mv >= medians.size()) {
+      break;
     }
-        	ll newdiff = abs(a[i] - medians[mv]) * 1LL;
-    if(medians[mv] == medians[mv-1]) {
-    	sum = curr + newdiff;
+    ll newdiff = abs(a[i] - medians[mv]) * 1LL;
+    if (medians[mv] == medians[mv - 1]) {
+      sum = curr + newdiff;
     } else {
-    	sum += abs(medians[mv] - medians[mv-1]);
-    	sum += newdiff;
+      sum += abs(medians[mv] - medians[mv - 1]);
+      sum += newdiff;
     }
     cout << sum << " ";
   }
