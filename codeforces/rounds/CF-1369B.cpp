@@ -1,20 +1,22 @@
+// Problem: G. AccurateLee
+// Contest: Codeforces - Greedy #1
+// URL: https://codeforces.com/group/pcTovAeVHg/contest/338449/problem/G
+// Memory Limit: 256 MB
+// Time Limit: 2000 ms
+//
+// Powered by CP Editor (https://cpeditor.org)
+
 //============================================================================
-// Name        : template.cpp
-// Author      :
+// Name        : BXK
+// Author      : Template
 // Version     :
-// Copyright   : Your copyright notice
+// Copyright   : Who was here
 // Description : Hello World in C++, Ansi-style
 //============================================================================
-
-#include <iostream>
-#include <algorithm>
-#include <set>
-#include <map>
-#include <set>
-#include <vector>
-#include <string.h> // for memset in CF judge.
+#include <bits/stdc++.h>
 using namespace std;
-#define _CRT_SECURE_NO_DEPRECATE // suppress some compilation warning messages (for VC++ users)
+#define _CRT_SECURE_NO_DEPRECATE  // suppress some compilation warning messages
+                                  // (for VC++ users)
 // Shortcuts for "common" data types in contests
 typedef long long ll;
 typedef vector<int> vi;
@@ -22,75 +24,60 @@ typedef pair<int, int> ii;
 typedef vector<ii> vii;
 typedef set<int> si;
 typedef map<string, int> msi;
-// To simplify repetitions/loops, Note: define your loop style and stick with it!
+// To simplify repetitions/loops, Note: define your loop style and stick with
+// it!
 #define x first
 #define y second
 #define pb push_back
 #define mp make_pair
 #define REP(i, a, b) \
-for (int i = int(a); i <= int(b); i++) // a to b, and variable i is local!
-#define forn(i,n) \
-for (int i =0; i<(n); i++)
-#define TRvi(c, it) \
-for (vi::iterator it = (c).begin(); it != (c).end(); it++)
-#define TRvii(c, it) \
-for (vii::iterator it = (c).begin(); it != (c).end(); it++)
-#define TRmsi(c, it) \
-for (msi::iterator it = (c).begin(); it != (c).end(); it++)
-#define INF 2000000000 // 2 billion
+  for (int i = int(a); i <= int(b); i++)  // a to b, and variable i is local!
+#define forn(i, n) for (int i = 0; i < (n); i++)
+#define TRvi(c, it) for (vi::iterator it = (c).begin(); it != (c).end(); it++)
+#define TRvii(c, it) for (vii::iterator it = (c).begin(); it != (c).end(); it++)
+#define TRmsi(c, it) for (msi::iterator it = (c).begin(); it != (c).end(); it++)
+#define INF 2000000000  // 2 billion
 // If you need to recall how to use memset:
-#define MEMSET_INF 127 // about 2B
-#define MEMSET_HALF_INF 63 // about 1B
-//memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path distances
-//memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP memoization table
-//memset(arr, 0, sizeof arr); // useful to clear array of integers
+#define MEMSET_INF 127      // about 2B
+#define MEMSET_HALF_INF 63  // about 1B
+// memset(dist, MEMSET_INF, sizeof dist); // useful to initialize shortest path
+// distances memset(dp_memo, -1, sizeof dp_memo); // useful to initialize DP
+// memoization table memset(arr, 0, sizeof arr); // useful to clear array of
+// integers
+void solve() {
+  int n;
+  cin >> n;
+  string s;
+  cin >> s;
+  int left = 0;
+  string pref;
+  while (left < n && s[left] == '0') {
+    left++;
+    pref.pb('0');
+  }
 
-//WA
+  int right = n - 1;
+  string suff;
+  while (right > -1 && s[right] == '1') {
+    right--;
+    suff.pb('1');
+  }
+  if (left <= right) {
+    pref.pb('0');
+  }
+  cout << pref + suff << endl;
+}
+
 int main() {
-	ios::sync_with_stdio(false);
-	cin.tie(0);
-	int tc;
-	cin >> tc;
-	while (tc--) {
-		int n; cin >> n;
-		string s; cin >> s;
-		int meet = 0;
-		string ans = "";
-		int lead = 0;
-		int ldstp = -1;
-		forn(i, n) {
-			if (s[i] == '0') {
-				lead++;
-				ans.pb('0');
-			} else if (s[i] == '1') {
-				if (lead) {
-					ldstp = i - 1;
-				}
-				break;
-
-			}
-		}
-		int trail = 0;
-		int trailstp = -1;
-		for (int i = n - 1; i >= 0; i--) {
-			if (s[i] == '1') {
-				trail++;
-			} else if (s[i] == '0') {
-				if (trail > 0) {
-
-					trailstp = i + 1;
-				}
-				break;
-			}
-		}
-		if (ldstp >= 0 && ldstp + 1 != trailstp) {
-			s
-			string aux = string((n - trailstp), '1');
-			ans += aux;
-		} else {
-			ans = s;
-		}
-		cout << ans << endl;
-	}
-	return 0;
+  ios::sync_with_stdio(false);
+  cin.tie(0);
+  int tc = 1;
+  cin >> tc;
+  int count = 1;
+  while (tc--) {
+    // cout << "Case #" << count << ": "; //CODEJAM/KICKSTART
+    count++;
+    solve();
+  }
+  return 0;
 }
