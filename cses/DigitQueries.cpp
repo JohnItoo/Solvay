@@ -68,14 +68,14 @@ void solve() {
  
  ll num = pw + pos;
  //num--;
- //cout << num << " ";
+ //cout << smvals[i-1] << " ";
  int ct = i-1;
  while(num > 0 && ct > idx+1) {
  	num /= 10;
  	ct--;
  }
  cout << num % 10 <<endl;
- //cout << pw << " "<<num % 10 <<endl;
+ //cout << pos << " "<<num % 10 <<endl;
   
  
 }
@@ -92,7 +92,7 @@ smvals.pb(0);
 vals.pb(9);
 smvals.pb(9);
 vals.pb(90);
-smvals.pb(90);
+smvals.pb(99);
 
 ll sm = 90 + 9;
 ll mx = 1e18;
