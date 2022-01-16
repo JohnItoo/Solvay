@@ -67,11 +67,9 @@ void solve() {
  }
  
  ll num = pw + pos;
- //num--;
- cout << num << " ";
  string ans = to_string(num);
  cout << ans[idx] <<endl;
- //cout << pos << " "<<num % 10 <<endl;
+;
   
  
 }
