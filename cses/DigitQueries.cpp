@@ -56,7 +56,7 @@ void solve() {
     i++;
  }
  
- ll pos = (k - smvals[i-1] - 1) / i;
+ ll pos = (k - smvals[i-1] - 1) / i; 
  ll idx = (k - smvals[i-1] - 1) % i;
  
  ll pw = 1; int cur = 1;
@@ -68,13 +68,9 @@ void solve() {
  
  ll num = pw + pos;
  //num--;
- //cout << smvals[i-1] << " ";
- int ct = i-1;
- while(num > 0 && ct > idx+1) {
- 	num /= 10;
- 	ct--;
- }
- cout << num % 10 <<endl;
+ cout << num << " ";
+ string ans = to_string(num);
+ cout << ans[idx] <<endl;
  //cout << pos << " "<<num % 10 <<endl;
   
  
@@ -91,23 +87,19 @@ vals.pb(0);
 smvals.pb(0);
 vals.pb(9);
 smvals.pb(9);
-vals.pb(90);
-smvals.pb(99);
 
-ll sm = 90 + 9;
 ll mx = 1e18;
-while(sm < mx && vals.size() <= 19) {
+int i = 2;
+while(smvals[smvals.size() - 1] < mx) {
 	ll nxt = (vals[vals.size() - 1] * 10LL);
-	sm += nxt;
-	//cout << nxt << " " << vals.size() <<endl;
-	vals.pb(nxt);
+	ll sm = (nxt * i) + smvals[smvals.size() - 1]; 
+	 vals.pb(nxt);
 	smvals.pb(sm);
+	i++;
 	
 }
-// forn(i, vals.size()) {
-	// cout << vals[i] << " ";
-// }
-//return 0;
+
+
 while(tc--) {
 
  //cout << "Case #" << count << ": "; //CODEJAM/KICKSTART
