@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
+int quadratic() {
 
 	//f(i) is the length of longest sequence ending at i;
 
@@ -26,4 +26,24 @@ int main() {
 
 
 	return 0;
+}
+
+int main() {
+	// dp[L] is the last element of a LIS of length L
+
+	 int n; cin >> n;
+   vector<int> a(n);
+
+   for(int i = 0; i < n; i++) cin >> a[i];
+   const int INF = 1e9 + 5;
+   vector<int> dp(n+5, INF);
+   dp[0] = -INF;
+
+   for(int element : a) {
+	   int indexWhereThisIsLast = lower_bound(dp.begin(), dp.end(), element) - dp.begin();
+	   dp[indexWhereThisIsLast] = element;
+   }
+   int l = n;
+   while(dp[l] == INF) l--;
+   cout << l << endl;
 }
